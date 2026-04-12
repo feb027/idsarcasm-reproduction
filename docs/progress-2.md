@@ -121,6 +121,20 @@ Untuk reproduksi, script paper menerima `--text_column_name` arg. Twitter butuh 
 
 ## 8. Figures Generated
 
-- `results/figures/label_distribution.png`
-- `results/figures/text_length_distribution.png`
-- `results/figures/split_distribution.png`
+### Label Distribution
+
+![Label Distribution](../results/figures/label_distribution.png)
+
+Class balance exact 25% sarcasm di kedua dataset.
+
+### Text Length Distribution
+
+![Text Length Distribution](../results/figures/text_length_distribution.png)
+
+Reddit sarcasm lebih pendek (mean 67 vs 104 char). Twitter hampir sama.
+
+### Split Distribution
+
+![Split Distribution](../results/figures/split_distribution.png)
+
+Proporsi label konsisten di semua split (train/val/test).

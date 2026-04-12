@@ -25,9 +25,8 @@ models/
 *.bin
 *.safetensors
 
-# Results (generated)
-results/figures/*.png
-results/figures/*.pdf
+# Results tables (generated CSV from experiments)
+results/tables/*.csv
 
 # IDE
 .vscode/
