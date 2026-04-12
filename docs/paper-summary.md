@@ -72,6 +72,41 @@ Sarcasm detection merupakan salah satu tantangan terbesar dalam NLP karena sifat
 4. Twitter dataset lebih mudah dari Reddit (F1 lebih tinggi across the board)
 5. Reddit lebih kontekstual/sulit karena thread-based conversation
 
+## Dataset EDA Results (Progress 2)
+
+### Size
+| Dataset | Train | Val | Test | Total |
+|---------|-------|-----|------|-------|
+| Reddit | 9,881 | 1,411 | 2,824 | 14,116 |
+| Twitter | 1,878 | 268 | 538 | 2,684 |
+
+**Note:** Twitter HuggingFace hanya 2,684, bukan 12,861 seperti paper. Kemungkinan raw sebelum cleaning atau subset yang tidak dipublish.
+
+### Class Balance
+- Reddit: EXACT 25% sarcasm / 75% non-sarcasm di semua split
+- Twitter: EXACT 25% sarcasm / 75% non-sarcasm di semua split
+- Kemungkinan sudah di-undersample oleh author
+
+### Text Length (char)
+| Dataset | Label | Mean | Std | Min | Max |
+|---------|-------|------|-----|-----|-----|
+| Reddit | Non-sarcasm | 103.6 | 88.9 | 4 | 1,134 |
+| Reddit | Sarcasm | 67.3 | 47.7 | 5 | 527 |
+| Twitter | Non-sarcasm | 113.8 | 67.8 | 14 | 584 |
+| Twitter | Sarcasm | 117.8 | 55.0 | 18 | 297 |
+
+- Reddit: sarcasm jauh lebih pendek (mean 67 vs 104)
+- Twitter: hampir sama (118 vs 114)
+
+### Data Quality
+- 0 missing values di kedua dataset
+- Reddit: 10 duplicate texts
+- Twitter: 0 duplicates
+
+### Column Names
+- Reddit: `text` (untuk konten), `body` (alternatif), kolom lain: `label`, `permalink`, `subreddit`, `lang_fastText`, `created_utc`, `author`, `score`
+- Twitter: `tweet` (untuk konten), `label`
+
 ## Potensi Improvement
 - Model Indo lebih baru (IndoBERTweet, Gemma)
 - Few-shot learning (bukan zero-shot)
