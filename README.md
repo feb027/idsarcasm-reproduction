@@ -1,44 +1,101 @@
 # IdSarcasm Reproduction — UAS NLP
 
 Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection**
-(Suhartono, Wongso, Tri Handoyo — IEEE Access 2024)
+(Derwin Suhartono, Wilson Wongso, Alif Tri Handoyo — IEEE Access 2024)
+
+## Paper Info
+- **DOI:** [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955)
+- **Original Repo:** https://github.com/w11wo/id_sarcasm
+- **Published:** 20 June 2024
 
 ## Project Structure
 
 ```
 ├── data/
-│   ├── raw/              # Dataset asli dari HuggingFace
+│   ├── raw/              # Dataset CSV dari HuggingFace
 │   └── processed/        # Dataset setelah preprocessing
-├── notebooks/            # Jupyter notebook untuk eksperimen
-├── scripts/              # Python scripts untuk training & eval
+├── notebooks/
+│   ├── 01_eda.ipynb      # EDA: label distribution, text length, data quality
+│   └── ...
+├── scripts/
+│   ├── download_data.py  # Download dataset dari HuggingFace
+│   └── ...
 ├── results/
 │   ├── tables/           # Hasil evaluasi (CSV/tabel)
-│   └── figures/          # Grafik & visualisasi
-├── docs/                 # Paper summary, rencana reproduksi
-└── requirements.txt
+│   └── figures/          # Grafik & visualisasi (PNG)
+├── docs/
+│   ├── paper-summary.md  # Ringkasan paper + EDA results
+│   ├── progress-plan.md  # Timeline & rencana 6 progress
+│   ├── progress-1.md     # Dokumentasi Progress 1
+│   └── progress-2.md     # Dokumentasi Progress 2
+├── 10565877.pdf          # Paper asli
+├── requirements.txt      # Python dependencies
+└── README.md
 ```
 
 ## Dataset
 
-| Dataset | Source | Size |
-|---------|--------|------|
-| Reddit Indonesia Sarcastic | [HuggingFace](https://huggingface.co/datasets/w11wo/reddit_indonesia_sarcastic) | 14,116 comments |
-| Twitter Indonesia Sarcastic | [HuggingFace](https://huggingface.co/datasets/w11wo/twitter_indonesia_sarcastic) | 12,861 tweets |
+| Dataset | Train | Val | Test | Total |
+|---------|-------|-----|------|-------|
+| Reddit Indonesia Sarcastic | 9,881 | 1,411 | 2,824 | 14,116 |
+| Twitter Indonesia Sarcastic | 1,878 | 268 | 538 | 2,684 |
 
-## Models to Reproduce
+Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcasm-detection-65840069489f3b53a0452c04)
 
-- Classical ML: Logistic Regression, Naive Bayes, SVC
-- Fine-tuned: IndoBERT (IndoNLU), XLM-R Base
-- Zero-shot: BLOOMZ, mT0
+**Catatan:** Twitter dataset di paper disebut 12,861, itu adalah total *cleaned unbalanced*. Yang di-publish ke HuggingFace adalah versi *balanced* (1:3 ratio sarcastic:non-sarcastic) = 2,684 total. Paper experiments menggunakan balanced version.
+
+## Reproduction Scope
+
+### Primary (wajib)
+- Classical ML: Logistic Regression, Naive Bayes, SVM
+- Feature: BoW (CountVectorizer) + TF-IDF
+- Tokenizer: NLTK word_tokenize
+- Hyperparameter tuning: GridSearchCV dengan PredefinedSplit
+- Eval: F1-score (primary), accuracy, precision, recall
+
+### Secondary
+- Classical ML pada Reddit dataset
+
+### Stretch
+- Fine-tune IndoBERT Base atau XLM-R Base (via Google Colab)
+
+## Methodology (Classical ML)
+
+1. Load dataset dari HuggingFace
+2. Tokenisasi dengan NLTK word_tokenize
+3. Vectorisasi dengan BoW dan TF-IDF
+4. GridSearchCV untuk hyperparameter tuning:
+   - LR: C = [0.01, 0.1, 1, 10, 100]
+   - SVM: C = [0.01, 0.1, 1, 10, 100], kernel = [rbf, linear]
+   - NB: alpha = np.linspace(0.001, 1, 50)
+5. PredefinedSplit: train+val digabung, val sebagai holdout
+6. Best params dipilih berdasarkan validation
+7. Evaluasi final di test set
 
 ## Progress
 
-- [x] Progress 1: Topik & Paper Selection
-- [ ] Progress 2: Dataset & Preprocessing
-- [ ] Progress 3: Classical ML Baseline
-- [ ] Progress 4: Transformer Fine-tuning
-- [ ] Progress 5: Evaluation & Comparison
-- [ ] Progress 6: Improvement Proposal & Final Report
+| # | Progress | Status | Detail |
+|---|----------|--------|--------|
+| 1 | Topik & Paper Selection | ✅ | Paper IdSarcasm dipilih, repo setup |
+| 2 | Dataset & Preprocessing | ✅ | Download + EDA selesai |
+| 3 | Classical ML Baseline | ⬜ | Reproduksi LR, NB, SVM |
+| 4 | Transformer Fine-tuning | ⬜ | IndoBERT/XLM-R (stretch) |
+| 5 | Evaluation & Comparison | ⬜ | Bandingkan hasil ke paper |
+| 6 | Improvement & Final Report | ⬜ | Proposal improvement + laporan |
+
+Detail dokumentasi tiap progress ada di `docs/progress-{n}.md`.
+
+## Quick Start
+
+```bash
+git clone https://github.com/feb027/idsarcasm-reproduction.git
+cd idsarcasm-reproduction
+python -m venv .venv
+.venv\Scripts\activate              # Windows
+pip install -r requirements.txt
+python scripts/download_data.py     # Download dataset
+jupyter notebook                    # Buka notebook
+```
 
 ## Reference
 
