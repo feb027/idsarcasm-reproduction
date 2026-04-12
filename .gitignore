@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+venv/
+.env
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (large files)
+data/raw/*.parquet
+data/raw/*.csv
+data/processed/
+
+# Models
+models/
+*.pt
+*.bin
+*.safetensors
+
+# Results (generated)
+results/figures/*.png
+results/figures/*.pdf
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
