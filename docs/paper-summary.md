@@ -80,7 +80,7 @@ Sarcasm detection merupakan salah satu tantangan terbesar dalam NLP karena sifat
 | Reddit | 9,881 | 1,411 | 2,824 | 14,116 |
 | Twitter | 1,878 | 268 | 538 | 2,684 |
 
-**Note:** Twitter HuggingFace hanya 2,684, bukan 12,861 seperti paper. Kemungkinan raw sebelum cleaning atau subset yang tidak dipublish.
+**Note:** Twitter paper claim 12,861 = total cleaned unbalanced (671 sarcasm + 12,190 non-sarcasm). HuggingFace publish balanced version (1:3 ratio) = 2,684. Paper experiments likely use balanced version. Kita pake balanced version yang benar. Reddit juga sama: unbalanced raw = 2.6M, balanced = 14,116.
 
 ### Class Balance
 - Reddit: EXACT 25% sarcasm / 75% non-sarcasm di semua split
