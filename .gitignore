@@ -35,3 +35,4 @@ results/tables/*.csv
 # OS
 .DS_Store
 Thumbs.db
+AGENTS.md
