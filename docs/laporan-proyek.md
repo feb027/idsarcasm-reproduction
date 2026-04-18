@@ -140,9 +140,13 @@ Dataset Reddit Indonesia Sarcastic terdiri dari 14.116 komentar yang dibagi menj
 
 Selama tahap eksplorasi data awal (Exploratory Data Analysis / EDA), dilakukan pemeriksaan kualitas data yang mencakup pengecekan nilai kosong, duplikasi, dan distribusi panjang teks. Hasilnya menunjukkan bahwa tidak ada nilai kosong pada kedua dataset. Untuk dataset Reddit, ditemukan 10 data duplikat, sedangkan dataset Twitter tidak memiliki duplikat sama sekali. Distribusi panjang teks menunjukkan bahwa rata-rata komentar sarkastik di Reddit cenderung lebih pendek dibandingkan non-sarkastik (67 vs 104 karakter), sementara di Twitter perbedaannya tidak signifikan (118 vs 114 karakter).
 
-[PLACEHOLDER: Sisipkan gambar distribusi label — bar chart perbandingan jumlah data sarkastik vs non-sarkastik per dataset]
+![Distribusi Label per Dataset](../../results/figures/distribusi_label_placeholder.png)
 
-[PLACEHOLDER: Sisipkan gambar distribusi panjang teks — histogram panjang karakter per kelas per dataset]
+<!-- TODO: Generate EDA figure — distribusi label (bar chart) dari notebook 01_eda -->
+
+![Distribusi Panjang Teks per Dataset](../../results/figures/distribusi_panjang_placeholder.png)
+
+<!-- TODO: Generate EDA figure — distribusi panjang teks (histogram) dari notebook 01_eda -->
 
 Perbedaan ukuran kedua dataset ini cukup mencolok. Dataset Reddit memiliki volume data sekitar lima kali lipat lebih besar dibandingkan Twitter. Ini perlu diperhatikan karena data lebih banyak belum tentu hasilnya lebih bagus kalau karakteristik teksnya beda. Berdasarkan temuan EDA, teks Reddit memiliki variasi panjang yang lebih lebar, sedangkan teks Twitter lebih seragam.
 
@@ -172,7 +176,7 @@ Dari sisi perangkat keras, eksperimen classical ML tidak membutuhkan GPU karena 
 
 Alur kerja (pipeline) eksperimen classical ML pada proyek ini terdiri dari beberapa tahap utama yang saling berurutan. Pertama, data mentah dimuat dari file CSV yang telah di-cache secara lokal. Kemudian, teks diproses melalui tahap tokenisasi menggunakan `nltk.word_tokenize` untuk memecah kalimat menjadi kata-kata individual. Setelah itu, teks yang sudah ditokenisasi direpresentasikan sebagai vektor numerik menggunakan Bag of Words (CountVectorizer) atau TF-IDF (TfidfVectorizer). Vektor fitur ini kemudian digunakan untuk melatih model klasifikasi (LR, NB, atau SVM) dengan pencarian hyperparameter melalui GridSearchCV. Terakhir, model terbaik dievaluasi pada subset test menggunakan metrik accuracy, precision, recall, dan F1-score.
 
-[PLACEHOLDER: Sisipkan gambar arsitektur pipeline — diagram alur dari Raw Text → Tokenisasi → Vektorisasi (BoW/TF-IDF) → Model (LR/NB/SVM) → Evaluasi]
+![Arsitektur Pipeline Eksperimen Classical ML](../../results/figures/pipeline_architecture.png)
 
 ### 3.2 Tahapan
 
@@ -197,7 +201,7 @@ Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 | TF-IDF | Naive Bayes | α=0,103 | 0,8197 | 0,7761 | 0,3881 | 0,5174 |
 | TF-IDF | SVM | C=10, kernel=rbf | 0,8625 | 0,8125 | 0,5821 | 0,6783 |
 
-[PLACEHOLDER: Sisipkan gambar bar chart perbandingan F1-score antar model pada dataset Twitter (BoW vs TF-IDF)]
+![Perbandingan F1-Score pada Dataset Twitter](../../results/figures/f1_twitter_bow_vs_tfidf.png)
 
 Berikut adalah hasil eksperimen pada dataset Reddit:
 
@@ -212,7 +216,7 @@ Berikut adalah hasil eksperimen pada dataset Reddit:
 | TF-IDF | Naive Bayes | α=0,062 | 0,7776 | 0,6500 | 0,2394 | 0,3499 |
 | TF-IDF | SVM | C=1, kernel=linear | 0,7886 | 0,6461 | 0,3414 | 0,4467 |
 
-[PLACEHOLDER: Sisipkan gambar bar chart perbandingan F1-score antar model pada dataset Reddit (BoW vs TF-IDF)]
+![Perbandingan F1-Score pada Dataset Reddit](../../results/figures/f1_reddit_bow_vs_tfidf.png)
 
 Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target F1-score yang dilaporkan dalam paper IdSarcasm [5]:
 
@@ -224,7 +228,7 @@ Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target
 | Naive Bayes | 0,6721 | 0,5174 | -0,1547 | 0,4591 | 0,3499 | -0,1092 |
 | SVM | 0,6782 | 0,6783 | +0,0001 | 0,4467 | 0,4467 | 0,0000 |
 
-[PLACEHOLDER: Sisipkan gambar grouped bar chart perbandingan F1 reproduksi vs paper untuk kedua dataset]
+![Perbandingan F1-Score Reproduksi vs Paper](../../results/figures/f1_reproduksi_vs_paper.png)
 
 Dari tabel perbandingan di atas, terlihat bahwa reproduksi untuk Logistic Regression dan SVM pada dataset Twitter menghasilkan F1-score yang sangat mendekati bahkan identik dengan yang dilaporkan paper. Hal ini menunjukkan bahwa implementasi eksperimen berhasil mereproduksi hasil paper dengan baik untuk kedua model tersebut. Untuk Logistic Regression pada dataset Reddit, hasil reproduksi sedikit di atas target paper (+0,0072), yang kemungkinan disebabkan oleh perbedaan versi pustaka atau seed random yang berbeda saat GridSearchCV.
 
