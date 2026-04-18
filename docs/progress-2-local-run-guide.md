@@ -65,11 +65,14 @@ Kalau `requirements.txt` berhasil terpasang, `nltk` sudah ikut ter-install.
 
 ## Step 4 — optional: download CSV mentah lokal
 
-Ini optional, buat dokumentasi/backup split lokal.
+Ini optional, tapi sekarang justru **direkomendasikan sekali** kalau kamu mau run baseline tanpa download ulang dari HuggingFace saat eksperimen.
 
 ```bash
 python scripts/download_data.py
 ```
+
+Kalau file CSV ini ada lengkap, script baseline akan **pakai CSV lokal terlebih dahulu**.
+Baru kalau file belum lengkap, script fallback ke HuggingFace.
 
 Kalau berhasil, nanti akan muncul file seperti:
 - `data/raw/twitter_train.csv`

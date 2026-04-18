@@ -117,9 +117,26 @@ def ensure_nltk_resources() -> None:
 
 def load_split_frames(dataset_name: str) -> Dict[str, pd.DataFrame]:
     config = DATASET_CONFIGS[dataset_name]
-    print(f"Loading dataset: {config.hf_id}")
-    dataset_dict = load_dataset(config.hf_id)
     frames: Dict[str, pd.DataFrame] = {}
+    raw_dir = Path("data/raw")
+    split_to_file = {
+        "train": raw_dir / f"{dataset_name}_train.csv",
+        "validation": raw_dir / f"{dataset_name}_validation.csv",
+        "test": raw_dir / f"{dataset_name}_test.csv",
+    }
+
+    if all(path.exists() for path in split_to_file.values()):
+        print(f"Loading local CSV files from {raw_dir}/")
+        for split_name, csv_path in split_to_file.items():
+            frame = pd.read_csv(csv_path)
+            frame[config.text_column] = frame[config.text_column].fillna("").astype(str)
+            frame[config.label_column] = frame[config.label_column].astype(int)
+            frames[split_name] = frame
+            print(f"  {split_name}: {len(frame):,} rows ({csv_path.name})")
+        return frames
+
+    print(f"Local CSV files not complete. Loading dataset from HuggingFace: {config.hf_id}")
+    dataset_dict = load_dataset(config.hf_id)
 
     for split_name in ("train", "validation", "test"):
         frame = pd.DataFrame(dataset_dict[split_name])
