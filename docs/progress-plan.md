@@ -1,129 +1,232 @@
-# Rencana Reproduksi — 6 Progress
+# Rencana Reproduksi — 6 Progress (Revisi)
 
 **Paper:** IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection
-**Target:** Reproduksi baseline classical ML + evaluasi perbandingan
+**Target utama:** membangun fondasi reproduksi dari baseline classical ML, lalu bergerak ke baseline transformer dan optimasi transformer yang terukur pada benchmark IdSarcasm.
 
 ---
 
-## Progress 1: Topik & Paper Selection ✅
+## Catatan revisi struktur
+
+Per 18 April 2026, struktur progress direvisi agar alurnya lebih realistis dan lebih berbobot:
+- **Progress 2 lama (Dataset & EDA)** dan **Progress 3 lama (Classical ML Baseline)** digabung menjadi **Progress 2 baru**.
+- Setelah itu, fase berikutnya dibuat lebih rinci supaya alurnya bergerak dari baseline classical → baseline transformer → optimasi transformer → analisis komparatif → finalisasi laporan.
+
+Status saat ini:
+- Progress 1: ✅ selesai
+- Progress 2: 🟡 berjalan sebagian (bagian dataset + EDA selesai, baseline classical ML belum dieksekusi)
+- Progress 3–6: ⬜ belum mulai
+
+---
+
+## Progress 1: Topik, Paper, dan Target Reproduksi ✅
 
 **Tanggal:** 12 April 2026
 
-- [x] Pilih topik: Indonesian Sarcasm Detection
-- [x] Pilih paper: IdSarcasm (Suhartono et al., IEEE Access 2024)
-- [x] Analisis kontribusi, metode, hasil paper
-- [x] Identifikasi algoritma dan reproduksi scope
-- [x] Setup GitHub repo + struktur project
-- [x] Tulis paper summary, progress plan, requirements
+### Tujuan
+Menetapkan paper utama, memahami kontribusi paper, menentukan scope reproduksi yang realistis, dan menyiapkan repositori kerja.
 
-**Deliverable:** Repo GitHub, paper summary, rencana reproduksi
+### Cakupan
+- [x] Menetapkan topik: Indonesian sarcasm detection
+- [x] Memilih paper utama: IdSarcasm (IEEE Access 2024)
+- [x] Meninjau kontribusi, dataset, model, dan metrik paper
+- [x] Menentukan scope reproduksi awal
+- [x] Menyiapkan repo GitHub dan struktur folder proyek
+- [x] Menyusun ringkasan paper dan progress plan awal
 
----
+### Output
+- Repo proyek siap pakai
+- `docs/paper-summary.md`
+- `docs/progress-1.md`
+- `docs/progress-plan.md`
 
-## Progress 2: Dataset & EDA ✅
-
-**Tanggal:** 12 April 2026
-
-- [x] Download dataset dari HuggingFace (Reddit 14,116 + Twitter 2,684)
-- [x] EDA: distribusi label, panjang teks, split info, contoh data
-- [x] Analisis class balance (25% sarcasm, 1:3 ratio)
-- [x] Data quality check (missing values, duplicates)
-- [x] Clarification Twitter dataset size (12.8k unbalanced vs 2.6k balanced)
-- [x] Dokumentasi hasil EDA
-
-**Deliverable:** EDA notebook, results/figures, dokumentasi
+### Gate kelulusan progress
+Progress 1 dinyatakan selesai jika paper sudah final, scope sudah jelas, dan environment kerja proyek sudah memiliki struktur dokumentasi dasar.
 
 ---
 
-## Progress 3: Classical ML Baseline ⬜
+## Progress 2: Dataset, EDA, dan Baseline Classical ML 🟡
 
-**Target:** ~Minggu 3-4
+**Status detail:**
+- **Sudah selesai:** akuisisi dataset, validasi split, EDA, klarifikasi mismatch ukuran dataset Twitter, identifikasi metodologi baseline classical ML dari paper.
+- **Belum selesai:** implementasi/eksekusi baseline classical ML dan penyusunan tabel hasil reproduksi awal.
 
-- [ ] Setup environment: pip install nltk, datasets, scikit-learn
-- [ ] Download NLTK punkt tokenizer
-- [ ] Reproduksi Twitter: LR, NB, SVM (BoW + TF-IDF)
-- [ ] Reproduksi Reddit: LR, NB, SVM (BoW + TF-IDF)
-- [ ] GridSearchCV dengan PredefinedSplit
-- [ ] Evaluasi: F1, accuracy, precision, recall
-- [ ] Bandingkan hasil ke paper (target: match ±0.01)
+### Tujuan
+Menggabungkan pekerjaan persiapan eksperimen dan eksekusi baseline classical ML ke dalam satu fase yang utuh, sehingga Progress 2 tidak hanya berhenti di EDA, tetapi menghasilkan fondasi eksperimen yang benar-benar siap dibandingkan dengan paper.
 
-**Metode reproduksi:**
-1. `load_dataset("w11wo/twitter_indonesia_sarcastic")`
-2. Vectorize dengan CountVectorizer / TfidfVectorizer
-3. Tokenizer: `nltk.word_tokenize`
-4. GridSearchCV: LR, SVM, NB
-5. PredefinedSplit (train+val digabung, val=holdout)
-6. Evaluasi di test set
+### Cakupan wajib
+#### A. Dataset acquisition dan verifikasi
+- [x] Download dataset Reddit dan Twitter dari HuggingFace
+- [x] Verifikasi split train/validation/test
+- [x] Verifikasi kolom teks dan label
+- [x] Klarifikasi versi balanced vs unbalanced, terutama untuk Twitter
 
-**Target hasil (Twitter TF-IDF):**
-| Model | Target F1 |
-|-------|-----------|
-| LR | ~0.7142 |
-| SVM | ~0.6782 |
-| NB | ~0.6721 |
+#### B. Exploratory data analysis
+- [x] Label distribution
+- [x] Split distribution
+- [x] Text-length distribution
+- [x] Missing value dan duplicate check
+- [x] Dokumentasi figure dan insight utama
 
-**Deliverable:** Script/classical_ml.py, results/tabel, perbandingan ke paper
+#### C. Baseline reproduction preparation
+- [x] Menentukan target model: Logistic Regression, Naive Bayes, SVM
+- [x] Menentukan feature extraction: BoW dan TF-IDF
+- [x] Menentukan validasi: GridSearchCV + PredefinedSplit
+- [x] Menentukan target metrik: F1, accuracy, precision, recall
+- [x] Menyusun target angka acuan dari paper
 
----
+#### D. Baseline execution (belum dikerjakan)
+- [ ] Menyiapkan script/notebook baseline classical ML
+- [ ] Menjalankan Twitter baseline: LR, NB, SVM
+- [ ] Menjalankan Reddit baseline: LR, NB, SVM
+- [ ] Menyimpan hasil ke tabel komparatif
+- [ ] Mencatat gap terhadap target paper
 
-## Progress 4: Perbandingan & Perluasan ⬜
+### Target hasil Progress 2
+#### Target paper untuk Twitter (TF-IDF)
+- Logistic Regression: ~0.7142
+- Naive Bayes: ~0.6721
+- SVM: ~0.6782
 
-**Target:** ~Minggu 5
+#### Target paper untuk Reddit (TF-IDF)
+- Logistic Regression: ~0.4887
+- Naive Bayes: ~0.4591
+- SVM: ~0.4467
 
-- [ ] Jalankan baseline Reddit (jika belum di Progress 3)
-- [ ] Analisis gap: hasil reproduksi vs paper
-- [ ] Confusion matrix per model
-- [ ] Error analysis: contoh salah klasifikasi
-- [ ] (Stretch) Fine-tune 1 transformer via Colab
+### Output yang diharapkan
+- `data/raw/` berisi dataset kerja
+- `notebooks/01_eda.ipynb`
+- figure EDA di `results/figures/`
+- script atau notebook baseline classical ML
+- tabel hasil awal reproduksi di `results/tables/`
+- dokumentasi lengkap Progress 2 di `docs/progress-2.md`
 
-**Deliverable:** Analisis perbandingan, error analysis
-
----
-
-## Progress 5: Evaluation & Comparison ⬜
-
-**Target:** ~Minggu 6
-
-- [ ] Tabel komprehensif semua hasil
-- [ ] Visualisasi perbandingan (bar chart, confusion matrix)
-- [ ] Analisis gap dan penyebab perbedaan
-- [ ] Perbandingan Twitter vs Reddit difficulty
-
-**Deliverable:** Tabel evaluasi, visualisasi, analisis
-
----
-
-## Progress 6: Improvement & Final Report ⬜
-
-**Target:** ~Minggu 7-8
-
-- [ ] Implementasi improvement (pilih 1-2):
-  - Data augmentation (back-translation / synonym replacement)
-  - Ensemble classical + transformer
-  - Weighted loss untuk imbalance
-- [ ] Evaluasi improvement vs baseline
-- [ ] Tulis laporan akhir
-- [ ] Finalisasi GitHub repo
-
-**Deliverable:** Laporan final, code, model
+### Gate kelulusan progress
+Progress 2 baru dianggap benar-benar selesai jika:
+1. baseline Twitter dan Reddit sudah dijalankan,
+2. hasil utama sudah tersimpan dalam tabel,
+3. selisih hasil terhadap paper sudah dicatat,
+4. dokumentasi setup + hasil awal sudah lengkap.
 
 ---
 
-## Hardware Plan
+## Progress 3: Reproduksi Transformer Baseline dan Benchmark Lanjutan ⬜
 
-| Task | Lokasi | Alasan |
-|------|--------|--------|
-| Classical ML & EDA | PC Lokal (Windows) | CPU cukup, dataset kecil |
-| Transformer fine-tuning | Google Colab (GPU) | Butuh GPU, AMD lokal bermasalah |
-| Coding & dokumentasi | VPS / Lokal | Fleksibel |
+### Tujuan
+Menaikkan proyek dari level baseline classical ML ke level yang lebih sesuai dengan judul proyek, yaitu menguji performa model transformer pada benchmark IdSarcasm secara terukur.
 
-## Timeline Estimasi
+### Cakupan
+- [ ] Menentukan model transformer utama yang realistis: IndoBERT Base atau XLM-R Base
+- [ ] Menyiapkan pipeline fine-tuning yang rapi dan terdokumentasi
+- [ ] Menjalankan minimal 1 transformer baseline pada dataset Twitter
+- [ ] Jika resource cukup, menjalankan transformer pada Reddit atau model kedua sebagai pembanding
+- [ ] Menyimpan hasil metrik, konfigurasi, dan catatan resource
+- [ ] Membandingkan hasil transformer dengan baseline classical ML terbaik
 
-| Progress | Target |
-|----------|--------|
+### Output
+- Script/notebook fine-tuning transformer
+- Tabel hasil baseline transformer
+- Catatan konfigurasi training dan kebutuhan compute
+- Ringkasan apakah transformer memang memberi gain yang layak
+
+### Gate kelulusan progress
+Progress 3 dianggap selesai jika minimal satu model transformer berhasil dilatih dan dibandingkan secara langsung dengan baseline classical ML.
+
+---
+
+## Progress 4: Optimasi Transformer Terarah ⬜
+
+### Tujuan
+Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar memakai transformer, tetapi mencoba meningkatkan performanya secara metodologis.
+
+### Cakupan opsi
+Pilih satu jalur optimasi utama agar scope tetap terkontrol:
+- [ ] Tuning hyperparameter (learning rate, batch size, epoch, max length)
+- [ ] Strategi class weighting / weighted loss
+- [ ] Variasi preprocessing atau text normalization yang relevan
+- [ ] Variasi input representation (mis. truncation/max length study)
+- [ ] Dataset focus strategy: optimasi di Twitter dulu sebelum dibawa ke Reddit
+
+### Fokus evaluasi
+- [ ] Bandingkan hasil sebelum vs sesudah optimasi
+- [ ] Catat trade-off performa vs waktu komputasi
+- [ ] Identifikasi konfigurasi terbaik yang masih realistis dijalankan
+
+### Output
+- Satu baseline transformer
+- Satu atau beberapa varian optimasi
+- Tabel before/after optimization
+- Argumen kenapa optimasi tertentu dipilih
+
+### Gate kelulusan progress
+Optimasi harus menghasilkan pembanding eksplisit terhadap baseline transformer, bukan hanya eksperimen tambahan tanpa hipotesis.
+
+---
+
+## Progress 5: Analisis Komparatif dan Error Analysis ⬜
+
+### Tujuan
+Menyusun analisis yang lebih matang terhadap seluruh rangkaian hasil: classical baseline, transformer baseline, dan transformer yang sudah dioptimasi.
+
+### Cakupan
+- [ ] Menyusun tabel komparatif semua eksperimen utama
+- [ ] Membuat confusion matrix untuk model terbaik
+- [ ] Menganalisis contoh benar/salah klasifikasi
+- [ ] Membandingkan karakteristik error antara classical ML vs transformer
+- [ ] Menjelaskan faktor penyebab gap hasil terhadap paper atau antar konfigurasi
+- [ ] Menentukan model/fase mana yang paling layak dijadikan highlight laporan
+
+### Output
+- Tabel komparatif final eksperimen
+- Visual error analysis
+- Narasi analitis untuk laporan hasil dan pembahasan
+
+### Gate kelulusan progress
+Harus ada interpretasi yang jelas tentang model terbaik, alasan performanya, jenis error dominan, dan dampak optimasi yang dilakukan.
+
+---
+
+## Progress 6: Finalisasi Laporan, Repositori, dan Narasi Hasil ⬜
+
+### Tujuan
+Menutup proyek dalam bentuk yang rapi, dapat diperiksa, dan siap dipresentasikan.
+
+### Cakupan
+- [ ] Finalisasi laporan proyek / laporan akhir
+- [ ] Rapikan README dan struktur repo
+- [ ] Rapikan tabel dan figure final
+- [ ] Tulis kesimpulan dan keterbatasan
+- [ ] Tulis saran pengembangan lanjutan
+- [ ] Pastikan semua file penting ter-commit
+
+### Output akhir
+- Repo bersih dan terdokumentasi
+- Laporan final
+- Figure dan tabel final
+- Ringkasan hasil reproduksi + improvement
+
+### Gate kelulusan progress
+Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaimana hasilnya, apa gap-nya, dan apa improvement yang berhasil/tidak berhasil.
+
+---
+
+## Hardware / Environment Plan
+
+| Kegiatan | Lokasi kerja paling masuk akal | Alasan |
+|----------|-------------------------------|--------|
+| EDA | Lokal / VPS | ringan |
+| Classical ML baseline | Lokal / Colab CPU | aman tanpa GPU besar |
+| Transformer extension | Google Colab | lebih realistis daripada AMD lokal saat ini |
+| Dokumentasi & analisis | VPS / lokal | fleksibel |
+
+**Catatan:** VPS saat ini tidak ideal untuk eksekusi baseline karena env Python terkena isu kompatibilitas NumPy/X86_V2. Jadi dokumen ini mengasumsikan baseline akan dijalankan di lokal atau Colab.
+
+## Timeline revisi (estimasi)
+
+| Progress | Estimasi target |
+|----------|-----------------|
 | 1 | 12 Apr ✅ |
-| 2 | 12 Apr ✅ |
-| 3 | 19 Apr - 3 Mei |
-| 4 | 3 - 10 Mei |
-| 5 | 10 - 17 Mei |
-| 6 | 17 - 31 Mei |
+| 2 | 12 Apr - setelah baseline classical selesai |
+| 3 | setelah baseline classical stabil dan siap dibandingkan |
+| 4 | setelah baseline transformer berhasil dijalankan |
+| 5 | setelah fase optimasi transformer selesai |
+| 6 | tahap penutupan proyek |

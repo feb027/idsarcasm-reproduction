@@ -4,6 +4,8 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 (Derwin Suhartono, Wilson Wongso, Alif Tri Handoyo — IEEE Access 2024)
 
 ## Paper Info
+- **Paper acuan:** IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection
+- **Judul proyek (Google Sheets):** Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm
 - **DOI:** [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955)
 - **Original Repo:** https://github.com/w11wo/id_sarcasm
 - **Published:** 20 June 2024
@@ -24,10 +26,10 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 │   ├── tables/           # Hasil evaluasi (CSV/tabel)
 │   └── figures/          # Grafik & visualisasi (PNG)
 ├── docs/
-│   ├── paper-summary.md  # Ringkasan paper + EDA results
-│   ├── progress-plan.md  # Timeline & rencana 6 progress
+│   ├── paper-summary.md  # Ringkasan paper + catatan EDA/progress
+│   ├── progress-plan.md  # Timeline & rencana 6 progress (revisi)
 │   ├── progress-1.md     # Dokumentasi Progress 1
-│   └── progress-2.md     # Dokumentasi Progress 2
+│   └── progress-2.md     # Progress 2 gabungan: dataset, EDA, baseline classical ML
 ├── 10565877.pdf          # Paper asli
 ├── requirements.txt      # Python dependencies
 └── README.md
@@ -74,16 +76,18 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 
 ## Progress
 
+> Revisi struktur: Progress 2 lama (dataset + EDA) dan Progress 3 lama (classical ML baseline) sekarang digabung menjadi Progress 2 baru. Saat ini bagian EDA sudah selesai, tetapi baseline classical ML masih pending.
+
 | # | Progress | Status | Detail |
 |---|----------|--------|--------|
-| 1 | Topik & Paper Selection | ✅ | Paper IdSarcasm dipilih, repo setup |
-| 2 | Dataset & Preprocessing | ✅ | Download + EDA selesai |
-| 3 | Classical ML Baseline | ⬜ | Reproduksi LR, NB, SVM |
-| 4 | Transformer Fine-tuning | ⬜ | IndoBERT/XLM-R (stretch) |
-| 5 | Evaluation & Comparison | ⬜ | Bandingkan hasil ke paper |
-| 6 | Improvement & Final Report | ⬜ | Proposal improvement + laporan |
+| 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
+| 2 | Dataset, EDA, dan Baseline Classical ML | 🟡 | Dataset + EDA selesai; baseline LR/NB/SVM belum dijalankan |
+| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ⬜ | Fine-tuning transformer awal dan perbandingan ke baseline classical |
+| 4 | Optimasi Transformer Terarah | ⬜ | Tuning konfigurasi transformer untuk meningkatkan performa |
+| 5 | Analisis Komparatif dan Error Analysis | ⬜ | Komparasi penuh, confusion matrix, dan analisis error |
+| 6 | Finalisasi Laporan, Repo, dan Narasi Hasil | ⬜ | Rapikan hasil akhir, README, laporan, dan kesimpulan |
 
-Detail dokumentasi tiap progress ada di `docs/progress-{n}.md`.
+Detail dokumentasi saat ini tersedia di `docs/progress-1.md` dan `docs/progress-2.md`. Progress berikutnya akan dibuat saat fasenya mulai dikerjakan.
 
 ## Quick Start
 

@@ -1,11 +1,50 @@
-# Progress 2: Dataset & Preprocessing (EDA)
+# Progress 2: Dataset, EDA, dan Baseline Classical ML
 
-**Status:** ✅ Selesai
-**Tanggal:** 12 April 2026
+**Status:** 🟡 Berjalan sebagian
+**Tanggal mulai:** 12 April 2026
+**Revisi struktur:** 18 April 2026
 
 ---
 
-## 1. Dataset Download
+## Ringkasan revisi
+
+Dokumen ini sekarang menjadi versi gabungan dari:
+- **Progress 2 lama:** Dataset & Preprocessing (EDA)
+- **Progress 3 lama:** Classical ML Baseline
+
+Artinya, Progress 2 tidak lagi dianggap selesai hanya karena EDA selesai. Progress ini baru benar-benar selesai jika baseline classical ML sudah diimplementasikan, dijalankan, dan dibandingkan dengan hasil paper.
+
+## Status saat ini
+
+### Sudah selesai
+- [x] Dataset di-download dari HuggingFace
+- [x] Struktur dataset diverifikasi
+- [x] EDA utama selesai
+- [x] Figure EDA dibuat dan disimpan
+- [x] Mismatch ukuran dataset Twitter berhasil dijelaskan
+- [x] Metodologi baseline classical ML dari paper sudah diidentifikasi
+- [x] Target metrik paper untuk baseline sudah dicatat
+
+### Belum selesai
+- [ ] Menyiapkan script/notebook baseline classical ML
+- [ ] Menjalankan baseline Twitter: LR, NB, SVM
+- [ ] Menjalankan baseline Reddit: LR, NB, SVM
+- [ ] Menyimpan tabel hasil baseline
+- [ ] Membuat komparasi awal terhadap paper
+
+---
+
+## 1. Tujuan Progress 2
+
+Progress 2 dirancang sebagai fase eksperimen inti awal. Fokusnya bukan hanya memahami data, tetapi juga menyiapkan fondasi reproduksi yang benar-benar bisa dipakai untuk membandingkan hasil dengan paper.
+
+Secara praktis, Progress 2 harus menghasilkan dua hal:
+1. pemahaman dataset yang kuat melalui EDA, dan
+2. baseline classical ML yang siap dijadikan titik acuan untuk fase analisis dan improvement.
+
+---
+
+## 2. Dataset Download
 
 Dataset di-download dari HuggingFace menggunakan `datasets` library:
 
@@ -16,32 +55,41 @@ Dataset di-download dari HuggingFace menggunakan `datasets` library:
 
 Script: `scripts/download_data.py`
 
-## 2. Dataset Structure
+---
+
+## 3. Struktur Dataset
 
 ### Reddit
-- **Text column:** `text` (PII-masked, tag-removed)
-- **Other columns:** `body`, `label`, `permalink`, `subreddit`, `lang_fastText`, `created_utc`, `author`, `score`
+- **Text column:** `text` (PII-masked, sarcasm-tag removed)
+- **Kolom lain:** `body`, `label`, `permalink`, `subreddit`, `lang_fastText`, `created_utc`, `author`, `score`
 - **Split:** train 9,881 / val 1,411 / test 2,824
 
 ### Twitter
 - **Text column:** `tweet` (PII-masked)
-- **Other columns:** `label`
+- **Kolom lain:** `label`
 - **Split:** train 1,878 / val 268 / test 538
 
-## 3. Clarification: Twitter Dataset Size
+---
 
-Paper menyebut Twitter dataset = 12,861, tapi HuggingFace hanya 2,684.
+## 4. Klarifikasi Ukuran Dataset Twitter
+
+Paper menyebut Twitter dataset = 12,861, tetapi dataset yang tersedia di HuggingFace untuk eksperimen benchmark berjumlah 2,684.
 
 Dari halaman HuggingFace:
-- Total (raw) = 17,718
-- Total (cleaned; unbalanced) = 12,861 (671 sarcastic + 12,190 non-sarcastic) ← angka di paper
-- Total (cleaned; balanced) = 2,684 (671 sarcastic + 2,013 non-sarcastic, 1:3 ratio) ← versi HuggingFace
+- Total raw = 17,718
+- Total cleaned unbalanced = 12,861 (671 sarcastic + 12,190 non-sarcastic)
+- Total cleaned balanced = 2,684 (671 sarcastic + 2,013 non-sarcastic, rasio 1:3)
 
-Paper meng-mention angka unbalanced di abstrak, tapi experiments menggunakan balanced version. Kita menggunakan balanced version yang benar.
+Interpretasi kerja proyek ini:
+- angka **12,861** adalah versi cleaned unbalanced yang disebut di paper,
+- angka **2,684** adalah versi balanced yang dipublikasikan untuk benchmark,
+- reproduksi saat ini menggunakan **versi balanced 2,684**, karena itu yang konsisten dengan split benchmark yang tersedia.
 
-## 4. EDA Results
+---
 
-### 4.1 Label Distribution
+## 5. Hasil EDA
+
+### 5.1 Label Distribution
 
 | Dataset | Label | Count | Ratio |
 |---------|-------|-------|-------|
@@ -50,25 +98,30 @@ Paper meng-mention angka unbalanced di abstrak, tapi experiments menggunakan bal
 | Twitter | Non-sarcasm (0) | 2,013 | 75.00% |
 | Twitter | Sarcasm (1) | 671 | 25.00% |
 
-Class balance EXACT 25% sarcasm di kedua dataset, semua split. Kemungkinan sudah di-undersample oleh author (1:3 ratio following SemEval-2022 Task 6).
+Insight utama:
+- kedua dataset memiliki rasio **exact 25% sarcasm**,
+- distribusi ini konsisten di train/validation/test,
+- konfigurasi ini sangat mungkin sudah mengikuti benchmark style SemEval 1:3 ratio.
 
-### 4.2 Per-Split Distribution
+### 5.2 Per-Split Distribution
 
-**Reddit:**
+**Reddit**
+
 | Split | Total | Sarcasm | Non-sarcasm |
 |-------|-------|---------|-------------|
 | Train | 9,881 | 2,470 | 7,411 |
 | Val | 1,411 | 353 | 1,058 |
 | Test | 2,824 | 706 | 2,118 |
 
-**Twitter:**
+**Twitter**
+
 | Split | Total | Sarcasm | Non-sarcasm |
 |-------|-------|---------|-------------|
 | Train | 1,878 | 470 | 1,408 |
 | Val | 268 | 67 | 201 |
 | Test | 538 | 134 | 404 |
 
-### 4.3 Text Length (character count)
+### 5.3 Text Length (character count)
 
 | Dataset | Label | Mean | Std | Min | Max |
 |---------|-------|------|-----|-----|-----|
@@ -77,19 +130,27 @@ Class balance EXACT 25% sarcasm di kedua dataset, semua split. Kemungkinan sudah
 | Twitter | Non-sarcasm | 113.8 | 67.8 | 14 | 584 |
 | Twitter | Sarcasm | 117.8 | 55.0 | 18 | 297 |
 
-**Insight:** Di Reddit, sarcastic comments jauh lebih pendek (mean 67 vs 104 char). Di Twitter, hampir sama (118 vs 114).
+Insight utama:
+- pada Reddit, komentar sarkastik cenderung lebih pendek,
+- pada Twitter, panjang teks antar label relatif mirip,
+- ini mengindikasikan tantangan Twitter mungkin lebih banyak ada di wording, sedangkan Reddit lebih kontekstual.
 
-### 4.4 Data Quality
+### 5.4 Data Quality
 
 | Check | Reddit | Twitter |
 |-------|--------|---------|
 | Missing values | 0 | 0 |
 | Duplicate texts | 10 | 0 |
 
-## 5. Pre-processing dari Paper
+Kesimpulan sementara:
+- kualitas data cukup bersih untuk langsung dipakai baseline,
+- tidak ada kebutuhan mendesak melakukan pembersihan ulang di tahap ini.
+
+---
+
+## 6. Preprocessing dari Paper
 
 Berdasarkan paper, preprocessing yang dilakukan author:
-
 1. **Language filtering** (Reddit only): fastText language detection, keep Indonesian/Javanese/Minangkabau/Malay/Sundanese
 2. **Near-deduplication:** MinHash LSH — mengurangi Twitter sarcastic dari 4,350 → 671
 3. **PII masking:** username → `<username>`, hashtag → `<hashtag>`, email → `<email>`, URL → `<link>`
@@ -97,44 +158,113 @@ Berdasarkan paper, preprocessing yang dilakukan author:
 5. **Random sampling:** 1:3 ratio sarcastic:non-sarcastic
 6. **Split:** 70% train / 10% val / 20% test
 
-Kita tidak perlu reproduce preprocessing karena dataset sudah bersih di HuggingFace.
+Untuk reproduksi proyek ini, preprocessing berat tidak perlu diulang dari nol karena dataset HuggingFace sudah berada pada bentuk benchmark yang siap dipakai.
 
-## 6. Column Names Penting
+---
 
-| Dataset | Text Column | Label Column |
-|---------|-------------|--------------|
-| Reddit | `text` | `label` |
-| Twitter | `tweet` | `label` |
+## 7. Baseline Classical ML yang Akan Direproduksi
 
-Untuk reproduksi, script paper menerima `--text_column_name` arg. Twitter butuh `--text_column_name tweet`.
+### Model
+- Logistic Regression
+- Naive Bayes (Multinomial)
+- SVM / SVC
 
-## 7. Output Progress 2
+### Feature representation
+- Bag of Words (`CountVectorizer`)
+- TF-IDF (`TfidfVectorizer`)
+
+### Tokenization
+- `nltk.word_tokenize`
+
+### Validation strategy
+- `GridSearchCV`
+- `PredefinedSplit` dengan skema train + validation digabung, validation dijadikan holdout untuk tuning
+
+### Evaluation metrics
+- F1-score (utama)
+- Accuracy
+- Precision
+- Recall
+
+---
+
+## 8. Target Hasil yang Ingin Didekati
+
+### Twitter (TF-IDF)
+| Model | Target F1 |
+|-------|-----------|
+| Logistic Regression | ~0.7142 |
+| SVM | ~0.6782 |
+| Naive Bayes | ~0.6721 |
+
+### Reddit (TF-IDF)
+| Model | Target F1 |
+|-------|-----------|
+| Logistic Regression | ~0.4887 |
+| SVM | ~0.4467 |
+| Naive Bayes | ~0.4591 |
+
+Target ini akan menjadi acuan utama ketika baseline benar-benar dijalankan.
+
+---
+
+## 9. Rencana Eksekusi yang Termasuk dalam Progress 2
+
+Bagian ini **belum dikerjakan**, tetapi secara struktur sekarang sudah menjadi bagian resmi dari Progress 2.
+
+### 9.1 Persiapan environment
+- install dependency minimum: `nltk`, `datasets`, `scikit-learn`, `pandas`, `numpy`
+- download tokenizer NLTK (`punkt`)
+- pastikan dataset bisa dimuat tanpa error
+
+### 9.2 Implementasi baseline
+- siapkan script/notebook untuk menjalankan LR, NB, SVM
+- jalankan BoW dan TF-IDF untuk tiap model
+- gunakan train+val untuk tuning, test untuk evaluasi final
+
+### 9.3 Penyimpanan hasil
+- simpan hasil numerik ke `results/tables/`
+- dokumentasikan best parameter dan metrik utama
+- catat perbedaan terhadap angka di paper
+
+### 9.4 Output minimum agar Progress 2 bisa ditutup
+- minimal 1 tabel hasil baseline Twitter
+- minimal 1 tabel hasil baseline Reddit
+- catatan gap awal terhadap paper
+- dokumentasi update di file ini
+
+---
+
+## 10. Output yang Sudah Ada
 
 - [x] Dataset downloaded ke `data/raw/`
-- [x] EDA notebook: `notebooks/01_eda.ipynb`
-- [x] Label distribution analysis
-- [x] Text length analysis
-- [x] Split distribution analysis
-- [x] Data quality check
-- [x] Clarification Twitter dataset size
-- [x] Dokumentasi hasil EDA
+- [x] Notebook EDA: `notebooks/01_eda.ipynb`
+- [x] Dokumentasi ringkasan paper dan EDA
+- [x] Figure EDA tersimpan di `results/figures/`
 
-## 8. Figures Generated
+## 11. Figures Generated
 
 ### Label Distribution
 
 ![Label Distribution](../results/figures/label_distribution.png)
 
-Class balance exact 25% sarcasm di kedua dataset.
-
 ### Text Length Distribution
 
 ![Text Length Distribution](../results/figures/text_length_distribution.png)
-
-Reddit sarcasm lebih pendek (mean 67 vs 104 char). Twitter hampir sama.
 
 ### Split Distribution
 
 ![Split Distribution](../results/figures/split_distribution.png)
 
-Proporsi label konsisten di semua split (train/val/test).
+---
+
+## 12. Kriteria Selesai Progress 2
+
+Progress 2 baru boleh ditandai **selesai** jika seluruh poin berikut sudah terpenuhi:
+- [ ] baseline classical ML Twitter selesai dijalankan
+- [ ] baseline classical ML Reddit selesai dijalankan
+- [ ] hasil tersimpan dalam tabel yang rapi
+- [ ] target paper vs hasil reproduksi sudah dibandingkan
+- [ ] dokumentasi Progress 2 mencakup EDA + baseline
+
+Sampai saat ini, Progress 2 masih **parsial**, bukan selesai penuh.

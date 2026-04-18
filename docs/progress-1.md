@@ -77,16 +77,21 @@ Sarkasme merupakan salah satu tantangan terbesar dalam NLP karena sifatnya yang 
 
 ## 6. Reproduction Scope yang Dipilih
 
-### Primary (Progress 3)
-- Classical ML pada Twitter dataset: LR, NB, SVM
+### Fase utama sekarang (Progress 2 revisi)
+- Dataset acquisition dan verifikasi split
+- EDA lengkap untuk Reddit dan Twitter
+- Reproduksi baseline classical ML pada Twitter dan Reddit
+- Model: Logistic Regression, Naive Bayes, SVM
 - Feature: BoW + TF-IDF
-- Target: reproduce F1 paper
+- Target: mendekati F1 paper dan menghasilkan tabel baseline awal
 
-### Secondary (Progress 4)
-- Classical ML pada Reddit dataset
+### Fase lanjutan (Progress 3–5)
+- Reproduksi transformer baseline pada benchmark IdSarcasm
+- Optimasi transformer secara terarah
+- Analisis komparatif dan error analysis atas seluruh hasil
 
-### Stretch
-- Fine-tune 1 transformer (IndoBERT Base / XLM-R Base) via Colab
+### Stretch / penguatan akhir (Progress 6)
+- Finalisasi laporan, repositori, visualisasi, dan narasi hasil proyek
 
 ## 7. Output Progress 1
 
@@ -98,14 +103,19 @@ Sarkasme merupakan salah satu tantangan terbesar dalam NLP karena sifatnya yang 
 - [x] Requirements.txt
 - [x] Google Sheets: algoritma dicatat
 
-## 8. Algoritma untuk Google Sheets
+## 8. Google Sheets
+
+**Judul proyek yang dipakai di Google Sheets dosen:**
+```
+Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm
+```
 
 **Kolom "Algoritma yang digunakan di paper":**
 ```
 Logistic Regression, Naive Bayes, SVM, IndoBERT, mBERT, XLM-R, BLOOMZ, mT0
 ```
 
-**Kolom "Algoritma yang direproduksi":**
+**Kolom "Algoritma yang direproduksi / dikembangkan":**
 ```
-Logistic Regression, Naive Bayes, SVM (utama); IndoBERT Base / XLM-R Base (opsional)
+Progress 2: Logistic Regression, Naive Bayes, SVM; Progress 3-4: IndoBERT Base / XLM-R Base + optimasi transformer
 ```

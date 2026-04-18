@@ -72,7 +72,7 @@ Sarcasm detection merupakan salah satu tantangan terbesar dalam NLP karena sifat
 4. Twitter dataset lebih mudah dari Reddit (F1 lebih tinggi across the board)
 5. Reddit lebih kontekstual/sulit karena thread-based conversation
 
-## Dataset EDA Results (Progress 2)
+## Dataset EDA Results and Progress-2 Baseline Preparation
 
 ### Size
 | Dataset | Train | Val | Test | Total |
@@ -81,6 +81,8 @@ Sarcasm detection merupakan salah satu tantangan terbesar dalam NLP karena sifat
 | Twitter | 1,878 | 268 | 538 | 2,684 |
 
 **Note:** Twitter paper claim 12,861 = total cleaned unbalanced (671 sarcasm + 12,190 non-sarcasm). HuggingFace publish balanced version (1:3 ratio) = 2,684. Paper experiments likely use balanced version. Kita pake balanced version yang benar. Reddit juga sama: unbalanced raw = 2.6M, balanced = 14,116.
+
+**Catatan revisi progres:** struktur proyek sekarang menggabungkan EDA dan baseline classical ML ke dalam Progress 2. Jadi bagian EDA pada section ini sudah selesai, tetapi eksekusi baseline classical ML masih menjadi pekerjaan yang belum ditutup di fase yang sama.
 
 ### Class Balance
 - Reddit: EXACT 25% sarcasm / 75% non-sarcasm di semua split

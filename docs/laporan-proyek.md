@@ -1,4 +1,4 @@
-# Laporan Proyek — Reproduksi IdSarcasm
+# Laporan Proyek — Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm
 
 ## Progress 1: Penetapan Paper & Target Reproduksi
 
@@ -36,11 +36,12 @@ Proyek reproduksi ini bertujuan untuk memvalidasi hasil yang dilaporkan dalam pa
 
 ---
 
-## 3. Identifikasi Paper
+## 3. Identifikasi Paper dan Judul Proyek
 
 | Item | Detail |
 |------|--------|
-| **Judul** | IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection |
+| **Judul Proyek (Google Sheets)** | Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm |
+| **Paper Acuan** | IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection |
 | **Penulis** | Derwin Suhartono, Wilson Wongso, Alif Tri Handoyo |
 | **Institusi** | Bina Nusantara University, Jakarta |
 | **Publikasi** | IEEE Access, Volume 12, 2024 |
@@ -81,19 +82,28 @@ Proyek reproduksi ini bertujuan untuk memvalidasi hasil yang dilaporkan dalam pa
 
 ---
 
-## 6. Target Reproduksi
+## 6. Target Reproduksi dan Arah Pengembangan
 
-### Primary Scope (Wajib)
-Reproduksi baseline classical ML pada dataset Twitter:
+### Progress 2 (fondasi wajib)
+Reproduksi baseline classical ML pada benchmark IdSarcasm:
 - Logistic Regression
 - Naive Bayes
 - SVM
 
-### Secondary Scope
-Reproduksi baseline classical ML pada dataset Reddit.
+### Progress 3 (lebih berbobot, sejalan dengan judul proyek)
+Reproduksi baseline transformer pada benchmark IdSarcasm:
+- IndoBERT Base atau XLM-R Base
+- Fokus awal pada Twitter, lalu diperluas jika resource cukup
 
-### Stretch Goal
-Fine-tune 1 model transformer (IndoBERT Base / XLM-R Base) via Google Colab.
+### Progress 4 (inti optimasi)
+Optimasi performa transformer melalui eksperimen terarah, misalnya:
+- hyperparameter tuning,
+- class weighting,
+- variasi preprocessing / normalization,
+- atau pengaturan max length / input strategy.
+
+### Tujuan akhir
+Bukan hanya memvalidasi baseline paper, tetapi menunjukkan apakah model transformer yang dioptimasi dapat memberikan peningkatan performa yang jelas pada tugas klasifikasi sarkasme berbahasa Indonesia.
 
 ---
 
