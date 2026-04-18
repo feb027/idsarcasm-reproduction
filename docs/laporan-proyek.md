@@ -4,7 +4,7 @@
 
 ---
 
-## Latar Belakang Proyek
+## 1. Latar Belakang Proyek
 
 Deteksi sarkasme merupakan salah satu tantangan besar dalam bidang Natural Language Processing (NLP). Sarkasme sendiri adalah bentuk ironi di mana penutur menyampaikan makna yang berlawanan dengan kata-kata yang diucapkan [1]. Hal ini membuat sistem NLP sering salah membaca sentimen sebuah teks — kalimat yang terlihat positif bisa jadi sebenarnya bernada negatif karena sarkasme. Akibatnya, aplikasi seperti analisis sentimen, moderasi konten, dan pemantauan opini publik bisa menghasilkan kesimpulan yang keliru jika sarkasme tidak terdeteksi.
 
@@ -18,29 +18,32 @@ Proyek reproduksi ini bertujuan untuk memvalidasi hasil yang dilaporkan dalam pa
 
 ---
 
-## Analisis Proyek
+## 2. Analisis Proyek
 
-### Objek dan Dataset
+### 2.1 Objek dan Dataset
 
 Objek penelitian dalam proyek ini adalah teks berbahasa Indonesia yang mengandung sarkasme, yang bersumber dari dua platform media sosial yaitu Reddit dan Twitter. Dataset yang digunakan merupakan dataset benchmark IdSarcasm yang dirilis oleh Suhartono *et al.* [5] melalui platform HuggingFace. Dataset ini dikumpulkan dari komentar dan cuitan pengguna media sosial Indonesia yang telah dianotasi sebagai sarkastik atau non-sarkastik oleh penulis aslinya.
 
 Dataset Reddit Indonesia Sarcastic terdiri dari 14.116 komentar yang dibagi menjadi tiga subset: train (9.881 data), validasi (1.411 data), dan test (2.824 data). Sementara itu, dataset Twitter Indonesia Sarcastic berisi 2.684 cuitan dengan pembagian train (1.878 data), validasi (268 data), dan test (538 data). Kedua dataset memiliki proporsi kelas yang konsisten di seluruh subset, yaitu 25% label sarkastik dan 75% label non-sarkastik (rasio 1:3). Meskipun secara teknis tidak seimbang, proporsi ini seragam antara train, validasi, dan test, sehingga tidak ada subset yang lebih "berat" dari yang lain [5].
 
 ![Distribusi Label per Dataset](../results/figures/label_distribution.png)
+**Gambar 1.** Distribusi label sarkastik dan non-sarkastik pada dataset Reddit dan Twitter.
 
 Selama tahap eksplorasi data awal (Exploratory Data Analysis / EDA), dilakukan pemeriksaan kualitas data yang mencakup pengecekan nilai kosong, duplikasi, dan distribusi panjang teks. Hasilnya menunjukkan bahwa tidak ada nilai kosong pada kedua dataset. Untuk dataset Reddit, ditemukan 10 data duplikat, sedangkan dataset Twitter tidak memiliki duplikat sama sekali. Distribusi panjang teks menunjukkan bahwa rata-rata komentar sarkastik di Reddit cenderung lebih pendek dibandingkan non-sarkastik (67 vs 104 karakter), sementara di Twitter perbedaannya tidak signifikan (118 vs 114 karakter).
 
 ![Distribusi Panjang Teks per Dataset](../results/figures/text_length_distribution.png)
+**Gambar 2.** Distribusi panjang teks (jumlah karakter) per kelas pada dataset Reddit dan Twitter.
 
 ![Distribusi Split Data per Dataset](../results/figures/split_distribution.png)
+**Gambar 3.** Distribusi jumlah data per subset (train, validasi, test) pada kedua dataset.
 
 Perbedaan ukuran kedua dataset ini cukup mencolok. Dataset Reddit memiliki volume data sekitar lima kali lipat lebih besar dibandingkan Twitter. Ini perlu diperhatikan karena data lebih banyak belum tentu hasilnya lebih bagus kalau karakteristik teksnya beda. Berdasarkan temuan EDA, teks Reddit memiliki variasi panjang yang lebih lebar, sedangkan teks Twitter lebih seragam.
 
-### Algoritma atau Metode
+### 2.2 Algoritma atau Metode
 
 <!-- Subbab ini akan diperbarui seiring progress. Saat ini baru mencakup algoritma yang digunakan pada Progress 2 (baseline classical ML). -->
 
-#### Baseline Classical Machine Learning (Progress 2)
+#### 2.2.1 Baseline Classical Machine Learning (Progress 2)
 
 Untuk Progress 2, tiga algoritma classical machine learning direproduksi sesuai dengan yang digunakan dalam paper IdSarcasm [5], yaitu Logistic Regression, Naive Bayes (Multinomial), dan Support Vector Machine (SVM). Ketiga algoritma ini merupakan baseline standar dalam tugas klasifikasi teks yang telah banyak digunakan dalam penelitian NLP sebelumnya, di antaranya untuk klasifikasi sentimen dan deteksi sarkasme [2][9][13].
 
@@ -52,11 +55,11 @@ Untuk Progress 2, tiga algoritma classical machine learning direproduksi sesuai 
 
 Sebagai representasi fitur teks, digunakan dua metode vektorisasi yaitu **Bag of Words (BoW)** dan **TF-IDF** (Term Frequency-Inverse Document Frequency). BoW merepresentasikan setiap dokumen sebagai vektor frekuensi kemunculan setiap kata dalam vocabulary. Metode ini sederhana tetapi tidak mempertimbangkan penting-tidaknya sebuah kata dalam korpus secara keseluruhan. TF-IDF memperbaiki kelemahan ini dengan memberikan bobot lebih tinggi pada kata yang sering muncul dalam satu dokumen tetapi jarang muncul di dokumen lain, sehingga kata-kata umum seperti "dan" atau "yang" mendapat bobot rendah [8]. Proses tokenisasi teks dilakukan menggunakan `nltk.word_tokenize` yang memecah kalimat menjadi token-token kata sebelum vektorisasi.
 
-#### Model Transformer (Progress 3 — akan ditambahkan)
+#### 2.2.2 Model Transformer (Progress 3 — akan ditambahkan)
 
 <!-- Placeholder: Akan diisi setelah reproduksi baseline transformer (IndoBERT / XLM-R) selesai pada Progress 3. -->
 
-### Analisis Kebutuhan Proyek
+### 2.3 Analisis Kebutuhan Proyek
 
 Untuk menjalankan eksperimen baseline classical ML pada proyek ini, kebutuhan yang harus dipenuhi mencakup aspek perangkat lunak dan perangkat keras. Dari sisi perangkat lunak, dibutuhkan Python 3.10 ke atas dengan pustaka scikit-learn untuk implementasi ketiga algoritma, pustaka pandas untuk manipulasi data, serta pustaka nltk untuk tokenisasi teks. Dataset diperoleh dari HuggingFace dan telah di-cache secara lokal dalam format CSV untuk mempercepat proses loading.
 
@@ -66,41 +69,42 @@ Dari sisi perangkat keras, eksperimen classical ML tidak membutuhkan GPU karena 
 
 ---
 
-## Pemodelan/Sistem/Aplikasi
+## 3. Pemodelan/Sistem/Aplikasi
 
-### Ilustrasi atau Arsitektur Projek
+### 3.1 Ilustrasi atau Arsitektur Projek
 
 Alur kerja (pipeline) eksperimen classical ML pada proyek ini terdiri dari beberapa tahap utama yang saling berurutan. Pertama, data mentah dimuat dari file CSV yang telah di-cache secara lokal. Kemudian, teks diproses melalui tahap tokenisasi menggunakan `nltk.word_tokenize` untuk memecah kalimat menjadi kata-kata individual. Setelah itu, teks yang sudah ditokenisasi direpresentasikan sebagai vektor numerik menggunakan Bag of Words (CountVectorizer) atau TF-IDF (TfidfVectorizer). Vektor fitur ini kemudian digunakan untuk melatih model klasifikasi (LR, NB, atau SVM) dengan pencarian hyperparameter melalui GridSearchCV. Terakhir, model terbaik dievaluasi pada subset test menggunakan metrik accuracy, precision, recall, dan F1-score.
 
 ![Arsitektur Pipeline Eksperimen Classical ML](../results/figures/pipeline_architecture.png)
+**Gambar 4.** Arsitektur pipeline eksperimen classical ML dari pemuatan data hingga evaluasi model.
 
 <!-- Arsitektur pipeline untuk model transformer akan ditambahkan pada Progress 3. -->
 
-### Tahapan
+### 3.2 Tahapan
 
-#### Tahapan Eksperimen Classical ML (Progress 2)
+#### 3.2.1 Tahapan Eksperimen Classical ML (Progress 2)
 
 Eksperimen dilaksanakan dalam beberapa tahap sebagai berikut. Pertama, dataset dimuat dari HuggingFace dan disimpan dalam format CSV lokal. Tahap ini mencakup pembagian data menjadi subset train, validasi, dan test sesuai dengan split yang telah ditentukan oleh penulis paper. Kedua, dilakukan tahap EDA untuk memahami karakteristik dataset, termasuk distribusi kelas, panjang teks, dan kualitas data. Ketiga, teks diproses melalui tokenisasi dan vektorisasi. Keempat, ketiga model (LR, NB, SVM) dilatih menggunakan GridSearchCV dengan PredefinedSplit untuk menemukan kombinasi hyperparameter terbaik pada masing-masing dataset (Twitter dan Reddit) dan masing-masing metode vektorisasi (BoW dan TF-IDF). GridSearchCV bekerja dengan mencoba semua kombinasi hyperparameter yang ditentukan, lalu mengevaluasi tiap kombinasi menggunakan cross-validation [11]. Dalam eksperimen ini, data train dan validasi digabungkan, kemudian PredefinedSplit digunakan agar data validasi tetap menjadi holdout (tidak dilatih ulang) selama pencarian. Cara ini memastikan bahwa proses tuning hyperparameter konsisten dengan pendekatan paper asli. Terakhir, model dengan hyperparameter terbaik dievaluasi pada subset test untuk menghitung accuracy, precision, recall, dan F1-score.
 
 Untuk memastikan reproduktibilitas, seluruh proses eksperimen dijalankan melalui skrip Python (`scripts/run_classical_baselines.py`) yang dapat dijalankan ulang secara konsisten. Hasil evaluasi disimpan dalam format CSV di direktori `results/tables/` untuk kemudian dianalisis dan dibandingkan dengan hasil yang dilaporkan paper.
 
-#### Tahapan Eksperimen Transformer (Progress 3 — akan ditambahkan)
+#### 3.2.2 Tahapan Eksperimen Transformer (Progress 3 — akan ditambahkan)
 
 <!-- Placeholder: Akan diisi setelah reproduksi baseline transformer selesai. -->
 
-#### Tahapan Optimasi (Progress 4 — akan ditambahkan)
+#### 3.2.3 Tahapan Optimasi (Progress 4 — akan ditambahkan)
 
 <!-- Placeholder: Akan diisi setelah eksperimen optimasi transformer selesai. -->
 
-### Hasil dan Evaluasi
+### 3.3 Hasil dan Evaluasi
 
-#### Hasil Baseline Classical ML (Progress 2)
+#### 3.3.1 Hasil Baseline Classical ML (Progress 2)
 
 Untuk mengevaluasi performa model, digunakan empat metrik klasifikasi standar: accuracy, precision, recall, dan F1-score [12][14]. **Accuracy** mengukur proporsi prediksi yang benar dari seluruh data test, yaitu seberapa sering model memprediksi dengan tepat. Namun, pada dataset yang tidak seimbang, accuracy bisa menyesatkan karena model bisa mendapat accuracy tinggi hanya dengan selalu memprediksi kelas mayoritas [14]. **Precision** mengukur dari seluruh data yang diprediksi sebagai sarkastik, berapa persen yang benar-benar sarkastik. **Recall** mengukur dari seluruh data yang benar-benar sarkastik, berapa persen yang berhasil dideteksi oleh model. **F1-score** adalah rata-rata harmonik antara precision dan recall, yang memberikan satu angka tunggal yang menyeimbangkan keduanya. F1-score menjadi metrik utama dalam paper IdSarcasm karena kemampuannya menangkap trade-off antara precision dan recall pada dataset yang tidak seimbang [5][12].
 
 Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 
-**Hasil Eksperimen — Dataset Twitter**
+**Tabel 1.** Hasil Eksperimen pada Dataset Twitter
 
 | Vektorisasi | Model | Best Params | Accuracy | Precision | Recall | F1-Score |
 |-------------|-------|-------------|----------|-----------|--------|----------|
@@ -112,10 +116,11 @@ Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 | TF-IDF | SVM | C=10, kernel=rbf | 0,8625 | 0,8125 | 0,5821 | 0,6783 |
 
 ![Perbandingan F1-Score pada Dataset Twitter](../results/figures/f1_twitter_bow_vs_tfidf.png)
+**Gambar 5.** Perbandingan F1-score antar model pada dataset Twitter untuk metode vektorisasi BoW dan TF-IDF.
 
 Berikut adalah hasil eksperimen pada dataset Reddit:
 
-**Hasil Eksperimen — Dataset Reddit**
+**Tabel 2.** Hasil Eksperimen pada Dataset Reddit
 
 | Vektorisasi | Model | Best Params | Accuracy | Precision | Recall | F1-Score |
 |-------------|-------|-------------|----------|-----------|--------|----------|
@@ -127,10 +132,11 @@ Berikut adalah hasil eksperimen pada dataset Reddit:
 | TF-IDF | SVM | C=1, kernel=linear | 0,7886 | 0,6461 | 0,3414 | 0,4467 |
 
 ![Perbandingan F1-Score pada Dataset Reddit](../results/figures/f1_reddit_bow_vs_tfidf.png)
+**Gambar 6.** Perbandingan F1-score antar model pada dataset Reddit untuk metode vektorisasi BoW dan TF-IDF.
 
 Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target F1-score yang dilaporkan dalam paper IdSarcasm [5]:
 
-**Perbandingan Hasil Reproduksi vs Paper (TF-IDF)**
+**Tabel 3.** Perbandingan Hasil Reproduksi vs Paper (TF-IDF)
 
 | Model | Twitter Paper | Twitter Reproduksi | Selisih | Reddit Paper | Reddit Reproduksi | Selisih |
 |-------|--------------|-------------------|---------|-------------|-------------------|---------|
@@ -139,26 +145,27 @@ Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target
 | SVM | 0,6782 | 0,6783 | +0,0001 | 0,4467 | 0,4467 | 0,0000 |
 
 ![Perbandingan F1-Score Reproduksi vs Paper](../results/figures/f1_reproduksi_vs_paper.png)
+**Gambar 7.** Perbandingan F1-score hasil reproduksi dengan target paper pada dataset Twitter dan Reddit menggunakan TF-IDF.
 
 Dari tabel perbandingan di atas, terlihat bahwa reproduksi untuk Logistic Regression dan SVM pada dataset Twitter menghasilkan F1-score yang sangat mendekati bahkan identik dengan yang dilaporkan paper. Hal ini menunjukkan bahwa implementasi eksperimen berhasil mereproduksi hasil paper dengan baik untuk kedua model tersebut. Untuk Logistic Regression pada dataset Reddit, hasil reproduksi sedikit di atas target paper (+0,0072), yang kemungkinan disebabkan oleh perbedaan versi pustaka atau seed random yang berbeda saat GridSearchCV.
 
 Namun, untuk Naive Bayes terdapat gap yang cukup signifikan, terutama pada dataset Twitter (-0,1547) dan Reddit (-0,1092). Penyebab utama gap ini adalah perbedaan dataset yang digunakan. Paper IdSarcasm [5] melaporkan bahwa dataset Twitter versi asli mereka berisi 12.861 data yang tidak seimbang, sedangkan versi benchmark yang dirilis di HuggingFace dan digunakan dalam reproduksi ini hanya berisi 2.684 data dengan rasio kelas 25:75. Perbedaan ukuran yang hampir lima kali lipat ini berdampak besar pada Naive Bayes, karena algoritma ini mengestimasi probabilitas kelas secara langsung dari frekuensi kata per kelas — jadi distribusi kata yang berubah karena perbedaan ukuran dan proporsi data akan langsung mengubah probabilitas yang dipelajari [9]. Sebagai perbandingan, Logistic Regression dan SVM lebih tahan terhadap perubahan ukuran dataset karena keduanya mengoptimalkan fungsi loss (fungsi kerugian) atas seluruh data pelatihan, yang membuat boundary keputusan yang dihasilkan lebih stabil meskipun jumlah data berubah. Meskipun demikian, pola umum hasil tetap konsisten dengan paper: Logistic Regression dan SVM cenderung lebih baik daripada Naive Bayes, dan TF-IDF umumnya menghasilkan performa yang lebih stabil dibandingkan BoW.
 
-#### Hasil Model Transformer (Progress 3 — akan ditambahkan)
+#### 3.3.2 Hasil Model Transformer (Progress 3 — akan ditambahkan)
 
 <!-- Placeholder: Tabel dan pembahasan hasil reproduksi baseline transformer akan ditambahkan di sini setelah eksperimen Progress 3 selesai. -->
 
-#### Hasil Optimasi Transformer (Progress 4 — akan ditambahkan)
+#### 3.3.3 Hasil Optimasi Transformer (Progress 4 — akan ditambahkan)
 
 <!-- Placeholder: Tabel dan pembahasan hasil optimasi transformer akan ditambahkan di sini setelah eksperimen Progress 4 selesai. -->
 
-#### Analisis Komparatif (Progress 5 — akan ditambahkan)
+#### 3.3.4 Analisis Komparatif (Progress 5 — akan ditambahkan)
 
 <!-- Placeholder: Perbandingan seluruh hasil (classical ML vs transformer vs optimized) dan error analysis akan ditambahkan di sini setelah Progress 5 selesai. -->
 
 ---
 
-## Rencana Pengembangan Proyek
+## 4. Rencana Pengembangan Proyek
 
 <!-- Subbab ini akan diperbarui setiap progress. -->
 
@@ -166,7 +173,7 @@ Berdasarkan hasil baseline classical ML pada Progress 2, langkah selanjutnya ada
 
 ---
 
-## Referensi
+## 5. Referensi
 
 [1] A. Joshi, P. Bhattacharyya, and M. J. Carman, "Automatic Sarcasm Detection: A Survey," *ACM Computing Surveys*, vol. 50, no. 5, art. no. 73, pp. 1-22, 2017, doi: 10.1145/3124420.
 
