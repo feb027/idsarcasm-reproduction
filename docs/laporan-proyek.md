@@ -148,7 +148,7 @@ Perbedaan ukuran kedua dataset ini cukup mencolok. Dataset Reddit memiliki volum
 
 ### 2.2 Algoritma atau Metode
 
-Untuk Progress 2, tiga algoritma classical machine learning direproduksi sesuai dengan yang digunakan dalam paper IdSarcasm [5], yaitu Logistic Regression, Naive Bayes (Multinomial), dan Support Vector Machine (SVM). Ketiga algoritma ini merupakan baseline standar dalam tugas klasifikasi teks yang telah banyak digunakan dalam penelitian NLP sebelumnya, di antaranya untuk klasifikasi sentimen dan deteksi sarkasme [2][9].
+Untuk Progress 2, tiga algoritma classical machine learning direproduksi sesuai dengan yang digunakan dalam paper IdSarcasm [5], yaitu Logistic Regression, Naive Bayes (Multinomial), dan Support Vector Machine (SVM). Ketiga algoritma ini merupakan baseline standar dalam tugas klasifikasi teks yang telah banyak digunakan dalam penelitian NLP sebelumnya, di antaranya untuk klasifikasi sentimen dan deteksi sarkasme [2][9][13].
 
 **Logistic Regression (LR)** adalah model klasifikasi yang memprediksi probabilitas sebuah teks termasuk ke dalam kelas tertentu menggunakan fungsi sigmoid. Meskipun namanya mengandung kata "regression", model ini sebenarnya digunakan untuk klasifikasi. Dalam konteks klasifikasi teks, LR bekerja dengan mempelajari bobot (weight) untuk setiap fitur kata yang merepresentasikan seberapa kuat kata tersebut mengindikasikan kelas sarkastik atau non-sarkastik. Hyperparameter utama yang digunakan dalam eksperimen ini adalah **C**, yaitu parameter yang mengontrol seberapa ketat model mengikuti data latih. C kecil (misalnya 0,01) berarti regularisasi kuat, sehingga model cenderung lebih sederhana dan tidak overfit. Sebaliknya, C besar (misalnya 100) membuat model lebih fleksibel dalam menyesuaikan data pelatihan, tetapi berisiko menghafal data (overfitting). Pada paper, rentang pencarian C adalah [0,01, 0,1, 1, 10, 100] [5].
 
@@ -182,7 +182,7 @@ Untuk memastikan reproduktibilitas, seluruh proses eksperimen dijalankan melalui
 
 ### 3.3 Hasil dan Evaluasi
 
-Untuk mengevaluasi performa model, digunakan empat metrik klasifikasi standar: accuracy, precision, recall, dan F1-score [12]. **Accuracy** mengukur proporsi prediksi yang benar dari seluruh data test, yaitu seberapa sering model memprediksi dengan tepat. Namun, pada dataset yang tidak seimbang, accuracy bisa menyesatkan karena model bisa mendapat accuracy tinggi hanya dengan selalu memprediksi kelas mayoritas. **Precision** mengukur dari seluruh data yang diprediksi sebagai sarkastik, berapa persen yang benar-benar sarkastik. **Recall** mengukur dari seluruh data yang benar-benar sarkastik, berapa persen yang berhasil dideteksi oleh model. **F1-score** adalah rata-rata harmonik antara precision dan recall, yang memberikan satu angka tunggal yang menyeimbangkan keduanya. F1-score menjadi metrik utama dalam paper IdSarcasm karena kemampuannya menangkap trade-off antara precision dan recall pada dataset yang tidak seimbang [5][12].
+Untuk mengevaluasi performa model, digunakan empat metrik klasifikasi standar: accuracy, precision, recall, dan F1-score [12][14]. **Accuracy** mengukur proporsi prediksi yang benar dari seluruh data test, yaitu seberapa sering model memprediksi dengan tepat. Namun, pada dataset yang tidak seimbang, accuracy bisa menyesatkan karena model bisa mendapat accuracy tinggi hanya dengan selalu memprediksi kelas mayoritas [14]. **Precision** mengukur dari seluruh data yang diprediksi sebagai sarkastik, berapa persen yang benar-benar sarkastik. **Recall** mengukur dari seluruh data yang benar-benar sarkastik, berapa persen yang berhasil dideteksi oleh model. **F1-score** adalah rata-rata harmonik antara precision dan recall, yang memberikan satu angka tunggal yang menyeimbangkan keduanya. F1-score menjadi metrik utama dalam paper IdSarcasm karena kemampuannya menangkap trade-off antara precision dan recall pada dataset yang tidak seimbang [5][12].
 
 Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 
@@ -253,3 +253,7 @@ Pada Progress 5 dan 6, seluruh hasil eksperimen (classical ML dan transformer) a
 [11] F. Pedregosa *et al.*, "Scikit-learn: Machine Learning in Python," *Journal of Machine Learning Research*, vol. 12, pp. 2825-2830, 2011, doi: 10.5555/1953048.2078195.
 
 [12] M. Sokolova and G. Lapalme, "A Systematic Analysis of Performance Measures for Classification Tasks," *Information Processing & Management*, vol. 45, no. 4, pp. 427-437, 2009, doi: 10.1016/j.ipm.2009.03.002.
+
+[13] K. Taha, P. D. Yoo, C. Y. Yeun, D. Homouz, and A. Taha, "A Comprehensive Survey of Text Classification Techniques and Their Research Applications: Observational and Experimental Insights," *Computer Science Review*, vol. 54, art. no. 100664, 2024, doi: 10.1016/j.cosrev.2024.100664.
+
+[14] G. Naidu *et al.*, "Accuracy, Precision, Recall, F1-Score, or MCC? Empirical Evidence from Advanced Statistics, ML, and XAI for Evaluating Business Predictive Models," *Journal of Big Data*, vol. 12, art. no. 1313, 2025, doi: 10.1186/s40537-025-01313-4.
