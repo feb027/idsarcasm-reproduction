@@ -29,12 +29,12 @@ import numpy as np
 import pandas as pd
 from datasets import load_dataset
 from nltk.tokenize import word_tokenize
+from scipy.sparse import vstack
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import GridSearchCV, PredefinedSplit
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 
 
@@ -163,24 +163,24 @@ def build_vectorizer(name: str):
 
 def build_classifier(name: str):
     if name == "lr":
-        model = LogisticRegression(max_iter=2000, solver="liblinear")
+        model = LogisticRegression()
         grid = {
-            "clf__C": [0.01, 0.1, 1, 10, 100],
+            "C": [0.01, 0.1, 1, 10, 100],
         }
         return model, grid
 
     if name == "nb":
         model = MultinomialNB()
         grid = {
-            "clf__alpha": np.linspace(0.001, 1.0, 50),
+            "alpha": np.linspace(0.001, 1.0, 50),
         }
         return model, grid
 
     if name == "svm":
         model = SVC()
         grid = {
-            "clf__C": [0.01, 0.1, 1, 10, 100],
-            "clf__kernel": ["rbf", "linear"],
+            "C": [0.01, 0.1, 1, 10, 100],
+            "kernel": ["rbf", "linear"],
         }
         return model, grid
 
@@ -209,11 +209,18 @@ def build_trainval_data(
 
 
 def evaluate_predictions(y_true: pd.Series, y_pred: np.ndarray) -> Dict[str, float]:
+    accuracy = accuracy_score(y_true, y_pred)
+    precision, recall, f1, _ = precision_recall_fscore_support(
+        y_true,
+        y_pred,
+        average="binary",
+        zero_division=0,
+    )
     return {
-        "accuracy": float(accuracy_score(y_true, y_pred)),
-        "precision": float(precision_score(y_true, y_pred, zero_division=0)),
-        "recall": float(recall_score(y_true, y_pred, zero_division=0)),
-        "f1": float(f1_score(y_true, y_pred, zero_division=0)),
+        "accuracy": float(accuracy),
+        "precision": float(precision),
+        "recall": float(recall),
+        "f1": float(f1),
     }
 
 
@@ -229,43 +236,45 @@ def run_single_experiment(
     config = DATASET_CONFIGS[dataset_name]
     print(f"\n=== {dataset_name.upper()} | {vectorizer_name.upper()} | {model_name.upper()} ===")
 
-    trainval_texts, trainval_labels, predefined_split = build_trainval_data(
-        frames=frames,
-        text_column=config.text_column,
-        label_column=config.label_column,
-    )
-    test_texts = frames["test"][config.text_column]
-    test_labels = frames["test"][config.label_column]
+    train_df = frames["train"]
+    valid_df = frames["validation"]
+    test_df = frames["test"]
 
     vectorizer = build_vectorizer(vectorizer_name)
+    vectorizer.fit(train_df[config.text_column])
+
+    x_train = vectorizer.transform(train_df[config.text_column])
+    x_valid = vectorizer.transform(valid_df[config.text_column])
+    x_test = vectorizer.transform(test_df[config.text_column])
+
+    y_train = train_df[config.label_column]
+    y_valid = valid_df[config.label_column]
+    y_test = test_df[config.label_column]
+
+    x_train_valid = vstack([x_train, x_valid])
+    y_train_valid = list(y_train) + list(y_valid)
+
+    predefined_split = PredefinedSplit([-1] * len(y_train) + [0] * len(y_valid))
     classifier, param_grid = build_classifier(model_name)
-    pipeline = Pipeline(
-        [
-            ("vectorizer", vectorizer),
-            ("clf", classifier),
-        ]
-    )
 
     search = GridSearchCV(
-        estimator=pipeline,
+        estimator=classifier,
         param_grid=param_grid,
-        scoring="f1",
         cv=predefined_split,
         n_jobs=n_jobs,
         verbose=verbose,
     )
-    search.fit(trainval_texts, trainval_labels)
+    search.fit(x_train_valid, y_train_valid)
 
-    best_model = search.best_estimator_
-    predictions = best_model.predict(test_texts)
-    metrics = evaluate_predictions(test_labels, predictions)
+    predictions = search.predict(x_test)
+    metrics = evaluate_predictions(y_test, predictions)
 
     result: Dict[str, object] = {
         "dataset": dataset_name,
         "text_column": config.text_column,
         "vectorizer": vectorizer_name,
         "model": model_name,
-        "best_validation_f1": float(search.best_score_),
+        "best_validation_score": float(search.best_score_),
         "best_params": search.best_params_,
         **metrics,
     }
