@@ -26,10 +26,10 @@ Artinya, Progress 2 tidak lagi dianggap selesai hanya karena EDA selesai. Progre
 - [x] Target metrik paper untuk baseline sudah dicatat
 
 ### Belum selesai
-- [ ] Menyiapkan script/notebook baseline classical ML
+- [x] Menyiapkan script baseline classical ML dan local-run guide
 - [ ] Menjalankan baseline Twitter: LR, NB, SVM
 - [ ] Menjalankan baseline Reddit: LR, NB, SVM
-- [ ] Menyimpan tabel hasil baseline
+- [ ] Menyimpan tabel hasil baseline aktual dari local run
 - [ ] Membuat komparasi awal terhadap paper
 
 ---
@@ -214,8 +214,9 @@ Bagian ini **belum dikerjakan**, tetapi secara struktur sekarang sudah menjadi b
 
 ### 9.1 Persiapan environment
 - install dependency minimum: `nltk`, `datasets`, `scikit-learn`, `pandas`, `numpy`
-- download tokenizer NLTK (`punkt`)
+- download tokenizer NLTK (`punkt`, `punkt_tab`) bila belum ada
 - pastikan dataset bisa dimuat tanpa error
+- ikuti panduan lokal di `docs/progress-2-local-run-guide.md`
 
 ### 9.2 Implementasi baseline
 - siapkan script/notebook untuk menjalankan LR, NB, SVM
@@ -241,6 +242,8 @@ Bagian ini **belum dikerjakan**, tetapi secara struktur sekarang sudah menjadi b
 - [x] Notebook EDA: `notebooks/01_eda.ipynb`
 - [x] Dokumentasi ringkasan paper dan EDA
 - [x] Figure EDA tersimpan di `results/figures/`
+- [x] Script baseline local-ready: `scripts/run_classical_baselines.py`
+- [x] Panduan run lokal: `docs/progress-2-local-run-guide.md`
 
 ## 11. Figures Generated
 

@@ -101,6 +101,10 @@ python scripts/download_data.py     # Download dataset
 jupyter notebook                    # Buka notebook
 ```
 
+Untuk menjalankan Progress 2 di PC lokal / WSL2, ikuti panduan:
+- `docs/progress-2-local-run-guide.md`
+- script utama baseline: `scripts/run_classical_baselines.py`
+
 ## Reference
 
 ```bibtex
