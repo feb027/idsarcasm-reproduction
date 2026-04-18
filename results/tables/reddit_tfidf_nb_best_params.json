@@ -3,12 +3,12 @@
   "text_column": "text",
   "vectorizer": "tfidf",
   "model": "nb",
-  "best_validation_f1": 0.29831932773109243,
+  "best_validation_score": 0.7654145995747696,
   "best_params": {
-    "clf__alpha": 0.021387755102040818
+    "alpha": 0.062163265306122456
   },
-  "accuracy": 0.7677053824362606,
-  "precision": 0.5806451612903226,
-  "recall": 0.254957507082153,
-  "f1": 0.3543307086614173
+  "accuracy": 0.7776203966005666,
+  "precision": 0.65,
+  "recall": 0.23937677053824363,
+  "f1": 0.3498964803312629
 }

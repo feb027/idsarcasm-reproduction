@@ -3,12 +3,12 @@
   "text_column": "tweet",
   "vectorizer": "tfidf",
   "model": "lr",
-  "best_validation_f1": 0.7068965517241379,
+  "best_validation_score": 0.8731343283582089,
   "best_params": {
-    "clf__C": 10
+    "C": 10
   },
   "accuracy": 0.8661710037174721,
-  "precision": 0.7767857142857143,
-  "recall": 0.6492537313432836,
-  "f1": 0.7073170731707317
+  "precision": 0.7627118644067796,
+  "recall": 0.6716417910447762,
+  "f1": 0.7142857142857143
 }

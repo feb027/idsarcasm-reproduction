@@ -3,13 +3,13 @@
   "text_column": "text",
   "vectorizer": "tfidf",
   "model": "svm",
-  "best_validation_f1": 0.478134110787172,
+  "best_validation_score": 0.7810063784549964,
   "best_params": {
-    "clf__C": 100,
-    "clf__kernel": "linear"
+    "C": 1,
+    "kernel": "linear"
   },
-  "accuracy": 0.7418555240793201,
-  "precision": 0.4835007173601148,
-  "recall": 0.4773371104815864,
-  "f1": 0.4803991446899501
+  "accuracy": 0.7885977337110481,
+  "precision": 0.646112600536193,
+  "recall": 0.3413597733711048,
+  "f1": 0.44670991658943465
 }
