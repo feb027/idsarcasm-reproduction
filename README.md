@@ -25,6 +25,9 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 ├── results/
 │   ├── tables/           # Hasil evaluasi (CSV/tabel)
 │   └── figures/          # Grafik & visualisasi (PNG)
+├── source-code/
+│   ├── README.md         # Penjelasan snapshot source code upstream
+│   └── original-id-sarcasm/  # Snapshot repo asli paper (read-only reference)
 ├── docs/
 │   ├── paper-summary.md  # Ringkasan paper + catatan EDA/progress
 │   ├── progress-plan.md  # Timeline & rencana 6 progress (revisi)
@@ -76,18 +79,18 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 
 ## Progress
 
-> Revisi struktur: Progress 2 lama (dataset + EDA) dan Progress 3 lama (classical ML baseline) sekarang digabung menjadi Progress 2 baru. Saat ini bagian EDA sudah selesai, tetapi baseline classical ML masih pending.
+> Revisi struktur: Progress 2 lama (dataset + EDA) dan Progress 3 lama (classical ML baseline) sekarang digabung menjadi Progress 2 baru. Saat ini baseline classical ML sudah berhasil dijalankan, dan source snapshot repo asli sudah disimpan untuk fase berikutnya.
 
 | # | Progress | Status | Detail |
 |---|----------|--------|--------|
 | 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
-| 2 | Dataset, EDA, dan Baseline Classical ML | 🟡 | Dataset + EDA selesai; baseline LR/NB/SVM belum dijalankan |
-| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ⬜ | Fine-tuning transformer awal dan perbandingan ke baseline classical |
+| 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
+| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ⬜ | Gunakan snapshot upstream untuk mulai dari source code penulis |
 | 4 | Optimasi Transformer Terarah | ⬜ | Tuning konfigurasi transformer untuk meningkatkan performa |
 | 5 | Analisis Komparatif dan Error Analysis | ⬜ | Komparasi penuh, confusion matrix, dan analisis error |
 | 6 | Finalisasi Laporan, Repo, dan Narasi Hasil | ⬜ | Rapikan hasil akhir, README, laporan, dan kesimpulan |
 
-Detail dokumentasi saat ini tersedia di `docs/progress-1.md` dan `docs/progress-2.md`. Progress berikutnya akan dibuat saat fasenya mulai dikerjakan.
+Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, dan `source-code/README.md`.
 
 ## Quick Start
 

@@ -13,7 +13,7 @@ Per 18 April 2026, struktur progress direvisi agar alurnya lebih realistis dan l
 
 Status saat ini:
 - Progress 1: ✅ selesai
-- Progress 2: 🟡 berjalan sebagian (bagian dataset + EDA selesai, baseline classical ML belum dieksekusi)
+- Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
 - Progress 3–6: ⬜ belum mulai
 
 ---
@@ -38,17 +38,18 @@ Menetapkan paper utama, memahami kontribusi paper, menentukan scope reproduksi y
 - `docs/paper-summary.md`
 - `docs/progress-1.md`
 - `docs/progress-plan.md`
+- `source-code/original-id-sarcasm/` — snapshot repo asli paper untuk referensi dan adaptasi fase berikutnya
 
 ### Gate kelulusan progress
 Progress 1 dinyatakan selesai jika paper sudah final, scope sudah jelas, dan environment kerja proyek sudah memiliki struktur dokumentasi dasar.
 
 ---
 
-## Progress 2: Dataset, EDA, dan Baseline Classical ML 🟡
+## Progress 2: Dataset, EDA, dan Baseline Classical ML ✅
 
 **Status detail:**
-- **Sudah selesai:** akuisisi dataset, validasi split, EDA, klarifikasi mismatch ukuran dataset Twitter, identifikasi metodologi baseline classical ML dari paper.
-- **Belum selesai:** implementasi/eksekusi baseline classical ML dan penyusunan tabel hasil reproduksi awal.
+- **Sudah selesai:** akuisisi dataset, validasi split, EDA, klarifikasi mismatch ukuran dataset Twitter, identifikasi metodologi baseline classical ML dari paper, eksekusi baseline Twitter dan Reddit, serta penyimpanan tabel hasil.
+- **Hasil utama:** reproduksi baseline classical sekarang sudah cukup dekat dengan repo/paper, terutama pada Twitter TF-IDF Logistic Regression dan Reddit TF-IDF SVM.
 
 ### Tujuan
 Menggabungkan pekerjaan persiapan eksperimen dan eksekusi baseline classical ML ke dalam satu fase yang utuh, sehingga Progress 2 tidak hanya berhenti di EDA, tetapi menghasilkan fondasi eksperimen yang benar-benar siap dibandingkan dengan paper.
@@ -74,12 +75,12 @@ Menggabungkan pekerjaan persiapan eksperimen dan eksekusi baseline classical ML 
 - [x] Menentukan target metrik: F1, accuracy, precision, recall
 - [x] Menyusun target angka acuan dari paper
 
-#### D. Baseline execution (belum dikerjakan)
-- [ ] Menyiapkan script/notebook baseline classical ML
-- [ ] Menjalankan Twitter baseline: LR, NB, SVM
-- [ ] Menjalankan Reddit baseline: LR, NB, SVM
-- [ ] Menyimpan hasil ke tabel komparatif
-- [ ] Mencatat gap terhadap target paper
+#### D. Baseline execution
+- [x] Menyiapkan script/notebook baseline classical ML
+- [x] Menjalankan Twitter baseline: LR, NB, SVM
+- [x] Menjalankan Reddit baseline: LR, NB, SVM
+- [x] Menyimpan hasil ke tabel komparatif
+- [x] Mencatat gap terhadap target paper
 
 ### Target hasil Progress 2
 #### Target paper untuk Twitter (TF-IDF)
@@ -116,6 +117,7 @@ Menaikkan proyek dari level baseline classical ML ke level yang lebih sesuai den
 
 ### Cakupan
 - [ ] Menentukan model transformer utama yang realistis: IndoBERT Base atau XLM-R Base
+- [ ] Mengambil titik awal dari `source-code/original-id-sarcasm/` agar implementasi tetap dekat ke codebase penulis
 - [ ] Menyiapkan pipeline fine-tuning yang rapi dan terdokumentasi
 - [ ] Menjalankan minimal 1 transformer baseline pada dataset Twitter
 - [ ] Jika resource cukup, menjalankan transformer pada Reddit atau model kedua sebagai pembanding

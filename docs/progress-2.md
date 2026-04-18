@@ -1,7 +1,8 @@
 # Progress 2: Dataset, EDA, dan Baseline Classical ML
 
-**Status:** 🟡 Berjalan sebagian
+**Status:** ✅ Selesai
 **Tanggal mulai:** 12 April 2026
+**Tanggal selesai teknis:** 18 April 2026
 **Revisi struktur:** 18 April 2026
 
 ---
@@ -24,13 +25,16 @@ Artinya, Progress 2 tidak lagi dianggap selesai hanya karena EDA selesai. Progre
 - [x] Mismatch ukuran dataset Twitter berhasil dijelaskan
 - [x] Metodologi baseline classical ML dari paper sudah diidentifikasi
 - [x] Target metrik paper untuk baseline sudah dicatat
-
-### Belum selesai
 - [x] Menyiapkan script baseline classical ML dan local-run guide
-- [ ] Menjalankan baseline Twitter: LR, NB, SVM
-- [ ] Menjalankan baseline Reddit: LR, NB, SVM
-- [ ] Menyimpan tabel hasil baseline aktual dari local run
-- [ ] Membuat komparasi awal terhadap paper
+- [x] Menjalankan baseline Twitter: LR, NB, SVM
+- [x] Menjalankan baseline Reddit: LR, NB, SVM
+- [x] Menyimpan tabel hasil baseline aktual di `results/tables/`
+- [x] Membuat komparasi awal terhadap paper
+
+### Catatan penutup Progress 2
+- Runner classical baseline sudah disejajarkan dengan logika source code publik repo asli.
+- Repo sekarang juga menyimpan snapshot upstream di `source-code/original-id-sarcasm/` untuk referensi fase berikutnya.
+- Progress 2 teknis sudah selesai dan siap menjadi fondasi untuk Progress 3.
 
 ---
 
@@ -204,13 +208,40 @@ Untuk reproduksi proyek ini, preprocessing berat tidak perlu diulang dari nol ka
 | SVM | ~0.4467 |
 | Naive Bayes | ~0.4591 |
 
-Target ini akan menjadi acuan utama ketika baseline benar-benar dijalankan.
+Target ini menjadi acuan utama ketika baseline dijalankan.
+
+## 8.1 Hasil aktual local run
+
+### Twitter
+| Vectorizer | Model | F1 | Catatan |
+|-----------|-------|----|---------|
+| BoW | LR | 0.7206 | sedikit di atas paper TF-IDF LR |
+| BoW | NB | 0.6722 | sangat dekat ke target paper NB |
+| BoW | SVM | 0.6850 | sedikit di atas target paper SVM |
+| TF-IDF | LR | 0.7143 | nyaris identik dengan paper (0.7142) |
+| TF-IDF | NB | 0.5174 | jauh di bawah target paper |
+| TF-IDF | SVM | 0.6783 | nyaris identik dengan paper (0.6782) |
+
+### Reddit
+| Vectorizer | Model | F1 | Catatan |
+|-----------|-------|----|---------|
+| BoW | LR | 0.4857 | sangat dekat dengan target paper LR |
+| BoW | NB | 0.4592 | nyaris identik dengan target paper NB |
+| BoW | SVM | 0.4031 | di bawah target paper SVM |
+| TF-IDF | LR | 0.4959 | sedikit di atas target paper LR |
+| TF-IDF | NB | 0.3499 | jauh di bawah target paper NB |
+| TF-IDF | SVM | 0.4467 | identik dengan target paper SVM |
+
+### Ringkasan gap awal terhadap paper
+- Hasil yang paling kuat dan paling faithful saat ini: Twitter TF-IDF LR, Twitter TF-IDF SVM, Reddit BoW NB, dan Reddit TF-IDF SVM.
+- Naive Bayes pada TF-IDF menjadi kombinasi yang paling lemah di kedua dataset.
+- Secara umum, baseline classical sekarang sudah cukup valid untuk menutup Progress 2 dan dipakai sebagai pijakan masuk ke Progress 3.
 
 ---
 
-## 9. Rencana Eksekusi yang Termasuk dalam Progress 2
+## 9. Jejak eksekusi Progress 2
 
-Bagian ini **belum dikerjakan**, tetapi secara struktur sekarang sudah menjadi bagian resmi dari Progress 2.
+Bagian ini merekam struktur eksekusi yang dipakai untuk menutup Progress 2. Langkah-langkah di bawah ini sekarang **sudah dikerjakan** dan tetap disimpan sebagai referensi reproduksi lokal.
 
 ### 9.1 Persiapan environment
 - install dependency minimum: `nltk`, `datasets`, `scikit-learn`, `pandas`, `numpy`
@@ -263,11 +294,11 @@ Bagian ini **belum dikerjakan**, tetapi secara struktur sekarang sudah menjadi b
 
 ## 12. Kriteria Selesai Progress 2
 
-Progress 2 baru boleh ditandai **selesai** jika seluruh poin berikut sudah terpenuhi:
-- [ ] baseline classical ML Twitter selesai dijalankan
-- [ ] baseline classical ML Reddit selesai dijalankan
-- [ ] hasil tersimpan dalam tabel yang rapi
-- [ ] target paper vs hasil reproduksi sudah dibandingkan
-- [ ] dokumentasi Progress 2 mencakup EDA + baseline
+Progress 2 dinyatakan **selesai** karena seluruh poin berikut sudah terpenuhi:
+- [x] baseline classical ML Twitter selesai dijalankan
+- [x] baseline classical ML Reddit selesai dijalankan
+- [x] hasil tersimpan dalam tabel yang rapi
+- [x] target paper vs hasil reproduksi sudah dibandingkan
+- [x] dokumentasi Progress 2 mencakup EDA + baseline
 
-Sampai saat ini, Progress 2 masih **parsial**, bukan selesai penuh.
+Dengan demikian, Progress 2 sudah cukup kuat untuk ditutup dan dijadikan fondasi masuk ke Progress 3.
