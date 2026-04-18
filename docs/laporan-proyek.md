@@ -20,7 +20,7 @@ Beberapa peneliti sudah coba mengatasi hal ini. Lunando dan Purwarianti [2] paka
 
 Kekurangan ini kemudian diisi oleh Suhartono, Wongso, dan Handoyo [5] lewat paper "IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection". Paper ini memperkenalkan benchmark deteksi sarkasme bahasa Indonesia pertama yang publik, dengan dataset dari Reddit dan Twitter, serta membandingkan tiga kelas model: classical machine learning, fine-tuned pre-trained language models, dan zero-shot large language models.
 
-Proyek reproduksi ini bertujuan memvalidasi hasil yang dilaporkan di paper IdSarcasm [5], dimulai dari baseline classical ML dulu sebagai fondasi, lalu diperluas ke model transformer.
+Proyek ini bertujuan mereproduksi dan mengoptimasi hasil dari paper IdSarcasm [5], dimulai dari baseline classical ML sebagai fondasi, lalu diperluas ke model transformer beserta optimasi performanya.
 
 ---
 
