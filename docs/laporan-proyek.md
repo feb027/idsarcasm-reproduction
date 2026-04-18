@@ -1,10 +1,10 @@
-# Laporan Proyek Progress 2
+# Laporan Proyek
 
 **Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm**
 
 ---
 
-## 1. Latar Belakang
+## Latar Belakang Proyek
 
 Deteksi sarkasme merupakan salah satu tantangan besar dalam bidang Natural Language Processing (NLP). Sarkasme sendiri adalah bentuk ironi di mana penutur menyampaikan makna yang berlawanan dengan kata-kata yang diucapkan [1]. Hal ini membuat sistem NLP sering salah membaca sentimen sebuah teks — kalimat yang terlihat positif bisa jadi sebenarnya bernada negatif karena sarkasme. Akibatnya, aplikasi seperti analisis sentimen, moderasi konten, dan pemantauan opini publik bisa menghasilkan kesimpulan yang keliru jika sarkasme tidak terdeteksi.
 
@@ -14,45 +14,13 @@ Beberapa penelitian sebelumnya sudah mencoba mengatasi masalah ini. Lunando dan 
 
 Kekurangan tersebut akhirnya diisi oleh Suhartono, Wongso, dan Handoyo [5] melalui paper "IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection". Paper ini memperkenalkan benchmark deteksi sarkasme bahasa Indonesia pertama yang tersedia secara publik, dengan dataset dari Reddit dan Twitter, serta membandingkan tiga kelas model secara komprehensif: classical machine learning, fine-tuned pre-trained language models, dan zero-shot large language models.
 
-Proyek reproduksi ini bertujuan untuk memvalidasi hasil yang dilaporkan dalam paper IdSarcasm [5]. Pada Progress 2, fokus diberikan pada reproduksi baseline classical machine learning sebagai fondasi benchmark sebelum melangkah ke model transformer.
+Proyek reproduksi ini bertujuan untuk memvalidasi hasil yang dilaporkan dalam paper IdSarcasm [5], dimulai dari baseline classical machine learning sebagai fondasi, kemudian diperluas ke model transformer sesuai dengan judul proyek.
 
 ---
 
-## 2. Referensi
+## Analisis Proyek
 
-[1] A. Joshi, P. Bhattacharyya, and M. J. Carman, "Automatic Sarcasm Detection: A Survey," *ACM Computing Surveys*, vol. 50, no. 5, art. no. 73, pp. 1-22, 2017, doi: 10.1145/3124420.
-
-[2] E. Lunando and A. Purwarianti, "Indonesian Social Media Sentiment Analysis with Sarcasm Detection," in *2013 International Conference on Advanced Computer Science and Information Systems (ICACSIS)*, Bali, Indonesia, 2013, pp. 195-198, doi: 10.1109/ICACSIS.2013.6761557.
-
-[3] K. S. Ranti and A. S. Girsang, "Indonesian Sarcasm Detection Using Convolutional Neural Network," *International Journal of Emerging Trends in Engineering Research*, vol. 8, no. 9, pp. 6448-6453, 2020, doi: 10.30534/ijeter/2020/10892020.
-
-[4] K. Khotijah, J. Tirtawangsa, and A. B. W. Putra, "Using LSTM for Context Based Approach of Sarcasm Detection in Indonesian and English," in *2020 International Conference on Data Science and Its Applications (ICoDSA)*, Bandung, Indonesia, 2020, pp. 1-6, doi: 10.1109/ICoDSA50139.2020.9212955.
-
-[5] D. Suhartono, W. Wongso, and A. T. Handoyo, "IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection," *IEEE Access*, vol. 12, pp. 87323-87332, 2024, doi: 10.1109/ACCESS.2024.3416955.
-
-[6] DataReportal, "Digital 2025: Indonesia," Feb. 2025. [Online]. Available: https://datareportal.com/reports/digital-2025-indonesia. [Accessed: Apr. 16, 2026].
-
-[7] N. H. Jeremy, "The Impact of Text Preprocessing in Sarcasm Detection on Indonesian Social Media Contents," *Engineering, Mathematics and Computer Science Journal (EMACS)*, vol. 7, no. 1, 2025, doi: 10.33021/emacs.v7i1.13503.
-
-[8] C. D. Manning, P. Raghavan, and H. Schütze, *Introduction to Information Retrieval*. Cambridge, U.K.: Cambridge University Press, 2008, doi: 10.1017/CBO9780511809071.
-
-[9] A. McCallum and K. Nigam, "A Comparison of Event Models for Naive Bayes Text Classification," in *AAAI-98 Workshop on Learning for Text Categorization*, Madison, WI, USA, 1998, pp. 41-48.
-
-[10] C. Cortes and V. Vapnik, "Support-Vector Networks," *Machine Learning*, vol. 20, no. 3, pp. 273-297, 1995, doi: 10.1007/BF00994018.
-
-[11] F. Pedregosa *et al.*, "Scikit-learn: Machine Learning in Python," *Journal of Machine Learning Research*, vol. 12, pp. 2825-2830, 2011, doi: 10.5555/1953048.2078195.
-
-[12] M. Sokolova and G. Lapalme, "A Systematic Analysis of Performance Measures for Classification Tasks," *Information Processing & Management*, vol. 45, no. 4, pp. 427-437, 2009, doi: 10.1016/j.ipm.2009.03.002.
-
-[13] K. Taha, P. D. Yoo, C. Y. Yeun, D. Homouz, and A. Taha, "A Comprehensive Survey of Text Classification Techniques and Their Research Applications: Observational and Experimental Insights," *Computer Science Review*, vol. 54, art. no. 100664, 2024, doi: 10.1016/j.cosrev.2024.100664.
-
-[14] G. Naidu *et al.*, "Accuracy, Precision, Recall, F1-Score, or MCC? Empirical Evidence from Advanced Statistics, ML, and XAI for Evaluating Business Predictive Models," *Journal of Big Data*, vol. 12, art. no. 1313, 2025, doi: 10.1186/s40537-025-01313-4.
-
----
-
-## 3. Analisis Proyek
-
-### 3.1 Objek dan Dataset
+### Objek dan Dataset
 
 Objek penelitian dalam proyek ini adalah teks berbahasa Indonesia yang mengandung sarkasme, yang bersumber dari dua platform media sosial yaitu Reddit dan Twitter. Dataset yang digunakan merupakan dataset benchmark IdSarcasm yang dirilis oleh Suhartono *et al.* [5] melalui platform HuggingFace. Dataset ini dikumpulkan dari komentar dan cuitan pengguna media sosial Indonesia yang telah dianotasi sebagai sarkastik atau non-sarkastik oleh penulis aslinya.
 
@@ -68,7 +36,11 @@ Selama tahap eksplorasi data awal (Exploratory Data Analysis / EDA), dilakukan p
 
 Perbedaan ukuran kedua dataset ini cukup mencolok. Dataset Reddit memiliki volume data sekitar lima kali lipat lebih besar dibandingkan Twitter. Ini perlu diperhatikan karena data lebih banyak belum tentu hasilnya lebih bagus kalau karakteristik teksnya beda. Berdasarkan temuan EDA, teks Reddit memiliki variasi panjang yang lebih lebar, sedangkan teks Twitter lebih seragam.
 
-### 3.2 Algoritma atau Metode
+### Algoritma atau Metode
+
+<!-- Subbab ini akan diperbarui seiring progress. Saat ini baru mencakup algoritma yang digunakan pada Progress 2 (baseline classical ML). -->
+
+#### Baseline Classical Machine Learning (Progress 2)
 
 Untuk Progress 2, tiga algoritma classical machine learning direproduksi sesuai dengan yang digunakan dalam paper IdSarcasm [5], yaitu Logistic Regression, Naive Bayes (Multinomial), dan Support Vector Machine (SVM). Ketiga algoritma ini merupakan baseline standar dalam tugas klasifikasi teks yang telah banyak digunakan dalam penelitian NLP sebelumnya, di antaranya untuk klasifikasi sentimen dan deteksi sarkasme [2][9][13].
 
@@ -80,29 +52,49 @@ Untuk Progress 2, tiga algoritma classical machine learning direproduksi sesuai 
 
 Sebagai representasi fitur teks, digunakan dua metode vektorisasi yaitu **Bag of Words (BoW)** dan **TF-IDF** (Term Frequency-Inverse Document Frequency). BoW merepresentasikan setiap dokumen sebagai vektor frekuensi kemunculan setiap kata dalam vocabulary. Metode ini sederhana tetapi tidak mempertimbangkan penting-tidaknya sebuah kata dalam korpus secara keseluruhan. TF-IDF memperbaiki kelemahan ini dengan memberikan bobot lebih tinggi pada kata yang sering muncul dalam satu dokumen tetapi jarang muncul di dokumen lain, sehingga kata-kata umum seperti "dan" atau "yang" mendapat bobot rendah [8]. Proses tokenisasi teks dilakukan menggunakan `nltk.word_tokenize` yang memecah kalimat menjadi token-token kata sebelum vektorisasi.
 
-### 3.3 Analisis Kebutuhan Proyek
+#### Model Transformer (Progress 3 — akan ditambahkan)
+
+<!-- Placeholder: Akan diisi setelah reproduksi baseline transformer (IndoBERT / XLM-R) selesai pada Progress 3. -->
+
+### Analisis Kebutuhan Proyek
 
 Untuk menjalankan eksperimen baseline classical ML pada proyek ini, kebutuhan yang harus dipenuhi mencakup aspek perangkat lunak dan perangkat keras. Dari sisi perangkat lunak, dibutuhkan Python 3.10 ke atas dengan pustaka scikit-learn untuk implementasi ketiga algoritma, pustaka pandas untuk manipulasi data, serta pustaka nltk untuk tokenisasi teks. Dataset diperoleh dari HuggingFace dan telah di-cache secara lokal dalam format CSV untuk mempercepat proses loading.
 
 Dari sisi perangkat keras, eksperimen classical ML tidak membutuhkan GPU karena scikit-learn berjalan di CPU. Eksperimen ini dapat dijalankan pada komputer lokal dengan spesifikasi standar (i5-12400F, 16GB RAM) tanpa kendala. Seluruh eksperimen Progress 2 diselesaikan dalam waktu beberapa menit, menjadikannya sangat efisien untuk iterasi dan debugging.
 
+<!-- Kebutuhan untuk eksperimen transformer (GPU, Google Colab, dll) akan ditambahkan pada Progress 3. -->
+
 ---
 
-## 4. Pemodelan
+## Pemodelan/Sistem/Aplikasi
 
-### 4.1 Ilustrasi atau Arsitektur
+### Ilustrasi atau Arsitektur Projek
 
 Alur kerja (pipeline) eksperimen classical ML pada proyek ini terdiri dari beberapa tahap utama yang saling berurutan. Pertama, data mentah dimuat dari file CSV yang telah di-cache secara lokal. Kemudian, teks diproses melalui tahap tokenisasi menggunakan `nltk.word_tokenize` untuk memecah kalimat menjadi kata-kata individual. Setelah itu, teks yang sudah ditokenisasi direpresentasikan sebagai vektor numerik menggunakan Bag of Words (CountVectorizer) atau TF-IDF (TfidfVectorizer). Vektor fitur ini kemudian digunakan untuk melatih model klasifikasi (LR, NB, atau SVM) dengan pencarian hyperparameter melalui GridSearchCV. Terakhir, model terbaik dievaluasi pada subset test menggunakan metrik accuracy, precision, recall, dan F1-score.
 
 ![Arsitektur Pipeline Eksperimen Classical ML](../results/figures/pipeline_architecture.png)
 
-### 4.2 Tahapan
+<!-- Arsitektur pipeline untuk model transformer akan ditambahkan pada Progress 3. -->
+
+### Tahapan
+
+#### Tahapan Eksperimen Classical ML (Progress 2)
 
 Eksperimen dilaksanakan dalam beberapa tahap sebagai berikut. Pertama, dataset dimuat dari HuggingFace dan disimpan dalam format CSV lokal. Tahap ini mencakup pembagian data menjadi subset train, validasi, dan test sesuai dengan split yang telah ditentukan oleh penulis paper. Kedua, dilakukan tahap EDA untuk memahami karakteristik dataset, termasuk distribusi kelas, panjang teks, dan kualitas data. Ketiga, teks diproses melalui tokenisasi dan vektorisasi. Keempat, ketiga model (LR, NB, SVM) dilatih menggunakan GridSearchCV dengan PredefinedSplit untuk menemukan kombinasi hyperparameter terbaik pada masing-masing dataset (Twitter dan Reddit) dan masing-masing metode vektorisasi (BoW dan TF-IDF). GridSearchCV bekerja dengan mencoba semua kombinasi hyperparameter yang ditentukan, lalu mengevaluasi tiap kombinasi menggunakan cross-validation [11]. Dalam eksperimen ini, data train dan validasi digabungkan, kemudian PredefinedSplit digunakan agar data validasi tetap menjadi holdout (tidak dilatih ulang) selama pencarian. Cara ini memastikan bahwa proses tuning hyperparameter konsisten dengan pendekatan paper asli. Terakhir, model dengan hyperparameter terbaik dievaluasi pada subset test untuk menghitung accuracy, precision, recall, dan F1-score.
 
 Untuk memastikan reproduktibilitas, seluruh proses eksperimen dijalankan melalui skrip Python (`scripts/run_classical_baselines.py`) yang dapat dijalankan ulang secara konsisten. Hasil evaluasi disimpan dalam format CSV di direktori `results/tables/` untuk kemudian dianalisis dan dibandingkan dengan hasil yang dilaporkan paper.
 
-### 4.3 Hasil dan Evaluasi
+#### Tahapan Eksperimen Transformer (Progress 3 — akan ditambahkan)
+
+<!-- Placeholder: Akan diisi setelah reproduksi baseline transformer selesai. -->
+
+#### Tahapan Optimasi (Progress 4 — akan ditambahkan)
+
+<!-- Placeholder: Akan diisi setelah eksperimen optimasi transformer selesai. -->
+
+### Hasil dan Evaluasi
+
+#### Hasil Baseline Classical ML (Progress 2)
 
 Untuk mengevaluasi performa model, digunakan empat metrik klasifikasi standar: accuracy, precision, recall, dan F1-score [12][14]. **Accuracy** mengukur proporsi prediksi yang benar dari seluruh data test, yaitu seberapa sering model memprediksi dengan tepat. Namun, pada dataset yang tidak seimbang, accuracy bisa menyesatkan karena model bisa mendapat accuracy tinggi hanya dengan selalu memprediksi kelas mayoritas [14]. **Precision** mengukur dari seluruh data yang diprediksi sebagai sarkastik, berapa persen yang benar-benar sarkastik. **Recall** mengukur dari seluruh data yang benar-benar sarkastik, berapa persen yang berhasil dideteksi oleh model. **F1-score** adalah rata-rata harmonik antara precision dan recall, yang memberikan satu angka tunggal yang menyeimbangkan keduanya. F1-score menjadi metrik utama dalam paper IdSarcasm karena kemampuannya menangkap trade-off antara precision dan recall pada dataset yang tidak seimbang [5][12].
 
@@ -152,8 +144,54 @@ Dari tabel perbandingan di atas, terlihat bahwa reproduksi untuk Logistic Regres
 
 Namun, untuk Naive Bayes terdapat gap yang cukup signifikan, terutama pada dataset Twitter (-0,1547) dan Reddit (-0,1092). Penyebab utama gap ini adalah perbedaan dataset yang digunakan. Paper IdSarcasm [5] melaporkan bahwa dataset Twitter versi asli mereka berisi 12.861 data yang tidak seimbang, sedangkan versi benchmark yang dirilis di HuggingFace dan digunakan dalam reproduksi ini hanya berisi 2.684 data dengan rasio kelas 25:75. Perbedaan ukuran yang hampir lima kali lipat ini berdampak besar pada Naive Bayes, karena algoritma ini mengestimasi probabilitas kelas secara langsung dari frekuensi kata per kelas — jadi distribusi kata yang berubah karena perbedaan ukuran dan proporsi data akan langsung mengubah probabilitas yang dipelajari [9]. Sebagai perbandingan, Logistic Regression dan SVM lebih tahan terhadap perubahan ukuran dataset karena keduanya mengoptimalkan fungsi loss (fungsi kerugian) atas seluruh data pelatihan, yang membuat boundary keputusan yang dihasilkan lebih stabil meskipun jumlah data berubah. Meskipun demikian, pola umum hasil tetap konsisten dengan paper: Logistic Regression dan SVM cenderung lebih baik daripada Naive Bayes, dan TF-IDF umumnya menghasilkan performa yang lebih stabil dibandingkan BoW.
 
+#### Hasil Model Transformer (Progress 3 — akan ditambahkan)
+
+<!-- Placeholder: Tabel dan pembahasan hasil reproduksi baseline transformer akan ditambahkan di sini setelah eksperimen Progress 3 selesai. -->
+
+#### Hasil Optimasi Transformer (Progress 4 — akan ditambahkan)
+
+<!-- Placeholder: Tabel dan pembahasan hasil optimasi transformer akan ditambahkan di sini setelah eksperimen Progress 4 selesai. -->
+
+#### Analisis Komparatif (Progress 5 — akan ditambahkan)
+
+<!-- Placeholder: Perbandingan seluruh hasil (classical ML vs transformer vs optimized) dan error analysis akan ditambahkan di sini setelah Progress 5 selesai. -->
+
 ---
 
-## 5. Rencana Pengembangan
+## Rencana Pengembangan Proyek
+
+<!-- Subbab ini akan diperbarui setiap progress. -->
 
 Berdasarkan hasil baseline classical ML pada Progress 2, langkah selanjutnya adalah reproduksi baseline transformer pada dataset Twitter menggunakan IndoBERT Base atau XLM-R Base. Model transformer kecil ini dipilih karena realistis untuk dijalankan pada Google Colab, berbeda dengan XLM-R Large (560M parameter) yang terlalu berat. Jika baseline transformer berhasil direproduksi, tahap berikutnya akan mengeksplorasi optimasi terarah seperti penyetelan hyperparameter atau variasi preprocessing untuk melihat apakah performa bisa ditingkatkan dibandingkan baseline classical ML.
+
+---
+
+## Referensi
+
+[1] A. Joshi, P. Bhattacharyya, and M. J. Carman, "Automatic Sarcasm Detection: A Survey," *ACM Computing Surveys*, vol. 50, no. 5, art. no. 73, pp. 1-22, 2017, doi: 10.1145/3124420.
+
+[2] E. Lunando and A. Purwarianti, "Indonesian Social Media Sentiment Analysis with Sarcasm Detection," in *2013 International Conference on Advanced Computer Science and Information Systems (ICACSIS)*, Bali, Indonesia, 2013, pp. 195-198, doi: 10.1109/ICACSIS.2013.6761557.
+
+[3] K. S. Ranti and A. S. Girsang, "Indonesian Sarcasm Detection Using Convolutional Neural Network," *International Journal of Emerging Trends in Engineering Research*, vol. 8, no. 9, pp. 6448-6453, 2020, doi: 10.30534/ijeter/2020/10892020.
+
+[4] K. Khotijah, J. Tirtawangsa, and A. B. W. Putra, "Using LSTM for Context Based Approach of Sarcasm Detection in Indonesian and English," in *2020 International Conference on Data Science and Its Applications (ICoDSA)*, Bandung, Indonesia, 2020, pp. 1-6, doi: 10.1109/ICoDSA50139.2020.9212955.
+
+[5] D. Suhartono, W. Wongso, and A. T. Handoyo, "IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection," *IEEE Access*, vol. 12, pp. 87323-87332, 2024, doi: 10.1109/ACCESS.2024.3416955.
+
+[6] DataReportal, "Digital 2025: Indonesia," Feb. 2025. [Online]. Available: https://datareportal.com/reports/digital-2025-indonesia. [Accessed: Apr. 16, 2026].
+
+[7] N. H. Jeremy, "The Impact of Text Preprocessing in Sarcasm Detection on Indonesian Social Media Contents," *Engineering, Mathematics and Computer Science Journal (EMACS)*, vol. 7, no. 1, 2025, doi: 10.33021/emacs.v7i1.13503.
+
+[8] C. D. Manning, P. Raghavan, and H. Schütze, *Introduction to Information Retrieval*. Cambridge, U.K.: Cambridge University Press, 2008, doi: 10.1017/CBO9780511809071.
+
+[9] A. McCallum and K. Nigam, "A Comparison of Event Models for Naive Bayes Text Classification," in *AAAI-98 Workshop on Learning for Text Categorization*, Madison, WI, USA, 1998, pp. 41-48.
+
+[10] C. Cortes and V. Vapnik, "Support-Vector Networks," *Machine Learning*, vol. 20, no. 3, pp. 273-297, 1995, doi: 10.1007/BF00994018.
+
+[11] F. Pedregosa *et al.*, "Scikit-learn: Machine Learning in Python," *Journal of Machine Learning Research*, vol. 12, pp. 2825-2830, 2011, doi: 10.5555/1953048.2078195.
+
+[12] M. Sokolova and G. Lapalme, "A Systematic Analysis of Performance Measures for Classification Tasks," *Information Processing & Management*, vol. 45, no. 4, pp. 427-437, 2009, doi: 10.1016/j.ipm.2009.03.002.
+
+[13] K. Taha, P. D. Yoo, C. Y. Yeun, D. Homouz, and A. Taha, "A Comprehensive Survey of Text Classification Techniques and Their Research Applications: Observational and Experimental Insights," *Computer Science Review*, vol. 54, art. no. 100664, 2024, doi: 10.1016/j.cosrev.2024.100664.
+
+[14] G. Naidu *et al.*, "Accuracy, Precision, Recall, F1-Score, or MCC? Empirical Evidence from Advanced Statistics, ML, and XAI for Evaluating Business Predictive Models," *Journal of Big Data*, vol. 12, art. no. 1313, 2025, doi: 10.1186/s40537-025-01313-4.
