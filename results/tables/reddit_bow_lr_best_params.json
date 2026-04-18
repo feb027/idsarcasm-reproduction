@@ -1,0 +1,14 @@
+{
+  "dataset": "reddit",
+  "text_column": "text",
+  "vectorizer": "bow",
+  "model": "lr",
+  "best_validation_f1": 0.48859934853420195,
+  "best_params": {
+    "clf__C": 10
+  },
+  "accuracy": 0.7634560906515581,
+  "precision": 0.5320945945945946,
+  "recall": 0.4461756373937677,
+  "f1": 0.48536209553158705
+}
