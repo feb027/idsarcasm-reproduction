@@ -276,6 +276,10 @@ def write_result_artifacts(
 def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
     import numpy as np
     import torch
+    import datasets
+
+    if args.disable_tqdm and hasattr(datasets, "disable_progress_bar"):
+        datasets.disable_progress_bar()
     from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
     from transformers import (
         AutoModelForSequenceClassification,
@@ -355,6 +359,7 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         "report_to": "none",
         "seed": args.seed,
         "fp16": fp16,
+        "disable_tqdm": args.disable_tqdm,
         "gradient_accumulation_steps": args.gradient_accumulation_steps,
         "gradient_checkpointing": args.gradient_checkpointing,
         "auto_find_batch_size": args.auto_find_batch_size,
@@ -404,6 +409,7 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         "sample_limited": is_sample_limited(args),
         "seed": args.seed,
         "fp16": fp16,
+        "disable_tqdm": args.disable_tqdm,
         "gradient_accumulation_steps": args.gradient_accumulation_steps,
         "gradient_checkpointing": args.gradient_checkpointing,
         "auto_find_batch_size": args.auto_find_batch_size,
@@ -456,6 +462,12 @@ def build_parser() -> argparse.ArgumentParser:
         action=argparse.BooleanOptionalAction,
         default=True,
         help="Use fp16 when CUDA is available, matching the paper recipes by default",
+    )
+    parser.add_argument(
+        "--disable-tqdm",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Disable progress bars for cleaner Colab logs; does not change training settings",
     )
     parser.add_argument(
         "--gradient-accumulation-steps",

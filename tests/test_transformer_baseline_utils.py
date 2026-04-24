@@ -140,6 +140,7 @@ class TransformerBaselineUtilsTest(unittest.TestCase):
         self.assertEqual(args.early_stopping_threshold, 0.01)
         self.assertTrue(args.shuffle_train_dataset)
         self.assertTrue(args.fp16)
+        self.assertFalse(args.disable_tqdm)
         self.assertEqual(args.gradient_accumulation_steps, 1)
         self.assertFalse(args.gradient_checkpointing)
         self.assertFalse(args.auto_find_batch_size)
