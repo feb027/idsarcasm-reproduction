@@ -95,22 +95,38 @@ def training_strategy_kwargs(training_args_cls: Any) -> Dict[str, str]:
     return {eval_key: "epoch", "save_strategy": "epoch", "logging_strategy": "epoch"}
 
 
-def filter_training_arguments_kwargs(training_args_cls: Any, kwargs: Mapping[str, Any]) -> Dict[str, Any]:
-    """Drop TrainingArguments kwargs unsupported by the installed Transformers.
+def filter_supported_kwargs(callable_obj: Any, kwargs: Mapping[str, Any], label: str) -> Dict[str, Any]:
+    """Drop kwargs unsupported by the installed Transformers callable.
 
-    Some Colab images can have a Transformers build whose `TrainingArguments`
-    signature differs from the usual pip release. Filtering here keeps the
-    runner usable while preserving every supported paper-faithful setting.
+    Some Colab images can have a Transformers build whose signatures differ
+    from the usual pip release. Filtering here keeps the runner usable while
+    preserving every supported paper-faithful setting.
     """
-    params = inspect.signature(training_args_cls).parameters
+    params = inspect.signature(callable_obj).parameters
     if any(param.kind == inspect.Parameter.VAR_KEYWORD for param in params.values()):
         return dict(kwargs)
 
     filtered = {key: value for key, value in kwargs.items() if key in params}
     dropped = sorted(set(kwargs) - set(filtered))
     if dropped:
-        print(f"[compat] ignoring unsupported TrainingArguments kwargs: {', '.join(dropped)}")
+        print(f"[compat] ignoring unsupported {label} kwargs: {', '.join(dropped)}")
     return filtered
+
+
+def filter_training_arguments_kwargs(training_args_cls: Any, kwargs: Mapping[str, Any]) -> Dict[str, Any]:
+    """Drop TrainingArguments kwargs unsupported by installed Transformers."""
+    return filter_supported_kwargs(training_args_cls, kwargs, "TrainingArguments")
+
+
+def trainer_tokenizer_kwargs(trainer_cls: Any, tokenizer: Any) -> Dict[str, Any]:
+    """Return tokenizer/processing_class kwarg compatible with Trainer."""
+    params = inspect.signature(trainer_cls).parameters
+    if "processing_class" in params:
+        return {"processing_class": tokenizer}
+    if "tokenizer" in params:
+        return {"tokenizer": tokenizer}
+    print("[compat] Trainer accepts neither tokenizer nor processing_class; omitting tokenizer-like kwarg")
+    return {}
 
 
 def is_sample_limited(args: argparse.Namespace) -> bool:
@@ -310,21 +326,22 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         **filter_training_arguments_kwargs(TrainingArguments, training_args_kwargs)
     )
 
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=tokenized["train"],
-        eval_dataset=tokenized["validation"],
-        tokenizer=tokenizer,
-        data_collator=DataCollatorWithPadding(tokenizer),
-        compute_metrics=compute_metrics,
-        callbacks=[
+    trainer_kwargs = {
+        "model": model,
+        "args": training_args,
+        "train_dataset": tokenized["train"],
+        "eval_dataset": tokenized["validation"],
+        **trainer_tokenizer_kwargs(Trainer, tokenizer),
+        "data_collator": DataCollatorWithPadding(tokenizer),
+        "compute_metrics": compute_metrics,
+        "callbacks": [
             EarlyStoppingCallback(
                 early_stopping_patience=args.early_stopping_patience,
                 early_stopping_threshold=args.early_stopping_threshold,
             )
         ],
-    )
+    }
+    trainer = Trainer(**filter_supported_kwargs(Trainer, trainer_kwargs, "Trainer"))
 
     trainer.train()
     eval_metrics = trainer.evaluate(tokenized["validation"], metric_key_prefix="eval")

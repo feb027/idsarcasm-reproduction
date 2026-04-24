@@ -12,6 +12,7 @@ from scripts.run_transformer_baseline import (
     is_sample_limited,
     parse_args,
     parse_best_metric,
+    trainer_tokenizer_kwargs,
     training_strategy_kwargs,
 )
 
@@ -73,6 +74,22 @@ class TransformerBaselineUtilsTest(unittest.TestCase):
                 "eval_strategy": "epoch",
             },
         )
+
+    def test_trainer_tokenizer_kwargs_supports_old_and_new_trainer_names(self):
+        tokenizer = object()
+
+        def old_trainer(*, tokenizer=None):
+            return None
+
+        def new_trainer(*, processing_class=None):
+            return None
+
+        def minimal_trainer(*, model=None):
+            return None
+
+        self.assertEqual(trainer_tokenizer_kwargs(old_trainer, tokenizer), {"tokenizer": tokenizer})
+        self.assertEqual(trainer_tokenizer_kwargs(new_trainer, tokenizer), {"processing_class": tokenizer})
+        self.assertEqual(trainer_tokenizer_kwargs(minimal_trainer, tokenizer), {})
 
     def test_sample_limited_runs_use_smoke_table_by_default(self):
         full_args = SimpleNamespace(
