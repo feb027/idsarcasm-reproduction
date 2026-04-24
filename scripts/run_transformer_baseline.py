@@ -274,6 +274,13 @@ def write_result_artifacts(
 
 
 def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
+    if args.disable_tqdm:
+        # Set env vars before importing HF libraries that initialize progress bars.
+        os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
+        os.environ.setdefault("HF_DATASETS_DISABLE_PROGRESS_BARS", "1")
+        os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+        os.environ.setdefault("TQDM_DISABLE", "1")
+
     import numpy as np
     import torch
     import datasets
