@@ -14,7 +14,7 @@ Per 18 April 2026, struktur progress direvisi agar alurnya lebih realistis dan l
 Status saat ini:
 - Progress 1: ✅ selesai
 - Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
-- Progress 3: 🔄 asset runner/notebook/panduan sudah siap, menunggu eksekusi GPU Colab
+- Progress 3: 🔄 asset runner/notebook/panduan sudah siap untuk dua baseline transformer paper-faithful (IndoBERT Base + XLM-R Base), menunggu eksekusi GPU Colab
 - Progress 4–6: ⬜ belum mulai
 
 ---
@@ -111,17 +111,19 @@ Progress 2 baru dianggap benar-benar selesai jika:
 
 ---
 
-## Progress 3: Reproduksi Transformer Baseline dan Benchmark Lanjutan ⬜
+## Progress 3: Reproduksi Transformer Baseline dan Benchmark Lanjutan 🔄
 
 ### Tujuan
 Menaikkan proyek dari level baseline classical ML ke level yang lebih sesuai dengan judul proyek, yaitu menguji performa model transformer pada benchmark IdSarcasm secara terukur.
 
 ### Cakupan
-- [x] Menentukan model transformer utama yang realistis: IndoBERT Base sebagai target awal, XLM-R Base sebagai opsi pembanding
+- [x] Menentukan dua model transformer utama yang realistis: IndoBERT Base dan XLM-R Base pada dataset Twitter
 - [x] Mengambil titik awal dari `source-code/original-id-sarcasm/` agar implementasi tetap dekat ke codebase penulis
+- [x] Menyamakan setting utama dengan recipe paper: epoch 100, batch 32/64, scheduler cosine, learning rate 1e-5, weight decay 0.03, max length 128, pad-to-max-length, shuffle train, early stopping threshold 0.01, seed 42, fp16
 - [x] Menyiapkan pipeline fine-tuning yang rapi dan terdokumentasi (`scripts/run_transformer_baseline.py`)
-- [ ] Menjalankan minimal 1 transformer baseline pada dataset Twitter
-- [ ] Jika resource cukup, menjalankan transformer pada Reddit atau model kedua sebagai pembanding
+- [ ] Menjalankan smoke test di Colab
+- [ ] Menjalankan full baseline IndoBERT Base pada dataset Twitter
+- [ ] Menjalankan full baseline XLM-R Base pada dataset Twitter
 - [ ] Menyimpan hasil metrik, konfigurasi, dan catatan resource
 - [ ] Membandingkan hasil transformer dengan baseline classical ML terbaik
 
@@ -133,7 +135,7 @@ Menaikkan proyek dari level baseline classical ML ke level yang lebih sesuai den
 - Ringkasan apakah transformer memang memberi gain yang layak
 
 ### Gate kelulusan progress
-Progress 3 dianggap selesai jika minimal satu model transformer berhasil dilatih dan dibandingkan secara langsung dengan baseline classical ML.
+Progress 3 dianggap selesai jika dua model transformer baseline (IndoBERT Base dan XLM-R Base) berhasil dilatih pada dataset Twitter, hasilnya tersimpan, dan keduanya dibandingkan langsung dengan baseline classical ML terbaik.
 
 ---
 
@@ -219,7 +221,7 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 |----------|-------------------------------|--------|
 | EDA | Lokal / VPS | ringan |
 | Classical ML baseline | Lokal / Colab CPU | aman tanpa GPU besar |
-| Transformer extension | Google Colab | lebih realistis daripada AMD lokal saat ini |
+| Transformer extension | Google Colab GPU / PC lokal CPU fallback | Colab lebih aman; PC lokal bisa, tetapi CPU lambat dan RX 6600 via ROCm/WSL2 lebih berisiko |
 | Dokumentasi & analisis | VPS / lokal | fleksibel |
 
 **Catatan:** VPS saat ini tidak ideal untuk eksekusi baseline karena env Python terkena isu kompatibilitas NumPy/X86_V2. Jadi dokumen ini mengasumsikan baseline akan dijalankan di lokal atau Colab.

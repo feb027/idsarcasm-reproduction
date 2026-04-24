@@ -18,10 +18,11 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 │   └── processed/        # Dataset setelah preprocessing
 ├── notebooks/
 │   ├── 01_eda.ipynb      # EDA: label distribution, text length, data quality
-│   └── ...
+│   └── 02_transformer_baseline_colab.ipynb  # Progress 3 Colab runner
 ├── scripts/
 │   ├── download_data.py  # Download dataset dari HuggingFace
-│   └── ...
+│   ├── run_classical_baselines.py  # Progress 2 classical ML
+│   └── run_transformer_baseline.py # Progress 3 transformer baseline
 ├── results/
 │   ├── tables/           # Hasil evaluasi (CSV/tabel)
 │   └── figures/          # Grafik & visualisasi (PNG)
@@ -63,8 +64,8 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 ### Secondary
 - Classical ML pada Reddit dataset
 
-### Stretch
-- Fine-tune IndoBERT Base atau XLM-R Base (via Google Colab)
+### Stretch / Progress 3
+- Fine-tune dua transformer baseline paper-faithful pada Twitter: IndoBERT Base dan XLM-R Base (disarankan via Google Colab GPU)
 
 ## Methodology (Classical ML)
 
@@ -87,7 +88,7 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 |---|----------|--------|--------|
 | 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
 | 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
-| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | 🔄 | Runner, notebook Colab, dan panduan Progress 3 sudah siap; menunggu eksekusi GPU |
+| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | 🔄 | Runner, notebook Colab, dan panduan sudah siap untuk dua model paper-faithful: IndoBERT Base + XLM-R Base pada Twitter |
 | 4 | Optimasi Transformer Terarah | ⬜ | Tuning konfigurasi transformer untuk meningkatkan performa |
 | 5 | Analisis Komparatif dan Error Analysis | ⬜ | Komparasi penuh, confusion matrix, dan analisis error |
 | 6 | Finalisasi Laporan, Repo, dan Narasi Hasil | ⬜ | Rapikan hasil akhir, README, laporan, dan kesimpulan |
@@ -114,6 +115,7 @@ Untuk mulai Progress 3 transformer baseline di Google Colab GPU:
 - notebook siap jalan: `notebooks/02_transformer_baseline_colab.ipynb`
 - panduan detail: `docs/progress-3-local-run-guide.md`
 - script utama: `scripts/run_transformer_baseline.py`
+- model resmi Progress 3: IndoBERT Base dan XLM-R Base pada dataset Twitter dengan setting paper-faithful
 
 ## Reference
 

@@ -46,8 +46,20 @@ MODEL_ALIASES: Mapping[str, str] = {
 }
 
 METRIC_KEYS = ("accuracy", "precision", "recall", "f1")
+PAPER_BASELINE_MODELS = ("indobert-base", "xlmr-base")
 DEFAULT_BASELINE_TABLE = "results/tables/transformer_baselines.csv"
 DEFAULT_SMOKE_TABLE = "results/tables/transformer_smoke.csv"
+DEFAULT_EPOCHS = 100
+DEFAULT_BATCH_SIZE = 32
+DEFAULT_EVAL_BATCH_SIZE = 64
+DEFAULT_LEARNING_RATE = 1e-5
+DEFAULT_LR_SCHEDULER_TYPE = "cosine"
+DEFAULT_WEIGHT_DECAY = 0.03
+DEFAULT_LABEL_SMOOTHING = 0.0
+DEFAULT_PAD_TO_MAX_LENGTH = True
+DEFAULT_EARLY_STOPPING_THRESHOLD = 0.01
+DEFAULT_MAX_LENGTH = 128
+DEFAULT_SEED = 42
 
 
 def get_dataset_config(dataset: str) -> DatasetConfig:
@@ -93,6 +105,30 @@ def effective_table_path(args: argparse.Namespace) -> str:
     if is_sample_limited(args) and args.table_path == DEFAULT_BASELINE_TABLE:
         return DEFAULT_SMOKE_TABLE
     return args.table_path
+
+
+def build_progress3_commands() -> Dict[str, str]:
+    commands: Dict[str, str] = {}
+    for alias in PAPER_BASELINE_MODELS:
+        output_suffix = "twitter-indobert-base" if alias == "indobert-base" else "twitter-xlmr-base"
+        commands[alias] = (
+            "python scripts/run_transformer_baseline.py "
+            f"--dataset twitter --model {alias} "
+            f"--epochs {DEFAULT_EPOCHS} "
+            f"--batch-size {DEFAULT_BATCH_SIZE} "
+            f"--eval-batch-size {DEFAULT_EVAL_BATCH_SIZE} "
+            f"--learning-rate {DEFAULT_LEARNING_RATE:g} "
+            f"--lr-scheduler-type {DEFAULT_LR_SCHEDULER_TYPE} "
+            f"--weight-decay {DEFAULT_WEIGHT_DECAY:g} "
+            f"--label-smoothing-factor {DEFAULT_LABEL_SMOOTHING:g} "
+            f"--max-length {DEFAULT_MAX_LENGTH} "
+            f"--early-stopping-threshold {DEFAULT_EARLY_STOPPING_THRESHOLD:g} "
+            f"--seed {DEFAULT_SEED} "
+            "--pad-to-max-length --shuffle-train-dataset --fp16 "
+            f"--output-dir results/transformer/{output_suffix} "
+            f"--model-output-dir models/transformer/{output_suffix}"
+        )
+    return commands
 
 
 def _rounded_metric(metrics: Mapping[str, Any], name: str) -> Optional[float]:
@@ -190,8 +226,10 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
     def preprocess(batch: Mapping[str, Any]) -> Dict[str, Any]:
+        padding = "max_length" if args.pad_to_max_length else False
         tokenized = tokenizer(
             batch[dataset_config.text_column],
+            padding=padding,
             truncation=True,
             max_length=args.max_length,
         )
@@ -204,6 +242,9 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         keep_columns.add("token_type_ids")
     remove_columns = [col for col in tokenized["train"].column_names if col not in keep_columns]
     tokenized = tokenized.remove_columns(remove_columns)
+
+    if args.shuffle_train_dataset:
+        tokenized["train"] = tokenized["train"].shuffle(seed=args.seed)
 
     if args.max_train_samples:
         tokenized["train"] = tokenized["train"].select(range(min(args.max_train_samples, len(tokenized["train"]))))
@@ -234,7 +275,9 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.eval_batch_size,
         num_train_epochs=args.epochs,
+        lr_scheduler_type=args.lr_scheduler_type,
         weight_decay=args.weight_decay,
+        label_smoothing_factor=args.label_smoothing_factor,
         **training_strategy_kwargs(TrainingArguments),
         load_best_model_at_end=True,
         metric_for_best_model="f1",
@@ -253,7 +296,12 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         tokenizer=tokenizer,
         data_collator=DataCollatorWithPadding(tokenizer),
         compute_metrics=compute_metrics,
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=args.early_stopping_patience)],
+        callbacks=[
+            EarlyStoppingCallback(
+                early_stopping_patience=args.early_stopping_patience,
+                early_stopping_threshold=args.early_stopping_threshold,
+            )
+        ],
     )
 
     trainer.train()
@@ -263,12 +311,17 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
 
     training_config = {
         "learning_rate": args.learning_rate,
+        "lr_scheduler_type": args.lr_scheduler_type,
         "epochs": args.epochs,
         "batch_size": args.batch_size,
         "eval_batch_size": args.eval_batch_size,
         "max_length": args.max_length,
         "weight_decay": args.weight_decay,
+        "label_smoothing_factor": args.label_smoothing_factor,
+        "pad_to_max_length": args.pad_to_max_length,
+        "shuffle_train_dataset": args.shuffle_train_dataset,
         "early_stopping_patience": args.early_stopping_patience,
+        "early_stopping_threshold": args.early_stopping_threshold,
         "max_train_samples": args.max_train_samples,
         "max_eval_samples": args.max_eval_samples,
         "max_predict_samples": args.max_predict_samples,
@@ -288,7 +341,7 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
     return row
 
 
-def parse_args() -> argparse.Namespace:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run IdSarcasm transformer baseline for Progress 3")
     parser.add_argument("--dataset", choices=sorted(DATASET_CONFIGS), default="twitter")
     parser.add_argument("--model", default="indobert-base", help="Alias or HuggingFace model name")
@@ -296,19 +349,43 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default="results/transformer/twitter-indobert-base")
     parser.add_argument("--table-path", default=DEFAULT_BASELINE_TABLE)
     parser.add_argument("--model-output-dir", default="models/transformer/twitter-indobert-base")
-    parser.add_argument("--max-length", type=int, default=128)
-    parser.add_argument("--batch-size", type=int, default=16)
-    parser.add_argument("--eval-batch-size", type=int, default=32)
-    parser.add_argument("--learning-rate", type=float, default=1e-5)
-    parser.add_argument("--weight-decay", type=float, default=0.03)
-    parser.add_argument("--epochs", type=float, default=5)
-    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--max-length", type=int, default=DEFAULT_MAX_LENGTH)
+    parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
+    parser.add_argument("--eval-batch-size", type=int, default=DEFAULT_EVAL_BATCH_SIZE)
+    parser.add_argument("--learning-rate", type=float, default=DEFAULT_LEARNING_RATE)
+    parser.add_argument("--lr-scheduler-type", default=DEFAULT_LR_SCHEDULER_TYPE)
+    parser.add_argument("--weight-decay", type=float, default=DEFAULT_WEIGHT_DECAY)
+    parser.add_argument("--label-smoothing-factor", type=float, default=DEFAULT_LABEL_SMOOTHING)
+    parser.add_argument("--epochs", type=float, default=DEFAULT_EPOCHS)
+    parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--early-stopping-patience", type=int, default=3)
-    parser.add_argument("--fp16", action="store_true", help="Use fp16 only when CUDA is available")
+    parser.add_argument("--early-stopping-threshold", type=float, default=DEFAULT_EARLY_STOPPING_THRESHOLD)
+    parser.add_argument(
+        "--pad-to-max-length",
+        action=argparse.BooleanOptionalAction,
+        default=DEFAULT_PAD_TO_MAX_LENGTH,
+        help="Pad every sample to max length, matching the paper script default",
+    )
+    parser.add_argument(
+        "--shuffle-train-dataset",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Shuffle the train split before training, matching the paper recipes by default",
+    )
+    parser.add_argument(
+        "--fp16",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Use fp16 when CUDA is available, matching the paper recipes by default",
+    )
     parser.add_argument("--max-train-samples", type=int, default=None, help="Smoke-test limit")
     parser.add_argument("--max-eval-samples", type=int, default=None, help="Smoke-test limit")
     parser.add_argument("--max-predict-samples", type=int, default=None, help="Smoke-test limit")
-    return parser.parse_args()
+    return parser
+
+
+def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
+    return build_parser().parse_args(argv)
 
 
 if __name__ == "__main__":

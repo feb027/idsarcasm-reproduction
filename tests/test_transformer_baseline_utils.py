@@ -3,10 +3,13 @@ from types import SimpleNamespace
 
 from scripts.run_transformer_baseline import (
     DATASET_CONFIGS,
+    PAPER_BASELINE_MODELS,
+    build_progress3_commands,
     build_result_row,
     effective_table_path,
     get_dataset_config,
     is_sample_limited,
+    parse_args,
     parse_best_metric,
     training_strategy_kwargs,
 )
@@ -72,6 +75,38 @@ class TransformerBaselineUtilsTest(unittest.TestCase):
         self.assertEqual(effective_table_path(full_args), "results/tables/transformer_baselines.csv")
         self.assertEqual(effective_table_path(smoke_args), "results/tables/transformer_smoke.csv")
         self.assertEqual(effective_table_path(explicit_args), "results/tables/custom_smoke.csv")
+
+    def test_default_arguments_match_paper_twitter_transformer_recipe(self):
+        args = parse_args([])
+        self.assertEqual(args.dataset, "twitter")
+        self.assertEqual(args.max_length, 128)
+        self.assertEqual(args.batch_size, 32)
+        self.assertEqual(args.eval_batch_size, 64)
+        self.assertEqual(args.learning_rate, 1e-5)
+        self.assertEqual(args.lr_scheduler_type, "cosine")
+        self.assertEqual(args.weight_decay, 0.03)
+        self.assertEqual(args.label_smoothing_factor, 0.0)
+        self.assertEqual(args.epochs, 100)
+        self.assertEqual(args.seed, 42)
+        self.assertTrue(args.pad_to_max_length)
+        self.assertEqual(args.early_stopping_threshold, 0.01)
+        self.assertTrue(args.shuffle_train_dataset)
+        self.assertTrue(args.fp16)
+
+    def test_progress3_official_commands_include_two_paper_baseline_models(self):
+        commands = build_progress3_commands()
+        self.assertEqual(PAPER_BASELINE_MODELS, ("indobert-base", "xlmr-base"))
+        self.assertEqual(set(commands), {"indobert-base", "xlmr-base"})
+        for command in commands.values():
+            self.assertIn("--dataset twitter", command)
+            self.assertIn("--epochs 100", command)
+            self.assertIn("--batch-size 32", command)
+            self.assertIn("--eval-batch-size 64", command)
+            self.assertIn("--lr-scheduler-type cosine", command)
+            self.assertIn("--pad-to-max-length", command)
+            self.assertIn("--early-stopping-threshold 0.01", command)
+            self.assertIn("--shuffle-train-dataset", command)
+            self.assertIn("--fp16", command)
 
     def test_build_result_row_rounds_metrics_and_preserves_config(self):
         row = build_result_row(
