@@ -1,0 +1,176 @@
+
+[data] using cached CSV files from data/raw
+config.json: 100% 615/615 [00:00<00:00, 1.49MB/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+tokenizer_config.json: 100% 25.0/25.0 [00:00<00:00, 120kB/s]
+sentencepiece.bpe.model: 100% 5.07M/5.07M [00:01<00:00, 4.31MB/s]
+tokenizer.json: 9.10MB [00:01, 7.84MB/s]
+Map: 100% 1878/1878 [00:00<00:00, 7593.02 examples/s]
+Map: 100% 268/268 [00:00<00:00, 6573.53 examples/s]
+Map: 100% 538/538 [00:00<00:00, 7652.72 examples/s]
+model.safetensors: 100% 1.12G/1.12G [00:11<00:00, 100MB/s]
+Loading weights: 100% 197/197 [00:00<00:00, 1231.59it/s, Materializing param=roberta.encoder.layer.11.output.dense.weight]
+XLMRobertaForSequenceClassification LOAD REPORT from: xlm-roberta-base
+Key                         | Status     | 
+----------------------------+------------+-
+lm_head.layer_norm.bias     | UNEXPECTED | 
+roberta.pooler.dense.weight | UNEXPECTED | 
+lm_head.layer_norm.weight   | UNEXPECTED | 
+lm_head.dense.bias          | UNEXPECTED | 
+lm_head.dense.weight        | UNEXPECTED | 
+lm_head.bias                | UNEXPECTED | 
+roberta.pooler.dense.bias   | UNEXPECTED | 
+classifier.out_proj.bias    | MISSING    | 
+classifier.dense.weight     | MISSING    | 
+classifier.out_proj.weight  | MISSING    | 
+classifier.dense.bias       | MISSING    | 
+
+Notes:
+- UNEXPECTED	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING	:those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[compat] ignoring unsupported TrainingArguments kwargs: overwrite_output_dir
+{'loss': '0.5675', 'grad_norm': '4.112', 'learning_rate': '9.998e-06', 'epoch': '1'}
+1% 59/5900 [00:15<24:18,  4.01it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 15.89it/s]
+                                   
+{'eval_loss': '0.5443', 'eval_accuracy': '0.75', 'eval_precision': '0', 'eval_recall': '0', 'eval_f1': '0', 'eval_runtime': '0.5269', 'eval_samples_per_second': '508.6', 'eval_steps_per_second': '9.49', 'epoch': '1'}
+1% 59/5900 [00:16<24:18,  4.01it/s]
+100% 5/5 [00:00<00:00, 10.29it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:06<00:00,  6.66s/it]
+{'loss': '0.5137', 'grad_norm': '5.412', 'learning_rate': '9.99e-06', 'epoch': '2'}
+2% 118/5900 [00:53<24:23,  3.95it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 14.20it/s]
+                                    
+{'eval_loss': '0.4796', 'eval_accuracy': '0.7687', 'eval_precision': '1', 'eval_recall': '0.07463', 'eval_f1': '0.1389', 'eval_runtime': '0.5983', 'eval_samples_per_second': '448', 'eval_steps_per_second': '8.358', 'epoch': '2'}
+2% 118/5900 [00:54<24:23,  3.95it/s]
+100% 5/5 [00:00<00:00,  8.90it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:07<00:00,  7.01s/it]
+{'loss': '0.4699', 'grad_norm': '7.368', 'learning_rate': '9.978e-06', 'epoch': '3'}
+3% 177/5900 [01:38<23:42,  4.02it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 15.33it/s]
+                                    
+{'eval_loss': '0.4414', 'eval_accuracy': '0.7873', 'eval_precision': '0.7273', 'eval_recall': '0.2388', 'eval_f1': '0.3596', 'eval_runtime': '0.5416', 'eval_samples_per_second': '494.8', 'eval_steps_per_second': '9.231', 'epoch': '3'}
+3% 177/5900 [01:39<23:42,  4.02it/s]
+100% 5/5 [00:00<00:00,  9.84it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:07<00:00,  7.70s/it]
+{'loss': '0.4188', 'grad_norm': '9.032', 'learning_rate': '9.961e-06', 'epoch': '4'}
+4% 236/5900 [02:25<25:19,  3.73it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 14.40it/s]
+                                    
+{'eval_loss': '0.4155', 'eval_accuracy': '0.8134', 'eval_precision': '0.7931', 'eval_recall': '0.3433', 'eval_f1': '0.4792', 'eval_runtime': '0.5723', 'eval_samples_per_second': '468.3', 'eval_steps_per_second': '8.736', 'epoch': '4'}
+4% 236/5900 [02:26<25:19,  3.73it/s]
+100% 5/5 [00:00<00:00,  9.31it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:05<00:00,  5.35s/it]
+{'loss': '0.3653', 'grad_norm': '17.49', 'learning_rate': '9.939e-06', 'epoch': '5'}
+5% 295/5900 [03:16<24:09,  3.87it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 15.21it/s]
+                                    
+{'eval_loss': '0.3686', 'eval_accuracy': '0.8321', 'eval_precision': '0.6897', 'eval_recall': '0.597', 'eval_f1': '0.64', 'eval_runtime': '0.5499', 'eval_samples_per_second': '487.4', 'eval_steps_per_second': '9.093', 'epoch': '5'}
+5% 295/5900 [03:17<24:09,  3.87it/s]
+100% 5/5 [00:00<00:00,  9.66it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:08<00:00,  8.80s/it]
+{'loss': '0.3086', 'grad_norm': '28.79', 'learning_rate': '9.912e-06', 'epoch': '6'}
+6% 354/5900 [04:23<24:41,  3.74it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 14.47it/s]
+                                    
+{'eval_loss': '0.3909', 'eval_accuracy': '0.8545', 'eval_precision': '0.8043', 'eval_recall': '0.5522', 'eval_f1': '0.6549', 'eval_runtime': '0.5801', 'eval_samples_per_second': '462', 'eval_steps_per_second': '8.619', 'epoch': '6'}
+6% 354/5900 [04:23<24:41,  3.74it/s]
+100% 5/5 [00:00<00:00,  9.13it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:06<00:00,  6.57s/it]
+{'loss': '0.245', 'grad_norm': '18.81', 'learning_rate': '9.88e-06', 'epoch': '7'}
+7% 413/5900 [05:07<23:22,  3.91it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 15.16it/s]
+                                    
+{'eval_loss': '0.4042', 'eval_accuracy': '0.8433', 'eval_precision': '0.6506', 'eval_recall': '0.806', 'eval_f1': '0.72', 'eval_runtime': '0.5733', 'eval_samples_per_second': '467.5', 'eval_steps_per_second': '8.722', 'epoch': '7'}
+7% 413/5900 [05:07<23:22,  3.91it/s]
+100% 5/5 [00:00<00:00,  9.71it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:15<00:00, 15.90s/it]
+{'loss': '0.2142', 'grad_norm': '18.77', 'learning_rate': '9.844e-06', 'epoch': '8'}
+8% 472/5900 [06:01<23:53,  3.79it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 14.98it/s]
+                                    
+{'eval_loss': '0.3919', 'eval_accuracy': '0.8545', 'eval_precision': '0.85', 'eval_recall': '0.5075', 'eval_f1': '0.6355', 'eval_runtime': '0.5636', 'eval_samples_per_second': '475.5', 'eval_steps_per_second': '8.872', 'epoch': '8'}
+8% 472/5900 [06:01<23:53,  3.79it/s]
+100% 5/5 [00:00<00:00,  9.52it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:05<00:00,  5.37s/it]
+{'loss': '0.1635', 'grad_norm': '12.91', 'learning_rate': '9.802e-06', 'epoch': '9'}
+9% 531/5900 [06:48<23:23,  3.82it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 15.30it/s]
+                                    
+{'eval_loss': '0.4741', 'eval_accuracy': '0.8694', 'eval_precision': '0.8478', 'eval_recall': '0.5821', 'eval_f1': '0.6903', 'eval_runtime': '0.5555', 'eval_samples_per_second': '482.4', 'eval_steps_per_second': '9.001', 'epoch': '9'}
+9% 531/5900 [06:48<23:23,  3.82it/s]
+100% 5/5 [00:00<00:00,  9.66it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:08<00:00,  8.06s/it]
+{'loss': '0.124', 'grad_norm': '41.81', 'learning_rate': '9.756e-06', 'epoch': '10'}
+ 10% 590/5900 [07:40<23:07,  3.83it/s]
+0% 0/5 [00:00<?, ?it/s]
+ 40% 2/5 [00:00<00:00, 14.74it/s]
+                                    
+{'eval_loss': '0.5147', 'eval_accuracy': '0.8619', 'eval_precision': '0.7885', 'eval_recall': '0.6119', 'eval_f1': '0.6891', 'eval_runtime': '0.5612', 'eval_samples_per_second': '477.6', 'eval_steps_per_second': '8.91', 'epoch': '10'}
+ 10% 590/5900 [07:41<23:07,  3.83it/s]
+100% 5/5 [00:00<00:00,  9.43it/s]
+                               
+Writing model shards:   0% 0/1 [00:00<?, ?it/s]
+Writing model shards: 100% 1/1 [00:11<00:00, 11.77s/it]
+There were missing keys in the checkpoint model loaded: ['roberta.embeddings.LayerNorm.weight', 'roberta.embeddings.LayerNorm.bias', 'roberta.encoder.layer.0.attention.output.LayerNorm.weight', 'roberta.encoder.layer.0.attention.output.LayerNorm.bias', 'roberta.encoder.layer.0.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.LayerNorm.bias', 'roberta.encoder.layer.1.attention.output.LayerNorm.weight', 'roberta.encoder.layer.1.attention.output.LayerNorm.bias', 'roberta.encoder.layer.1.output.LayerNorm.weight', 'roberta.encoder.layer.1.output.LayerNorm.bias', 'roberta.encoder.layer.2.attention.output.LayerNorm.weight', 'roberta.encoder.layer.2.attention.output.LayerNorm.bias', 'roberta.encoder.layer.2.output.LayerNorm.weight', 'roberta.encoder.layer.2.output.LayerNorm.bias', 'roberta.encoder.layer.3.attention.output.LayerNorm.weight', 'roberta.encoder.layer.3.attention.output.LayerNorm.bias', 'roberta.encoder.layer.3.output.LayerNorm.weight', 'roberta.encoder.layer.3.output.LayerNorm.bias', 'roberta.encoder.layer.4.attention.output.LayerNorm.weight', 'roberta.encoder.layer.4.attention.output.LayerNorm.bias', 'roberta.encoder.layer.4.output.LayerNorm.weight', 'roberta.encoder.layer.4.output.LayerNorm.bias', 'roberta.encoder.layer.5.attention.output.LayerNorm.weight', 'roberta.encoder.layer.5.attention.output.LayerNorm.bias', 'roberta.encoder.layer.5.output.LayerNorm.weight', 'roberta.encoder.layer.5.output.LayerNorm.bias', 'roberta.encoder.layer.6.attention.output.LayerNorm.weight', 'roberta.encoder.layer.6.attention.output.LayerNorm.bias', 'roberta.encoder.layer.6.output.LayerNorm.weight', 'roberta.encoder.layer.6.output.LayerNorm.bias', 'roberta.encoder.layer.7.attention.output.LayerNorm.weight', 'roberta.encoder.layer.7.attention.output.LayerNorm.bias', 'roberta.encoder.layer.7.output.LayerNorm.weight', 'roberta.encoder.layer.7.output.LayerNorm.bias', 'roberta.encoder.layer.8.attention.output.LayerNorm.weight', 'roberta.encoder.layer.8.attention.output.LayerNorm.bias', 'roberta.encoder.layer.8.output.LayerNorm.weight', 'roberta.encoder.layer.8.output.LayerNorm.bias', 'roberta.encoder.layer.9.attention.output.LayerNorm.weight', 'roberta.encoder.layer.9.attention.output.LayerNorm.bias', 'roberta.encoder.layer.9.output.LayerNorm.weight', 'roberta.encoder.layer.9.output.LayerNorm.bias', 'roberta.encoder.layer.10.attention.output.LayerNorm.weight', 'roberta.encoder.layer.10.attention.output.LayerNorm.bias', 'roberta.encoder.layer.10.output.LayerNorm.weight', 'roberta.encoder.layer.10.output.LayerNorm.bias', 'roberta.encoder.layer.11.attention.output.LayerNorm.weight', 'roberta.encoder.layer.11.attention.output.LayerNorm.bias', 'roberta.encoder.layer.11.output.LayerNorm.weight', 'roberta.encoder.layer.11.output.LayerNorm.bias'].
+There were unexpected keys in the checkpoint model loaded: ['roberta.embeddings.LayerNorm.beta', 'roberta.embeddings.LayerNorm.gamma', 'roberta.encoder.layer.0.attention.output.LayerNorm.beta', 'roberta.encoder.layer.0.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.0.output.LayerNorm.beta', 'roberta.encoder.layer.0.output.LayerNorm.gamma', 'roberta.encoder.layer.1.attention.output.LayerNorm.beta', 'roberta.encoder.layer.1.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.1.output.LayerNorm.beta', 'roberta.encoder.layer.1.output.LayerNorm.gamma', 'roberta.encoder.layer.2.attention.output.LayerNorm.beta', 'roberta.encoder.layer.2.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.2.output.LayerNorm.beta', 'roberta.encoder.layer.2.output.LayerNorm.gamma', 'roberta.encoder.layer.3.attention.output.LayerNorm.beta', 'roberta.encoder.layer.3.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.3.output.LayerNorm.beta', 'roberta.encoder.layer.3.output.LayerNorm.gamma', 'roberta.encoder.layer.4.attention.output.LayerNorm.beta', 'roberta.encoder.layer.4.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.4.output.LayerNorm.beta', 'roberta.encoder.layer.4.output.LayerNorm.gamma', 'roberta.encoder.layer.5.attention.output.LayerNorm.beta', 'roberta.encoder.layer.5.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.5.output.LayerNorm.beta', 'roberta.encoder.layer.5.output.LayerNorm.gamma', 'roberta.encoder.layer.6.attention.output.LayerNorm.beta', 'roberta.encoder.layer.6.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.6.output.LayerNorm.beta', 'roberta.encoder.layer.6.output.LayerNorm.gamma', 'roberta.encoder.layer.7.attention.output.LayerNorm.beta', 'roberta.encoder.layer.7.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.7.output.LayerNorm.beta', 'roberta.encoder.layer.7.output.LayerNorm.gamma', 'roberta.encoder.layer.8.attention.output.LayerNorm.beta', 'roberta.encoder.layer.8.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.8.output.LayerNorm.beta', 'roberta.encoder.layer.8.output.LayerNorm.gamma', 'roberta.encoder.layer.9.attention.output.LayerNorm.beta', 'roberta.encoder.layer.9.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.9.output.LayerNorm.beta', 'roberta.encoder.layer.9.output.LayerNorm.gamma', 'roberta.encoder.layer.10.attention.output.LayerNorm.beta', 'roberta.encoder.layer.10.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.10.output.LayerNorm.beta', 'roberta.encoder.layer.10.output.LayerNorm.gamma', 'roberta.encoder.layer.11.attention.output.LayerNorm.beta', 'roberta.encoder.layer.11.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.11.output.LayerNorm.beta', 'roberta.encoder.layer.11.output.LayerNorm.gamma'].
+{'train_runtime': '508.8', 'train_samples_per_second': '369.1', 'train_steps_per_second': '11.6', 'train_loss': '0.3391', 'epoch': '10'}
+ 10% 590/5900 [08:29<1:16:24,  1.16it/s]
+100% 5/5 [00:00<00:00, 12.90it/s]
+100% 9/9 [00:00<00:00, 10.09it/s]
+{
+"dataset": "twitter",
+"model_alias": "xlmr-base",
+"model_name": "xlm-roberta-base",
+"accuracy": 0.8327,
+"precision": 0.6325,
+"recall": 0.7836,
+"f1": 0.7,
+"learning_rate": 1e-05,
+"lr_scheduler_type": "cosine",
+"epochs": 100.0,
+"batch_size": 32,
+"eval_batch_size": 64,
+"max_length": 128,
+"weight_decay": 0.03,
+"label_smoothing_factor": 0.0,
+"pad_to_max_length": true,
+"shuffle_train_dataset": true,
+"early_stopping_patience": 3,
+"early_stopping_threshold": 0.01,
+"max_train_samples": null,
+"max_eval_samples": null,
+"max_predict_samples": null,
+"sample_limited": false,
+"seed": 42,
+"fp16": true
+}
+
+

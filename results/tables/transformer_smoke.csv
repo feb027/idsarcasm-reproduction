@@ -1,0 +1,2 @@
+dataset,model_alias,model_name,accuracy,precision,recall,f1,learning_rate,lr_scheduler_type,epochs,batch_size,eval_batch_size,max_length,weight_decay,label_smoothing_factor,pad_to_max_length,shuffle_train_dataset,early_stopping_patience,early_stopping_threshold,max_train_samples,max_eval_samples,max_predict_samples,sample_limited,seed,fp16
+twitter,indobert-base,indobenchmark/indobert-base-p1,0.625,0.0,0.0,0.0,1e-05,cosine,1.0,8,16,128,0.03,0.0,True,True,3,0.01,64,32,32,True,42,True
