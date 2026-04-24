@@ -1,9 +1,15 @@
+import csv
+import tempfile
 import unittest
+from pathlib import Path
 from types import SimpleNamespace
 
 from scripts.run_transformer_baseline import (
+    COMPLETE_PAPER_BASELINE_MODELS,
     DATASET_CONFIGS,
+    MODEL_ALIASES,
     PAPER_BASELINE_MODELS,
+    build_complete_paper_baseline_commands,
     build_progress3_commands,
     build_result_row,
     effective_table_path,
@@ -14,6 +20,7 @@ from scripts.run_transformer_baseline import (
     parse_best_metric,
     trainer_tokenizer_kwargs,
     training_strategy_kwargs,
+    write_result_artifacts,
 )
 
 
@@ -133,6 +140,36 @@ class TransformerBaselineUtilsTest(unittest.TestCase):
         self.assertEqual(args.early_stopping_threshold, 0.01)
         self.assertTrue(args.shuffle_train_dataset)
         self.assertTrue(args.fp16)
+        self.assertEqual(args.gradient_accumulation_steps, 1)
+        self.assertFalse(args.gradient_checkpointing)
+        self.assertFalse(args.auto_find_batch_size)
+
+    def test_model_aliases_cover_complete_paper_baseline_models(self):
+        self.assertEqual(
+            COMPLETE_PAPER_BASELINE_MODELS,
+            (
+                "indobert-base",
+                "indobert-large",
+                "indobert-indolem-base",
+                "mbert-base",
+                "xlmr-base",
+                "xlmr-large",
+            ),
+        )
+        for alias in COMPLETE_PAPER_BASELINE_MODELS:
+            self.assertIn(alias, MODEL_ALIASES)
+
+    def test_complete_paper_baseline_commands_cover_six_models_two_datasets(self):
+        commands = build_complete_paper_baseline_commands()
+        self.assertEqual(len(commands), 12)
+        for dataset in ("twitter", "reddit"):
+            for alias in COMPLETE_PAPER_BASELINE_MODELS:
+                key = f"{dataset}-{alias}"
+                self.assertIn(key, commands)
+                self.assertIn(f"--dataset {dataset}", commands[key])
+                self.assertIn(f"--model {alias}", commands[key])
+                self.assertIn("--batch-size 32", commands[key])
+                self.assertIn("--eval-batch-size 64", commands[key])
 
     def test_progress3_official_commands_include_two_paper_baseline_models(self):
         commands = build_progress3_commands()
@@ -148,6 +185,38 @@ class TransformerBaselineUtilsTest(unittest.TestCase):
             self.assertIn("--early-stopping-threshold 0.01", command)
             self.assertIn("--shuffle-train-dataset", command)
             self.assertIn("--fp16", command)
+
+    def test_write_result_artifacts_migrates_table_schema_when_new_columns_are_added(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            table_path = f"{tmpdir}/table.csv"
+            output_dir_1 = f"{tmpdir}/run1"
+            output_dir_2 = f"{tmpdir}/run2"
+
+            write_result_artifacts(
+                output_dir=Path(output_dir_1),
+                table_path=Path(table_path),
+                metrics={"predict_f1": 0.1},
+                row={"dataset": "twitter", "model_alias": "indobert-base", "f1": 0.1},
+            )
+            write_result_artifacts(
+                output_dir=Path(output_dir_2),
+                table_path=Path(table_path),
+                metrics={"predict_f1": 0.2},
+                row={
+                    "dataset": "reddit",
+                    "model_alias": "xlmr-large",
+                    "f1": 0.2,
+                    "gradient_checkpointing": True,
+                },
+            )
+
+            with open(table_path, newline="", encoding="utf-8") as handle:
+                rows = list(csv.DictReader(handle))
+
+            self.assertEqual(len(rows), 2)
+            self.assertIn("gradient_checkpointing", rows[0])
+            self.assertEqual(rows[0]["gradient_checkpointing"], "")
+            self.assertEqual(rows[1]["gradient_checkpointing"], "True")
 
     def test_build_result_row_rounds_metrics_and_preserves_config(self):
         row = build_result_row(

@@ -41,12 +41,23 @@ DATASET_CONFIGS: Mapping[str, DatasetConfig] = {
 
 MODEL_ALIASES: Mapping[str, str] = {
     "indobert-base": "indobenchmark/indobert-base-p1",
-    "xlmr-base": "xlm-roberta-base",
+    "indobert-large": "indobenchmark/indobert-large-p1",
+    "indobert-indolem-base": "indolem/indobert-base-uncased",
     "mbert-base": "bert-base-multilingual-cased",
+    "xlmr-base": "xlm-roberta-base",
+    "xlmr-large": "xlm-roberta-large",
 }
 
 METRIC_KEYS = ("accuracy", "precision", "recall", "f1")
 PAPER_BASELINE_MODELS = ("indobert-base", "xlmr-base")
+COMPLETE_PAPER_BASELINE_MODELS = (
+    "indobert-base",
+    "indobert-large",
+    "indobert-indolem-base",
+    "mbert-base",
+    "xlmr-base",
+    "xlmr-large",
+)
 DEFAULT_BASELINE_TABLE = "results/tables/transformer_baselines.csv"
 DEFAULT_SMOKE_TABLE = "results/tables/transformer_smoke.csv"
 DEFAULT_EPOCHS = 100
@@ -142,27 +153,40 @@ def effective_table_path(args: argparse.Namespace) -> str:
     return args.table_path
 
 
+def _output_suffix(dataset: str, alias: str) -> str:
+    return f"{dataset}-{alias}"
+
+
+def _baseline_command(dataset: str, alias: str) -> str:
+    output_suffix = _output_suffix(dataset, alias)
+    return (
+        "python scripts/run_transformer_baseline.py "
+        f"--dataset {dataset} --model {alias} "
+        f"--epochs {DEFAULT_EPOCHS} "
+        f"--batch-size {DEFAULT_BATCH_SIZE} "
+        f"--eval-batch-size {DEFAULT_EVAL_BATCH_SIZE} "
+        f"--learning-rate {DEFAULT_LEARNING_RATE:g} "
+        f"--lr-scheduler-type {DEFAULT_LR_SCHEDULER_TYPE} "
+        f"--weight-decay {DEFAULT_WEIGHT_DECAY:g} "
+        f"--label-smoothing-factor {DEFAULT_LABEL_SMOOTHING:g} "
+        f"--max-length {DEFAULT_MAX_LENGTH} "
+        f"--early-stopping-threshold {DEFAULT_EARLY_STOPPING_THRESHOLD:g} "
+        f"--seed {DEFAULT_SEED} "
+        "--pad-to-max-length --shuffle-train-dataset --fp16 "
+        f"--output-dir results/transformer/{output_suffix} "
+        f"--model-output-dir models/transformer/{output_suffix}"
+    )
+
+
 def build_progress3_commands() -> Dict[str, str]:
+    return {alias: _baseline_command("twitter", alias) for alias in PAPER_BASELINE_MODELS}
+
+
+def build_complete_paper_baseline_commands() -> Dict[str, str]:
     commands: Dict[str, str] = {}
-    for alias in PAPER_BASELINE_MODELS:
-        output_suffix = "twitter-indobert-base" if alias == "indobert-base" else "twitter-xlmr-base"
-        commands[alias] = (
-            "python scripts/run_transformer_baseline.py "
-            f"--dataset twitter --model {alias} "
-            f"--epochs {DEFAULT_EPOCHS} "
-            f"--batch-size {DEFAULT_BATCH_SIZE} "
-            f"--eval-batch-size {DEFAULT_EVAL_BATCH_SIZE} "
-            f"--learning-rate {DEFAULT_LEARNING_RATE:g} "
-            f"--lr-scheduler-type {DEFAULT_LR_SCHEDULER_TYPE} "
-            f"--weight-decay {DEFAULT_WEIGHT_DECAY:g} "
-            f"--label-smoothing-factor {DEFAULT_LABEL_SMOOTHING:g} "
-            f"--max-length {DEFAULT_MAX_LENGTH} "
-            f"--early-stopping-threshold {DEFAULT_EARLY_STOPPING_THRESHOLD:g} "
-            f"--seed {DEFAULT_SEED} "
-            "--pad-to-max-length --shuffle-train-dataset --fp16 "
-            f"--output-dir results/transformer/{output_suffix} "
-            f"--model-output-dir models/transformer/{output_suffix}"
-        )
+    for dataset in ("twitter", "reddit"):
+        for alias in COMPLETE_PAPER_BASELINE_MODELS:
+            commands[f"{dataset}-{alias}"] = _baseline_command(dataset, alias)
     return commands
 
 
@@ -230,13 +254,23 @@ def write_result_artifacts(
     metrics_path.write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
     row_path.write_text(json.dumps(row, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    write_header = not table_path.exists()
-    fieldnames = list(row.keys())
-    with table_path.open("a", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        if write_header:
+    if table_path.exists():
+        with table_path.open(newline="", encoding="utf-8") as handle:
+            reader = csv.DictReader(handle)
+            existing_rows = list(reader)
+            existing_fieldnames = list(reader.fieldnames or [])
+        fieldnames = existing_fieldnames + [key for key in row.keys() if key not in existing_fieldnames]
+        with table_path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
             writer.writeheader()
-        writer.writerow(row)
+            writer.writerows(existing_rows)
+            writer.writerow(row)
+    else:
+        fieldnames = list(row.keys())
+        with table_path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerow(row)
 
 
 def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
@@ -321,6 +355,9 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         "report_to": "none",
         "seed": args.seed,
         "fp16": fp16,
+        "gradient_accumulation_steps": args.gradient_accumulation_steps,
+        "gradient_checkpointing": args.gradient_checkpointing,
+        "auto_find_batch_size": args.auto_find_batch_size,
     }
     training_args = TrainingArguments(
         **filter_training_arguments_kwargs(TrainingArguments, training_args_kwargs)
@@ -367,6 +404,9 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         "sample_limited": is_sample_limited(args),
         "seed": args.seed,
         "fp16": fp16,
+        "gradient_accumulation_steps": args.gradient_accumulation_steps,
+        "gradient_checkpointing": args.gradient_checkpointing,
+        "auto_find_batch_size": args.auto_find_batch_size,
     }
     row = build_result_row(
         dataset=dataset_config.name,
@@ -416,6 +456,24 @@ def build_parser() -> argparse.ArgumentParser:
         action=argparse.BooleanOptionalAction,
         default=True,
         help="Use fp16 when CUDA is available, matching the paper recipes by default",
+    )
+    parser.add_argument(
+        "--gradient-accumulation-steps",
+        type=int,
+        default=1,
+        help="Optional Colab fallback for large models; keep 1 for paper-faithful physical batch size",
+    )
+    parser.add_argument(
+        "--gradient-checkpointing",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Optional Colab memory fallback for large models; disabled for paper-faithful runs",
+    )
+    parser.add_argument(
+        "--auto-find-batch-size",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Optional Transformers batch-size fallback after OOM; disabled for paper-faithful runs",
     )
     parser.add_argument("--max-train-samples", type=int, default=None, help="Smoke-test limit")
     parser.add_argument("--max-eval-samples", type=int, default=None, help="Smoke-test limit")
