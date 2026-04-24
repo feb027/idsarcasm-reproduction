@@ -86,12 +86,31 @@ def training_strategy_kwargs(training_args_cls: Any) -> Dict[str, str]:
     """Return strategy keyword names compatible with installed Transformers.
 
     Transformers 4.x commonly uses `evaluation_strategy`; newer releases use
-    `eval_strategy`. Save/logging names stay stable. Keeping this helper small
-    makes the Colab runner less sensitive to whatever version Colab installs.
+    `eval_strategy`. Save/logging names stay stable in most releases. Keeping
+    this helper small makes the Colab runner less sensitive to whatever version
+    Colab installs.
     """
     params = inspect.signature(training_args_cls).parameters
     eval_key = "eval_strategy" if "eval_strategy" in params else "evaluation_strategy"
     return {eval_key: "epoch", "save_strategy": "epoch", "logging_strategy": "epoch"}
+
+
+def filter_training_arguments_kwargs(training_args_cls: Any, kwargs: Mapping[str, Any]) -> Dict[str, Any]:
+    """Drop TrainingArguments kwargs unsupported by the installed Transformers.
+
+    Some Colab images can have a Transformers build whose `TrainingArguments`
+    signature differs from the usual pip release. Filtering here keeps the
+    runner usable while preserving every supported paper-faithful setting.
+    """
+    params = inspect.signature(training_args_cls).parameters
+    if any(param.kind == inspect.Parameter.VAR_KEYWORD for param in params.values()):
+        return dict(kwargs)
+
+    filtered = {key: value for key, value in kwargs.items() if key in params}
+    dropped = sorted(set(kwargs) - set(filtered))
+    if dropped:
+        print(f"[compat] ignoring unsupported TrainingArguments kwargs: {', '.join(dropped)}")
+    return filtered
 
 
 def is_sample_limited(args: argparse.Namespace) -> bool:
@@ -268,24 +287,27 @@ def train_and_evaluate(args: argparse.Namespace) -> Dict[str, Any]:
         }
 
     fp16 = bool(args.fp16 and torch.cuda.is_available())
-    training_args = TrainingArguments(
-        output_dir=str(args.model_output_dir),
-        overwrite_output_dir=True,
-        learning_rate=args.learning_rate,
-        per_device_train_batch_size=args.batch_size,
-        per_device_eval_batch_size=args.eval_batch_size,
-        num_train_epochs=args.epochs,
-        lr_scheduler_type=args.lr_scheduler_type,
-        weight_decay=args.weight_decay,
-        label_smoothing_factor=args.label_smoothing_factor,
+    training_args_kwargs = {
+        "output_dir": str(args.model_output_dir),
+        "overwrite_output_dir": True,
+        "learning_rate": args.learning_rate,
+        "per_device_train_batch_size": args.batch_size,
+        "per_device_eval_batch_size": args.eval_batch_size,
+        "num_train_epochs": args.epochs,
+        "lr_scheduler_type": args.lr_scheduler_type,
+        "weight_decay": args.weight_decay,
+        "label_smoothing_factor": args.label_smoothing_factor,
         **training_strategy_kwargs(TrainingArguments),
-        load_best_model_at_end=True,
-        metric_for_best_model="f1",
-        greater_is_better=True,
-        save_total_limit=1,
-        report_to="none",
-        seed=args.seed,
-        fp16=fp16,
+        "load_best_model_at_end": True,
+        "metric_for_best_model": "f1",
+        "greater_is_better": True,
+        "save_total_limit": 1,
+        "report_to": "none",
+        "seed": args.seed,
+        "fp16": fp16,
+    }
+    training_args = TrainingArguments(
+        **filter_training_arguments_kwargs(TrainingArguments, training_args_kwargs)
     )
 
     trainer = Trainer(

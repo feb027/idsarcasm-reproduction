@@ -7,6 +7,7 @@ from scripts.run_transformer_baseline import (
     build_progress3_commands,
     build_result_row,
     effective_table_path,
+    filter_training_arguments_kwargs,
     get_dataset_config,
     is_sample_limited,
     parse_args,
@@ -48,6 +49,29 @@ class TransformerBaselineUtilsTest(unittest.TestCase):
         self.assertEqual(
             training_strategy_kwargs(new_training_args),
             {"eval_strategy": "epoch", "save_strategy": "epoch", "logging_strategy": "epoch"},
+        )
+
+    def test_filter_training_arguments_kwargs_drops_unsupported_colab_keys(self):
+        def colab_training_args(*, output_dir=None, learning_rate=None, eval_strategy=None):
+            return None
+
+        filtered = filter_training_arguments_kwargs(
+            colab_training_args,
+            {
+                "output_dir": "models/transformer/test",
+                "overwrite_output_dir": True,
+                "learning_rate": 1e-5,
+                "eval_strategy": "epoch",
+            },
+        )
+
+        self.assertEqual(
+            filtered,
+            {
+                "output_dir": "models/transformer/test",
+                "learning_rate": 1e-5,
+                "eval_strategy": "epoch",
+            },
         )
 
     def test_sample_limited_runs_use_smoke_table_by_default(self):
