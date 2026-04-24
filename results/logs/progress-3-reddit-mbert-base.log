@@ -1,0 +1,66 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+BertForSequenceClassification LOAD REPORT from: bert-base-multilingual-cased
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+classifier.weight                          | MISSING    | 
+classifier.bias                            | MISSING    | 
+
+Notes:
+- UNEXPECTED	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING	:those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+There were missing keys in the checkpoint model loaded: ['bert.embeddings.LayerNorm.weight', 'bert.embeddings.LayerNorm.bias', 'bert.encoder.layer.0.attention.output.LayerNorm.weight', 'bert.encoder.layer.0.attention.output.LayerNorm.bias', 'bert.encoder.layer.0.output.LayerNorm.weight', 'bert.encoder.layer.0.output.LayerNorm.bias', 'bert.encoder.layer.1.attention.output.LayerNorm.weight', 'bert.encoder.layer.1.attention.output.LayerNorm.bias', 'bert.encoder.layer.1.output.LayerNorm.weight', 'bert.encoder.layer.1.output.LayerNorm.bias', 'bert.encoder.layer.2.attention.output.LayerNorm.weight', 'bert.encoder.layer.2.attention.output.LayerNorm.bias', 'bert.encoder.layer.2.output.LayerNorm.weight', 'bert.encoder.layer.2.output.LayerNorm.bias', 'bert.encoder.layer.3.attention.output.LayerNorm.weight', 'bert.encoder.layer.3.attention.output.LayerNorm.bias', 'bert.encoder.layer.3.output.LayerNorm.weight', 'bert.encoder.layer.3.output.LayerNorm.bias', 'bert.encoder.layer.4.attention.output.LayerNorm.weight', 'bert.encoder.layer.4.attention.output.LayerNorm.bias', 'bert.encoder.layer.4.output.LayerNorm.weight', 'bert.encoder.layer.4.output.LayerNorm.bias', 'bert.encoder.layer.5.attention.output.LayerNorm.weight', 'bert.encoder.layer.5.attention.output.LayerNorm.bias', 'bert.encoder.layer.5.output.LayerNorm.weight', 'bert.encoder.layer.5.output.LayerNorm.bias', 'bert.encoder.layer.6.attention.output.LayerNorm.weight', 'bert.encoder.layer.6.attention.output.LayerNorm.bias', 'bert.encoder.layer.6.output.LayerNorm.weight', 'bert.encoder.layer.6.output.LayerNorm.bias', 'bert.encoder.layer.7.attention.output.LayerNorm.weight', 'bert.encoder.layer.7.attention.output.LayerNorm.bias', 'bert.encoder.layer.7.output.LayerNorm.weight', 'bert.encoder.layer.7.output.LayerNorm.bias', 'bert.encoder.layer.8.attention.output.LayerNorm.weight', 'bert.encoder.layer.8.attention.output.LayerNorm.bias', 'bert.encoder.layer.8.output.LayerNorm.weight', 'bert.encoder.layer.8.output.LayerNorm.bias', 'bert.encoder.layer.9.attention.output.LayerNorm.weight', 'bert.encoder.layer.9.attention.output.LayerNorm.bias', 'bert.encoder.layer.9.output.LayerNorm.weight', 'bert.encoder.layer.9.output.LayerNorm.bias', 'bert.encoder.layer.10.attention.output.LayerNorm.weight', 'bert.encoder.layer.10.attention.output.LayerNorm.bias', 'bert.encoder.layer.10.output.LayerNorm.weight', 'bert.encoder.layer.10.output.LayerNorm.bias', 'bert.encoder.layer.11.attention.output.LayerNorm.weight', 'bert.encoder.layer.11.attention.output.LayerNorm.bias', 'bert.encoder.layer.11.output.LayerNorm.weight', 'bert.encoder.layer.11.output.LayerNorm.bias'].
+There were unexpected keys in the checkpoint model loaded: ['bert.embeddings.LayerNorm.beta', 'bert.embeddings.LayerNorm.gamma', 'bert.encoder.layer.0.attention.output.LayerNorm.beta', 'bert.encoder.layer.0.attention.output.LayerNorm.gamma', 'bert.encoder.layer.0.output.LayerNorm.beta', 'bert.encoder.layer.0.output.LayerNorm.gamma', 'bert.encoder.layer.1.attention.output.LayerNorm.beta', 'bert.encoder.layer.1.attention.output.LayerNorm.gamma', 'bert.encoder.layer.1.output.LayerNorm.beta', 'bert.encoder.layer.1.output.LayerNorm.gamma', 'bert.encoder.layer.2.attention.output.LayerNorm.beta', 'bert.encoder.layer.2.attention.output.LayerNorm.gamma', 'bert.encoder.layer.2.output.LayerNorm.beta', 'bert.encoder.layer.2.output.LayerNorm.gamma', 'bert.encoder.layer.3.attention.output.LayerNorm.beta', 'bert.encoder.layer.3.attention.output.LayerNorm.gamma', 'bert.encoder.layer.3.output.LayerNorm.beta', 'bert.encoder.layer.3.output.LayerNorm.gamma', 'bert.encoder.layer.4.attention.output.LayerNorm.beta', 'bert.encoder.layer.4.attention.output.LayerNorm.gamma', 'bert.encoder.layer.4.output.LayerNorm.beta', 'bert.encoder.layer.4.output.LayerNorm.gamma', 'bert.encoder.layer.5.attention.output.LayerNorm.beta', 'bert.encoder.layer.5.attention.output.LayerNorm.gamma', 'bert.encoder.layer.5.output.LayerNorm.beta', 'bert.encoder.layer.5.output.LayerNorm.gamma', 'bert.encoder.layer.6.attention.output.LayerNorm.beta', 'bert.encoder.layer.6.attention.output.LayerNorm.gamma', 'bert.encoder.layer.6.output.LayerNorm.beta', 'bert.encoder.layer.6.output.LayerNorm.gamma', 'bert.encoder.layer.7.attention.output.LayerNorm.beta', 'bert.encoder.layer.7.attention.output.LayerNorm.gamma', 'bert.encoder.layer.7.output.LayerNorm.beta', 'bert.encoder.layer.7.output.LayerNorm.gamma', 'bert.encoder.layer.8.attention.output.LayerNorm.beta', 'bert.encoder.layer.8.attention.output.LayerNorm.gamma', 'bert.encoder.layer.8.output.LayerNorm.beta', 'bert.encoder.layer.8.output.LayerNorm.gamma', 'bert.encoder.layer.9.attention.output.LayerNorm.beta', 'bert.encoder.layer.9.attention.output.LayerNorm.gamma', 'bert.encoder.layer.9.output.LayerNorm.beta', 'bert.encoder.layer.9.output.LayerNorm.gamma', 'bert.encoder.layer.10.attention.output.LayerNorm.beta', 'bert.encoder.layer.10.attention.output.LayerNorm.gamma', 'bert.encoder.layer.10.output.LayerNorm.beta', 'bert.encoder.layer.10.output.LayerNorm.gamma', 'bert.encoder.layer.11.attention.output.LayerNorm.beta', 'bert.encoder.layer.11.attention.output.LayerNorm.gamma', 'bert.encoder.layer.11.output.LayerNorm.beta', 'bert.encoder.layer.11.output.LayerNorm.gamma'].
+[data] using cached CSV files from data/raw
+[compat] ignoring unsupported TrainingArguments kwargs: overwrite_output_dir
+{'loss': '0.5089', 'grad_norm': '3.946', 'learning_rate': '9.998e-06', 'epoch': '1'}
+{'eval_loss': '0.4818', 'eval_accuracy': '0.7803', 'eval_precision': '0.5749', 'eval_recall': '0.4674', 'eval_f1': '0.5156', 'eval_runtime': '2.533', 'eval_samples_per_second': '557.1', 'eval_steps_per_second': '9.081', 'epoch': '1'}
+{'loss': '0.4392', 'grad_norm': '6.115', 'learning_rate': '9.99e-06', 'epoch': '2'}
+{'eval_loss': '0.4439', 'eval_accuracy': '0.798', 'eval_precision': '0.6126', 'eval_recall': '0.5241', 'eval_f1': '0.5649', 'eval_runtime': '2.652', 'eval_samples_per_second': '532', 'eval_steps_per_second': '8.672', 'epoch': '2'}
+{'loss': '0.3782', 'grad_norm': '9.197', 'learning_rate': '9.978e-06', 'epoch': '3'}
+{'eval_loss': '0.4554', 'eval_accuracy': '0.8143', 'eval_precision': '0.6704', 'eval_recall': '0.5071', 'eval_f1': '0.5774', 'eval_runtime': '2.534', 'eval_samples_per_second': '556.8', 'eval_steps_per_second': '9.075', 'epoch': '3'}
+{'loss': '0.3104', 'grad_norm': '19.52', 'learning_rate': '9.961e-06', 'epoch': '4'}
+{'eval_loss': '0.5637', 'eval_accuracy': '0.8023', 'eval_precision': '0.6907', 'eval_recall': '0.3796', 'eval_f1': '0.4899', 'eval_runtime': '2.603', 'eval_samples_per_second': '542.1', 'eval_steps_per_second': '8.836', 'epoch': '4'}
+{'loss': '0.2468', 'grad_norm': '9.054', 'learning_rate': '9.939e-06', 'epoch': '5'}
+{'eval_loss': '0.5668', 'eval_accuracy': '0.7881', 'eval_precision': '0.5894', 'eval_recall': '0.5042', 'eval_f1': '0.5435', 'eval_runtime': '2.621', 'eval_samples_per_second': '538.4', 'eval_steps_per_second': '8.776', 'epoch': '5'}
+{'loss': '0.1928', 'grad_norm': '14.83', 'learning_rate': '9.912e-06', 'epoch': '6'}
+{'eval_loss': '0.6668', 'eval_accuracy': '0.7768', 'eval_precision': '0.5468', 'eval_recall': '0.6289', 'eval_f1': '0.585', 'eval_runtime': '2.545', 'eval_samples_per_second': '554.4', 'eval_steps_per_second': '9.037', 'epoch': '6'}
+{'train_runtime': '683.3', 'train_samples_per_second': '1446', 'train_steps_per_second': '45.23', 'train_loss': '0.3461', 'epoch': '6'}
+{'eval_loss': '0.6668', 'eval_accuracy': '0.7768', 'eval_precision': '0.5468', 'eval_recall': '0.6289', 'eval_f1': '0.585', 'eval_runtime': '2.58', 'eval_samples_per_second': '546.8', 'eval_steps_per_second': '8.913', 'epoch': '6'}
+{
+  "dataset": "reddit",
+  "model_alias": "mbert-base",
+  "model_name": "bert-base-multilingual-cased",
+  "accuracy": 0.7539,
+  "precision": 0.5068,
+  "recall": 0.5807,
+  "f1": 0.5413,
+  "learning_rate": 1e-05,
+  "lr_scheduler_type": "cosine",
+  "epochs": 100.0,
+  "batch_size": 32,
+  "eval_batch_size": 64,
+  "max_length": 128,
+  "weight_decay": 0.03,
+  "label_smoothing_factor": 0.0,
+  "pad_to_max_length": true,
+  "shuffle_train_dataset": true,
+  "early_stopping_patience": 3,
+  "early_stopping_threshold": 0.01,
+  "max_train_samples": null,
+  "max_eval_samples": null,
+  "max_predict_samples": null,
+  "sample_limited": false,
+  "seed": 42,
+  "fp16": true,
+  "disable_tqdm": true,
+  "gradient_accumulation_steps": 1,
+  "gradient_checkpointing": false,
+  "auto_find_batch_size": false
+}

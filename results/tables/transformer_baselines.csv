@@ -1,3 +1,13 @@
-dataset,model_alias,model_name,accuracy,precision,recall,f1,learning_rate,lr_scheduler_type,epochs,batch_size,eval_batch_size,max_length,weight_decay,label_smoothing_factor,pad_to_max_length,shuffle_train_dataset,early_stopping_patience,early_stopping_threshold,max_train_samples,max_eval_samples,max_predict_samples,sample_limited,seed,fp16
-twitter,indobert-base,indobenchmark/indobert-base-p1,0.8364,0.662,0.7015,0.6812,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True
-twitter,xlmr-base,xlm-roberta-base,0.8327,0.6325,0.7836,0.7,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True
+dataset,model_alias,model_name,accuracy,precision,recall,f1,learning_rate,lr_scheduler_type,epochs,batch_size,eval_batch_size,max_length,weight_decay,label_smoothing_factor,pad_to_max_length,shuffle_train_dataset,early_stopping_patience,early_stopping_threshold,max_train_samples,max_eval_samples,max_predict_samples,sample_limited,seed,fp16,disable_tqdm,gradient_accumulation_steps,gradient_checkpointing,auto_find_batch_size
+twitter,indobert-base,indobenchmark/indobert-base-p1,0.8364,0.662,0.7015,0.6812,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,,,,
+twitter,xlmr-base,xlm-roberta-base,0.8327,0.6325,0.7836,0.7,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,,,,
+reddit,indobert-base,indobenchmark/indobert-base-p1,0.778,0.5493,0.6232,0.5839,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+reddit,xlmr-base,xlm-roberta-base,0.7893,0.5774,0.5864,0.5819,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+twitter,mbert-base,bert-base-multilingual-cased,0.8476,0.6757,0.7463,0.7092,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+twitter,indobert-indolem-base,indolem/indobert-base-uncased,0.8364,0.6597,0.709,0.6835,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+reddit,mbert-base,bert-base-multilingual-cased,0.7539,0.5068,0.5807,0.5413,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+reddit,indobert-indolem-base,indolem/indobert-base-uncased,0.7659,0.53,0.5623,0.5457,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+twitter,indobert-large,indobenchmark/indobert-large-p1,0.8327,0.6467,0.7239,0.6831,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+reddit,indobert-large,indobenchmark/indobert-large-p1,0.7939,0.5901,0.5751,0.5825,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+twitter,xlmr-large,xlm-roberta-large,0.8401,0.6364,0.8358,0.7226,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
+reddit,xlmr-large,xlm-roberta-large,0.8081,0.6188,0.6048,0.6117,1e-05,cosine,100.0,32,64,128,0.03,0.0,True,True,3,0.01,,,,False,42,True,True,1,False,False
