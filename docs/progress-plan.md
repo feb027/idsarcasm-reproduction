@@ -14,7 +14,8 @@ Per 18 April 2026, struktur progress direvisi agar alurnya lebih realistis dan l
 Status saat ini:
 - Progress 1: ✅ selesai
 - Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
-- Progress 3–6: ⬜ belum mulai
+- Progress 3: 🔄 asset runner/notebook/panduan sudah siap, menunggu eksekusi GPU Colab
+- Progress 4–6: ⬜ belum mulai
 
 ---
 
@@ -116,17 +117,18 @@ Progress 2 baru dianggap benar-benar selesai jika:
 Menaikkan proyek dari level baseline classical ML ke level yang lebih sesuai dengan judul proyek, yaitu menguji performa model transformer pada benchmark IdSarcasm secara terukur.
 
 ### Cakupan
-- [ ] Menentukan model transformer utama yang realistis: IndoBERT Base atau XLM-R Base
-- [ ] Mengambil titik awal dari `source-code/original-id-sarcasm/` agar implementasi tetap dekat ke codebase penulis
-- [ ] Menyiapkan pipeline fine-tuning yang rapi dan terdokumentasi
+- [x] Menentukan model transformer utama yang realistis: IndoBERT Base sebagai target awal, XLM-R Base sebagai opsi pembanding
+- [x] Mengambil titik awal dari `source-code/original-id-sarcasm/` agar implementasi tetap dekat ke codebase penulis
+- [x] Menyiapkan pipeline fine-tuning yang rapi dan terdokumentasi (`scripts/run_transformer_baseline.py`)
 - [ ] Menjalankan minimal 1 transformer baseline pada dataset Twitter
 - [ ] Jika resource cukup, menjalankan transformer pada Reddit atau model kedua sebagai pembanding
 - [ ] Menyimpan hasil metrik, konfigurasi, dan catatan resource
 - [ ] Membandingkan hasil transformer dengan baseline classical ML terbaik
 
 ### Output
-- Script/notebook fine-tuning transformer
-- Tabel hasil baseline transformer
+- Script/notebook fine-tuning transformer: `scripts/run_transformer_baseline.py` dan `notebooks/02_transformer_baseline_colab.ipynb`
+- Panduan eksekusi Colab: `docs/progress-3-local-run-guide.md`
+- Tabel hasil baseline transformer (setelah training): `results/tables/transformer_baselines.csv`
 - Catatan konfigurasi training dan kebutuhan compute
 - Ringkasan apakah transformer memang memberi gain yang layak
 

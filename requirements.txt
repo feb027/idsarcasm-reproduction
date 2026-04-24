@@ -11,6 +11,7 @@ nltk>=3.8
 transformers>=4.35
 torch>=2.0
 tokenizers>=0.15
+accelerate>=0.24
 
 # Evaluation
 evaluate>=0.4
