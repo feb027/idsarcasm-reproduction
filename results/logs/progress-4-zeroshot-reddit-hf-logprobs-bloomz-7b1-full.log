@@ -1,0 +1,5 @@
+[log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-bloomz-7b1-full.log
+[run] started_at=2026-04-25T14:30:54+00:00
+[run] backend=hf-logprobs dataset=reddit split=test model=bigscience/bloomz-7b1
+[run] output_dir=results/zeroshot/reddit-hf-logprobs-bloomz-7b1
+[run] table_path=results/tables/zeroshot_baselines.csv

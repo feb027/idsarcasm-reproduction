@@ -1,0 +1,2 @@
+dataset,backend,model_alias,model_name,split,accuracy,precision,recall,f1,prompt_count,num_examples,invalid_outputs,runtime_seconds,avg_latency_seconds,sample_limited,model_max_length,dtype,load_8bit,device_map,temperature,max_new_tokens,run_started_at,run_ended_at
+twitter,hf-logprobs,mt0-small,bigscience/mt0-small,test,0.5,0.5,1.0,0.6667,5,8,0,43.51,0.0917,True,1024,float16,False,auto,,,2026-04-25T12:59:40+00:00,2026-04-25T13:00:24+00:00

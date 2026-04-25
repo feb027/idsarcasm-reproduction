@@ -1,0 +1,9 @@
+[log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-bloomz-1b1-full.log
+[run] started_at=2026-04-25T14:30:08+00:00
+[run] backend=hf-logprobs dataset=reddit split=test model=bigscience/bloomz-1b1
+[run] output_dir=results/zeroshot/reddit-hf-logprobs-bloomz-1b1
+[run] table_path=results/tables/zeroshot_baselines.csv
+[data] cached split not found, loading w11wo/reddit_indonesia_sarcastic:test from HuggingFace
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[data] examples=2824 sample_limited=False
+`torch_dtype` is deprecated! Use `dtype` instead!

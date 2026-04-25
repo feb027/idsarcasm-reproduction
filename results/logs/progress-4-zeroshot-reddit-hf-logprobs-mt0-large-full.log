@@ -1,0 +1,6 @@
+[log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-mt0-large-full.log
+[run] started_at=2026-04-25T14:30:58+00:00
+[run] backend=hf-logprobs dataset=reddit split=test model=bigscience/mt0-large
+[run] output_dir=results/zeroshot/reddit-hf-logprobs-mt0-large
+[run] table_path=results/tables/zeroshot_baselines.csv
+[data] cached split not found, loading w11wo/reddit_indonesia_sarcastic:test from HuggingFace

@@ -1,0 +1,7 @@
+[log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-mt0-xl-full.log
+[run] started_at=2026-04-25T14:31:00+00:00
+[run] backend=hf-logprobs dataset=reddit split=test model=bigscience/mt0-xl
+[run] output_dir=results/zeroshot/reddit-hf-logprobs-mt0-xl
+[run] table_path=results/tables/zeroshot_baselines.csv
+[data] cached split not found, loading w11wo/reddit_indonesia_sarcastic:test from HuggingFace
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.

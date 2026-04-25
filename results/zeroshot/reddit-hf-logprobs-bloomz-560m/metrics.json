@@ -1,0 +1,46 @@
+{
+  "mean": {
+    "accuracy": 0.3033,
+    "precision": 0.2491,
+    "recall": 0.887,
+    "f1": 0.3857
+  },
+  "by_prompt": {
+    "0": {
+      "accuracy": 0.2589,
+      "precision": 0.2486,
+      "recall": 0.9717,
+      "f1": 0.396
+    },
+    "1": {
+      "accuracy": 0.2511,
+      "precision": 0.2476,
+      "recall": 0.9788,
+      "f1": 0.3952
+    },
+    "2": {
+      "accuracy": 0.2504,
+      "precision": 0.2501,
+      "recall": 1.0,
+      "f1": 0.4001
+    },
+    "3": {
+      "accuracy": 0.4727,
+      "precision": 0.2486,
+      "recall": 0.5482,
+      "f1": 0.342
+    },
+    "4": {
+      "accuracy": 0.2833,
+      "precision": 0.2504,
+      "recall": 0.9363,
+      "f1": 0.3951
+    }
+  },
+  "run_started_at": "2026-04-25T14:15:47+00:00",
+  "run_ended_at": "2026-04-25T14:30:06+00:00",
+  "runtime_seconds": 859.65,
+  "avg_latency_seconds": 0.0587,
+  "num_prediction_calls": 14120,
+  "invalid_outputs": 0
+}

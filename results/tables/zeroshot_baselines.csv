@@ -1,0 +1,11 @@
+dataset,backend,model_alias,model_name,split,accuracy,precision,recall,f1,prompt_count,num_examples,invalid_outputs,runtime_seconds,avg_latency_seconds,sample_limited,model_max_length,dtype,load_8bit,device_map,temperature,max_new_tokens,run_started_at,run_ended_at
+twitter,hf-logprobs,bloomz-560m,bigscience/bloomz-560m,test,0.2662,0.2459,0.9463,0.3899,5,538,0,180.72,0.057,False,1024,float16,False,auto,,,2026-04-25T13:00:33+00:00,2026-04-25T13:03:34+00:00
+twitter,hf-logprobs,bloomz-1b1,bigscience/bloomz-1b1,test,0.2591,0.2499,0.9866,0.3988,5,538,0,214.61,0.0596,False,1024,float16,False,auto,,,2026-04-25T13:03:35+00:00,2026-04-25T13:07:10+00:00
+twitter,hf-logprobs,bloomz-1b7,bigscience/bloomz-1b7,test,0.2632,0.2454,0.9433,0.3893,5,538,0,208.96,0.063,False,1024,float16,False,auto,,,2026-04-25T13:07:11+00:00,2026-04-25T13:10:40+00:00
+twitter,hf-logprobs,bloomz-3b,bigscience/bloomz-3b,test,0.2536,0.2426,0.9433,0.3858,5,538,0,350.08,0.087,False,1024,float16,False,auto,,,2026-04-25T13:10:42+00:00,2026-04-25T13:16:32+00:00
+twitter,hf-logprobs,bloomz-7b1,bigscience/bloomz-7b1,test,0.2532,0.2482,0.9851,0.3965,5,538,0,1672.24,0.5579,False,1024,float16,False,auto,,,2026-04-25T13:16:33+00:00,2026-04-25T13:44:26+00:00
+twitter,hf-logprobs,mt0-small,bigscience/mt0-small,test,0.2491,0.2491,1.0,0.3988,5,538,0,189.49,0.0615,False,1024,float16,False,auto,,,2026-04-25T13:44:28+00:00,2026-04-25T13:47:37+00:00
+twitter,hf-logprobs,mt0-base,bigscience/mt0-base,test,0.2495,0.249,0.9985,0.3986,5,538,0,306.28,0.0888,False,1024,float16,False,auto,,,2026-04-25T13:47:39+00:00,2026-04-25T13:52:45+00:00
+twitter,hf-logprobs,mt0-large,bigscience/mt0-large,test,0.2495,0.2492,1.0,0.3989,5,538,0,562.66,0.1696,False,1024,float16,False,auto,,,2026-04-25T13:52:47+00:00,2026-04-25T14:02:10+00:00
+twitter,hf-logprobs,mt0-xl,bigscience/mt0-xl,test,0.2491,0.2491,1.0,0.3988,5,538,0,808.67,0.1791,False,1024,float16,False,auto,,,2026-04-25T14:02:13+00:00,2026-04-25T14:15:42+00:00
+reddit,hf-logprobs,bloomz-560m,bigscience/bloomz-560m,test,0.3033,0.2491,0.887,0.3857,5,2824,0,859.65,0.0587,False,1024,float16,False,auto,,,2026-04-25T14:15:47+00:00,2026-04-25T14:30:06+00:00
