@@ -1,47 +1,53 @@
-# Progress 3 — Reproduksi Transformer Baseline
+# Progress 3 — Paper Baseline Complete Transformer Reproduction
 
-**Status:** siap dieksekusi di Google Colab GPU  
-**Target utama:** dua baseline transformer paper-faithful pada dataset Twitter IdSarcasm
+**Status:** ✅ selesai  
+**Target utama:** menjalankan baseline fine-tuned transformer paper pada dua dataset IdSarcasm: Twitter dan Reddit.
 
 ---
 
 ## Tujuan
 
-Progress 3 menaikkan proyek dari baseline classical ML ke baseline transformer. Pada Progress 2, Logistic Regression dan SVM sudah berhasil mendekati hasil paper untuk dataset Twitter dan Reddit. Progress 3 sekarang difokuskan untuk menjalankan model transformer dengan setting yang lebih dekat ke source code asli paper.
+Progress 3 menaikkan proyek dari baseline classical ML ke baseline transformer. Scope awal hanya dua model Twitter, tetapi setelah eksekusi Colab diperluas menjadi **paper baseline complete** untuk baseline fine-tuned transformer: **6 model × 2 dataset = 12 run**.
 
-Dua model yang dijadikan baseline resmi:
-
-1. **IndoBERT Base** (`indobenchmark/indobert-base-p1`)
-2. **XLM-R Base** (`xlm-roberta-base`)
-
-Keduanya dijalankan pada dataset **Twitter Indonesia Sarcastic**. XLM-R Large belum dijadikan target Progress 3 karena lebih berat dan lebih cocok dipertimbangkan sebagai batas atas hasil paper, bukan baseline awal yang realistis.
+Progress ini belum mencakup zero-shot LLM. Zero-shot dipindahkan ke **Progress 4** karena workflow-nya berbeda: inference/prompting LLM, bukan fine-tuning transformer.
 
 ---
 
 ## Scope Progress 3
 
-- [x] Menentukan dua model transformer baseline yang realistis: IndoBERT Base dan XLM-R Base.
-- [x] Membandingkan setting dengan recipe asli paper di `source-code/original-id-sarcasm/recipes/twitter/baseline/`.
-- [x] Menyiapkan script fine-tuning transformer: `scripts/run_transformer_baseline.py`.
-- [x] Menyiapkan notebook Colab: `notebooks/02_transformer_baseline_colab.ipynb`.
-- [x] Menyiapkan panduan eksekusi Colab/lokal: `docs/progress-3-local-run-guide.md`.
-- [ ] Menjalankan smoke test di Colab.
-- [ ] Menjalankan full baseline Twitter IndoBERT Base.
-- [ ] Menjalankan full baseline Twitter XLM-R Base.
-- [ ] Menyimpan hasil metrik di `results/tables/transformer_baselines.csv`.
-- [ ] Membandingkan hasil transformer dengan baseline classical ML terbaik dari Progress 2.
-- [ ] Mengisi laporan utama pada section 2.2.2, 3.2.2, dan 3.3.2.
+- [x] Membaca paper dan source-code original sebagai acuan.
+- [x] Menyamakan setting utama dengan recipe paper: epoch 100, batch 32/64, scheduler cosine, learning rate 1e-5, weight decay 0.03, max length 128, pad-to-max-length, shuffle train, early stopping threshold 0.01, seed 42, fp16.
+- [x] Menyiapkan runner fine-tuning: `scripts/run_transformer_baseline.py`.
+- [x] Menyiapkan notebook Colab lengkap: `notebooks/02_transformer_baseline_colab.ipynb`.
+- [x] Menyiapkan panduan eksekusi: `docs/progress-3-local-run-guide.md` dan `docs/progress-3-paper-baseline-complete-plan.md`.
+- [x] Menjalankan smoke test.
+- [x] Menjalankan 12 baseline transformer paper pada Twitter dan Reddit.
+- [x] Menyimpan metrik, konfigurasi, dan log Colab.
+- [x] Membandingkan hasil dengan angka paper dan baseline classical Progress 2.
+
+---
+
+## Model dan Dataset
+
+| Model | HF model | Reddit F1 paper | Twitter F1 paper |
+|---|---|---:|---:|
+| IndoBERT Base (IndoNLU) | `indobenchmark/indobert-base-p1` | 0.6100 | 0.7273 |
+| IndoBERT Large (IndoNLU) | `indobenchmark/indobert-large-p1` | 0.6184 | 0.7160 |
+| IndoBERT Base (IndoLEM) | `indolem/indobert-base-uncased` | 0.5671 | 0.6462 |
+| mBERT | `bert-base-multilingual-cased` | 0.5338 | 0.6467 |
+| XLM-R Base | `xlm-roberta-base` | 0.5690 | 0.7386 |
+| XLM-R Large | `xlm-roberta-large` | 0.6274 | 0.7692 |
 
 ---
 
 ## Kesesuaian dengan Source Code Paper
 
-Runner lokal dibuat agar setting default mengikuti recipe asli paper:
+Runner lokal dibuat agar setting default mengikuti recipe asli paper di `source-code/original-id-sarcasm/recipes/{twitter,reddit}/baseline/`.
 
 | Komponen | Setting Progress 3 | Recipe Paper |
 |---|---:|---:|
-| Dataset | Twitter Indonesia Sarcastic | Twitter Indonesia Sarcastic |
-| Text column | `tweet` | `tweet` |
+| Dataset | Twitter + Reddit | Twitter + Reddit |
+| Text column | `tweet` / `text` | `tweet` / `text` |
 | Label column | `label` | `label` |
 | Max sequence length | 128 | 128 |
 | Train batch size | 32 | 32 |
@@ -52,7 +58,7 @@ Runner lokal dibuat agar setting default mengikuti recipe asli paper:
 | Label smoothing | 0.0 | 0.0 |
 | Epoch maksimum | 100 | 100 |
 | Shuffle train split | yes | yes |
-| Early stopping | patience 3, threshold 0.01 | patience 3, threshold 0.01 di script upstream |
+| Early stopping | patience 3, threshold 0.01 | patience 3, threshold 0.01 |
 | Padding | pad to max length | pad to max length default |
 | Metric best model | F1 | F1 |
 | Seed | 42 | 42 |
@@ -62,115 +68,62 @@ Perbedaan yang sengaja dipertahankan:
 
 - Tidak memakai `--push_to_hub`, karena project UAS tidak perlu upload model ke HuggingFace.
 - Output checkpoint disimpan lokal di `models/transformer/` dan tidak di-commit.
-- Output metrik dirapikan ke `results/tables/transformer_baselines.csv` dan `results/transformer/...` supaya mudah masuk laporan.
-- Smoke test dipisah ke `results/tables/transformer_smoke.csv`, agar tidak mencampur hasil sampel kecil dengan hasil final.
-
-Dengan kata lain, konfigurasi training utamanya dibuat **paper-faithful**, tetapi output dan workflow disesuaikan untuk kebutuhan repo tugas.
-
----
-
-## Konfigurasi Baseline Resmi
-
-| Komponen | IndoBERT Base | XLM-R Base |
-|---|---|---|
-| Dataset | Twitter | Twitter |
-| HF dataset | `w11wo/twitter_indonesia_sarcastic` | `w11wo/twitter_indonesia_sarcastic` |
-| HF model | `indobenchmark/indobert-base-p1` | `xlm-roberta-base` |
-| Max length | 128 | 128 |
-| Learning rate | 1e-5 | 1e-5 |
-| Scheduler | cosine | cosine |
-| Weight decay | 0.03 | 0.03 |
-| Epoch maksimum | 100 | 100 |
-| Batch size | 32 | 32 |
-| Eval batch size | 64 | 64 |
-| Seed | 42 | 42 |
-| Runtime disarankan | Colab GPU | Colab GPU |
+- Output metrik dirapikan ke `results/tables/transformer_baselines.csv` dan `results/transformer/...`.
+- Log Colab disimpan di `results/logs/` sebagai bukti eksekusi.
+- Ada compatibility patch untuk Transformers versi baru (`overwrite_output_dir`, `tokenizer`/`processing_class`, dan progress bar), karena Colab memakai library yang lebih baru dari source-code paper.
 
 ---
 
-## Command Utama
+## Hasil Progress 3
 
-### IndoBERT Base
+| Model | Reddit F1 | Paper Reddit | Gap | Twitter F1 | Paper Twitter | Gap |
+|---|---:|---:|---:|---:|---:|---:|
+| IndoBERT Base (IndoNLU) | 0.5839 | 0.6100 | -0.0261 | 0.6812 | 0.7273 | -0.0461 |
+| IndoBERT Large (IndoNLU) | 0.5825 | 0.6184 | -0.0359 | 0.6831 | 0.7160 | -0.0329 |
+| IndoBERT Base (IndoLEM) | 0.5457 | 0.5671 | -0.0214 | 0.6835 | 0.6462 | +0.0373 |
+| mBERT | 0.5413 | 0.5338 | +0.0075 | 0.7092 | 0.6467 | +0.0625 |
+| XLM-R Base | 0.5819 | 0.5690 | +0.0129 | 0.7000 | 0.7386 | -0.0386 |
+| XLM-R Large | 0.6117 | 0.6274 | -0.0157 | 0.7226 | 0.7692 | -0.0466 |
 
-```bash
-python scripts/run_transformer_baseline.py \
-  --dataset twitter \
-  --model indobert-base \
-  --epochs 100 \
-  --batch-size 32 \
-  --eval-batch-size 64 \
-  --learning-rate 1e-5 \
-  --lr-scheduler-type cosine \
-  --weight-decay 0.03 \
-  --label-smoothing-factor 0.0 \
-  --max-length 128 \
-  --early-stopping-threshold 0.01 \
-  --seed 42 \
-  --pad-to-max-length \
-  --shuffle-train-dataset \
-  --fp16 \
-  --output-dir results/transformer/twitter-indobert-base \
-  --model-output-dir models/transformer/twitter-indobert-base
-```
+Model terbaik hasil reproduksi:
 
-### XLM-R Base
+- **Reddit:** XLM-R Large, F1 = **0.6117**.
+- **Twitter:** XLM-R Large, F1 = **0.7226**.
 
-```bash
-python scripts/run_transformer_baseline.py \
-  --dataset twitter \
-  --model xlmr-base \
-  --epochs 100 \
-  --batch-size 32 \
-  --eval-batch-size 64 \
-  --learning-rate 1e-5 \
-  --lr-scheduler-type cosine \
-  --weight-decay 0.03 \
-  --label-smoothing-factor 0.0 \
-  --max-length 128 \
-  --early-stopping-threshold 0.01 \
-  --seed 42 \
-  --pad-to-max-length \
-  --shuffle-train-dataset \
-  --fp16 \
-  --output-dir results/transformer/twitter-xlmr-base \
-  --model-output-dir models/transformer/twitter-xlmr-base
-```
+Hasil terbaik masih di bawah skor terbaik paper, tetapi urutan umum tetap masuk akal: XLM-R Large menjadi model terkuat di kedua dataset.
 
 ---
 
-## Output yang Diharapkan
+## Output yang Tersimpan
 
 ```text
 results/tables/transformer_baselines.csv
-results/transformer/twitter-indobert-base/metrics.json
-results/transformer/twitter-indobert-base/result_row.json
-results/transformer/twitter-xlmr-base/metrics.json
-results/transformer/twitter-xlmr-base/result_row.json
+results/tables/transformer_smoke.csv
+results/transformer/*/metrics.json
+results/transformer/*/result_row.json
+results/logs/progress-3-*.log
 ```
 
-File hasil ini harus disimpan di repo karena akan dipakai untuk laporan dan analisis komparatif. Folder checkpoint di `models/` tidak perlu di-commit karena ukurannya besar.
+Folder `models/` tidak di-commit karena berisi checkpoint besar.
 
 ---
 
-## Pembanding dari Progress 2
+## Catatan Penting
 
-| Dataset | Model Classical Terbaik | Representasi | F1 |
-|---|---|---|---:|
-| Twitter | Logistic Regression | TF-IDF | 0,7143 |
-| Twitter | SVM | BoW | 0,6850 |
-| Twitter | SVM | TF-IDF | 0,6783 |
-| Reddit | Logistic Regression | TF-IDF | 0,4959 |
-
-Untuk Progress 3, hasil IndoBERT Base dan XLM-R Base perlu dibandingkan terutama dengan **Twitter TF-IDF Logistic Regression = 0,7143**. Jika transformer lebih tinggi, ada bukti awal bahwa model kontekstual memberi peningkatan. Jika lebih rendah, hasilnya tetap berguna karena Progress 4 dapat difokuskan pada tuning.
+1. Beberapa model IndoBERT/IndoLEM menampilkan warning `LayerNorm.gamma/beta` vs `LayerNorm.weight/bias`. Training tetap selesai, tetapi warning ini dicatat sebagai isu kompatibilitas checkpoint lama dengan Transformers versi baru.
+2. Warning `classifier.weight/bias MISSING` normal untuk fine-tuning sequence classification karena head klasifikasi dibuat baru.
+3. XLM-R Large berhasil dijalankan di Colab dengan batch paper-faithful, sehingga Progress 3 dapat dianggap **paper baseline complete** untuk fine-tuned transformer.
 
 ---
 
-## Catatan untuk Laporan
+## Gate Kelulusan Progress 3
 
-Setelah hasil training tersedia, laporan utama `docs/laporan-proyek.md` harus diisi pada bagian:
+Progress 3 dianggap selesai karena:
 
-1. `2.2.2 Model Transformer` — jelaskan IndoBERT Base, XLM-R Base, tokenisasi subword, fine-tuning, dan alasan pemilihan model base.
-2. `3.2.2 Tahapan Eksperimen Transformer` — jelaskan alur load dataset, tokenisasi, shuffle train, training, early stopping, validasi, dan evaluasi test.
-3. `3.3.2 Hasil Model Transformer` — masukkan tabel hasil dua model, bandingkan dengan baseline classical ML, dan jelaskan gap.
+1. semua 12 baseline transformer fine-tuning paper sudah dijalankan,
+2. semua hasil full run memiliki `sample_limited=false`,
+3. metrik tersimpan di CSV/JSON,
+4. log Colab tersimpan sebagai bukti,
+5. hasil sudah dibandingkan dengan angka paper.
 
-Jangan mengisi angka hasil sebelum training selesai.
+Langkah berikutnya adalah **Progress 4: zero-shot LLM baseline**, termasuk kemungkinan inference lokal via LM Studio.

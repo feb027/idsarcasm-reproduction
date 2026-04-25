@@ -14,8 +14,10 @@ Per 18 April 2026, struktur progress direvisi agar alurnya lebih realistis dan l
 Status saat ini:
 - Progress 1: ✅ selesai
 - Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
-- Progress 3: 🔄 asset runner/notebook/panduan sudah siap untuk dua baseline transformer paper-faithful (IndoBERT Base + XLM-R Base), menunggu eksekusi GPU Colab
-- Progress 4–6: ⬜ belum mulai
+- Progress 3: ✅ selesai (12/12 baseline fine-tuned transformer paper pada Twitter + Reddit sudah dijalankan dan hasil/log tersimpan)
+- Progress 4: ⬜ zero-shot LLM baseline (Colab/HuggingFace atau LM Studio lokal)
+- Progress 5: ⬜ optimasi dan eksperimen lanjutan
+- Progress 6: ⬜ analisis komparatif, error analysis, dan finalisasi laporan
 
 ---
 
@@ -111,35 +113,65 @@ Progress 2 baru dianggap benar-benar selesai jika:
 
 ---
 
-## Progress 3: Reproduksi Transformer Baseline dan Benchmark Lanjutan 🔄
+## Progress 3: Reproduksi Transformer Baseline dan Benchmark Lanjutan ✅
 
 ### Tujuan
-Menaikkan proyek dari level baseline classical ML ke level yang lebih sesuai dengan judul proyek, yaitu menguji performa model transformer pada benchmark IdSarcasm secara terukur.
+Menaikkan proyek dari level baseline classical ML ke level fine-tuned transformer sesuai tabel baseline paper IdSarcasm.
 
 ### Cakupan
-- [x] Menentukan dua model transformer utama yang realistis: IndoBERT Base dan XLM-R Base pada dataset Twitter
+- [x] Menentukan model transformer paper baseline: IndoBERT Base/Large, IndoBERT IndoLEM Base, mBERT, XLM-R Base, XLM-R Large
 - [x] Mengambil titik awal dari `source-code/original-id-sarcasm/` agar implementasi tetap dekat ke codebase penulis
 - [x] Menyamakan setting utama dengan recipe paper: epoch 100, batch 32/64, scheduler cosine, learning rate 1e-5, weight decay 0.03, max length 128, pad-to-max-length, shuffle train, early stopping threshold 0.01, seed 42, fp16
 - [x] Menyiapkan pipeline fine-tuning yang rapi dan terdokumentasi (`scripts/run_transformer_baseline.py`)
-- [ ] Menjalankan smoke test di Colab
-- [ ] Menjalankan full baseline IndoBERT Base pada dataset Twitter
-- [ ] Menjalankan full baseline XLM-R Base pada dataset Twitter
-- [ ] Menyimpan hasil metrik, konfigurasi, dan catatan resource
-- [ ] Membandingkan hasil transformer dengan baseline classical ML terbaik
+- [x] Menjalankan smoke test di Colab
+- [x] Menjalankan 12/12 baseline fine-tuned transformer: 6 model × 2 dataset
+- [x] Menyimpan hasil metrik, konfigurasi, dan log Colab
+- [x] Membandingkan hasil transformer dengan angka paper dan baseline classical ML terbaik
 
 ### Output
 - Script/notebook fine-tuning transformer: `scripts/run_transformer_baseline.py` dan `notebooks/02_transformer_baseline_colab.ipynb`
 - Panduan eksekusi Colab: `docs/progress-3-local-run-guide.md`
-- Tabel hasil baseline transformer (setelah training): `results/tables/transformer_baselines.csv`
-- Catatan konfigurasi training dan kebutuhan compute
-- Ringkasan apakah transformer memang memberi gain yang layak
+- Plan complete baseline: `docs/progress-3-paper-baseline-complete-plan.md`
+- Tabel hasil baseline transformer: `results/tables/transformer_baselines.csv`
+- Artifact per run: `results/transformer/*/metrics.json` dan `results/transformer/*/result_row.json`
+- Log Colab: `results/logs/progress-3-*.log`
 
 ### Gate kelulusan progress
-Progress 3 dianggap selesai jika dua model transformer baseline (IndoBERT Base dan XLM-R Base) berhasil dilatih pada dataset Twitter, hasilnya tersimpan, dan keduanya dibandingkan langsung dengan baseline classical ML terbaik.
+Progress 3 selesai karena semua 12 baseline transformer paper berhasil dijalankan pada Twitter dan Reddit, hasil tersimpan, dan gap terhadap paper tercatat.
 
 ---
 
-## Progress 4: Optimasi Transformer Terarah ⬜
+## Progress 4: Zero-shot LLM Baseline ⬜
+
+### Tujuan
+Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm. Progress ini dipisahkan dari Progress 3 karena workflow-nya inference/prompting, bukan fine-tuning transformer.
+
+### Cakupan opsi
+- [ ] Mengambil atau merekonstruksi prompt zero-shot dari paper
+- [ ] Membuat runner zero-shot yang mendukung HuggingFace/Colab dan LM Studio OpenAI-compatible API
+- [ ] Menjalankan smoke test zero-shot pada subset kecil
+- [ ] Menjalankan minimal satu model zero-shot pada Twitter dan Reddit
+- [ ] Jika resource cukup, mencoba beberapa model paper seperti BLOOMZ/mT0 atau model lokal quantized di LM Studio
+- [ ] Menyimpan prediksi, metrik, dan log inference
+- [ ] Membandingkan hasil dengan target zero-shot paper
+
+### Fokus evaluasi
+- Akurasi parsing label dari output LLM
+- Perbandingan F1 zero-shot vs classical ML vs fine-tuned transformer
+- Keterbatasan resource lokal/Colab dan model yang tidak sama persis dengan paper
+
+### Output
+- `scripts/run_zeroshot_baseline.py` atau notebook zero-shot
+- `results/tables/zeroshot_baselines.csv`
+- `results/zeroshot/.../predictions.csv` dan `metrics.json`
+- Dokumentasi Progress 4 di `docs/progress-4.md`
+
+### Gate kelulusan progress
+Progress 4 dianggap selesai jika minimal satu zero-shot LLM baseline berhasil dievaluasi pada Twitter dan Reddit, prompt/parsing terdokumentasi, dan hasil dibandingkan dengan angka zero-shot paper.
+
+---
+
+## Progress 5: Optimasi dan Eksperimen Lanjutan ⬜
 
 ### Tujuan
 Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar memakai transformer, tetapi mencoba meningkatkan performanya secara metodologis.
@@ -168,50 +200,35 @@ Optimasi harus menghasilkan pembanding eksplisit terhadap baseline transformer, 
 
 ---
 
-## Progress 5: Analisis Komparatif dan Error Analysis ⬜
+## Progress 6: Analisis Komparatif dan Finalisasi Laporan ⬜
 
 ### Tujuan
-Menyusun analisis yang lebih matang terhadap seluruh rangkaian hasil: classical baseline, transformer baseline, dan transformer yang sudah dioptimasi.
+Menyusun analisis matang terhadap seluruh rangkaian hasil dan menutup proyek dalam bentuk laporan/repo yang rapi, dapat diperiksa, dan siap dipresentasikan.
 
 ### Cakupan
-- [ ] Menyusun tabel komparatif semua eksperimen utama
+- [ ] Menyusun tabel komparatif semua eksperimen utama: classical ML, transformer baseline, zero-shot, dan optimasi/eksperimen lanjutan
 - [ ] Membuat confusion matrix untuk model terbaik
 - [ ] Menganalisis contoh benar/salah klasifikasi
-- [ ] Membandingkan karakteristik error antara classical ML vs transformer
+- [ ] Membandingkan karakteristik error antara classical ML, fine-tuned transformer, dan zero-shot LLM
 - [ ] Menjelaskan faktor penyebab gap hasil terhadap paper atau antar konfigurasi
 - [ ] Menentukan model/fase mana yang paling layak dijadikan highlight laporan
-
-### Output
-- Tabel komparatif final eksperimen
-- Visual error analysis
-- Narasi analitis untuk laporan hasil dan pembahasan
-
-### Gate kelulusan progress
-Harus ada interpretasi yang jelas tentang model terbaik, alasan performanya, jenis error dominan, dan dampak optimasi yang dilakukan.
-
----
-
-## Progress 6: Finalisasi Laporan, Repositori, dan Narasi Hasil ⬜
-
-### Tujuan
-Menutup proyek dalam bentuk yang rapi, dapat diperiksa, dan siap dipresentasikan.
-
-### Cakupan
 - [ ] Finalisasi laporan proyek / laporan akhir
 - [ ] Rapikan README dan struktur repo
 - [ ] Rapikan tabel dan figure final
-- [ ] Tulis kesimpulan dan keterbatasan
-- [ ] Tulis saran pengembangan lanjutan
+- [ ] Tulis kesimpulan, keterbatasan, dan saran pengembangan lanjutan
 - [ ] Pastikan semua file penting ter-commit
 
 ### Output akhir
+- Tabel komparatif final eksperimen
+- Visual error analysis
+- Narasi analitis untuk laporan hasil dan pembahasan
 - Repo bersih dan terdokumentasi
 - Laporan final
 - Figure dan tabel final
 - Ringkasan hasil reproduksi + improvement
 
 ### Gate kelulusan progress
-Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaimana hasilnya, apa gap-nya, dan apa improvement yang berhasil/tidak berhasil.
+Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaimana hasilnya, apa gap-nya, model mana yang terbaik, jenis error dominan, dan apa improvement yang berhasil/tidak berhasil.
 
 ---
 
@@ -221,7 +238,9 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 |----------|-------------------------------|--------|
 | EDA | Lokal / VPS | ringan |
 | Classical ML baseline | Lokal / Colab CPU | aman tanpa GPU besar |
-| Transformer extension | Google Colab GPU / PC lokal CPU fallback | Colab lebih aman; PC lokal bisa, tetapi CPU lambat dan RX 6600 via ROCm/WSL2 lebih berisiko |
+| Transformer baseline | Google Colab GPU | sudah selesai 12/12 run; checkpoint besar tidak di-commit |
+| Zero-shot LLM | LM Studio lokal / Colab / HuggingFace | LM Studio memungkinkan inference lokal dengan model quantized di VRAM 8GB; Colab/HF untuk model BLOOMZ/mT0 kecil |
+| Optimasi/eksperimen | Colab GPU / lokal bila ringan | sesuaikan dengan model dan resource |
 | Dokumentasi & analisis | VPS / lokal | fleksibel |
 
 **Catatan:** VPS saat ini tidak ideal untuk eksekusi baseline karena env Python terkena isu kompatibilitas NumPy/X86_V2. Jadi dokumen ini mengasumsikan baseline akan dijalankan di lokal atau Colab.
@@ -232,7 +251,7 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 |----------|-----------------|
 | 1 | 12 Apr ✅ |
 | 2 | 12 Apr - setelah baseline classical selesai |
-| 3 | setelah baseline classical stabil dan siap dibandingkan |
-| 4 | setelah baseline transformer berhasil dijalankan |
-| 5 | setelah fase optimasi transformer selesai |
-| 6 | tahap penutupan proyek |
+| 3 | selesai: paper baseline complete fine-tuned transformer ✅ |
+| 4 | zero-shot LLM baseline (LM Studio/Colab) |
+| 5 | optimasi dan eksperimen lanjutan |
+| 6 | analisis komparatif dan finalisasi laporan |

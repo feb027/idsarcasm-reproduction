@@ -34,8 +34,10 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 │   ├── progress-plan.md  # Timeline & rencana 6 progress (revisi)
 │   ├── progress-1.md     # Dokumentasi Progress 1
 │   ├── progress-2.md     # Progress 2 gabungan: dataset, EDA, baseline classical ML
-│   ├── progress-3.md     # Rencana/konfigurasi Progress 3 transformer baseline
-│   └── progress-3-local-run-guide.md  # Panduan run transformer di Colab
+│   ├── progress-3.md     # Progress 3: paper baseline complete transformer
+│   ├── progress-3-local-run-guide.md  # Panduan run transformer di Colab
+│   ├── progress-3-paper-baseline-complete-plan.md  # Plan 12 baseline transformer
+│   └── progress-4.md     # Rencana zero-shot LLM baseline
 ├── 10565877.pdf          # Paper asli
 ├── requirements.txt      # Python dependencies
 └── README.md
@@ -65,7 +67,10 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 - Classical ML pada Reddit dataset
 
 ### Stretch / Progress 3
-- Fine-tune dua transformer baseline paper-faithful pada Twitter: IndoBERT Base dan XLM-R Base (disarankan via Google Colab GPU)
+- Fine-tune baseline transformer paper-complete pada Twitter dan Reddit: 6 model × 2 dataset = 12 run.
+
+### Progress 4
+- Zero-shot LLM baseline menggunakan HuggingFace/Colab atau LM Studio lokal sebagai OpenAI-compatible inference server.
 
 ## Methodology (Classical ML)
 
@@ -88,12 +93,12 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 |---|----------|--------|--------|
 | 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
 | 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
-| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | 🔄 | Runner, notebook Colab, dan panduan sudah siap untuk dua model paper-faithful: IndoBERT Base + XLM-R Base pada Twitter |
-| 4 | Optimasi Transformer Terarah | ⬜ | Tuning konfigurasi transformer untuk meningkatkan performa |
-| 5 | Analisis Komparatif dan Error Analysis | ⬜ | Komparasi penuh, confusion matrix, dan analisis error |
-| 6 | Finalisasi Laporan, Repo, dan Narasi Hasil | ⬜ | Rapikan hasil akhir, README, laporan, dan kesimpulan |
+| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ✅ | Paper baseline complete fine-tuned transformer selesai: 12/12 run pada Twitter + Reddit, hasil/log tersimpan |
+| 4 | Zero-shot LLM Baseline | ⬜ | Rencana evaluasi zero-shot via HuggingFace/Colab atau LM Studio lokal |
+| 5 | Optimasi dan Eksperimen Lanjutan | ⬜ | Tuning/weighted loss/preprocessing/eksperimen lanjutan berdasarkan hasil baseline |
+| 6 | Analisis Komparatif dan Finalisasi Laporan | ⬜ | Komparasi penuh, error analysis, README, laporan akhir, dan kesimpulan |
 
-Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, `docs/progress-3.md`, dan `source-code/README.md`. Untuk menjalankan transformer baseline Progress 3, gunakan `notebooks/02_transformer_baseline_colab.ipynb` atau ikuti `docs/progress-3-local-run-guide.md`.
+Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, `docs/progress-3.md`, `docs/progress-4.md`, dan `source-code/README.md`. Untuk melihat workflow transformer baseline Progress 3, gunakan `notebooks/02_transformer_baseline_colab.ipynb` atau ikuti `docs/progress-3-paper-baseline-complete-plan.md`.
 
 ## Quick Start
 
@@ -111,11 +116,16 @@ Untuk menjalankan Progress 2 di PC lokal / WSL2, ikuti panduan:
 - `docs/progress-2-local-run-guide.md`
 - script utama baseline: `scripts/run_classical_baselines.py`
 
-Untuk mulai Progress 3 transformer baseline di Google Colab GPU:
-- notebook siap jalan: `notebooks/02_transformer_baseline_colab.ipynb`
-- panduan detail: `docs/progress-3-local-run-guide.md`
+Untuk Progress 3 transformer baseline yang sudah selesai:
+- notebook Colab: `notebooks/02_transformer_baseline_colab.ipynb`
+- panduan detail: `docs/progress-3-paper-baseline-complete-plan.md`
 - script utama: `scripts/run_transformer_baseline.py`
-- model resmi Progress 3: IndoBERT Base dan XLM-R Base pada dataset Twitter dengan setting paper-faithful
+- hasil utama: `results/tables/transformer_baselines.csv`
+- scope selesai: 6 model transformer × 2 dataset = 12 run
+
+Untuk Progress 4 zero-shot LLM baseline:
+- rencana: `docs/progress-4.md`
+- opsi runtime: HuggingFace/Colab atau LM Studio lokal via OpenAI-compatible API
 
 ## Reference
 
