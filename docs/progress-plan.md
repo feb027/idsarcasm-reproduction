@@ -15,7 +15,7 @@ Status saat ini:
 - Progress 1: ✅ selesai
 - Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
 - Progress 3: ✅ selesai (12/12 baseline fine-tuned transformer paper pada Twitter + Reddit sudah dijalankan dan hasil/log tersimpan)
-- Progress 4: ⬜ zero-shot LLM baseline (Colab/HuggingFace atau LM Studio lokal)
+- Progress 4: 🔄 zero-shot LLM baseline (script/notebook/docs siap; menunggu run Colab/lokal)
 - Progress 5: ⬜ optimasi dan eksperimen lanjutan
 - Progress 6: ⬜ analisis komparatif, error analysis, dan finalisasi laporan
 
@@ -141,14 +141,17 @@ Progress 3 selesai karena semua 12 baseline transformer paper berhasil dijalanka
 
 ---
 
-## Progress 4: Zero-shot LLM Baseline ⬜
+## Progress 4: Zero-shot LLM Baseline 🔄
 
 ### Tujuan
 Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm. Progress ini dipisahkan dari Progress 3 karena workflow-nya inference/prompting, bukan fine-tuning transformer.
 
 ### Cakupan opsi
-- [ ] Mengambil atau merekonstruksi prompt zero-shot dari paper
-- [ ] Membuat runner zero-shot yang mendukung HuggingFace/Colab dan LM Studio OpenAI-compatible API
+- [x] Mengambil prompt zero-shot dari source code asli paper
+- [x] Membuat runner zero-shot yang mendukung HuggingFace/Colab dan LM Studio OpenAI-compatible API
+- [x] Menyimpan runtime total, latency rata-rata, log, metrics, result row, dan predictions per run
+- [x] Membuat notebook Colab/LM Studio untuk eksekusi Progress 4
+- [x] Membuat panduan run Progress 4
 - [ ] Menjalankan smoke test zero-shot pada subset kecil
 - [ ] Menjalankan minimal satu model zero-shot pada Twitter dan Reddit
 - [ ] Jika resource cukup, mencoba beberapa model paper seperti BLOOMZ/mT0 atau model lokal quantized di LM Studio
@@ -161,9 +164,13 @@ Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm.
 - Keterbatasan resource lokal/Colab dan model yang tidak sama persis dengan paper
 
 ### Output
-- `scripts/run_zeroshot_baseline.py` atau notebook zero-shot
+- `scripts/run_zeroshot_baseline.py`
+- `notebooks/03_zeroshot_baseline_colab_or_lmstudio.ipynb`
+- `docs/progress-4-zero-shot-run-guide.md`
 - `results/tables/zeroshot_baselines.csv`
+- `results/tables/zeroshot_smoke.csv`
 - `results/zeroshot/.../predictions.csv` dan `metrics.json`
+- `results/logs/progress-4-zeroshot-*.log`
 - Dokumentasi Progress 4 di `docs/progress-4.md`
 
 ### Gate kelulusan progress
@@ -252,6 +259,6 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 | 1 | 12 Apr ✅ |
 | 2 | 12 Apr - setelah baseline classical selesai |
 | 3 | selesai: paper baseline complete fine-tuned transformer ✅ |
-| 4 | zero-shot LLM baseline (LM Studio/Colab) |
+| 4 | zero-shot LLM baseline (script/notebook/docs siap; run LM Studio/Colab berikutnya) |
 | 5 | optimasi dan eksperimen lanjutan |
 | 6 | analisis komparatif dan finalisasi laporan |

@@ -18,11 +18,13 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 │   └── processed/        # Dataset setelah preprocessing
 ├── notebooks/
 │   ├── 01_eda.ipynb      # EDA: label distribution, text length, data quality
-│   └── 02_transformer_baseline_colab.ipynb  # Progress 3 Colab runner
+│   ├── 02_transformer_baseline_colab.ipynb  # Progress 3 Colab runner
+│   └── 03_zeroshot_baseline_colab_or_lmstudio.ipynb  # Progress 4 zero-shot runner
 ├── scripts/
 │   ├── download_data.py  # Download dataset dari HuggingFace
 │   ├── run_classical_baselines.py  # Progress 2 classical ML
-│   └── run_transformer_baseline.py # Progress 3 transformer baseline
+│   ├── run_transformer_baseline.py # Progress 3 transformer baseline
+│   └── run_zeroshot_baseline.py    # Progress 4 zero-shot LLM baseline
 ├── results/
 │   ├── tables/           # Hasil evaluasi (CSV/tabel)
 │   └── figures/          # Grafik & visualisasi (PNG)
@@ -37,7 +39,8 @@ Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for I
 │   ├── progress-3.md     # Progress 3: paper baseline complete transformer
 │   ├── progress-3-local-run-guide.md  # Panduan run transformer di Colab
 │   ├── progress-3-paper-baseline-complete-plan.md  # Plan 12 baseline transformer
-│   └── progress-4.md     # Rencana zero-shot LLM baseline
+│   ├── progress-4.md     # Progress 4 zero-shot LLM baseline
+│   └── progress-4-zero-shot-run-guide.md  # Panduan run zero-shot
 ├── 10565877.pdf          # Paper asli
 ├── requirements.txt      # Python dependencies
 └── README.md
@@ -70,7 +73,8 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 - Fine-tune baseline transformer paper-complete pada Twitter dan Reddit: 6 model × 2 dataset = 12 run.
 
 ### Progress 4
-- Zero-shot LLM baseline menggunakan HuggingFace/Colab atau LM Studio lokal sebagai OpenAI-compatible inference server.
+- Zero-shot LLM baseline menggunakan HuggingFace/Colab (`hf-logprobs`) atau LM Studio lokal sebagai OpenAI-compatible inference server.
+- Setiap run menyimpan metrics, predictions, result row, log, dan runtime (`runtime_seconds`, `avg_latency_seconds`).
 
 ## Methodology (Classical ML)
 
@@ -94,7 +98,7 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 | 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
 | 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
 | 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ✅ | Paper baseline complete fine-tuned transformer selesai: 12/12 run pada Twitter + Reddit, hasil/log tersimpan |
-| 4 | Zero-shot LLM Baseline | ⬜ | Rencana evaluasi zero-shot via HuggingFace/Colab atau LM Studio lokal |
+| 4 | Zero-shot LLM Baseline | 🔄 | Script, notebook, dan panduan run siap; menunggu eksekusi Colab/lokal |
 | 5 | Optimasi dan Eksperimen Lanjutan | ⬜ | Tuning/weighted loss/preprocessing/eksperimen lanjutan berdasarkan hasil baseline |
 | 6 | Analisis Komparatif dan Finalisasi Laporan | ⬜ | Komparasi penuh, error analysis, README, laporan akhir, dan kesimpulan |
 
@@ -106,7 +110,10 @@ Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.m
 git clone https://github.com/feb027/idsarcasm-reproduction.git
 cd idsarcasm-reproduction
 python -m venv .venv
-.venv\Scripts\activate              # Windows
+# Windows PowerShell:
+.venv\Scripts\activate
+# Linux / WSL / Colab-like shell:
+source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/download_data.py     # Download dataset
 jupyter notebook                    # Buka notebook
@@ -124,8 +131,15 @@ Untuk Progress 3 transformer baseline yang sudah selesai:
 - scope selesai: 6 model transformer × 2 dataset = 12 run
 
 Untuk Progress 4 zero-shot LLM baseline:
-- rencana: `docs/progress-4.md`
-- opsi runtime: HuggingFace/Colab atau LM Studio lokal via OpenAI-compatible API
+- script utama: `scripts/run_zeroshot_baseline.py`
+- notebook Colab/LM Studio: `notebooks/03_zeroshot_baseline_colab_or_lmstudio.ipynb`
+- panduan: `docs/progress-4-zero-shot-run-guide.md`
+- rencana/detail: `docs/progress-4.md`
+- opsi runtime: HuggingFace/Colab (`hf-logprobs`) atau LM Studio lokal via OpenAI-compatible API
+- smoke test aman:
+  ```bash
+  python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --max-samples 8 --dtype float16 --device-map auto --disable-tqdm --write-log
+  ```
 
 ## Reference
 

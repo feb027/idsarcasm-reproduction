@@ -12,6 +12,8 @@ transformers>=4.35
 torch>=2.0
 tokenizers>=0.15
 accelerate>=0.24
+sentencepiece>=0.1.99
+protobuf>=4.25
 
 # Evaluation
 evaluate>=0.4
