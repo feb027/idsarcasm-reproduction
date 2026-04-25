@@ -32,11 +32,12 @@ Progress 4 sekarang disiapkan dengan dua jalur eksekusi:
 1. **Smoke test kecil** (`--max-samples 8/20`) untuk memastikan pipeline dan format output benar.
 2. **LM Studio backend** dengan model GGUF/quantized, misalnya model 3B/7B Q4. Ini lebih realistis di PC lokal 8GB VRAM, tetapi bukan reproduksi exact paper jika modelnya berbeda.
 
-Rekomendasi saya untuk Progress 4:
+Strategi Progress 4 yang dipakai sekarang:
 
 - Jalankan **smoke test di Colab** dulu dengan `mt0-small` pada Twitter.
-- Jika berhasil, jalankan full `mt0-small` untuk Twitter dan Reddit.
-- Jika waktu Colab masih cukup, tambahkan `bloomz-560m` sebagai pembanding paper-family kedua.
+- Setelah smoke test berhasil, jalankan **semua model zero-shot sesuai paper** satu per satu di Colab.
+- Total paper-complete = **9 model × 2 dataset = 18 full runs**.
+- Jika model besar gagal karena OOM, timeout, atau limit Colab, log kegagalannya tetap disimpan dan nanti ditulis di laporan sebagai keterbatasan resource.
 - Jika ingin eksperimen lokal, pakai LM Studio untuk satu model instruction-tuned quantized dan tulis sebagai baseline tambahan, bukan target utama.
 
 ---
@@ -135,21 +136,48 @@ results/zeroshot/twitter-hf-logprobs-mt0-small/
 results/logs/progress-4-zeroshot-twitter-hf-logprobs-mt0-small-smoke.log
 ```
 
-### 6.2 Full run minimal Progress 4
+### 6.2 Full run paper-complete Progress 4
 
-Minimal agar Progress 4 bisa dilaporkan:
+Paper-complete zero-shot memakai 9 model pada 2 dataset. Untuk melihat semua command:
 
 ```bash
-python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
-python scripts/run_zeroshot_baseline.py --dataset reddit --model mt0-small --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
+python scripts/run_zeroshot_baseline.py --print-paper-commands
 ```
 
-Jika waktu Colab cukup, tambahkan BLOOMZ-560M:
+Daftar model paper:
+
+```bash
+python scripts/run_zeroshot_baseline.py --list-models
+```
+
+Total command full run = 18. Jalankan **satu command per cell** di Colab. Contoh awal:
 
 ```bash
 python scripts/run_zeroshot_baseline.py --dataset twitter --model bloomz-560m --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
-python scripts/run_zeroshot_baseline.py --dataset reddit --model bloomz-560m --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
 ```
+
+Model yang dicoba:
+
+```text
+bloomz-560m
+bloomz-1b1
+bloomz-1b7
+bloomz-3b
+bloomz-7b1
+mt0-small
+mt0-base
+mt0-large
+mt0-xl
+```
+
+Dataset:
+
+```text
+twitter
+reddit
+```
+
+Notebook sudah menyediakan 18 cell full-run, satu cell untuk setiap kombinasi dataset-model.
 
 ### 6.3 LM Studio lokal
 
@@ -188,7 +216,7 @@ Untuk laporan, metrik yang paling penting tetap F1-score karena kelas sarkastik 
 
 Progress 4 dianggap selesai jika:
 
-1. minimal satu model zero-shot berhasil dievaluasi pada Twitter dan Reddit;
+1. semua 18 kombinasi paper sudah dicoba satu per satu, atau kombinasi yang gagal punya log/error yang jelas;
 2. hasil tersimpan di `results/tables/zeroshot_baselines.csv`;
 3. setiap run punya `metrics.json`, `result_row.json`, `predictions.csv`, dan log;
 4. runtime total dan latency rata-rata tercatat;

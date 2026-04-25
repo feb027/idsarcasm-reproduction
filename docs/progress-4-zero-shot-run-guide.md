@@ -65,43 +65,61 @@ Jika smoke test berhasil, lanjut full run.
 
 ---
 
-## 4. Full Run Minimal untuk Progress 4
+## 4. Full Run Paper-complete untuk Progress 4
 
-Minimal cukup satu model pada dua dataset. Saya sarankan mulai dari `mt0-small`.
-
-```bash
-!python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
-!python scripts/run_zeroshot_baseline.py --dataset reddit --model mt0-small --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
-```
-
-Output utama:
+Sesuai paper, Progress 4 sekarang disiapkan untuk semua model zero-shot:
 
 ```text
-results/tables/zeroshot_baselines.csv
-results/zeroshot/twitter-hf-logprobs-mt0-small/metrics.json
-results/zeroshot/twitter-hf-logprobs-mt0-small/predictions.csv
-results/zeroshot/reddit-hf-logprobs-mt0-small/metrics.json
-results/zeroshot/reddit-hf-logprobs-mt0-small/predictions.csv
-results/logs/progress-4-zeroshot-twitter-hf-logprobs-mt0-small-full.log
-results/logs/progress-4-zeroshot-reddit-hf-logprobs-mt0-small-full.log
+9 model × 2 dataset = 18 full runs
 ```
 
----
+Model:
 
-## 5. Full Run Tambahan jika Waktu Cukup
+```text
+bloomz-560m
+bloomz-1b1
+bloomz-1b7
+bloomz-3b
+bloomz-7b1
+mt0-small
+mt0-base
+mt0-large
+mt0-xl
+```
 
-Tambahkan `bloomz-560m` agar ada dua keluarga model paper: mT0 dan BLOOMZ.
+Dataset:
+
+```text
+twitter
+reddit
+```
+
+Notebook sudah berisi 18 cell full-run. Jalankan **satu cell per model-dataset**, jangan `Run all`. Jika model besar gagal OOM/timeout, simpan log/error dan lanjut ke run berikutnya. Nanti di laporan cukup ditulis bahwa model tersebut tidak berhasil dijalankan karena keterbatasan resource Colab.
+
+Untuk mencetak semua command dari script:
+
+```bash
+!python scripts/run_zeroshot_baseline.py --print-paper-commands
+```
+
+Contoh command pertama:
 
 ```bash
 !python scripts/run_zeroshot_baseline.py --dataset twitter --model bloomz-560m --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
-!python scripts/run_zeroshot_baseline.py --dataset reddit --model bloomz-560m --backend hf-logprobs --dtype float16 --device-map auto --disable-tqdm --write-log
 ```
 
-Kalau masih ada waktu dan VRAM, baru coba model lebih besar seperti `mt0-base` atau `bloomz-1b1`. Jangan langsung ke model besar sebelum smoke test.
+Output utama untuk run yang berhasil:
+
+```text
+results/tables/zeroshot_baselines.csv
+results/zeroshot/{dataset}-hf-logprobs-{model}/metrics.json
+results/zeroshot/{dataset}-hf-logprobs-{model}/predictions.csv
+results/logs/progress-4-zeroshot-{dataset}-hf-logprobs-{model}-full.log
+```
 
 ---
 
-## 6. LM Studio Lokal
+## 5. LM Studio Lokal
 
 Mode ini berguna kalau ingin baseline tambahan dari model quantized lokal.
 
@@ -133,7 +151,7 @@ Catatan laporan: tulis hasil ini sebagai **zero-shot local LLM baseline**, bukan
 
 ---
 
-## 7. Cara Melihat Runtime
+## 6. Cara Melihat Runtime
 
 Setiap run menulis runtime ke:
 
@@ -168,7 +186,7 @@ cat results/logs/progress-4-zeroshot-twitter-hf-logprobs-mt0-small-full.log
 
 ---
 
-## 8. Setelah Run Selesai
+## 7. Setelah Run Selesai
 
 Commit file berikut:
 
@@ -191,7 +209,7 @@ String seperti `HF_TOKEN` sebagai warning biasa masih aman. Yang tidak boleh ada
 
 ---
 
-## 9. Troubleshooting
+## 8. Troubleshooting
 
 ### CUDA out of memory
 
@@ -221,7 +239,7 @@ Jalankan Twitter full dulu. Untuk Reddit, boleh mulai subset yang lebih besar:
 --max-samples 250
 ```
 
-Tapi untuk laporan Progress 4 final, minimal satu full Reddit tetap lebih baik jika Colab memungkinkan.
+Tapi untuk laporan Progress 4 final, targetnya tetap mencoba semua 18 run paper. Run yang gagal boleh dicatat sebagai keterbatasan resource asal error/log-nya disimpan.
 
 ### LM Studio output banyak invalid
 

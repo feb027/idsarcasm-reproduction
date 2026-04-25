@@ -6,11 +6,14 @@ import unittest
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 from scripts.run_zeroshot_baseline import (
     DATASET_CONFIGS,
     DEFAULT_BASELINE_TABLE,
     DEFAULT_SMOKE_TABLE,
     PAPER_ZERO_SHOT_MODEL_ALIASES,
+    PAPER_ZERO_SHOT_MODEL_ORDER,
     PROMPTS,
     OpenAICompatiblePredictor,
     build_progress4_commands,
@@ -52,6 +55,7 @@ class ZeroShotBaselineUtilsTest(unittest.TestCase):
             "mt0-xl",
         }
         self.assertEqual(set(PAPER_ZERO_SHOT_MODEL_ALIASES), expected)
+        self.assertEqual(tuple(PAPER_ZERO_SHOT_MODEL_ALIASES), PAPER_ZERO_SHOT_MODEL_ORDER)
         self.assertEqual(PAPER_ZERO_SHOT_MODEL_ALIASES["bloomz-560m"], "bigscience/bloomz-560m")
         self.assertEqual(PAPER_ZERO_SHOT_MODEL_ALIASES["mt0-small"], "bigscience/mt0-small")
 
@@ -138,6 +142,34 @@ class ZeroShotBaselineUtilsTest(unittest.TestCase):
             self.assertIn("--backend hf-logprobs", command)
             self.assertIn("--write-log", command)
             self.assertIn("--disable-tqdm", command)
+
+    def test_default_progress4_commands_cover_all_paper_models_on_both_datasets(self):
+        commands = build_progress4_commands()
+        self.assertEqual(len(commands), 18)
+        expected_keys = {
+            f"{dataset}-{model}"
+            for dataset in ("twitter", "reddit")
+            for model in PAPER_ZERO_SHOT_MODEL_ORDER
+        }
+        self.assertEqual(set(commands), expected_keys)
+        ordered_keys = list(commands)
+        self.assertEqual(ordered_keys[0], "twitter-bloomz-560m")
+        self.assertEqual(ordered_keys[8], "twitter-mt0-xl")
+        self.assertEqual(ordered_keys[9], "reddit-bloomz-560m")
+        self.assertEqual(ordered_keys[-1], "reddit-mt0-xl")
+        for model in PAPER_ZERO_SHOT_MODEL_ORDER:
+            self.assertIn(f"--model {model}", commands[f"twitter-{model}"])
+            self.assertIn(f"--model {model}", commands[f"reddit-{model}"])
+
+    def test_colab_notebook_contains_all_paper_model_commands_one_by_one(self):
+        notebook_path = REPO_ROOT / "notebooks" / "03_zeroshot_baseline_colab_or_lmstudio.ipynb"
+        notebook_text = notebook_path.read_text(encoding="utf-8")
+        for dataset in ("twitter", "reddit"):
+            for model in PAPER_ZERO_SHOT_MODEL_ORDER:
+                command = f"--dataset {dataset} --model {model} --backend hf-logprobs"
+                self.assertIn(command, notebook_text)
+        self.assertIn("18 full runs", notebook_text)
+        self.assertIn("run one cell at a time", notebook_text.lower())
 
     def test_sanitize_for_path_removes_repo_and_api_unsafe_characters(self):
         self.assertEqual(sanitize_for_path("bigscience/mt0-small"), "bigscience-mt0-small")

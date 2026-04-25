@@ -98,7 +98,7 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 | 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
 | 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
 | 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ✅ | Paper baseline complete fine-tuned transformer selesai: 12/12 run pada Twitter + Reddit, hasil/log tersimpan |
-| 4 | Zero-shot LLM Baseline | 🔄 | Script, notebook, dan panduan run siap; menunggu eksekusi Colab/lokal |
+| 4 | Zero-shot LLM Baseline | 🔄 | Script, notebook, dan panduan run paper-complete 18 run siap; menunggu eksekusi Colab/lokal |
 | 5 | Optimasi dan Eksperimen Lanjutan | ⬜ | Tuning/weighted loss/preprocessing/eksperimen lanjutan berdasarkan hasil baseline |
 | 6 | Analisis Komparatif dan Finalisasi Laporan | ⬜ | Komparasi penuh, error analysis, README, laporan akhir, dan kesimpulan |
 
@@ -136,6 +136,11 @@ Untuk Progress 4 zero-shot LLM baseline:
 - panduan: `docs/progress-4-zero-shot-run-guide.md`
 - rencana/detail: `docs/progress-4.md`
 - opsi runtime: HuggingFace/Colab (`hf-logprobs`) atau LM Studio lokal via OpenAI-compatible API
+- paper-complete: 9 model × 2 dataset = 18 full runs; notebook menyediakan satu cell per run supaya bisa dijalankan satu-satu di Colab
+- cetak semua command paper-complete:
+  ```bash
+  python scripts/run_zeroshot_baseline.py --print-paper-commands
+  ```
 - smoke test aman:
   ```bash
   python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --max-samples 8 --dtype float16 --device-map auto --disable-tqdm --write-log

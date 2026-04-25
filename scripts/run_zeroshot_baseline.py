@@ -86,6 +86,8 @@ PAPER_ZERO_SHOT_MODEL_ALIASES: Mapping[str, str] = {
     "mt0-xl": "bigscience/mt0-xl",
 }
 
+PAPER_ZERO_SHOT_MODEL_ORDER: tuple[str, ...] = tuple(PAPER_ZERO_SHOT_MODEL_ALIASES.keys())
+PAPER_COMPLETE_DATASETS: tuple[str, ...] = ("twitter", "reddit")
 SAFE_COLAB_MODELS: tuple[str, ...] = ("bloomz-560m", "mt0-small")
 
 
@@ -449,8 +451,8 @@ def write_result_artifacts(
 
 def build_progress4_commands(
     *,
-    models: Sequence[str] = SAFE_COLAB_MODELS,
-    datasets: Sequence[str] = ("twitter", "reddit"),
+    models: Sequence[str] = PAPER_ZERO_SHOT_MODEL_ORDER,
+    datasets: Sequence[str] = PAPER_COMPLETE_DATASETS,
 ) -> Dict[str, str]:
     commands: Dict[str, str] = {}
     for dataset in datasets:
@@ -463,6 +465,18 @@ def build_progress4_commands(
                 "--dtype float16 --device-map auto --disable-tqdm --write-log"
             )
     return commands
+
+
+def print_paper_commands() -> None:
+    """Print paper-complete Colab commands as one command per run."""
+
+    commands = build_progress4_commands()
+    print("# Paper-complete Progress 4 zero-shot run list")
+    print(f"# Total: {len(PAPER_ZERO_SHOT_MODEL_ORDER)} models × {len(PAPER_COMPLETE_DATASETS)} datasets = {len(commands)} runs")
+    print("# Run one command at a time in Colab. If a model fails/OOM, keep the log and continue to the next command.")
+    for key, command in commands.items():
+        print(f"\n# {key}")
+        print(command)
 
 
 def create_predictor(args: argparse.Namespace, model_name: str) -> BasePredictor:
@@ -621,6 +635,8 @@ def run_zeroshot(args: argparse.Namespace) -> Dict[str, Any]:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run IdSarcasm Progress 4 zero-shot LLM baseline")
+    parser.add_argument("--list-models", action="store_true", help="List all paper zero-shot model aliases and exit")
+    parser.add_argument("--print-paper-commands", action="store_true", help="Print 18 paper-complete Colab commands and exit")
     parser.add_argument("--dataset", choices=sorted(DATASET_CONFIGS), default="twitter")
     parser.add_argument("--split", default=DEFAULT_SPLIT)
     parser.add_argument("--data-dir", default="data/raw")
@@ -656,6 +672,13 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
 
 def main(argv: Optional[list[str]] = None) -> Dict[str, Any]:
     args = parse_args(argv)
+    if args.list_models:
+        for alias in PAPER_ZERO_SHOT_MODEL_ORDER:
+            print(f"{alias}\t{PAPER_ZERO_SHOT_MODEL_ALIASES[alias]}")
+        return {"listed_models": len(PAPER_ZERO_SHOT_MODEL_ORDER)}
+    if args.print_paper_commands:
+        print_paper_commands()
+        return {"printed_commands": len(build_progress4_commands())}
     if args.write_log:
         log_path = Path(args.log_path or default_log_path(args))
         log_path.parent.mkdir(parents=True, exist_ok=True)
