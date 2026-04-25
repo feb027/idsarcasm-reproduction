@@ -12,3 +12,4 @@ reddit,hf-logprobs,bloomz-560m,bigscience/bloomz-560m,test,0.3033,0.2491,0.887,0
 reddit,hf-logprobs,bloomz-1b1,bigscience/bloomz-1b1,test,0.2731,0.2489,0.9476,0.3938,5,2824,0,858.32,0.0593,False,1024,float16,False,auto,,,2026-04-25T14:32:32+00:00,2026-04-25T14:46:50+00:00
 reddit,hf-logprobs,bloomz-1b7,bigscience/bloomz-1b7,test,0.337,0.2506,0.8329,0.3763,5,2824,0,915.32,0.0624,False,1024,float16,False,auto,,,2026-04-25T14:46:52+00:00,2026-04-25T15:02:07+00:00
 reddit,hf-logprobs,bloomz-3b,bigscience/bloomz-3b,test,0.3045,0.2556,0.9258,0.3995,5,2824,0,1270.22,0.0867,False,1024,float16,False,auto,,,2026-04-25T15:02:09+00:00,2026-04-25T15:23:20+00:00
+reddit,hf-logprobs,mt0-small,bigscience/mt0-small,test,0.25,0.25,1.0,0.4,5,2824,0,933.6,0.0643,False,1024,float16,False,auto,,,2026-04-25T15:45:26+00:00,2026-04-25T16:00:59+00:00

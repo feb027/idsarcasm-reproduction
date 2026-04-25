@@ -1,5 +1,41 @@
 [log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-mt0-small-full.log
-[run] started_at=2026-04-25T14:30:56+00:00
+[run] started_at=2026-04-25T15:45:26+00:00
 [run] backend=hf-logprobs dataset=reddit split=test model=bigscience/mt0-small
 [run] output_dir=results/zeroshot/reddit-hf-logprobs-mt0-small
 [run] table_path=results/tables/zeroshot_baselines.csv
+[data] cached split not found, loading w11wo/reddit_indonesia_sarcastic:test from HuggingFace
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[data] examples=2824 sample_limited=False
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tied weights mapping and config for this model specifies to tie shared.weight to lm_head.weight, but both are present in the checkpoints, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning
+[metrics] prompt_id=0 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=1 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=2 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=3 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=4 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[run] ended_at=2026-04-25T16:00:59+00:00 runtime_seconds=933.60
+{
+  "dataset": "reddit",
+  "backend": "hf-logprobs",
+  "model_alias": "mt0-small",
+  "model_name": "bigscience/mt0-small",
+  "split": "test",
+  "accuracy": 0.25,
+  "precision": 0.25,
+  "recall": 1.0,
+  "f1": 0.4,
+  "prompt_count": 5,
+  "num_examples": 2824,
+  "invalid_outputs": 0,
+  "runtime_seconds": 933.6,
+  "avg_latency_seconds": 0.0643,
+  "sample_limited": false,
+  "model_max_length": 1024,
+  "dtype": "float16",
+  "load_8bit": false,
+  "device_map": "auto",
+  "temperature": null,
+  "max_new_tokens": null,
+  "run_started_at": "2026-04-25T15:45:26+00:00",
+  "run_ended_at": "2026-04-25T16:00:59+00:00"
+}
