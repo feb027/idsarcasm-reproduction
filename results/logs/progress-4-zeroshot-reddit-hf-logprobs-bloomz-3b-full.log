@@ -1,6 +1,40 @@
 [log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-bloomz-3b-full.log
-[run] started_at=2026-04-25T14:30:52+00:00
+[run] started_at=2026-04-25T15:02:09+00:00
 [run] backend=hf-logprobs dataset=reddit split=test model=bigscience/bloomz-3b
 [run] output_dir=results/zeroshot/reddit-hf-logprobs-bloomz-3b
 [run] table_path=results/tables/zeroshot_baselines.csv
 [data] cached split not found, loading w11wo/reddit_indonesia_sarcastic:test from HuggingFace
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[data] examples=2824 sample_limited=False
+`torch_dtype` is deprecated! Use `dtype` instead!
+[metrics] prompt_id=0 {'accuracy': 0.3934, 'precision': 0.2657, 'recall': 0.8088, 'f1': 0.4}
+[metrics] prompt_id=1 {'accuracy': 0.3768, 'precision': 0.2622, 'recall': 0.8229, 'f1': 0.3977}
+[metrics] prompt_id=2 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=3 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=4 {'accuracy': 0.2521, 'precision': 0.2502, 'recall': 0.9972, 'f1': 0.4}
+[run] ended_at=2026-04-25T15:23:20+00:00 runtime_seconds=1270.22
+{
+  "dataset": "reddit",
+  "backend": "hf-logprobs",
+  "model_alias": "bloomz-3b",
+  "model_name": "bigscience/bloomz-3b",
+  "split": "test",
+  "accuracy": 0.3045,
+  "precision": 0.2556,
+  "recall": 0.9258,
+  "f1": 0.3995,
+  "prompt_count": 5,
+  "num_examples": 2824,
+  "invalid_outputs": 0,
+  "runtime_seconds": 1270.22,
+  "avg_latency_seconds": 0.0867,
+  "sample_limited": false,
+  "model_max_length": 1024,
+  "dtype": "float16",
+  "load_8bit": false,
+  "device_map": "auto",
+  "temperature": null,
+  "max_new_tokens": null,
+  "run_started_at": "2026-04-25T15:02:09+00:00",
+  "run_ended_at": "2026-04-25T15:23:20+00:00"
+}
