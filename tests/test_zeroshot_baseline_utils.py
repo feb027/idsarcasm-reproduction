@@ -15,6 +15,7 @@ from scripts.run_zeroshot_baseline import (
     PAPER_ZERO_SHOT_MODEL_ALIASES,
     PAPER_ZERO_SHOT_MODEL_ORDER,
     PROMPTS,
+    Tee,
     OpenAICompatiblePredictor,
     build_progress4_commands,
     build_result_row,
@@ -170,6 +171,32 @@ class ZeroShotBaselineUtilsTest(unittest.TestCase):
                 self.assertIn(command, notebook_text)
         self.assertIn("18 full runs", notebook_text)
         self.assertIn("run one cell at a time", notebook_text.lower())
+
+    def test_tee_exposes_isatty_for_transformers_logging(self):
+        class Stream:
+            def __init__(self, tty=False):
+                self.data = ""
+                self.tty = tty
+                self.flushed = False
+
+            def write(self, data):
+                self.data += data
+
+            def flush(self):
+                self.flushed = True
+
+            def isatty(self):
+                return self.tty
+
+        stdout_like = Stream(tty=False)
+        log_like = Stream(tty=False)
+        tee = Tee(stdout_like, log_like)
+        self.assertFalse(tee.isatty())
+        self.assertEqual(tee.write("ok"), 2)
+        self.assertEqual(stdout_like.data, "ok")
+        self.assertEqual(log_like.data, "ok")
+        self.assertTrue(stdout_like.flushed)
+        self.assertTrue(log_like.flushed)
 
     def test_sanitize_for_path_removes_repo_and_api_unsafe_characters(self):
         self.assertEqual(sanitize_for_path("bigscience/mt0-small"), "bigscience-mt0-small")

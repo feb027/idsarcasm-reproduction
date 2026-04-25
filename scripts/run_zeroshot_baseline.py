@@ -107,6 +107,11 @@ class Tee:
         for stream in self.streams:
             stream.flush()
 
+    def isatty(self) -> bool:
+        """Expose TTY status for libraries that inspect sys.stdout/sys.stderr."""
+
+        return any(bool(getattr(stream, "isatty", lambda: False)()) for stream in self.streams)
+
 
 class BasePredictor:
     def predict_label_scores(self, prompt_text: str) -> Dict[str, Any]:
