@@ -1,5 +1,5 @@
 [log] writing to results/logs/progress-4-zeroshot-reddit-hf-logprobs-mt0-base-full.log
-[run] started_at=2026-04-25T16:01:01+00:00
+[run] started_at=2026-04-25T16:01:56+00:00
 [run] backend=hf-logprobs dataset=reddit split=test model=bigscience/mt0-base
 [run] output_dir=results/zeroshot/reddit-hf-logprobs-mt0-base
 [run] table_path=results/tables/zeroshot_baselines.csv
@@ -7,3 +7,6 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [data] examples=2824 sample_limited=False
 `torch_dtype` is deprecated! Use `dtype` instead!
+The tied weights mapping and config for this model specifies to tie shared.weight to lm_head.weight, but both are present in the checkpoints, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning
+[metrics] prompt_id=0 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
+[metrics] prompt_id=1 {'accuracy': 0.25, 'precision': 0.25, 'recall': 1.0, 'f1': 0.4}
