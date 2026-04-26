@@ -163,7 +163,28 @@ Eksperimen zero-shot Progress 4 dijalankan untuk mengikuti bagian zero-shot LLM 
 Tahapan eksperimen dilakukan sebagai berikut:
 
 1. Runner `scripts/run_zeroshot_baseline.py` disiapkan dengan dua mode: HuggingFace log probability (`hf-logprobs`) dan OpenAI-compatible API untuk LM Studio. Hasil laporan ini memakai mode `hf-logprobs` karena paling dekat dengan paper.
-2. Lima prompt dari source code asli paper dipakai tanpa diubah. Setiap contoh test diproses dengan lima prompt, bukan hanya satu prompt.
+2. Lima prompt dari source code asli paper dipakai tanpa diubah. Setiap contoh test diproses dengan lima prompt, bukan hanya satu prompt. Pada prompt berikut, bagian `{text}` diganti dengan teks tweet atau komentar Reddit yang sedang dievaluasi:
+
+   - Prompt 1: `{text} => Sarcasm:`
+   - Prompt 2: `Text: {text} => Sarcasm:`
+   - Prompt 3:
+     ```text
+     {text}
+     Is this text above sarcastic or not?
+     ```
+   - Prompt 4:
+     ```text
+     Is the following text sarcastic?
+     Text: {text}
+     Answer:
+     ```
+   - Prompt 5:
+     ```text
+     Text: {text}
+     Please classify the text above for sarcasm.
+     ```
+
+   Contoh sederhananya, jika teks yang diuji adalah `Bagus sekali, internet mati pas deadline`, maka salah satu prompt yang masuk ke model menjadi `Bagus sekali, internet mati pas deadline => Sarcasm:`. Setelah itu, model tidak dinilai dari jawaban bebas, tetapi dari skor label kandidat.
 3. Untuk setiap prompt, runner menghitung skor dua label kandidat, yaitu `sarcastic` dan `not sarcastic`. Prediksi akhir per prompt diambil dari label dengan log probability paling besar.
 4. Metrik dihitung per prompt, lalu dirata-ratakan menjadi metrik akhir setiap model. File yang disimpan meliputi `metrics.json`, `result_row.json`, `predictions.csv`, log, dan ringkasan CSV `results/tables/zeroshot_baselines.csv`.
 5. Eksekusi Twitter diselesaikan untuk semua 9 model. Eksekusi Reddit berhasil selesai untuk BLOOMZ-560M, BLOOMZ-1.1B, BLOOMZ-1.7B, BLOOMZ-3B, dan mT0 Small. BLOOMZ-7.1B, mT0 Base, mT0 Large, dan mT0 XL sudah dicoba, tetapi belum selesai karena sesi Colab berakhir sebelum evaluasi selesai.
