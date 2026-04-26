@@ -15,7 +15,7 @@ Status saat ini:
 - Progress 1: ✅ selesai
 - Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
 - Progress 3: ✅ selesai (12/12 baseline fine-tuned transformer paper pada Twitter + Reddit sudah dijalankan dan hasil/log tersimpan)
-- Progress 4: 🔄 zero-shot LLM baseline paper-complete (script/notebook/docs siap untuk 18 run; menunggu run Colab/lokal)
+- Progress 4: ✅ selesai sebagai complete attempt (Twitter 9/9 selesai; Reddit 5/9 selesai; 4 run Reddit dicoba tetapi runtime/session Colab habis dan log tersimpan)
 - Progress 5: ⬜ optimasi dan eksperimen lanjutan
 - Progress 6: ⬜ analisis komparatif, error analysis, dan finalisasi laporan
 
@@ -141,7 +141,7 @@ Progress 3 selesai karena semua 12 baseline transformer paper berhasil dijalanka
 
 ---
 
-## Progress 4: Zero-shot LLM Baseline 🔄
+## Progress 4: Zero-shot LLM Baseline ✅
 
 ### Tujuan
 Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm. Progress ini dipisahkan dari Progress 3 karena workflow-nya inference/prompting, bukan fine-tuning transformer.
@@ -153,11 +153,12 @@ Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm.
 - [x] Menyimpan runtime total, latency rata-rata, log, metrics, result row, dan predictions per run
 - [x] Membuat notebook Colab/LM Studio untuk eksekusi Progress 4
 - [x] Membuat panduan run Progress 4
-- [ ] Menjalankan smoke test zero-shot pada subset kecil
-- [ ] Menjalankan semua model zero-shot paper satu per satu pada Twitter dan Reddit jika resource Colab memungkinkan
-- [ ] Jika model besar gagal OOM/timeout, menyimpan log kegagalan dan menuliskannya sebagai keterbatasan resource
-- [ ] Menyimpan prediksi, metrik, dan log inference
-- [ ] Membandingkan hasil dengan target zero-shot paper
+- [x] Menjalankan smoke test zero-shot pada subset kecil
+- [x] Menjalankan semua model zero-shot paper pada Twitter (9/9 selesai)
+- [x] Menjalankan Reddit sesuai resource Colab (5/9 selesai)
+- [x] Menyimpan log untuk model Reddit yang tidak selesai karena runtime/session habis
+- [x] Menyimpan prediksi, metrik, dan log inference untuk run yang selesai
+- [x] Membandingkan hasil dengan target zero-shot paper
 
 ### Fokus evaluasi
 - Akurasi parsing label dari output LLM
@@ -175,7 +176,7 @@ Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm.
 - Dokumentasi Progress 4 di `docs/progress-4.md`
 
 ### Gate kelulusan progress
-Progress 4 dianggap selesai jika semua 18 kombinasi zero-shot paper sudah dicoba satu per satu, run yang berhasil punya artefak hasil, run yang gagal punya log/error, prompt/parsing terdokumentasi, dan hasil dibandingkan dengan angka zero-shot paper.
+Progress 4 dianggap selesai sebagai **complete attempt** jika semua kombinasi zero-shot paper sudah dicoba satu per satu sesuai resource, run yang berhasil punya artefak hasil, run yang gagal punya log/error, prompt/parsing terdokumentasi, dan hasil dibandingkan dengan angka zero-shot paper. Status saat ini memenuhi gate tersebut: Twitter selesai 9/9, Reddit selesai 5/9, dan 4 run Reddit yang tidak selesai memiliki log runtime/session limitation.
 
 ---
 

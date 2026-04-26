@@ -1,6 +1,6 @@
 # Progress 4 — Zero-shot LLM Baseline
 
-**Status:** 🔄 aset eksekusi siap, menunggu run Colab/lokal
+**Status:** ✅ Twitter 9/9 full run selesai; Reddit 5/9 selesai, 4/9 dicoba tetapi runtime/session Colab habis
 
 **Tujuan utama:** mengevaluasi baseline zero-shot LLM dari paper IdSarcasm setelah baseline fine-tuned transformer selesai.
 
@@ -93,7 +93,47 @@ Interpretasi awal dari paper: zero-shot LLM jauh tertinggal dari fine-tuned tran
 
 ---
 
-## 5. File yang Disiapkan
+## 5. Hasil Run Progress 4
+
+Hasil yang sudah masuk ke `results/tables/zeroshot_baselines.csv` menunjukkan 14 full run selesai:
+
+- **Twitter:** 9/9 model selesai.
+- **Reddit:** 5/9 model selesai.
+- **Reddit belum selesai:** BLOOMZ-7.1B, mT0 Base, mT0 Large, dan mT0 XL. Log sudah tersimpan, tetapi tidak ada metrik final karena runtime/session Colab habis.
+
+| Model | Twitter Paper | Twitter Reproduksi | Selisih | Reddit Paper | Reddit Reproduksi / Status | Selisih |
+|---|---:|---:|---:|---:|---:|---:|
+| BLOOMZ-560M | 0.3916 | 0.3899 | -0.0017 | 0.3870 | 0.3857 | -0.0013 |
+| BLOOMZ-1.1B | 0.3987 | 0.3988 | +0.0001 | 0.3944 | 0.3938 | -0.0006 |
+| BLOOMZ-1.7B | 0.3885 | 0.3893 | +0.0008 | 0.3758 | 0.3763 | +0.0005 |
+| BLOOMZ-3B | 0.3847 | 0.3858 | +0.0011 | 0.4000 | 0.3995 | -0.0005 |
+| BLOOMZ-7.1B | 0.3968 | 0.3965 | -0.0003 | 0.4036 | runtime habis | - |
+| mT0 Small | 0.3988 | 0.3988 | 0.0000 | 0.4000 | 0.4000 | 0.0000 |
+| mT0 Base | 0.3985 | 0.3986 | +0.0001 | 0.3990 | runtime habis | - |
+| mT0 Large | 0.3989 | 0.3989 | 0.0000 | 0.3998 | runtime habis | - |
+| mT0 XL | 0.3988 | 0.3988 | 0.0000 | 0.4001 | runtime habis | - |
+
+Visualisasi Progress 4 sudah dibuat dengan matplotlib:
+
+```text
+results/figures/zeroshot_pipeline_architecture.png
+results/figures/zeroshot_run_completion_matrix.png
+results/figures/zeroshot_f1_vs_paper.png
+results/figures/zeroshot_metrics_profile.png
+results/figures/zeroshot_runtime_minutes.png
+```
+
+Interpretasi utama:
+
+1. Twitter berhasil direproduksi sangat dekat dengan paper untuk semua model.
+2. Lima run Reddit yang selesai juga sangat dekat dengan paper.
+3. F1 zero-shot sekitar 0.39-0.40 tetap rendah jika dibandingkan dengan transformer.
+4. Banyak model zero-shot cenderung memprediksi label sarkastik terlalu sering: recall tinggi, precision rendah, accuracy rendah.
+5. Reddit jauh lebih berat karena 2.824 test data × 5 prompt = 14.120 scoring per model.
+
+---
+
+## 6. File yang Disiapkan
 
 ```text
 scripts/run_zeroshot_baseline.py
@@ -120,9 +160,9 @@ Setiap run menyimpan:
 
 ---
 
-## 6. Command Utama
+## 7. Command Utama
 
-### 6.1 Smoke test Colab/HuggingFace
+### 7.1 Smoke test Colab/HuggingFace
 
 ```bash
 python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --max-samples 8 --dtype float16 --device-map auto --disable-tqdm --write-log
@@ -136,7 +176,7 @@ results/zeroshot/twitter-hf-logprobs-mt0-small/
 results/logs/progress-4-zeroshot-twitter-hf-logprobs-mt0-small-smoke.log
 ```
 
-### 6.2 Full run paper-complete Progress 4
+### 7.2 Full run paper-complete Progress 4
 
 Paper-complete zero-shot memakai 9 model pada 2 dataset. Untuk melihat semua command:
 
@@ -179,7 +219,7 @@ reddit
 
 Notebook sudah menyediakan 18 cell full-run, satu cell untuk setiap kombinasi dataset-model.
 
-### 6.3 LM Studio lokal
+### 7.3 LM Studio lokal
 
 1. Buka LM Studio.
 2. Load model quantized.
@@ -194,7 +234,7 @@ Untuk full run lokal, hapus `--max-samples`, tetapi siap-siap durasinya lama.
 
 ---
 
-## 7. Saran Implementasi agar Lancar dan Bagus untuk Laporan
+## 8. Saran Implementasi agar Lancar dan Bagus untuk Laporan
 
 Saya sarankan Progress 4 dibuat sebagai **baseline zero-shot yang jujur**, bukan dipaksakan seolah-olah harus mengalahkan transformer. Struktur pembahasan nanti bisa seperti ini:
 
@@ -212,7 +252,7 @@ Untuk laporan, metrik yang paling penting tetap F1-score karena kelas sarkastik 
 
 ---
 
-## 8. Gate Kelulusan Progress 4
+## 9. Gate Kelulusan Progress 4
 
 Progress 4 dianggap selesai jika:
 
@@ -226,7 +266,7 @@ Progress 4 dianggap selesai jika:
 
 ---
 
-## 9. Catatan Resource
+## 10. Catatan Resource
 
 Estimasi jumlah inference per model:
 
