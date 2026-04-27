@@ -5,6 +5,12 @@ Panduan ini dipakai untuk menjalankan Progress 5 IdSarcasm. Ada dua jalur:
 1. **Colab GPU:** transformer optimization, terutama XLM-R.
 2. **Local PC + LM Studio:** modern LLM zero-shot/few-shot dengan model GGUF/quantized.
 
+Untuk Windows 11 + LM Studio yang lebih rinci, baca juga:
+
+```text
+docs/progress-5-lmstudio-windows11-guide.md
+```
+
 ---
 
 ## 1. Checklist Sebelum Mulai
