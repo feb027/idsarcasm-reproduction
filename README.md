@@ -99,10 +99,10 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 | 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
 | 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ✅ | Paper baseline complete fine-tuned transformer selesai: 12/12 run pada Twitter + Reddit, hasil/log tersimpan |
 | 4 | Zero-shot LLM Baseline | ✅ | Twitter selesai 9/9; Reddit selesai 5/9; 4 run Reddit tercatat sebagai runtime/session limitation |
-| 5 | Optimasi dan Eksperimen Lanjutan | ⬜ | Tuning/weighted loss/preprocessing/eksperimen lanjutan berdasarkan hasil baseline |
+| 5 | Optimasi dan Eksperimen Lanjutan | ⬜ | Threshold tuning XLM-R Large, screening hyperparameter XLM-R Base → XLM-R Large, error analysis baseline vs optimized, dan eksperimen tambahan Gemma/Qwen/Cendol/Bahasa-4B zero-shot/few-shot via Colab/LM Studio |
 | 6 | Analisis Komparatif dan Finalisasi Laporan | ⬜ | Komparasi penuh, error analysis, README, laporan akhir, dan kesimpulan |
 
-Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, `docs/progress-3.md`, `docs/progress-4.md`, dan `source-code/README.md`. Untuk melihat workflow transformer baseline Progress 3, gunakan `notebooks/02_transformer_baseline_colab.ipynb` atau ikuti `docs/progress-3-paper-baseline-complete-plan.md`.
+Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, `docs/progress-3.md`, `docs/progress-4.md`, `docs/progress-5.md`, dan `source-code/README.md`. Untuk melihat workflow transformer baseline Progress 3, gunakan `notebooks/02_transformer_baseline_colab.ipynb` atau ikuti `docs/progress-3-paper-baseline-complete-plan.md`. Untuk Progress 5, gunakan `notebooks/04_progress5_optimization_and_modern_llm.ipynb` dan `docs/progress-5-run-guide.md`.
 
 ## Quick Start
 
@@ -145,6 +145,21 @@ Untuk Progress 4 zero-shot LLM baseline yang sudah dicoba:
 - smoke test aman:
   ```bash
   python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --max-samples 8 --dtype float16 --device-map auto --disable-tqdm --write-log
+  ```
+
+Untuk Progress 5 optimasi dan eksperimen lanjutan:
+- script optimasi transformer: `scripts/run_transformer_optimization.py`
+- script modern LLM lokal/LM Studio: `scripts/run_modern_llm_experiments.py`
+- notebook Colab/local guide: `notebooks/04_progress5_optimization_and_modern_llm.ipynb`
+- panduan detail: `docs/progress-5-run-guide.md`
+- plan progress: `docs/progress-5.md`
+- cetak command optimasi transformer:
+  ```bash
+  python scripts/run_transformer_optimization.py --print-progress5-commands
+  ```
+- cetak contoh command LM Studio:
+  ```bash
+  python scripts/run_modern_llm_experiments.py --print-lmstudio-commands
   ```
 
 ## Reference

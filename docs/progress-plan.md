@@ -183,29 +183,40 @@ Progress 4 dianggap selesai sebagai **complete attempt** jika semua kombinasi ze
 ## Progress 5: Optimasi dan Eksperimen Lanjutan ⬜
 
 ### Tujuan
-Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar memakai transformer, tetapi mencoba meningkatkan performanya secara metodologis.
+Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar memakai transformer, tetapi mencoba meningkatkan performanya secara metodologis. Progress 5 difokuskan pada XLM-R sebagai model transformer terbaik Progress 3, lalu ditambah eksperimen LLM ringan modern sebagai pembanding praktis.
 
-### Cakupan opsi
-Pilih satu jalur optimasi utama agar scope tetap terkontrol:
-- [ ] Tuning hyperparameter (learning rate, batch size, epoch, max length)
-- [ ] Strategi class weighting / weighted loss
-- [ ] Variasi preprocessing atau text normalization yang relevan
-- [ ] Variasi input representation (mis. truncation/max length study)
-- [ ] Dataset focus strategy: optimasi di Twitter dulu sebelum dibawa ke Reddit
+### Cakupan wajib
+- [ ] **Threshold tuning XLM-R Large**: simpan probabilitas/logit validation-test, pilih threshold dari validation set, lalu terapkan ke test set.
+- [ ] **Small hyperparameter experiment XLM-R Base → XLM-R Large**: screening konfigurasi ringan di XLM-R Base, lalu bawa konfigurasi terbaik ke XLM-R Large bila resource Colab cukup.
+- [ ] **Error analysis baseline vs optimized**: ambil contoh false positive/false negative dari `predictions.csv`, bandingkan sebelum dan sesudah threshold tuning.
+
+### Eksperimen tambahan
+- [ ] **Gemma 3n E4B** zero-shot/few-shot sebagai model ringan modern.
+- [ ] **Qwen3.5-4B** zero-shot/few-shot sebagai model ringan terbaru.
+- [ ] **Cendol atau Bahasa-4B** zero-shot/few-shot sebagai pembanding Indonesia-specific.
+- [ ] Untuk model GGUF/quantized, jalankan via LM Studio/OpenAI-compatible API di PC lokal.
 
 ### Fokus evaluasi
-- [ ] Bandingkan hasil sebelum vs sesudah optimasi
-- [ ] Catat trade-off performa vs waktu komputasi
-- [ ] Identifikasi konfigurasi terbaik yang masih realistis dijalankan
+- [ ] Bandingkan baseline XLM-R Large vs optimized XLM-R Large.
+- [ ] Catat trade-off precision, recall, F1, dan accuracy setelah threshold tuning.
+- [ ] Catat konfigurasi hyperparameter yang paling realistis dijalankan di Colab.
+- [ ] Bandingkan modern LLM lokal dengan zero-shot BLOOMZ/mT0 Progress 4, bukan sebagai klaim reproduksi exact paper.
 
 ### Output
-- Satu baseline transformer
-- Satu atau beberapa varian optimasi
+- `scripts/run_transformer_optimization.py`
+- `scripts/run_modern_llm_experiments.py`
+- `notebooks/04_progress5_optimization_and_modern_llm.ipynb`
+- `docs/progress-5.md`
+- `docs/progress-5-run-guide.md`
+- `results/tables/optimization_runs.csv`
+- `results/tables/modern_llm_experiments.csv`
+- `results/optimization/*/predictions.csv`
+- `results/modern_llm/*/predictions.csv`
 - Tabel before/after optimization
-- Argumen kenapa optimasi tertentu dipilih
+- Contoh error analysis
 
 ### Gate kelulusan progress
-Optimasi harus menghasilkan pembanding eksplisit terhadap baseline transformer, bukan hanya eksperimen tambahan tanpa hipotesis.
+Progress 5 dianggap cukup jika minimal ada satu run XLM-R Large dengan threshold tuning, beberapa screening run XLM-R Base, pembanding baseline-vs-optimized yang eksplisit, dan error analysis. Eksperimen Gemma/Qwen/Cendol menjadi nilai tambah, tetapi tidak menggantikan optimasi transformer utama.
 
 ---
 
