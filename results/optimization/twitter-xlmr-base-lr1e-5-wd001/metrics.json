@@ -1,0 +1,64 @@
+{
+  "validation_default": {
+    "accuracy": 0.8769,
+    "precision": 0.8148,
+    "recall": 0.6567,
+    "f1": 0.7273,
+    "tp": 44,
+    "tn": 191,
+    "fp": 10,
+    "fn": 23
+  },
+  "validation_tuned": {
+    "accuracy": 0.8806,
+    "precision": 0.807,
+    "recall": 0.6866,
+    "f1": 0.7419,
+    "tp": 46,
+    "tn": 190,
+    "fp": 11,
+    "fn": 21
+  },
+  "test_default": {
+    "accuracy": 0.8699,
+    "precision": 0.7857,
+    "recall": 0.6567,
+    "f1": 0.7154,
+    "tp": 88,
+    "tn": 380,
+    "fp": 24,
+    "fn": 46
+  },
+  "test_tuned": {
+    "accuracy": 0.8643,
+    "precision": 0.7563,
+    "recall": 0.6716,
+    "f1": 0.7115,
+    "tp": 90,
+    "tn": 375,
+    "fp": 29,
+    "fn": 44
+  },
+  "selected_threshold": 0.41,
+  "threshold_selection_split": "validation",
+  "raw_validation_metrics": {
+    "validation_loss": 0.34850239753723145,
+    "validation_accuracy": 0.8768656716417911,
+    "validation_precision": 0.8148148148148148,
+    "validation_recall": 0.6567164179104478,
+    "validation_f1": 0.7272727272727273,
+    "validation_runtime": 0.5896,
+    "validation_samples_per_second": 454.523,
+    "validation_steps_per_second": 8.48
+  },
+  "raw_test_metrics": {
+    "test_loss": 0.3699831962585449,
+    "test_accuracy": 0.8698884758364313,
+    "test_precision": 0.7857142857142857,
+    "test_recall": 0.6567164179104478,
+    "test_f1": 0.7154471544715447,
+    "test_runtime": 0.9915,
+    "test_samples_per_second": 542.634,
+    "test_steps_per_second": 9.078
+  }
+}

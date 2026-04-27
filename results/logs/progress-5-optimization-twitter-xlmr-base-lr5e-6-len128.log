@@ -1,0 +1,74 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+XLMRobertaForSequenceClassification LOAD REPORT from: xlm-roberta-base
+Key                         | Status     | 
+----------------------------+------------+-
+lm_head.layer_norm.weight   | UNEXPECTED | 
+lm_head.bias                | UNEXPECTED | 
+lm_head.layer_norm.bias     | UNEXPECTED | 
+roberta.pooler.dense.bias   | UNEXPECTED | 
+lm_head.dense.weight        | UNEXPECTED | 
+roberta.pooler.dense.weight | UNEXPECTED | 
+lm_head.dense.bias          | UNEXPECTED | 
+classifier.dense.bias       | MISSING    | 
+classifier.out_proj.bias    | MISSING    | 
+classifier.dense.weight     | MISSING    | 
+classifier.out_proj.weight  | MISSING    | 
+
+Notes:
+- UNEXPECTED	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING	:those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+There were missing keys in the checkpoint model loaded: ['roberta.embeddings.LayerNorm.weight', 'roberta.embeddings.LayerNorm.bias', 'roberta.encoder.layer.0.attention.output.LayerNorm.weight', 'roberta.encoder.layer.0.attention.output.LayerNorm.bias', 'roberta.encoder.layer.0.output.LayerNorm.weight', 'roberta.encoder.layer.0.output.LayerNorm.bias', 'roberta.encoder.layer.1.attention.output.LayerNorm.weight', 'roberta.encoder.layer.1.attention.output.LayerNorm.bias', 'roberta.encoder.layer.1.output.LayerNorm.weight', 'roberta.encoder.layer.1.output.LayerNorm.bias', 'roberta.encoder.layer.2.attention.output.LayerNorm.weight', 'roberta.encoder.layer.2.attention.output.LayerNorm.bias', 'roberta.encoder.layer.2.output.LayerNorm.weight', 'roberta.encoder.layer.2.output.LayerNorm.bias', 'roberta.encoder.layer.3.attention.output.LayerNorm.weight', 'roberta.encoder.layer.3.attention.output.LayerNorm.bias', 'roberta.encoder.layer.3.output.LayerNorm.weight', 'roberta.encoder.layer.3.output.LayerNorm.bias', 'roberta.encoder.layer.4.attention.output.LayerNorm.weight', 'roberta.encoder.layer.4.attention.output.LayerNorm.bias', 'roberta.encoder.layer.4.output.LayerNorm.weight', 'roberta.encoder.layer.4.output.LayerNorm.bias', 'roberta.encoder.layer.5.attention.output.LayerNorm.weight', 'roberta.encoder.layer.5.attention.output.LayerNorm.bias', 'roberta.encoder.layer.5.output.LayerNorm.weight', 'roberta.encoder.layer.5.output.LayerNorm.bias', 'roberta.encoder.layer.6.attention.output.LayerNorm.weight', 'roberta.encoder.layer.6.attention.output.LayerNorm.bias', 'roberta.encoder.layer.6.output.LayerNorm.weight', 'roberta.encoder.layer.6.output.LayerNorm.bias', 'roberta.encoder.layer.7.attention.output.LayerNorm.weight', 'roberta.encoder.layer.7.attention.output.LayerNorm.bias', 'roberta.encoder.layer.7.output.LayerNorm.weight', 'roberta.encoder.layer.7.output.LayerNorm.bias', 'roberta.encoder.layer.8.attention.output.LayerNorm.weight', 'roberta.encoder.layer.8.attention.output.LayerNorm.bias', 'roberta.encoder.layer.8.output.LayerNorm.weight', 'roberta.encoder.layer.8.output.LayerNorm.bias', 'roberta.encoder.layer.9.attention.output.LayerNorm.weight', 'roberta.encoder.layer.9.attention.output.LayerNorm.bias', 'roberta.encoder.layer.9.output.LayerNorm.weight', 'roberta.encoder.layer.9.output.LayerNorm.bias', 'roberta.encoder.layer.10.attention.output.LayerNorm.weight', 'roberta.encoder.layer.10.attention.output.LayerNorm.bias', 'roberta.encoder.layer.10.output.LayerNorm.weight', 'roberta.encoder.layer.10.output.LayerNorm.bias', 'roberta.encoder.layer.11.attention.output.LayerNorm.weight', 'roberta.encoder.layer.11.attention.output.LayerNorm.bias', 'roberta.encoder.layer.11.output.LayerNorm.weight', 'roberta.encoder.layer.11.output.LayerNorm.bias'].
+There were unexpected keys in the checkpoint model loaded: ['roberta.embeddings.LayerNorm.beta', 'roberta.embeddings.LayerNorm.gamma', 'roberta.encoder.layer.0.attention.output.LayerNorm.beta', 'roberta.encoder.layer.0.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.0.output.LayerNorm.beta', 'roberta.encoder.layer.0.output.LayerNorm.gamma', 'roberta.encoder.layer.1.attention.output.LayerNorm.beta', 'roberta.encoder.layer.1.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.1.output.LayerNorm.beta', 'roberta.encoder.layer.1.output.LayerNorm.gamma', 'roberta.encoder.layer.2.attention.output.LayerNorm.beta', 'roberta.encoder.layer.2.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.2.output.LayerNorm.beta', 'roberta.encoder.layer.2.output.LayerNorm.gamma', 'roberta.encoder.layer.3.attention.output.LayerNorm.beta', 'roberta.encoder.layer.3.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.3.output.LayerNorm.beta', 'roberta.encoder.layer.3.output.LayerNorm.gamma', 'roberta.encoder.layer.4.attention.output.LayerNorm.beta', 'roberta.encoder.layer.4.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.4.output.LayerNorm.beta', 'roberta.encoder.layer.4.output.LayerNorm.gamma', 'roberta.encoder.layer.5.attention.output.LayerNorm.beta', 'roberta.encoder.layer.5.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.5.output.LayerNorm.beta', 'roberta.encoder.layer.5.output.LayerNorm.gamma', 'roberta.encoder.layer.6.attention.output.LayerNorm.beta', 'roberta.encoder.layer.6.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.6.output.LayerNorm.beta', 'roberta.encoder.layer.6.output.LayerNorm.gamma', 'roberta.encoder.layer.7.attention.output.LayerNorm.beta', 'roberta.encoder.layer.7.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.7.output.LayerNorm.beta', 'roberta.encoder.layer.7.output.LayerNorm.gamma', 'roberta.encoder.layer.8.attention.output.LayerNorm.beta', 'roberta.encoder.layer.8.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.8.output.LayerNorm.beta', 'roberta.encoder.layer.8.output.LayerNorm.gamma', 'roberta.encoder.layer.9.attention.output.LayerNorm.beta', 'roberta.encoder.layer.9.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.9.output.LayerNorm.beta', 'roberta.encoder.layer.9.output.LayerNorm.gamma', 'roberta.encoder.layer.10.attention.output.LayerNorm.beta', 'roberta.encoder.layer.10.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.10.output.LayerNorm.beta', 'roberta.encoder.layer.10.output.LayerNorm.gamma', 'roberta.encoder.layer.11.attention.output.LayerNorm.beta', 'roberta.encoder.layer.11.attention.output.LayerNorm.gamma', 'roberta.encoder.layer.11.output.LayerNorm.beta', 'roberta.encoder.layer.11.output.LayerNorm.gamma'].
+[data] cached CSV files not found, loading w11wo/twitter_indonesia_sarcastic from HuggingFace
+[compat] ignoring unsupported TrainingArguments kwargs: overwrite_output_dir
+[run] output_dir=results/optimization/twitter-xlmr-base-lr5e-6-len128
+[run] model_output_dir=models/optimization/twitter-xlmr-base-lr5e-6-len128
+[run] table_path=results/tables/optimization_runs.csv
+{'loss': '0.575', 'grad_norm': '6.935', 'learning_rate': '4.999e-06', 'epoch': '1'}
+{'eval_loss': '0.533', 'eval_accuracy': '0.75', 'eval_precision': '0', 'eval_recall': '0', 'eval_f1': '0', 'eval_runtime': '0.4601', 'eval_samples_per_second': '582.4', 'eval_steps_per_second': '10.87', 'epoch': '1'}
+{'loss': '0.534', 'grad_norm': '3.389', 'learning_rate': '4.995e-06', 'epoch': '2'}
+{'eval_loss': '0.5048', 'eval_accuracy': '0.75', 'eval_precision': '0', 'eval_recall': '0', 'eval_f1': '0', 'eval_runtime': '0.479', 'eval_samples_per_second': '559.5', 'eval_steps_per_second': '10.44', 'epoch': '2'}
+{'loss': '0.516', 'grad_norm': '3.725', 'learning_rate': '4.989e-06', 'epoch': '3'}
+{'eval_loss': '0.494', 'eval_accuracy': '0.75', 'eval_precision': '0', 'eval_recall': '0', 'eval_f1': '0', 'eval_runtime': '0.4788', 'eval_samples_per_second': '559.7', 'eval_steps_per_second': '10.44', 'epoch': '3'}
+{'loss': '0.4986', 'grad_norm': '6.223', 'learning_rate': '4.98e-06', 'epoch': '4'}
+{'eval_loss': '0.4729', 'eval_accuracy': '0.75', 'eval_precision': '0', 'eval_recall': '0', 'eval_f1': '0', 'eval_runtime': '0.4881', 'eval_samples_per_second': '549.1', 'eval_steps_per_second': '10.24', 'epoch': '4'}
+{'train_runtime': '719.8', 'train_samples_per_second': '260.9', 'train_steps_per_second': '8.196', 'train_loss': '0.5309', 'epoch': '4'}
+{
+  "run_id": "twitter-xlmr-base-lr5e-6-len128",
+  "dataset": "twitter",
+  "model_alias": "xlmr-base",
+  "model_name": "xlm-roberta-base",
+  "selected_threshold": 0.25,
+  "validation_default_f1": 0.0,
+  "validation_tuned_f1": 0.4978,
+  "test_default_accuracy": 0.7509,
+  "test_default_precision": 0.0,
+  "test_default_recall": 0.0,
+  "test_default_f1": 0.0,
+  "test_tuned_accuracy": 0.5892,
+  "test_tuned_precision": 0.3505,
+  "test_tuned_recall": 0.7612,
+  "test_tuned_f1": 0.48,
+  "delta_f1": 0.48,
+  "learning_rate": 5e-06,
+  "lr_scheduler_type": "cosine",
+  "epochs": 100.0,
+  "batch_size": 32,
+  "eval_batch_size": 64,
+  "max_length": 128,
+  "weight_decay": 0.03,
+  "label_smoothing_factor": 0.0,
+  "pad_to_max_length": true,
+  "shuffle_train_dataset": true,
+  "early_stopping_patience": 3,
+  "early_stopping_threshold": 0.01,
+  "seed": 42,
+  "fp16": true,
+  "gradient_accumulation_steps": 1,
+  "gradient_checkpointing": false,
+  "auto_find_batch_size": false,
+  "max_train_samples": null,
+  "max_eval_samples": null,
+  "max_predict_samples": null,
+  "sample_limited": false
+}

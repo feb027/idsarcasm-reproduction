@@ -1,0 +1,807 @@
+split,sample_idx,text,true_label,prob_sarcastic,pred_default,pred_tuned,threshold_tuned,default_correct,tuned_correct,model_name
+validation,0,Jadilah pemimpin krn hati nurani bukan karena ambisi pribadi :),1,0.000677,0,0,0.5,0,0,xlm-roberta-base
+validation,1,Subhanallah mendengar narasi bapak Anies Baswedan ketika kampanye ... Innalillahi wainna ilaihi rojiun saat menjadi Gubernur kolam di Jakarta semakin meluas ... Tersisa penyesalan ntah kapan berakhir ... ????? <hashtag>,1,0.997708,1,1,0.5,1,1,xlm-roberta-base
+validation,2,Ehmm .. Mau Provokasi lagi neh..?? Sebaiknya cari tahu dulu yg bener . Anda salah satu petinggi DPR semoga insyaf jangan menebar FITNAH .. Sebab semua akan kembali ke anda sendiri ... <hashtag> <hashtag> <hashtag> <hashtag>,0,0.00056,0,0,0.5,1,1,xlm-roberta-base
+validation,3,<username> Wkwkwkw tolol kon njeng,0,0.000491,0,0,0.5,1,1,xlm-roberta-base
+validation,4,Terlepas dari <hashtag> <hashtag> seharusnya sebagai generasi muda kita lebih mikir buat gimana caranya bisa bersaing di Industri 4 .0 bukannya banyak bacot di sosmed doang,1,0.000634,0,0,0.5,0,0,xlm-roberta-base
+validation,5,- loh PKS kok gk onok nag mentri ? ~ gk onok karo pan demokrat - opo .o ? Gk gelem yoo ? ~ bukan e gk gelem cukk yo emang gk dijak - oh iyoo sopo seng gk gelem lak dijak cuk Wuahahahahahaha ( ketawa CePret ) <hashtag>,0,0.000451,0,0,0.5,1,1,xlm-roberta-base
+validation,6,"Anies Baswedan, lengkap sudah prestasinya, .......... Gubernur terbodoh versi Google Gubernur terburuk versi survey.. saya pribadi menilai beliau gubernur tak tau maluðŸ˜‚",1,0.990927,1,1,0.5,1,1,xlm-roberta-base
+validation,7,Layak dibaca sangat mewakili perasaan gw ttg GLUEBERNER ini!!! ðŸ˜‚ <hashtag> <link>,0,0.000416,0,0,0.5,1,1,xlm-roberta-base
+validation,8,Kalau otak sudah kena racun Islam Radikal . Yg mereka merasa paling suci & punya Surga <hashtag> bacotnya bikin rusuh <username> <username> <username>,0,0.002239,0,0,0.5,1,1,xlm-roberta-base
+validation,9,Apa yang Sedang Dipikirkan Prabowo <hashtag> <hashtag> <hashtag> <hashtag> <link> <link>,0,0.000467,0,0,0.5,1,1,xlm-roberta-base
+validation,10,selamat datang di indonesia dimana kelengahan hanyalah milik pemerintah dimana rakyat hanya larat menyalahkan tanpa membuat perubahan .,1,0.997851,1,1,0.5,1,1,xlm-roberta-base
+validation,11,Adakah implikasi fluktuasi pajak yang berpotensi terjadi bagi Karyawan yang baru memiliki NPWP di Bulan Desember? Hubungi kami di <link> atau +62 21 750 2345 . <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000388,0,0,0.5,1,1,xlm-roberta-base
+validation,12,<username> Menang atau kalah kami tetap bangga jadi bagian perjuanganmu jend <username>,0,0.001204,0,0,0.5,1,1,xlm-roberta-base
+validation,13,Baru ngerasa kalau kerjaan jadi gubernur Jakarta itu mudah banget . tidak pakai mikir coy ... <hashtag>,1,0.008864,0,0,0.5,0,0,xlm-roberta-base
+validation,14,<hashtag> ini hastag faedahnya apa ya ? kok tiba2 muncul ditrending?,0,0.006904,0,0,0.5,1,1,xlm-roberta-base
+validation,15,Ada orang pintar tapi kalah dengan nafsu dunia ITU <hashtag>,1,0.520372,1,1,0.5,1,1,xlm-roberta-base
+validation,16,<hashtag> Polisi dan KPU geledah laporan <username> surat suara tercoblos 7 kontainer di Priok . Eehh .. Ketemunya sabu kondom + seorang cewe . Jadi selama ini referensinya dari orang mabok . Pantes logikanya jumpalitan Ramaikan terus <hashtag> <hashtag>,0,0.000519,0,0,0.5,1,1,xlm-roberta-base
+validation,17,<username> <username> <username> Anehnya upil ipil nya pd dibawa n diramein disini . ðŸ˜€ <hashtag>,0,0.000757,0,0,0.5,1,1,xlm-roberta-base
+validation,18,dasar bajingan kau anjinc,0,0.000533,0,0,0.5,1,1,xlm-roberta-base
+validation,19,Jumatan nyebar undangan kirain mah dia jadi yang jadi imam shalatnya gatau sama saja cuman makmum . tidak ada yang special.,1,0.799051,1,1,0.5,1,1,xlm-roberta-base
+validation,20,Memang tugas kepala negara melindungi rakyat nya <hashtag>,0,0.978935,1,1,0.5,0,0,xlm-roberta-base
+validation,21,Selamat Pak Jokowi dan Pak Ma'ruf Semoga amanah . Aamiiinâ¤â¤ <hashtag> <hashtag> <hashtag> <hashtag> *Kompilasi trending topic malam ini,0,0.001768,0,0,0.5,1,1,xlm-roberta-base
+validation,22,ambil makna dari kataÂ² itu jangan ambil rokok sama minumannya HARAM ETA TEH ðŸ¤“ <hashtag> <link>,0,0.000398,0,0,0.5,1,1,xlm-roberta-base
+validation,23,Bra diciptakan oleh seorang sosialita muda New York bernama Mary Phelps yang mulai bosan memiliki acara kamisol ketika mengenakan blus renda,0,0.048406,0,0,0.5,1,1,xlm-roberta-base
+validation,24,janganlah beriktikad dengan buah bibir tekik gurun . akibat mereka terus-menerus mengocok masyarakat . <hashtag>,0,0.998092,1,1,0.5,0,0,xlm-roberta-base
+validation,25,<username> <username> Padahal arti \'sosialita\' sebenarnya bkn semata2 hidup mewah ngumpul sono-sini pamer barang branded . Pergeseran waktu artinyapun ikutan bergeser menyesuaikan,0,0.005865,0,0,0.5,1,1,xlm-roberta-base
+validation,26,<username> Itu namanya pejabat rakus . Buat mereka yang penting fie nya lho .,0,0.017013,0,0,0.5,1,1,xlm-roberta-base
+validation,27,Sejak Selasa hingga Rabu air PDAM macet . Sempat mengalir tapi airnya kuning pekat kata Agus Wahyudi salah seorang pegawai di Dinas Perhubungan Kabupaten Hulu Sungai Utara <hashtag>,0,0.009108,0,0,0.5,1,1,xlm-roberta-base
+validation,28,Teroris keparat tapi lebih keparat lagi yg bilang ini hanya pengalihan issu . <hashtag>,0,0.10434,0,0,0.5,1,1,xlm-roberta-base
+validation,29,<username> BIADAP JUGA RATNA SARUMPET ... Siapa yg kamu bikin malu ini. .. !!!! Kalau memang benar berita dan falid infonya ... Menyingkir kamu dati Prabowo kamu lebih keji biadab. .. !!!,0,0.011072,0,0,0.5,1,1,xlm-roberta-base
+validation,30,<username> Haaahhhh hansip gk salah tuh <hashtag>,0,0.000472,0,0,0.5,1,1,xlm-roberta-base
+validation,31,ðŸ‘¨â€âš•ï¸: kamu kenapa ga bahagia ya sama dia ðŸ‘© : iya aku ga cocok sama dia kek nya kalo di inget inget waktu dulu kita masih bersama indah banget ya me answerr <hashtag> <link>,0,0.000457,0,0,0.5,1,1,xlm-roberta-base
+validation,32,<username> <username> Ormas goblok mau aja di adu domba penjilat idiot,0,0.002673,0,0,0.5,1,1,xlm-roberta-base
+validation,33,<username> Keren.. koruptor saja akan di berikan pensiun Salam akal sehat,1,0.997204,1,1,0.5,1,1,xlm-roberta-base
+validation,34,<username> <username> Uang pun bisa buat org pintar jadi dungu,0,0.003118,0,0,0.5,1,1,xlm-roberta-base
+validation,35,Alangkah lebih baik kalau hoax center ini menjadi program center . Jadi bisa lebih punya program-program yang jelas nih tidak cuman sensasi saja.,1,0.947235,1,1,0.5,1,1,xlm-roberta-base
+validation,36,<username> <username> Asal ngebacot ya gini ...,0,0.000563,0,0,0.5,1,1,xlm-roberta-base
+validation,37,Terbaikk <hashtag>,1,0.000717,0,0,0.5,0,0,xlm-roberta-base
+validation,38,Ya gak bisalah pelarangan niqab dikaitin sama misoginis yang dilarang kan ga cuman niqab tapi celana cingkrang juga?,0,0.000745,0,0,0.5,1,1,xlm-roberta-base
+validation,39,<hashtag> Gara gara terkuak kasus lem aibon 82 M,0,0.000556,0,0,0.5,1,1,xlm-roberta-base
+validation,40,<username> Yth . Pa menag <username> mohon dibina lagi ustadz abal2 ini . Dlm Al Quran tdk ada sebutan/tulisan khilafah apalagi jk dsebut hrs dtegakkan . NKRI adalh pancasila . Pengen sy cubit ginjalnya biar ga slalu bikin resah &amp; sesatkan umat <hashtag> <hashtag>,0,0.00037,0,0,0.5,1,1,xlm-roberta-base
+validation,41,Padaha kan yal sebelumnya mereka mengharamkan bahkan hanya sekedar mengucapkan selamat Natal,0,0.073763,0,0,0.5,1,1,xlm-roberta-base
+validation,42,Kalo kamu pergi dan nggak dicari Fix aku tdk berarti Ga ada sepesialÂ²nya ! <hashtag> Ehe hastage ga nyambung,0,0.000473,0,0,0.5,1,1,xlm-roberta-base
+validation,43,<username> Ya gimana ya ngab membedakan sarkasme atau satire lewak konteks tweet agak susah lawong lewat omongan kalau yg gak paham aja kita bisa di bilang mendukung atau setuju ama statment yg kita ucapkan . Padahal kita sedang satire or sarkasme .,0,0.000351,0,0,0.5,1,1,xlm-roberta-base
+validation,44,<username> <username> <username> <username> Ibarat mengucapkan Happy birthday to me.....,0,0.007205,0,0,0.5,1,1,xlm-roberta-base
+validation,45,<username> <username> Sontoloyo ... itu para pesertanya malah seneng pd direndam di tempat bgtuan . Kayak yg kena ajian comber ... Wkwkwkwkw,0,0.000504,0,0,0.5,1,1,xlm-roberta-base
+validation,46,WOW . Setelah tidak bisa buka salak akhirnya bisa setrika baju . Berita yang sangat tidak berfaedah sekali . <hashtag>,1,0.997144,1,1,0.5,1,1,xlm-roberta-base
+validation,47,Kita tidak pernah sibuk menebarkan hoax karena kita sibuk . menebarkan kebaikan .. NOMERSATU,0,0.059428,0,0,0.5,1,1,xlm-roberta-base
+validation,48,Jangan pernah salahkan gubernur seiman ya beliau sudah bekerja bekerja dalam senyap Salahkan saja hujan nya siapa suruh tidak berhenti dan air nya yang tidak mau ngantri masuk lobang <hashtag>,1,0.998654,1,1,0.5,1,1,xlm-roberta-base
+validation,49,<username> Jangan Suriahkan Indonesia <hashtag> <hashtag>,0,0.001167,0,0,0.5,1,1,xlm-roberta-base
+validation,50,bbrp bulan yg lalu ngeshade bangtan skrg berani bgt nyebut nama namjoon awokaowkaowa tolol anjinc,0,0.000503,0,0,0.5,1,1,xlm-roberta-base
+validation,51,Gilaaaaa !! Hari ini gesek debit macam sosialita,0,0.001765,0,0,0.5,1,1,xlm-roberta-base
+validation,52,Awal 2019 bikin resolusi pen bet capai ini itu et dah Udah mau 2020 masih aja belom ada yg di capai . Makin payah iya <hashtag>,0,0.000594,0,0,0.5,1,1,xlm-roberta-base
+validation,53,<username> <username> <username> Petjaaah ..... Btw tolong dong klo ada suasana yg model kek gini di Kantor Kementrian lainny info ya ... (tp keknya gk ada sih) upps ... ðŸ¤ <hashtag>,0,0.000358,0,0,0.5,1,1,xlm-roberta-base
+validation,54,Sejak kapan kemendikbud menjadi harapan dan idola anak muda? ~Sejak Pak Nadiem Makarim mempoles ulang warna kementrian . <hashtag>,0,0.000775,0,0,0.5,1,1,xlm-roberta-base
+validation,55,abis ngilangin nyawa 2 orang malah selfie2 di kantor polisi senyum2 pulak ... mentang2 istri2 pengusaha? sosialita? <link>,0,0.007432,0,0,0.5,1,1,xlm-roberta-base
+validation,56,Hahahah 1 tahun 6 bulan saja cukup tidak apa-apa !!! yang penting Hotel Prodeo!!! Sikap Gentlemen ditunjukan jngncengeng!!!! <hashtag>,1,0.998309,1,1,0.5,1,1,xlm-roberta-base
+validation,57,Orang bijak menemukan kebijaksanaannya melalui kerasnya kehidupan,0,0.083292,0,0,0.5,1,1,xlm-roberta-base
+validation,58,biasanya kalau liat umat di giniin saya kasihan . tapi liat ini kok bahagia ya ? <hashtag> <hashtag> <hashtag>,1,0.656933,1,1,0.5,1,1,xlm-roberta-base
+validation,59,Ada yang selalu terucap dalam doa namun tak pernah peka <hashtag> <hashtag>,0,0.000846,0,0,0.5,1,1,xlm-roberta-base
+validation,60,<username> <username> Tidak mengumbar kemarahan tapi diam2 tanda tangan merestui sama aja woy kampret . Sudah tau aneh ya jangan direstui dan ditanda tangani .,0,0.072637,0,0,0.5,1,1,xlm-roberta-base
+validation,61,<username> <username> <username> <username> Sontoloyo lu !,0,0.001655,0,0,0.5,1,1,xlm-roberta-base
+validation,62,<username> Entah udah brp lama selalu stay dimedia ini .. Kumparan ðŸ˜ Pernah sekali dapet apresiasi dr <username> meski cuma pulsa tp ini skaligus mjd penyemangat buat sy utk melihat dunia dr sini . Tetap berinovasi ya km sll bersamamu <hashtag>,0,0.000401,0,0,0.5,1,1,xlm-roberta-base
+validation,63,<hashtag> SELAMAT HARI SUMPAH PEMUDA Walau sekarang banyak pemuda dan pemudi yang tidak tahu isi sumpah pemuda apalagi mengamalkannya . <hashtag> <hashtag>,0,0.028926,0,0,0.5,1,1,xlm-roberta-base
+validation,64,Gimana pejabat diatasnya ..gayanya kayak juragan bgt ..tp untung ga jd pinjem ... <username> <username>,0,0.003292,0,0,0.5,1,1,xlm-roberta-base
+validation,65,Semoga indonesia kembali dengan kebhineka tunggal ika annya dengan ramah tamahnya dengan keragamannya,0,0.995263,1,1,0.5,0,0,xlm-roberta-base
+validation,66,Kamu nakal .. Kamu mbelgedes .. <hashtag> <link>,0,0.00048,0,0,0.5,1,1,xlm-roberta-base
+validation,67,Kelas Internasional <link> <link>,0,0.000518,0,0,0.5,1,1,xlm-roberta-base
+validation,68,Mata bisa melihat dengan jelas namun hanya hati yang bisa melihat dengan jujur .,0,0.017952,0,0,0.5,1,1,xlm-roberta-base
+validation,69,Dgn naturalisasi dan pemotongan anggaran banjir yang di jalankan pemprop DKI hasilnnya sangat mengembirakan karena menjadikan DKI di bawah pimpinan Anies baswedan swasembada air yang melimpah ruah .,1,0.991221,1,1,0.5,1,1,xlm-roberta-base
+validation,70,Banyak bacot :)) lu ga buka data 2016? Atau 2018? Kenapa lu pake data 2013 utk jatuhkan jokowi? Masalahnya disini lu bohong !,0,0.000738,0,0,0.5,1,1,xlm-roberta-base
+validation,71,<username> Gitu aja ga tau tolol,0,0.000516,0,0,0.5,1,1,xlm-roberta-base
+validation,72,<username> Masyaallah ... Semoga sehat selalu jendral .. <hashtag>,0,0.000597,0,0,0.5,1,1,xlm-roberta-base
+validation,73,<username> MEMANG MANTAP BGT KAMU MB âœŠâœŠ,0,0.000697,0,0,0.5,1,1,xlm-roberta-base
+validation,74,"<username> ini bahadur bangsa, sebenarnya. dia dapat mempersatukan bangsa. partai demokrat, pks, pdip, komnas perempuan, konserpatip, libural, etais, peminis, anti elit2 parpol, golput, semua bersatu...... lawan dia.hahahahaha.",1,0.991603,1,1,0.5,1,1,xlm-roberta-base
+validation,75,<username> Welcome to Indonesia dimana semua orang seenaknya menghina presiden coba anda dinegara orang lain bgst mati anda sudah,1,0.998411,1,1,0.5,1,1,xlm-roberta-base
+validation,76,batre tinggal 10% di charging sekitar sejam an ditinggalin kerja lain pas balik semangat mau buka hape kaget batre nya malah 6% ternyata gue belom colokin ke kontak dong Tolol rin tolol,0,0.000619,0,0,0.5,1,1,xlm-roberta-base
+validation,77,<username> <username> Yg dukun sebenarnya sapa ya? Sontoloyo,0,0.000651,0,0,0.5,1,1,xlm-roberta-base
+validation,78,bang rizal ramli ngomongnya seperti paling terang akal banget di ilc ya..Ã°Ã¿Â¤Â£ padahal disitu ada mantan wapres mantan menteri dan menteri yang sekarang menjabat Ã°Ã¿Â¤Â£ kalau Pintar tentu sekarangpun masih di pakai bapak Ã°Ã¿â„¢â‚¬,1,0.997603,1,1,0.5,1,1,xlm-roberta-base
+validation,79,<username> bapak Tito ... Tolong kawal Jakarta dong ... jangan seenaknya uang rakyat dihamburÂ² ..,1,0.021085,0,0,0.5,0,0,xlm-roberta-base
+validation,80,Ketika ketua PBNU bertanya kpd FPI Apakah negara berdasarkan Pancasila ini sdh syariah apa blm.? Apakah di AD/ART nya termasuk menganut Asas Pancasila apa tdk.? Pertanyaan yg sederhana tp jawabannya gak jelas muter2 Waspada ! <hashtag> <link>,0,0.000464,0,0,0.5,1,1,xlm-roberta-base
+validation,81,<username> <username> Jangan sarkasme macam itu lah Ã°Å¸Ëœâ€,0,0.000653,0,0,0.5,1,1,xlm-roberta-base
+validation,82,Apa sih permasalahan yang terjadi soalnya gak ngerti . <hashtag>,0,0.001061,0,0,0.5,1,1,xlm-roberta-base
+validation,83,<username> Kita harus suudzon dengan berbagai kebijakan pemerintah era dulu sampai sekarang bu . Apakah mungkin bapakÃ‚Â² pejabat itu mendapat fee yang besar dari perusahaan luar penampung bibit lobster agar pemerentah mau ekspor bibit lobster dg har,0,0.03378,0,0,0.5,1,1,xlm-roberta-base
+validation,84,Makanye jangan sokan dah punya kandang banyak baru diusir dikit mewek minta ubah jadwal Mental kalian mental cupu <hashtag>,0,0.490899,0,0,0.5,1,1,xlm-roberta-base
+validation,85,Amien Rais Bertemu Rizieq di Arab Saudi Fadli: Ya Bagus ! Bagus sama2 Pelaku kriminal,1,0.977926,1,1,0.5,1,1,xlm-roberta-base
+validation,86,Kita Tak tau isi didalam hati seseorang <hashtag> <hashtag> <link>,0,0.000373,0,0,0.5,1,1,xlm-roberta-base
+validation,87,<username> bikin inget nia ramadhani aja lu wkwk,0,0.00052,0,0,0.5,1,1,xlm-roberta-base
+validation,88,<username> <username> Setuju se dengan itu politik indonesia yang berasas demokrasi belum sehat reformasi yang\u2026 <link>,0,0.002217,0,0,0.5,1,1,xlm-roberta-base
+validation,89,<username> Emang ini semua gara2 junjungan lu yg bikin e budgeting program somplak,0,0.000396,0,0,0.5,1,1,xlm-roberta-base
+validation,90,Biasalah ... Netijen Indonesia kan baperan .. Rame-rame Uninstall pas isunya lagi hangat .. Nanti giliran ada flash sale .. install lagi ..,0,0.415996,0,0,0.5,1,1,xlm-roberta-base
+validation,91,Ohh ini toh produk produk dari <hashtag> dasar akal akalan si kismin !,1,0.003594,0,0,0.5,0,0,xlm-roberta-base
+validation,92,Memang kalau kamu jenderal dan org lain kopral maka kamu org sukses dan org lain itu gagal gitu? Jangan picik .,0,0.160463,0,0,0.5,1,1,xlm-roberta-base
+validation,93,AA gym minta doanya lagi dong agar Jakarta gak banjir lagi juga doain pemimpin Jakarta gak ujub lagi ya ...,0,0.001475,0,0,0.5,1,1,xlm-roberta-base
+validation,94,Tuhan menyayangi anak muda yang ikhlas . Meskipun HP-nya murah dibuat banyak yang menelepon,0,0.990821,1,1,0.5,0,0,xlm-roberta-base
+validation,95,Ada oknum yg menyusup di tubuh NU . Pelan2 akan menghancurkan marwah NU dengan pemikiran Liberal . <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000448,0,0,0.5,1,1,xlm-roberta-base
+validation,96,Masih bertahan digaris lurus Oposisi jauhi kolam . <hashtag>,1,0.011094,0,0,0.5,0,0,xlm-roberta-base
+validation,97,Udeh nikmatin aje saya warga luar Jakarta cuman bisa ngucapin selamat menikmati banjir yang berkah berkah airnya bahagia centengÂ²nya . <hashtag>,1,0.994236,1,1,0.5,1,1,xlm-roberta-base
+validation,98,Woooiii...stop bully wan abut gabener jkt58 beliau ngga tau apa2 <hashtag>,1,0.074231,0,0,0.5,0,0,xlm-roberta-base
+validation,99,Bentar lagi 2020 kok masih aja ada orang goblok di muka bumi,0,0.018707,0,0,0.5,1,1,xlm-roberta-base
+validation,100,Dek <username> tolong ini ungkap kepublik ada yang main2 dengan anggaran . Ga usah malu2 hajar truss <link>,0,0.000434,0,0,0.5,1,1,xlm-roberta-base
+validation,101,<username> <username> <username> Kalau penegak hukum yg berkeadilan seharusnya mendukung ide pencari fakta karena i\u2026 <link>,0,0.001088,0,0,0.5,1,1,xlm-roberta-base
+validation,102,<username> Memang mantul lah si abang ini sukses selalu ya bang .,0,0.000685,0,0,0.5,1,1,xlm-roberta-base
+validation,103,Setiap kata2 yg keluar dari mulut nya si zonk sarat adu domba <hashtag>,0,0.000607,0,0,0.5,1,1,xlm-roberta-base
+validation,104,Kalau mereka bisa kenapa kita tidak? Bukan begitu? ... pada akhirnya gerakan kerakyatan itu berhasil membawa perubahan .. <hashtag>,0,0.332473,0,0,0.5,1,1,xlm-roberta-base
+validation,105,Banyak yang menyanjung karna <hashtag> ke orang2 yang tidak dapet JATAH MENTRI ... Kok disanjung ya? Bentar ... Bentar .... saya yang bego apa gimana sih?,1,0.002839,0,0,0.5,0,0,xlm-roberta-base
+validation,106,Ketika bpk Anis duduk dikursi paling belakang yg tdk tersorot kamera dlm pelantikan Presiden .... Namun sang jendral tetap tahu dan menghampirinya utk menyapa ðŸ˜¢ Mutiara tetap bersinar walau disembunyikan ðŸ™ðŸ™ <hashtag> <hashtag> <hashtag> <link>,0,0.000328,0,0,0.5,1,1,xlm-roberta-base
+validation,107,Wan ajaib memang bener ajaib .. Berbagai anggaran muncul dengan tidak masuk akal .. Tapi oleh pendukungnya selalu dipuja puji kek gub rasa presiden .. Bocor bocor bocor <hashtag>,1,0.982457,1,1,0.5,1,1,xlm-roberta-base
+validation,108,jangan cuma <hashtag> tapi juga tangkap amin raisnya prabowo neno WARisman & antek2nya biang kerusuhan semua itu,0,0.054149,0,0,0.5,1,1,xlm-roberta-base
+validation,109,Karena kepongahan mu wahai bpk gubernur <username> yang katanya seiman hingga menimbulkan korban jiwa & harta bendaðŸ˜­ðŸ˜­ <hashtag> <hashtag> <hashtag>,0,0.020177,0,0,0.5,1,1,xlm-roberta-base
+validation,110,bimbang melly goeslaw tuh hancur ye,0,0.038865,0,0,0.5,1,1,xlm-roberta-base
+validation,111,<username> Berlaku sebaliknya kalau anda tidak sekaya ardi bakrie tidak harus ngarep cewe kaya nia ramadhani,1,0.720467,1,1,0.5,1,1,xlm-roberta-base
+validation,112,<username> emak emak rusuh..<hashtag> <hashtag> <hashtag> <hashtag>,0,0.001561,0,0,0.5,1,1,xlm-roberta-base
+validation,113,Survei sendiri hasil dinikmati sendiri . Eh dibiayai asing pula surveinya Awas ya nanti keduluan sujud syukur seperti 2014 yg lalu . <hashtag> <hashtag>,0,0.391566,0,0,0.5,1,1,xlm-roberta-base
+validation,114,Syehk lius ustadnya hizbut kentir ..ini Muslim syar i ..paling kaffah ... panutannya kadrun khilafis koplakðŸ˜‚ðŸ¤¦ðŸ¼â€â™‚ðŸ¤­ <hashtag> <link>,0,0.003884,0,0,0.5,1,1,xlm-roberta-base
+validation,115,Tadi pas makan di resto liat segerombolan sosialita request buat make ruang VIP kemudian aku teringat kasus garuda dan pergundikan . Astagfirullah .. wkwkw,0,0.007563,0,0,0.5,1,1,xlm-roberta-base
+validation,116,Ish goblok gw masi aja gw baper klo di chat ama dia padahal udab niat mau pindah ke lain hati,0,0.000508,0,0,0.5,1,1,xlm-roberta-base
+validation,117,pantas kamu dianggap orang gila . Orang memang iya kok,0,0.995685,1,1,0.5,0,0,xlm-roberta-base
+validation,118,Karena non muslim sejak kecil kristen sangat melekat dalam diri prabs ... wajar kalo dia ga bisa jumatan dan buat narik simpati muslim mayoritas gak salah juga sih ikutan <hashtag> :)),0,0.006426,0,0,0.5,1,1,xlm-roberta-base
+validation,119,Mulia sekali bapak2 ini mau membereskan bangku setelah rapat,1,0.998424,1,1,0.5,1,1,xlm-roberta-base
+validation,120,alhamdulillah ada yang positif dari <hashtag> ... positif mengkonsumsi narkoba Ã°Ã¿Ëœâ€šÃ°Ã¿Ëœâ€š,1,0.998499,1,1,0.5,1,1,xlm-roberta-base
+validation,121,Tetap semangat dan berjuang untuk Indonesia . Kalian harapan kami ! <hashtag>,0,0.000864,0,0,0.5,1,1,xlm-roberta-base
+validation,122,maksudnya ruang terbuka dikasi beton di cat hijau kali ... indonesia kudu angkuh punya org2 super intelek kek begini. g akan nyampe kita ke logikanya mereka. <hashtag>,1,0.151906,0,0,0.5,0,0,xlm-roberta-base
+validation,123,<username> <username> Siapo YG Minta restu Sama dia ya,0,0.001531,0,0,0.5,1,1,xlm-roberta-base
+validation,124,Arif Satria yang kini menjabat rektor telah diangkat menjadi Guru Besar Tetap di Bidang Ekologi-Politik di IPB University . Arif merasa lega dengan gelar ini karena memang merupakan mimpi sejak awal jadi dosen . Sekaligus melunasi janji saya ke orang tua . <link>,0,0.000412,0,0,0.5,1,1,xlm-roberta-base
+validation,125,Perusuh bayaran . Kirim ke Suriah bersama <username> ya <hashtag>,0,0.00068,0,0,0.5,1,1,xlm-roberta-base
+validation,126,Pingiiiiinn banget liat si zonk kena batunya ... keji banget perangai & sifatnya,1,0.007261,0,0,0.5,0,0,xlm-roberta-base
+validation,127,Beneran nanya nih . Orang Depok yang kerja di Jakarta kalo masuk jam set . 9 berangkat jam berapa sih ??? ?,0,0.001433,0,0,0.5,1,1,xlm-roberta-base
+validation,128,Oplas adalah KoalisiFitnah yang sistematis dan massif untuk menjatuhkan Jokowi masih percaya sama wakilmu yang <hashtag>,1,0.774754,1,1,0.5,1,1,xlm-roberta-base
+validation,129,Begini kah calon presiden ??? semoga dia gagal lagi 2 periode ! Amiiiiinnnn <hashtag>,1,0.974701,1,1,0.5,1,1,xlm-roberta-base
+validation,130,satukan langkah satukan irama untuk indonesia maju <hashtag> <link>,0,0.000394,0,0,0.5,1,1,xlm-roberta-base
+validation,131,Menjadi saksi sejarh dalam peradaban bangsa indonesia . karena apa? capres abadinya akhirnya bsa jumatan walau harus koar dlu dan menebar undangan . Percayalah ini bisa masuk worldrecord ! WKWK,1,0.997348,1,1,0.5,1,1,xlm-roberta-base
+validation,132,sistem e-budgeting akan berjalan dengan baik ditangan orang yang baik - <hashtag> <hashtag> <hashtag> <link>,0,0.000424,0,0,0.5,1,1,xlm-roberta-base
+validation,133,Ayy sdh menyusupp <hashtag> <hashtag> <link>,0,0.000584,0,0,0.5,1,1,xlm-roberta-base
+validation,134,Bukan doanya yang ditukar tapi kalianlah yang kurang ajar !,1,0.875999,1,1,0.5,1,1,xlm-roberta-base
+validation,135,Anda mau dukung siapa itu terserah tapi secara terbuka inginkan presiden baru padahal presiden sekarang ikut mengangkat bisnis anda .. Itu tidak tahu diri namanya.,1,0.99655,1,1,0.5,1,1,xlm-roberta-base
+validation,136,<username> <hashtag> mbak rossi salah panggil orang sih ... Sakit jiwa begitu ...,0,0.000997,0,0,0.5,1,1,xlm-roberta-base
+validation,137,<username> yha gw tolol napa? mau ngatain lg? ydh katain mangga gw kaga ngatain dia bahasa kasar loh . sedang kk ngatain gw tolol jg? hahaha lucu,0,0.0004,0,0,0.5,1,1,xlm-roberta-base
+validation,138,<username> <username> <username> <username> <username> <username> <username> Gini ya bang itu pulau reklamasi pakai duit dari perusahaan gede bukan dari apbn ataupun apbd jadi ya yang punya tanah tersebut lah yang berhak jual ke siapa aja dong mau orang kaya lah apa lah lha dki dr situ dapet keuntungan dari pembangunan tersebut sebesar 15%,0,0.001607,0,0,0.5,1,1,xlm-roberta-base
+validation,139,Gmn mental gua ga terganggu kalo org2 disekitar gua kerjaannya bikin emosi doang gapernah gt gabikin emosi anjing tolol,0,0.000561,0,0,0.5,1,1,xlm-roberta-base
+validation,140,<username> Selamat <username> atas pencapaiannya selama iniâ¤ï¸â¤ï¸ semoga kedepannya dapat ditingkatkan lagi menjadi digital news startup terbaik di duniaðŸ˜‡ðŸ™ðŸ» <hashtag>,0,0.000555,0,0,0.5,1,1,xlm-roberta-base
+validation,141,Alhamdulilah yah Banjir tahun ini terasa halal dan santun <hashtag> <hashtag> <hashtag>,1,0.998293,1,1,0.5,1,1,xlm-roberta-base
+validation,142,Setiap hari tagar berubah muak lihatnya .,1,0.001772,0,0,0.5,0,0,xlm-roberta-base
+validation,143,togolok alias tolol bego goblok .,0,0.000974,0,0,0.5,1,1,xlm-roberta-base
+validation,144,tidak sia-sia kinerjanya bapak Anies terlaksana . Banjir dimana-mana,1,0.998662,1,1,0.5,1,1,xlm-roberta-base
+validation,145,Yg ini selalu provokatif . Selalu mengadu domba membabibuta . Munafik berkedok bela rakyat . Kau pikir rakyat tidak tahu agendamu? Kamu wakil artinya kamu kerja utk sy . Bukan atasan sy . Camkan itu ! <hashtag>,0,0.000469,0,0,0.5,1,1,xlm-roberta-base
+validation,146,partai allah mah manasuka sajadahpun boleh diinjak2 <hashtag>,1,0.998411,1,1,0.5,1,1,xlm-roberta-base
+validation,147,<username> <username> <username> Okelah yg pilih pa Anies bisa bungkam <username> <username> dimulai .. <hashtag> <hashtag>,0,0.00407,0,0,0.5,1,1,xlm-roberta-base
+validation,148,Kurang smooth nih mainnya . Harusnya didemo dulu formalitas jg gapapa . <link>,0,0.000529,0,0,0.5,1,1,xlm-roberta-base
+validation,149,Sikat ! <hashtag> <hashtag> <link>,0,0.000479,0,0,0.5,1,1,xlm-roberta-base
+validation,150,mantulll jakarta telah memilih <hashtag> yang fatal,1,0.998545,1,1,0.5,1,1,xlm-roberta-base
+validation,151,bukti sikap agung kalian2 yg bikin onar tukang hoax fitnah aparat belum sadarkah kalian? tidak malukah kalian? terutama amien rais <hashtag>-yutlipu-talapan added bareskrim polri,1,0.995435,1,1,0.5,1,1,xlm-roberta-base
+validation,152,<username> <username> <username> <username> <username> TGUPP = TEAM GADA GUNANYA KECUALI POYA POYA BERTOPENG SOK SUCI SOK SIBUK TEAM CUMA NUMPANG HIDUP DR APBD ... SEGITU BANYAK ORANG GA DA SATU PUN YG BISA MIKIR .. PENIKMAT APBD SMUA,0,0.04406,0,0,0.5,1,1,xlm-roberta-base
+validation,153,Alangkah masuk akalnya jika ratna sarumpaet memproduksi sebuah berita bohong yang terstruktur ini secara sendirian ? saya rasa tidak.',1,0.990803,1,1,0.5,1,1,xlm-roberta-base
+validation,154,Banjir kotanya dapat berkah warganya melimpah ruah air banjirnya ... mana TOA 4 milyar-nya? tidak ada suaranyaaa .... <hashtag>,1,0.998721,1,1,0.5,1,1,xlm-roberta-base
+validation,155,Jangan takut mencoba kesalahan adalah guru terbaik jika kamu jujur mengakuinya dan mau belajar darinya .,0,0.013274,0,0,0.5,1,1,xlm-roberta-base
+validation,156,Dan ini 1 lagi Pembuktian bahwa 212 tidak sedikitpun membela Islam yg ada membela kepentingan golongannya dan karena Harta dan Tahtah <hashtag>,0,0.016277,0,0,0.5,1,1,xlm-roberta-base
+validation,157,dh download cod pulak aku ni <hashtag>,0,0.000446,0,0,0.5,1,1,xlm-roberta-base
+validation,158,Gerakan <hashtag> ga sampe 24jam 27 ribu Rating Bintang 1 ....... Tanda panah hijau : tadi malam Tanda panah merah : barusan,0,0.983863,1,1,0.5,0,0,xlm-roberta-base
+validation,159,<username> Nia ramadhani kawin ama bakri langsung kaya nad,0,0.000465,0,0,0.5,1,1,xlm-roberta-base
+validation,160,8 besar sudah aman tapi masih gengsi mengejar runner up barat . <hashtag>,1,0.200558,0,0,0.5,0,0,xlm-roberta-base
+validation,161,<username> <username> Celana cingkrang &amp; cadar dilarang anti khilafah fitnah radikal eh dana Haji &amp; zakat nya diincer .. Waras tidak tuh? ?????? <username> <username>,1,0.085251,0,0,0.5,0,0,xlm-roberta-base
+validation,162,harus di waspadainnn <hashtag> <hashtag> <hashtag> <link>,0,0.000507,0,0,0.5,1,1,xlm-roberta-base
+validation,163,<username> Sosialita wkwk,0,0.000675,0,0,0.5,1,1,xlm-roberta-base
+validation,164,Mungkin karena termasuk Ã¢â‚¬Ëœdiskotik syariahÃ¢â‚¬â„¢ .Ã°Å¸Ëœâ‚¬ Sekalipun penghargaan ini wajar karena standard yang dipakai adalah hukum NKRI seharusnya GNPF tidak usah berkomentar karena pasti tidak sejalan dengan nilai2 Islam tetap mendakwahi umat Islam untuk tidak mendekati kemaksiatan . <link>,0,0.013428,0,0,0.5,1,1,xlm-roberta-base
+validation,165,<username> Ibumu tolol sini aku adopsi tp nanti ya cari istri yang baik dulu buat ngurus kamu :\'),0,0.00082,0,0,0.5,1,1,xlm-roberta-base
+validation,166,<username> bersyukur masi ada org tolol di dunia . buat jd pengingat kl gue masi punya otak .,0,0.000606,0,0,0.5,1,1,xlm-roberta-base
+validation,167,<username> gelar Dokter . Usia sdh sangat dewasa . Tapi masih Bodoh dan Picik,1,0.009541,0,0,0.5,0,0,xlm-roberta-base
+validation,168,Diskotik . Berarti santai sekarang seharusnya tidak boleh lagi ada yang namanya *sweeping* lha kan sudah ketok palu . SAH .,0,0.443096,0,0,0.5,1,1,xlm-roberta-base
+validation,169,Nah loh!!! Yang di Arab saja tak suka bendera hitam kenapa org2x disini ngotot mau mengibarkan bendera itu? Sontoloyo kan? <hashtag> Nasib Habib Rizieq Terancam Hukuman Mati dengan Pancung <link>,0,0.000518,0,0,0.5,1,1,xlm-roberta-base
+validation,170,Kayak nya hari ini belum kelihatan notif transferan ðŸ˜Œ <hashtag>,0,0.000485,0,0,0.5,1,1,xlm-roberta-base
+validation,171,Kecewa sih kecewa semua orang juga bisa kecewa . Tapi masa iya semua diselesain pake emosi . Bisa ancur Negara kita yang Demokrasi punya pemimpin yang marah-marah macem begini . <link> <hashtag>,0,0.001147,0,0,0.5,1,1,xlm-roberta-base
+validation,172,Andi Arief ditangkap karena narkoba . Wasekjen Demokrat itu ditangkap di hotel di kawasan Slipi Jakarta Barat . <hashtag> <hashtag>,0,0.000696,0,0,0.5,1,1,xlm-roberta-base
+validation,173,Jelas kan 'yang curang tapi kalah !!! <hashtag>,0,0.990892,1,1,0.5,0,0,xlm-roberta-base
+validation,174,Semoga tercipta atlet atlet renang yang luar biasa berkat <hashtag>,0,0.877791,1,1,0.5,0,0,xlm-roberta-base
+validation,175,<username> <username> Wahahaha parah gubernur sampe didikte sama penyanyi . ðŸ¤£,0,0.001397,0,0,0.5,1,1,xlm-roberta-base
+validation,176,Ketampanan anda menghantam muka saya !! <hashtag>,1,0.011376,0,0,0.5,0,0,xlm-roberta-base
+validation,177,suksesnya anies menjual isu sara hingga kini trus terasa . Dalam surat tersebut diterangkan bahwa setiap warga nonpribumi diwajibkan membayar iuran dua kali lipat jika ingin mendirikan bangunan di kelurahan setempat . <hashtag> <username>,1,0.821474,1,1,0.5,1,1,xlm-roberta-base
+validation,178,Hahah di twitter loba pisan buzzerna lieur <hashtag>,0,0.000584,0,0,0.5,1,1,xlm-roberta-base
+validation,179,<username> semoga Indonesia selau aman dan damai <hashtag>,0,0.00068,0,0,0.5,1,1,xlm-roberta-base
+validation,180,Tumben nggak kafirin nih beri penghargaan ke diskotek hehe . Mendekati zina dan khmar aja ndak boleh apalagi kasih penghargaan . Secara tidak langsung menyetujui dan mengapresiasi KAFIR GNPF Ulama Bela Pemprov DKI Soal Penghargaan Diskotek <link>,0,0.000455,0,0,0.5,1,1,xlm-roberta-base
+validation,181,<username> Ga mau kan aing lindungin sia ... Bawanya dollar jangan receh . Aing mau jadi bapak-bapak sosialita kaya nia ramadhani and the genk soalnya,0,0.00044,0,0,0.5,1,1,xlm-roberta-base
+validation,182,<username> Masalahnya merasa menang dgn QC plus diatas salah input dan segala kecurangan malah minta pemilu ULANG .... dasar otak udang,0,0.938011,1,1,0.5,0,0,xlm-roberta-base
+validation,183,"AKU BANGGA KARNA GUBERNUR KU BELIAUUUU. tetap kerja keras ya pak buat jkt, tetap jaga jkt menjadi swasembada air. semangat pak wujudkan jkt bertajuk formula E(mpang). Inget jg ya pak sunnatullah jgn di lawan <hashtag>",1,0.002561,0,0,0.5,0,0,xlm-roberta-base
+validation,184,<username> Typical pengecut yo ngono kui ancen sontoloyo .,0,0.000512,0,0,0.5,1,1,xlm-roberta-base
+validation,185,<username> ganteng goblok ??? hah?,0,0.000721,0,0,0.5,1,1,xlm-roberta-base
+validation,186,Orang optimis suka menyambut hari baru karna ia ingin melihat kebahagiaan,0,0.023916,0,0,0.5,1,1,xlm-roberta-base
+validation,187,Buat yang <hashtag> kepada Pak Prabowo dan menganggapnya sebagai Penghianat Pak prabowo pernah berkorban untuk bangsa dan negara . Yang menganggap Pak Prabowo Penghianat akibat pertemuannya dengan Pak Jokowi apa yang sudah kalian lakukan untuk negara ini ?,0,0.00235,0,0,0.5,1,1,xlm-roberta-base
+validation,188,<username> Cc <username> <username> anda masih bau kencur vrohðŸ¸ðŸ¸ðŸ¸ <hashtag> <link>,0,0.000502,0,0,0.5,1,1,xlm-roberta-base
+validation,189,Tak perlu ahli roket untuk membuktikan bahwa pencabutan larangan ekspor bibit/benih lobster sangat merugikan perekonomian nasional . --&gt; Ekspor Lobster Edhy: Gila Kata Faisal Basri Didukung Luhut <link>,0,0.000637,0,0,0.5,1,1,xlm-roberta-base
+validation,190,Selamat untuk bapak Anies Baswedan yang merubah kota menjdi sungai-sungai,1,0.998828,1,1,0.5,1,1,xlm-roberta-base
+validation,191,<hashtag> <hashtag> Jadi Inspektur Upacara Hari Sumpah Pemuda Nadiem Makarim Beri Pidato Mencengangkan <hashtag> <hashtag> <link>,0,0.000428,0,0,0.5,1,1,xlm-roberta-base
+validation,192,dalam berpikir kita harus berpikir cerdas bukan berpikir keras .,0,0.001724,0,0,0.5,1,1,xlm-roberta-base
+validation,193,Jujur saya salut sama kader2 Partai Amarah Nasional ini yang sudah berjuang sampai berdarah-darah. GWS yah om <username> ????,1,0.997989,1,1,0.5,1,1,xlm-roberta-base
+validation,194,Kami jijik dengan partai baru seperti <username> yg tak ada prestasi dan banyak sensasi . Mudah2an psi cuma sekali ikut yes !!,0,0.084493,0,0,0.5,1,1,xlm-roberta-base
+validation,195,Inilah yang kalian tuduh polisi-polisi aseng import dari Cina . Ramadhan masih tetap rajin sebarin hoax dan fitnah . Tukang fitnah tukang hoax hanya membodohi rakyat yang bodoh . Salut ma etos kalian ! <hashtag> <hashtag> <hashtag>,0,0.898053,1,1,0.5,0,0,xlm-roberta-base
+validation,196,<username> <username> Dasar sontoloyo ha ha ha,0,0.001026,0,0,0.5,1,1,xlm-roberta-base
+validation,197,pindah dagangan ah .... dagang kok bawa2 politik malas ah,1,0.994657,1,1,0.5,1,1,xlm-roberta-base
+validation,198,<username> Ente tak becus otak nggak nyampai jadi lursh dulu,0,0.000848,0,0,0.5,1,1,xlm-roberta-base
+validation,199,Sendalnya lebih bagus karena dipakai untuk mencari nafkah <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.000667,0,0,0.5,1,1,xlm-roberta-base
+validation,200,Agak lucu sih buat apa adanya Hoax Center kalo ternyata hoaxnya mereka-mereka juga yg buat . Mereka yg buat mereka yg laporkan .,0,0.000703,0,0,0.5,1,1,xlm-roberta-base
+validation,201,Tadi Beli sate pinggir jalan trus ngeliat ambulance seketika Dalam otakku mikir \jangan jangan itu Yang didalem ambulance rocky gerung,0,0.000858,0,0,0.5,1,1,xlm-roberta-base
+validation,202,Nama partainya demokrat tapi sikap nya otoriter ingin menang sendiri au ah gelap ! <hashtag> <hashtag>,1,0.650578,1,1,0.5,1,1,xlm-roberta-base
+validation,203,<username> Tidak ada kata referendum Kita tetap Indonesia dan tetap NKRI hanya provokator yang bilang kolonialisme dll yang mana punya kepentingan <hashtag> <hashtag> <hashtag> <hashtag>,0,0.001127,0,0,0.5,1,1,xlm-roberta-base
+validation,204,Udah berapa orang lo bentakin hari ini re Manusia macem apaan dah udah gitu sedih sendiri abis bentak2 tolol emang .,0,0.000803,0,0,0.5,1,1,xlm-roberta-base
+validation,205,Nenek oplas kau bela ..Ulama kau hina .. Semoga loe segera dapat 'Hidayah' seperti temen2 mu yg lain zonk <username> . <hashtag> <hashtag> <hashtag>,0,0.000942,0,0,0.5,1,1,xlm-roberta-base
+validation,206,Pemilik akal sehat masih banyak . Hanya saja para sontoloyo dan genderuwo terlanjur berkuasa . Semoga persekutuan mereka segera hancur . Dan pemilik akal sehat bisa membantu menyelamatkan bangsa ini . <link>,0,0.000718,0,0,0.5,1,1,xlm-roberta-base
+validation,207,<username> Kami bangga dengan kalian dalam satu barisan ... <hashtag>,0,0.000683,0,0,0.5,1,1,xlm-roberta-base
+validation,208,<username> Hebat Luar Biasa Keren . Maju Terus Bpk .Jokowi Presiden Ku Adalah BPK .Jokowi Presiden R . I . Nomor Satu,0,0.022074,0,0,0.5,1,1,xlm-roberta-base
+validation,209,Orang yang kalah akan selalu berkata CURANG kepada orang yang menang <hashtag> <hashtag> <hashtag> <hashtag>,0,0.046077,0,0,0.5,1,1,xlm-roberta-base
+validation,210,Istri Pak Idham juga tak mau menjadi makcomblang untuk titip-titip pesan ke Beliau ... Soal pekerjaan itu Urusan Bapak .. itu menurut istri pak Idham Aziz .. <hashtag>,0,0.000568,0,0,0.5,1,1,xlm-roberta-base
+validation,211,Selalu ada jalan untuk membahagiakan orang tua . Berilah suatu prestasi untuk mereka . Fightt !! <hashtag>,0,0.012528,0,0,0.5,1,1,xlm-roberta-base
+validation,212,<username> keren!!! Koruptor di pelihara <hashtag>,1,0.951639,1,1,0.5,1,1,xlm-roberta-base
+validation,213,<username> <username> sudah loyo kok di paksa\'in .. semoga tdk jalan d\'tmpat ... teruslah bersuara utk Indonesia <username>,0,0.000475,0,0,0.5,1,1,xlm-roberta-base
+validation,214,bersaing bukan berarti MUSUHAN persaingan yang cerdas dan sehat adalah persaingan yang tidak saling menjatuhkan satu sama lain,0,0.317691,0,0,0.5,1,1,xlm-roberta-base
+validation,215,<username> Bahkan pejabat pemerintah seperti Tuha Peut (sebutan khusus di Aceh untuk Badan Perwakilan Desa ) di Gampong Mulia diisi oleh beragam etnis dan agama .,0,0.001065,0,0,0.5,1,1,xlm-roberta-base
+validation,216,Ini merupakan sistem yang disebut organisasi datar dimana yang merencanakan dan melaksanakan itu hanya dua level eselon menteri sebagai konseptor dan yang melaksanakan adalah wakil menteri . Ari Kuncoro <hashtag> <hashtag> <username> <link> <link>,0,0.001272,0,0,0.5,1,1,xlm-roberta-base
+validation,217,ekspor ganja ....? pks kok makin islami aja ya .... hehe .... mana nich suaranya para bakul ayat dan bakul agama. kok diam saja...? <hashtag>,1,0.998445,1,1,0.5,1,1,xlm-roberta-base
+validation,218,MAKASIH udh ngingetin makan tapi ga ngingetin minum keselek w anjirrrr <hashtag>,0,0.001322,0,0,0.5,1,1,xlm-roberta-base
+validation,219,Di Jakarta belum ujan?,0,0.0018,0,0,0.5,1,1,xlm-roberta-base
+validation,220,Mengajarkan anak2 ttg pondok pesantren itu bagus . Adik saya bilang ingin mondok . Saya bersyukur .,0,0.042722,0,0,0.5,1,1,xlm-roberta-base
+validation,221,Lebih lanjut menurut informasi yang didapat Andre pemerintah sudah mempersilakan Rizieq untuk pulang . Namun semua saran terkait pemulangan Rizieq bakal didengarkan . <link> prabowo <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.000595,0,0,0.5,1,1,xlm-roberta-base
+validation,222,Orang bijak tak akan terpengaruh berita hoax . Stop menyebar berita hoax .,0,0.000729,0,0,0.5,1,1,xlm-roberta-base
+validation,223,ayo warga Jkt saatnya anda berterimakasih pd gubenur anies yang punya segudang kata2 dalam menyelesaikan banjir ??????,1,0.998698,1,1,0.5,1,1,xlm-roberta-base
+validation,224,Ketua DPR RI Puan Maharani saat ini menggelar rapat paripurna penetapan Kapolri dan Komjen Pol . Idham Azis hadir dalam rapat paripurna di Gd . Nusantara 2 Komplek DPR Jakarta Kamis (31/10) sore . (Joi) <hashtag> <link>,0,0.00036,0,0,0.5,1,1,xlm-roberta-base
+validation,225,Mau lebih dekat bersama capres 02? tidak usahlah yah kegiatannya paling tidak jauh-jauh ama marah-marah dan ngatain orang . Hmmm <hashtag> .,1,0.938576,1,1,0.5,1,1,xlm-roberta-base
+validation,226,Kasih jarak tolol Ã°Å¸ËœÂ©,0,0.052961,0,0,0.5,1,1,xlm-roberta-base
+validation,227,<username> <username> Kita harus ikut program wisata halal pemprof dki wisata ke diskotik . Minumnya zam zam,1,0.928084,1,1,0.5,1,1,xlm-roberta-base
+validation,228,<username> <username> <username> <username> vangke lu pade komisi dukung gubernur dki .. nyungsep mati aje . gak becus kerja . maunya uang goblog kerja gk bisa . mampus aje di neraka . pulpen harga nya itu hrus nya 7500 . pulpen apa yg 150 rebu ?? 1 . B I J I !!!,0,0.001322,0,0,0.5,1,1,xlm-roberta-base
+validation,229,klo bnyak orang yg body shaming ke kita diemin aja tsay buat motivasi dan <hashtag> aja kecuali temen sndiri yg becandain kita tu bda konteks cong mreka tau kita . lah smisal ada orng lain yg ga dket tbtb body shaming tu blm perna disetrika mulutnya:),0,0.000414,0,0,0.5,1,1,xlm-roberta-base
+validation,230,AYO BUDAL NE JAKARTA MUMPUNG ENEK DISKOTIK BERSYARIAH DI KAWAL GMNF ULAMA ... Ã°Å¸Ëœâ€¦Ã°Å¸Ëœâ€¦Ã°Å¸Ëœâ€žÃ°Å¸Ëœâ€ž,1,0.830663,1,1,0.5,1,1,xlm-roberta-base
+validation,231,Brsumpah pd Alquran percaya Allah maha melihat & maha mndengar tapi ttp korupsi itu jelas penistaan . Alquran dikorupsi bkn penistaan,1,0.729231,1,1,0.5,1,1,xlm-roberta-base
+validation,232,Berpakaian Santai Saat Acara Resmi Nadiem Jadi Sorotan <hashtag> <link> <link>,0,0.000407,0,0,0.5,1,1,xlm-roberta-base
+validation,233,Sholat Jumat 5 tahun sekali mantull pak bowo ..,0,0.997439,1,1,0.5,0,0,xlm-roberta-base
+validation,234,<username> <username> Byk alasan salah satunya beliau tdk bodoh dn tak ingin dimata2i .,0,0.00132,0,0,0.5,1,1,xlm-roberta-base
+validation,235,Terimakasih bu susi 5 tahunnya <hashtag> <hashtag> <link>,0,0.001255,0,0,0.5,1,1,xlm-roberta-base
+validation,236,<username> Lu selevel ma <username> Tompi ? Belagu lu mo ngajak obrol ..hahahah ðŸ˜€ðŸ˜€ðŸ˜€,0,0.000408,0,0,0.5,1,1,xlm-roberta-base
+validation,237,â € â € â € â € â € â € â € â € Ngomong nya baca Surat ini banyakin sholat sunah banyakin dzikir . Padahal fikiran nya plak plak plak plak . Astaghfirullah aku .. â € â € â € â € â € <hashtag>,0,0.002269,0,0,0.5,1,1,xlm-roberta-base
+validation,238,<username> <username> <username> Keren nih bapak pasti ngelemnya Aibon merek anus ... heheheh ngeplaynya kebangetan ... hehehehe,0,0.126893,0,0,0.5,1,1,xlm-roberta-base
+validation,239,"Knp jaman Ahok, KPK rajin nyadap? ðŸ™„ Mungkin ngarep bisa OTT AHOK. Kan prestasi, tuh . ðŸ˜” Kenapa jaman Anies, byk keanehan dr reklamasi, Monas, Aibon, dll KPK diem bae?ðŸ™„ Mungkin, kalau nyadap ada yg khawatir Anies kena OTT. Kan heboh, tuhðŸ˜” HhhhðŸ˜’ <hashtag>",1,0.000823,0,0,0.5,0,0,xlm-roberta-base
+validation,240,Mereka cenderung menyudutkan TNI/Polri dan membela perusuh.<hashtag> <hashtag> <hashtag>,0,0.000844,0,0,0.5,1,1,xlm-roberta-base
+validation,241,<username> Goblok pol,0,0.001129,0,0,0.5,1,1,xlm-roberta-base
+validation,242,Thank u somuch Bu Susi sudah menjaga perairan indonesia dgn menenggelamkan cecumuk cecumuk laut .. and thank you for breaking myheart ðŸ˜­ <hashtag> <link>,0,0.018299,0,0,0.5,1,1,xlm-roberta-base
+validation,243,<username> Hukum Sontoloyo,0,0.000775,0,0,0.5,1,1,xlm-roberta-base
+validation,244,Gubernur penipu ini .... katanya jutaan eh taunya cuma ribuan wkkwkwk . Keknya sibapak mau cari panggung nih . <hashtag> <hashtag> <hashtag> <link>,0,0.02638,0,0,0.5,1,1,xlm-roberta-base
+validation,245,kaum mereka itu suka becanda dgn pameo org pintar tidak bayar pajak ... eh ternyata bukan becanda ! <link>,0,0.022586,0,0,0.5,1,1,xlm-roberta-base
+validation,246,Mau otak kayak najwa shihab pendidikan kayak maudy ayunda badan kayak nia ramadhani muka kayak ariel tatum respect others kayak awkarin kulit se-eksotis tara basro independen kayak dian sastro setia kayak nagita slavina kaya raya sekaya syahrini dongðŸ˜­,0,0.117218,0,0,0.5,1,1,xlm-roberta-base
+validation,247,<username> <username> <username> MAJUUU. .. !!! ðŸ˜€ðŸ’ªðŸ‘,0,0.000742,0,0,0.5,1,1,xlm-roberta-base
+validation,248,bang <username> beginikah cara manusiawi memperlakukan warga? mana kemampuan persuasif aparat keamanan? apakah ini penerapan pancasila? mana para ahli BPIP itu? percayalah suatu saat ini akan meledak <hashtag> cc . <username> <username> <link>,0,0.001655,0,0,0.5,1,1,xlm-roberta-base
+validation,249,Bravo TNI - POLRI ... Pengerbanan mu akan selalu kami kenang dalam menjaga keutuhan NKRI.<hashtag>,0,0.003608,0,0,0.5,1,1,xlm-roberta-base
+validation,250,<username> Jahah kocak,0,0.000626,0,0,0.5,1,1,xlm-roberta-base
+validation,251,<username> <username> Berani2 nya nantang panitia surga ..,0,0.001362,0,0,0.5,1,1,xlm-roberta-base
+validation,252,Aiihh nambah penapsaran heheu ... ngeghibah yg ditungguÃ‚Â² ini mahhh ... Ã°Å¸Ëœâ€ <hashtag> <hashtag> <link>,0,0.00037,0,0,0.5,1,1,xlm-roberta-base
+validation,253,<username> <username> Sebagai apa yah?,0,0.000893,0,0,0.5,1,1,xlm-roberta-base
+validation,254,<username> kirain nia ramadhani tadi ðŸ˜­,0,0.000406,0,0,0.5,1,1,xlm-roberta-base
+validation,255,Heran sama model cewek ky gini !! Salah menghilangkan nyawa orang masih bisa narsis Ampun deh !!! Punya perasaan kagak si Loh Nyawa orang itu yg melayang kadang demi sosialita gengsi aja yg di Gedein !! Parah Abis !!! <link>,0,0.000577,0,0,0.5,1,1,xlm-roberta-base
+validation,256,Sebelumnya saya hanya pakai 2 produk lokal .. Sekarang tinggal 1 . <hashtag> serangga congkak menyedihkan,1,0.996427,1,1,0.5,1,1,xlm-roberta-base
+validation,257,Selamat makan siang ya biar kuat nonton sidang putusan MK hari ini . <hashtag>,0,0.003552,0,0,0.5,1,1,xlm-roberta-base
+validation,258,<username> Disisi lain ada p3jabat keblinger yg katanya mau menghapuskan AMDAL . Apa gak sontoloyo itu namanya,0,0.000363,0,0,0.5,1,1,xlm-roberta-base
+validation,259,Hampir gak ngenalin Eva Celia .,0,0.001761,0,0,0.5,1,1,xlm-roberta-base
+validation,260,Kalau prestasi Indonesia bagus yg bangga siapa kan kita2 juga . Apapun olahraganya ya kan . Dah ah . Night .,0,0.008429,0,0,0.5,1,1,xlm-roberta-base
+validation,261,<username> <username> <username> <username> <username> wkwk yth dokter tompi yang paling akil sekandang keledai ..,1,0.921922,1,1,0.5,1,1,xlm-roberta-base
+validation,262,<username> <username> Dasar otak udang,0,0.004737,0,0,0.5,1,1,xlm-roberta-base
+validation,263,Manies banget bercakap nya <hashtag>,1,0.996827,1,1,0.5,1,1,xlm-roberta-base
+validation,264,Yang masih nyinyir jangan selalu berfikir negatif . Kita yakin Indonesia terjamin di masa depan <hashtag>,0,0.000664,0,0,0.5,1,1,xlm-roberta-base
+validation,265,Welcome to Indonesia dimana netizen lebih suka nyinyir sampai jadi tranding,1,0.998364,1,1,0.5,1,1,xlm-roberta-base
+validation,266,Yang goblok tuh gua ato dia yang puraÃ‚Â² gatauÃ°Å¸â„¢â€š,0,0.000533,0,0,0.5,1,1,xlm-roberta-base
+validation,267,Wajib 3 point ... <hashtag> <hashtag>,0,0.654895,1,1,0.5,0,0,xlm-roberta-base
+test,0,saraswati pintar sekali tida belajar dari pengalaman hufffffffffffff,1,0.997594,1,1,0.5,1,1,xlm-roberta-base
+test,1,Menag bicara sola celana cingkrang gak bisa ikut aturan keluar .. Nah lhoo <link> <hashtag>,0,0.000496,0,0,0.5,1,1,xlm-roberta-base
+test,2,Koruptor dihukum berat bukannya dikasih keringanan <hashtag>,0,0.473893,0,0,0.5,1,1,xlm-roberta-base
+test,3,Belum jadi pemimpin udah bikin hoax gmn kalau diberi jabatan ?? Bisa lebih parah,0,0.003969,0,0,0.5,1,1,xlm-roberta-base
+test,4,Karena JUJUR membuatku malu dan merasa bersalah . Itulah kenapa JKW sulit melakukannya.,1,0.993136,1,1,0.5,1,1,xlm-roberta-base
+test,5,Oi tolong lah itu yg pada demo suruh pulang . <hashtag> <hashtag> <hashtag>,0,0.005686,0,0,0.5,1,1,xlm-roberta-base
+test,6,Astagfirullah Medina Zein make narkoba ..saya tidak kaget make narkoba nya saya kaget karena saya tidak tahu siapa pula Medina Zein,1,0.998345,1,1,0.5,1,1,xlm-roberta-base
+test,7,bapak ngantornya di jalan tol saja bapak .. Balaikota yang bikin bukan masa pemerintahan jokowi lho bapak .. :D :D,1,0.998745,1,1,0.5,1,1,xlm-roberta-base
+test,8,<username> Tolong dong bapakÂ² DPR kasih kuliah khusus dulu buat Menag ini biar tidak bikin ribut mulu .,1,0.000513,0,0,0.5,0,0,xlm-roberta-base
+test,9,Ah tolol Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ <link>,0,0.001127,0,0,0.5,1,1,xlm-roberta-base
+test,10,<username> <username> mana nih klarifikasi nya yg lem Aibon CC <username> <username> <username> <username> <username>,0,0.001585,0,0,0.5,1,1,xlm-roberta-base
+test,11,<username> Anaknya pinter mak nya tolol nih,0,0.003142,0,0,0.5,1,1,xlm-roberta-base
+test,12,Selamat menikmati berkah warge jakarte ... Terimakasih juge ame bapak <username> <hashtag> oke tidak tuh ??? Wkwkwkwkwkw ... kalau aye mah Ogah kebanjiran . Biar negara utang aye tidak ikut bayar ini .,1,0.998466,1,1,0.5,1,1,xlm-roberta-base
+test,13,Kamu terlalu samyang buat aku ya indomie ðŸ˜­ <hashtag>,0,0.000487,0,0,0.5,1,1,xlm-roberta-base
+test,14,Minta maaf krn rendah hati? Bisa aja &amp; baik adanya . Tp minta maaf atas kewenangan mutlak itu agaknya aneh . Tp itu bisa terjadi karna kepemimpinan yg lemah . <hashtag> <hashtag> <hashtag> <username> <username>,0,0.000897,0,0,0.5,1,1,xlm-roberta-base
+test,15,welcome to indonesia. ketika orang lengah harus di permalukan bersangkaan seluruh belahan dunia harus tahu akan dosa mereka. hei pendosa kita semua sama. hanya berbeda ladang dosa.,1,0.998536,1,1,0.5,1,1,xlm-roberta-base
+test,16,Untung ane tidak jadi mahasiswa anda nyet . Malu bgt dah kalau jadi mahasiswa anda .,1,0.996008,1,1,0.5,1,1,xlm-roberta-base
+test,17,Mantap mas tetap jangan dengerin omongan haters ya tetap optimis dan terus percaya,0,0.09122,0,0,0.5,1,1,xlm-roberta-base
+test,18,Terima kasih sudah pernah menemani hari hariku . Wkwk <hashtag>,0,0.21101,0,0,0.5,1,1,xlm-roberta-base
+test,19,FIFA Berikan Perhatian Khusus Untuk Sepak Bola Papua <link> <link> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000991,0,0,0.5,1,1,xlm-roberta-base
+test,20,Sokaps nich <hashtag> <hashtag> # <hashtag> <hashtag> <link>,0,0.000472,0,0,0.5,1,1,xlm-roberta-base
+test,21,Jadi pengin denger tanggapan bang pandji nih ayok bikin video bang Betapa lucunya negeri ini <username> <hashtag>,1,0.000651,0,0,0.5,0,0,xlm-roberta-base
+test,22,<username> <username> Betul Ã¢Å“Å Mari bersatu memerangi <hashtag>,0,0.000697,0,0,0.5,1,1,xlm-roberta-base
+test,23,<username> Alhamdulilah sekarang jkt sudah ada gubernur santuy yang rendah hati bapak Ustad AA gym . Ayo lanjutken 3 periode .,1,0.997933,1,1,0.5,1,1,xlm-roberta-base
+test,24,3 Mantan CEO yang Kini Jadi Menteri Jokowi - <link> <hashtag> <hashtag> <hashtag>,0,0.00038,0,0,0.5,1,1,xlm-roberta-base
+test,25,<username> Ada ngaku ustadz ternyata croshijaber yah ... sony sontoloyo,0,0.00046,0,0,0.5,1,1,xlm-roberta-base
+test,26,Dia yang pertama ngomong people power . Kemarin bicara Polisi mirip PKI . Sorenya <username> konpers ttg kedepankan cara konstitusional orang ini berdiri di sebelahnya . Terus minta kami percaya? <hashtag> <hashtag> <hashtag>,0,0.01348,0,0,0.5,1,1,xlm-roberta-base
+test,27,Orang Indonesia ini sopan-sopan banget ya .. Mau nyapres saja misi dulu .,0,0.998445,1,1,0.5,0,0,xlm-roberta-base
+test,28,"<username> Kepala bapak kau Sholeh,mati aja kau bodoh buat emosi satu Indonesia aja kau eee <hashtag>",1,0.837753,1,1,0.5,1,1,xlm-roberta-base
+test,29,<username> <username> ajarin saya dulu donk . Yuk kita sambil ngopi dimana aja deh,0,0.001455,0,0,0.5,1,1,xlm-roberta-base
+test,30,Gaji pramugari cuma sekian 15 jtan tapi penampilan macam sosialita jangan salahkan org2 yg menilai kalau dianggap gundik,0,0.016785,0,0,0.5,1,1,xlm-roberta-base
+test,31,Baru kali pertama atmosfir debat capres di Indonesia ngalahin atmosfir final bola piala dunia !! Jancok !! <hashtag> <hashtag>,1,0.102439,0,0,0.5,0,0,xlm-roberta-base
+test,32,Sangat memalukan !!!! <hashtag>,0,0.905071,1,1,0.5,0,0,xlm-roberta-base
+test,33,Welcome to indonesia yang katanya diversity tapi liat valentine saja sudah mampus setengah mati,1,0.998364,1,1,0.5,1,1,xlm-roberta-base
+test,34,Semangat gaesss seperti adrk ini siap siaga <hashtag>,0,0.000752,0,0,0.5,1,1,xlm-roberta-base
+test,35,sosialita banget gayanya nak <link>,0,0.000551,0,0,0.5,1,1,xlm-roberta-base
+test,36,Susah memang orang pinter mah <hashtag>,1,0.610395,1,1,0.5,1,1,xlm-roberta-base
+test,37,Pak Prabowo bilang mau memberantas orang yang suka kongkalikong padahal kemarin bilangnya korupsi gapapa kalau ga seberapa . Emang ya semua cowok ngga ada yang bisa dipegang ucapannya ! <hashtag> <hashtag>,0,0.003267,0,0,0.5,1,1,xlm-roberta-base
+test,38,Kini Anda dapat membaca Koran Jakarta edisi digital (PDF) yang bisa didapatkan setiap harinya melalui email Anda baik edisi terkini dan edisi sebelumnya . . . Untuk berlangganan versi pdf Koran Jakarta bisaâ€¦ <link>,0,0.000369,0,0,0.5,1,1,xlm-roberta-base
+test,39,Gayane songong bener sok banget ini ! Beneran ini di mesjid <hashtag> klo benar kenapa ga langsung sowan baikÃ‚Â² menghadap Pak <username> Ketua PBNU . Hahaha paling ga berani . Ilmu agama ga sebanding dg para ulama NU eh keminter ngajarin . <hashtag> <hashtag> <link>,0,0.000392,0,0,0.5,1,1,xlm-roberta-base
+test,40,<username> Wooohoo ... selamat atas penghargaan Best Digital Startup 2019 . Semoga selalu terus berinovasi dan memberikan dampak positif bagi masyarakat Indonesia dalam menyajikan beragam berita dan informasi . Terus junjung kredibilitas dan memegang teguh etika . <hashtag>,0,0.001391,0,0,0.5,1,1,xlm-roberta-base
+test,41,Andi Arief Sebut Megawati Dendam Turun Temurun ke SBY Ini Kata Puan <link> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000393,0,0,0.5,1,1,xlm-roberta-base
+test,42,Sejatinya sejak 2014 suara masyarakat Sultra vote for <username> Kebenaran akan menemukan jalannya sendiri . <link>,0,0.000531,0,0,0.5,1,1,xlm-roberta-base
+test,43,<username> <username> <username> gaaaskeeun <hashtag>,0,0.002581,0,0,0.5,1,1,xlm-roberta-base
+test,44,Jaangan ... jangan dijawab ntar waras diemin saja biar otaknya kebalik kaya kampret <hashtag>,1,0.009467,0,0,0.5,0,0,xlm-roberta-base
+test,45,<username> <username> Pasti krn pemerintah skrng yg utama rakyat,0,0.0052,0,0,0.5,1,1,xlm-roberta-base
+test,46,kemana ibu susi kemana ibu mentri yg tangguh srikandi terbaik indonesia yg dilupakan ðŸ˜°ðŸ˜°<hashtag> <hashtag>,0,0.025203,0,0,0.5,1,1,xlm-roberta-base
+test,47,Koruptor / pejabat yang terkena kasus pasti alesanya sakit seperti sudah menjadi tradisi di indonesia . <hashtag>,0,0.003052,0,0,0.5,1,1,xlm-roberta-base
+test,48,<username> <username> Koau revolusi smua wrga negara digaji pkai ApBN tnpa hrus jd PNS Pejabat Pmnrntahan atau BUMN,0,0.000467,0,0,0.5,1,1,xlm-roberta-base
+test,49,<username> Awas jgn Asal ngomong masalah orde Baru apalagi main fitnah tanpa Bukti!!! Nanti kau lenyap bersama masadepan mu Pejabat skrg bisa besar krn jaman iTu <link>,0,0.000523,0,0,0.5,1,1,xlm-roberta-base
+test,50,Level kepedulian tertinggi fans terhadap tim kesayangan adalah KRITIK . Kritik akan memacu apresiasi berlebih akan menjatuhkan . Maju terus <username> berantas mafia fans kardus .,0,0.993069,1,1,0.5,0,0,xlm-roberta-base
+test,51,apa cuma gue yang klo buka youtube selalu ketemu orang ini ðŸ˜‚ <hashtag> <link>,0,0.000396,0,0,0.5,1,1,xlm-roberta-base
+test,52,<username> <username> <username> Arif Satria rektor IPB,0,0.000647,0,0,0.5,1,1,xlm-roberta-base
+test,53,Terima kasih sudah mengajak kami jadi bagian dari ceritamu <hashtag> !,0,0.003063,0,0,0.5,1,1,xlm-roberta-base
+test,54,Tdi pas lg ngeliatin abg lg brsihin ember bkas racun dikolam tiba2 timbul rsa haru ðŸ˜¢ kasian ngeliatin ank kolam pd mabukðŸ¤¦â€â™‚ï¸ . sperti anak kecil yg gak dpt duduk dikursi yg didambakan . <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000551,0,0,0.5,1,1,xlm-roberta-base
+test,55,ga pejabat ga pengusaha ga artis semua aja pake brompton apa dayaku yg ngidam fnhon aja belom kebeli <link>,0,0.0004,0,0,0.5,1,1,xlm-roberta-base
+test,56,Kenyataan terpahit adalah kenyataan yang tak setinggi harapan itu . Jadi jangan terlalu tinggi menggantung harapan .,0,0.003105,0,0,0.5,1,1,xlm-roberta-base
+test,57,Mengungkap Sosok Azura Luna Sosialita Asal Indoensia Diduga Penipu Kelas Kakap <link>,0,0.000479,0,0,0.5,1,1,xlm-roberta-base
+test,58,<username> <username> <username> Jangan kasih kendor <hashtag>,0,0.00365,0,0,0.5,1,1,xlm-roberta-base
+test,59,Ayo tanam persatuan selagi masih damai dan aman :) <username> <username> <username> <username> <username> <username> <username> <hashtag> <link>,0,0.003286,0,0,0.5,1,1,xlm-roberta-base
+test,60,<username> Generasi milenial itu punya prestasi <hashtag>,0,0.000892,0,0,0.5,1,1,xlm-roberta-base
+test,61,Mending jadi pengusaha saja daripada negara ini jadi ancooor <hashtag>,1,0.995609,1,1,0.5,1,1,xlm-roberta-base
+test,62,Mampus loe !!! <hashtag> <hashtag> <hashtag> <hashtag> <username> <username>,0,0.001391,0,0,0.5,1,1,xlm-roberta-base
+test,63,kita ingin menjadi bijaksana tapi mengapa menyuruh mereka untuk menjadi bijak .karena kita egois,0,0.013325,0,0,0.5,1,1,xlm-roberta-base
+test,64,<username> <username> <username> lho kok gitu? anda emang ikut partai apa bro?,0,0.00102,0,0,0.5,1,1,xlm-roberta-base
+test,65,â€œPerang Propagandaâ€ di Papua <link> <link> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000538,0,0,0.5,1,1,xlm-roberta-base
+test,66,Mari merapat <hashtag> <hashtag>,0,0.000614,0,0,0.5,1,1,xlm-roberta-base
+test,67,<username> LO KALI YANG BACOT KPOPERS NGATAIN KPOPERS YANG LAIN NGACA AJA DEH LO TOLOL,0,0.000748,0,0,0.5,1,1,xlm-roberta-base
+test,68,dah punya rambut jess ... <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>§Ù„Ø¹Ø¨_Ù…Ø¹Ø§Ù‡Ù… <link>,0,0.00037,0,0,0.5,1,1,xlm-roberta-base
+test,69,<username> <username> ðŸ˜† ngambek ternyata ada hikmahnya ðŸ˜‰ <hashtag> indonesia maju harus lebih ceria riang gembira lagi dari kabinet kerja yg lalu ðŸ’ƒ,0,0.000426,0,0,0.5,1,1,xlm-roberta-base
+test,70,Airnya sampai masuk Mall . Mau shopping kali ya? Santun banget ya <hashtag> <hashtag> <hashtag>,1,0.02143,0,0,0.5,0,0,xlm-roberta-base
+test,71,rismaselamanya kok bisa ya ? para pendukungnya kompak-kompak ayo buk ndang dipilih penggantimu <username> biar puas para pendukungmu <hashtag>,0,0.016625,0,0,0.5,1,1,xlm-roberta-base
+test,72,Prabowo <hashtag> dan berfikir <hashtag> pengennya makan HokBen Mulu tiap hari,0,0.173428,0,0,0.5,1,1,xlm-roberta-base
+test,73,Alhamdulillah yang namanya berkah tidak akan lari kemana . Semoga TOA nya segera berfungsi kalau bisa pasang TOA nya tiap rumah jadi bisa joget bareng . <hashtag> Banjir Jilid 2 <hashtag> Jadi Trending Twitter,1,0.995826,1,1,0.5,1,1,xlm-roberta-base
+test,74,Disayangkan ada politikus tak kenal dosa tdk sadar telah mlecehkan ulama sepuh yg dihormati di negeri ini .,0,0.001136,0,0,0.5,1,1,xlm-roberta-base
+test,75,Penghargaan yang perlu diapresiasi !! Dulu kalau denger diskotek biasanya ada yang pengen <hashtag> lho sekarang mah kagak ada ... Soalnya; saya kenal beliau kata seseorang .,1,0.001172,0,0,0.5,0,0,xlm-roberta-base
+test,76,Negara ini milik Rakyat bukan milik Pejabat/aparat <hashtag>,0,0.495217,0,0,0.5,1,1,xlm-roberta-base
+test,77,2024 jadikan <username> dan <username> sebagai presiden dan wakil presiden . <hashtag> <hashtag>,0,0.001882,0,0,0.5,1,1,xlm-roberta-base
+test,78,Dia ada sejarah hitam dengan orang Melayu ke apa sampai macam tu sekali dia punya triggered? <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> Baca sini: <link> <link>,0,0.001408,0,0,0.5,1,1,xlm-roberta-base
+test,79,BIKIN TAGAR YUK . JUDULNYA : KASIHAN 3X DAFTAR CAPRES TAPI GAGAL TERUS . MAU DAFTAR YG KE .4X ??? <hashtag>,0,0.001879,0,0,0.5,1,1,xlm-roberta-base
+test,80,<username> <username> <username> <username> Mabok lem mungkin nih orang ..,0,0.003953,0,0,0.5,1,1,xlm-roberta-base
+test,81,<username> Sudah 2 tahun keleeessss ... Untung ada PSI DKI yg obok-obok sekarang ini lah klo enggak adem2 aja sampai disahkan RAPBD nya APBD 2017 2018 2019 pasti di bancakan semua klo dilihat dari situasi saat iniðŸ˜¡ðŸ˜¡ðŸ˜¡ðŸ˜¡ðŸ˜¡,0,0.000748,0,0,0.5,1,1,xlm-roberta-base
+test,82,setan dunia khianat <hashtag>,0,0.012384,0,0,0.5,1,1,xlm-roberta-base
+test,83,Banjir air berkah katanya tidak suka silahkan minggat dari Jakarta ???? . Rangorang setengah mati belain warga DKI biar mendapatkan haknya ini malah dituduh yang enggak2 ..kadrun kadrun <hashtag>,1,0.998513,1,1,0.5,1,1,xlm-roberta-base
+test,84,isu pemeriksaan ketertiban yang ternyata hoax kini berakibat tertibnya para siswa <hashtag>,0,0.039232,0,0,0.5,1,1,xlm-roberta-base
+test,85,Membumi dengan caramu sendiri merakyat dengan cara kelompokmu . Pejabat emang gitu~ <link>,0,0.003124,0,0,0.5,1,1,xlm-roberta-base
+test,86,semoga tetap sehat Walafiat mbah kakuunggg .. <hashtag>,1,0.421582,0,0,0.5,0,0,xlm-roberta-base
+test,87,kubu 02 Fitnah&Hoax adalah hal yg biasa mereka lakukan menghalalkan segala cara menggiring opini dgn kebohongan membuat video utk memperkuat <hashtag> biar masyarakat percaya&ini berita di india di edit seolahâ€terjadi di INA lagiâ€ capres02 naplokin TAIK keMuka sendiri :D,0,0.001394,0,0,0.5,1,1,xlm-roberta-base
+test,88,MUSIBAH PALA LOE BAU MENYANNN ... <hashtag> Andi Arief Ditangkap karena Narkoba BPN Prabowo: Ini Musibah,0,0.001534,0,0,0.5,1,1,xlm-roberta-base
+test,89,<username> <username> <username> <username> <username> <username> <username> <username> Anda tidak paham tapi komen ini bukan aibon yg anda lihat di pasar ini aibon import dari yaman ujung . Paham kenapa mahal? ðŸ˜€ðŸ¤£ <hashtag> <hashtag>,0,0.000387,0,0,0.5,1,1,xlm-roberta-base
+test,90,Si Sontoloyo Ini Suruh Jadi Menteri BUMN ?!! - Mardigu Wowiek <link> lewat <username>,0,0.00041,0,0,0.5,1,1,xlm-roberta-base
+test,91,kalungnya kek ibu ibu sosialita Ã°Å¸Ëœâ€˜ <link>,0,0.001131,0,0,0.5,1,1,xlm-roberta-base
+test,92,Kesuksesan <hashtag> perlu kita dokumentasi terus supaya tidak ada lagi daerah lain mengalami azab seperti ini.. Pemimpin seiman yang ternyata malah mengakibatkan musibah.. <hashtag>,1,0.998168,1,1,0.5,1,1,xlm-roberta-base
+test,93,Orang bebal selalu mengira bahwa tuhan ada di sampingnya . Sebaliknya orang bijak selalu berusaha mendekatkan diri kepada tuhan .,0,0.001495,0,0,0.5,1,1,xlm-roberta-base
+test,94,mana tau aku aku kan nia ramadhani,0,0.001857,0,0,0.5,1,1,xlm-roberta-base
+test,95,<username> Semoga dpt jodoh yg cantik dan pintar amin <hashtag>,0,0.000441,0,0,0.5,1,1,xlm-roberta-base
+test,96,Setinggi pangkat apapun kalian bapak nyawa kawan kami tidak mampu kalian beli dengan gaji kalian seumur hidup . <hashtag> <hashtag>,1,0.387632,0,0,0.5,0,0,xlm-roberta-base
+test,97,Saya heran dg mereka2 yg suka nyiyirin presiden ..pdhl pak <username> di arab sangat dihormati dimuliakan ..sedangkan yg nyiyir rakyat indonesia sendiri,0,0.003046,0,0,0.5,1,1,xlm-roberta-base
+test,98,Menghina ulama sama saja menghina banyak orang . <hashtag> <hashtag>,0,0.001433,0,0,0.5,1,1,xlm-roberta-base
+test,99,Kok lucu pas ayuk palembang itu bilang : sontoloyo . Nadanya .,0,0.002652,0,0,0.5,1,1,xlm-roberta-base
+test,100,Inget ... Jangan nakal lagi ya wo jangan demo2 lagi . Iyee iyee wi elaahhh gw gak <hashtag> Kok mending kita makan yok,0,0.0005,0,0,0.5,1,1,xlm-roberta-base
+test,101,<username> isu ni aja senjatanya tapi sampai sekarang tak ada bukti dasar sontoloyo menutpi kebodohannya,0,0.001287,0,0,0.5,1,1,xlm-roberta-base
+test,102,Ya terserah kamu dah ... Maaf tapi kamu ingat ya ... Aku dan kamu itu sudah bukan \'kita\'. Jadi kalau nanti kamu akhirnya sadar dan menyesal jangan cari-cari aku lagi . <hashtag>,0,0.000718,0,0,0.5,1,1,xlm-roberta-base
+test,103,Kenapa tidak indonesia (pemerintah) bikin channel youtube lalu di subscribe dan di tonton oleh rakyatnya . Kan lumay\u2026 <link>,0,0.000437,0,0,0.5,1,1,xlm-roberta-base
+test,104,<username> Belahan sontoloyo <hashtag>,0,0.000639,0,0,0.5,1,1,xlm-roberta-base
+test,105,Fakultas kedokteran dan keperawatan di Jogja ini banyak biangeeet seimbang dengan kekurangan tim medis yang banyak buuaanget !!,1,0.977607,1,1,0.5,1,1,xlm-roberta-base
+test,106,Sekarang ga ada lagi 01dan02 yang ada hanya Indonesia..<hashtag>,0,0.00708,0,0,0.5,1,1,xlm-roberta-base
+test,107,Daripada bahas <hashtag> apa tidak ingin mengajakku main? <link>,0,0.000365,0,0,0.5,1,1,xlm-roberta-base
+test,108,Tuhan telah meciptakan manusia yang unik yang terletak di orang ini .. smga lekas sadar ya bapak ??? <hashtag>,1,0.917672,1,1,0.5,1,1,xlm-roberta-base
+test,109,Ketua Komisi Agama DPR: Pelarangan Cadar Gaduh dan Dangkal | Republika Online <link>,0,0.000615,0,0,0.5,1,1,xlm-roberta-base
+test,110,Mantengin trendingnya twitter <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.000469,0,0,0.5,1,1,xlm-roberta-base
+test,111,jadi begini ..Belajar dari masa orba dimana proyek pembangunan banyak yang mangkrak pilihlah pemimpin yang ahli,1,0.834811,1,1,0.5,1,1,xlm-roberta-base
+test,112,pengen ke Diskotik,0,0.001024,0,0,0.5,1,1,xlm-roberta-base
+test,113,TAIK ANJING Tetangga dangdutan keras banget gatau apa aku lagi nugas Kubukakan pintu dan jendela aku ikut nyanyi dan joget mantab,0,0.001424,0,0,0.5,1,1,xlm-roberta-base
+test,114,<username> SEMANGAT DADDIES!!! APAPUN HASILNYA KALIAN HEBAT !! OPTIMIS !! LUFFVVV,0,0.326057,0,0,0.5,1,1,xlm-roberta-base
+test,115,Akhirnya mereka sadar wkwkwk takut di per alat bahan dapurnya ... gosong sdhðŸ˜‚ðŸ˜‚ <link> <hashtag>,0,0.000812,0,0,0.5,1,1,xlm-roberta-base
+test,116,kamu adalah kenangan singkat yang terangkum dengan rapih tanpa dapat di kacaukan bahkan dengan memoriku sendiri <hashtag>,0,0.000938,0,0,0.5,1,1,xlm-roberta-base
+test,117,Rusaklah sudah jekardah dipimpin gabener 4nies beserta parasit TGUPP nya . Kerja gak jelas anggaran segede2nya . Parasit!!! <hashtag>,0,0.007816,0,0,0.5,1,1,xlm-roberta-base
+test,118,Ah si Jancuk nyari perkara Sontoloyo tenan .. <link>,0,0.000394,0,0,0.5,1,1,xlm-roberta-base
+test,119,Benar-benar Parpol yang penuh semangat. Berlatih lempar-tangkap kursi sambil diiringi musik Mars. Semua menjadi gempita dan penuh gairah berolahraga. Mungkin mbah amin mo buat kartel dengan nama bawang ????,1,0.998545,1,1,0.5,1,1,xlm-roberta-base
+test,120,<username> <username> Nizar sekarang sudah pintar menghasut wkwkwkwkwk,1,0.011732,0,0,0.5,0,0,xlm-roberta-base
+test,121,semoga Generasi milenial harus bisa bertindak sebagai change agent dan memutus lingkaran setan tersebut .,0,0.00271,0,0,0.5,1,1,xlm-roberta-base
+test,122,<username> <username> Emang dia pasti masuk sorga?,0,0.008711,0,0,0.5,1,1,xlm-roberta-base
+test,123,Masok pak Eko <hashtag> Sebar Hoax Pemilik Akun FB <username> Dilaporkan ke Polisi,0,0.000726,0,0,0.5,1,1,xlm-roberta-base
+test,124,Mari kt sambit Artis nyokap kota yng sngt dicintai & disembah umatnya .???? jeng .. jeng ... <hashtag> <hashtag>,1,0.891575,1,1,0.5,1,1,xlm-roberta-base
+test,125,<username> Tul bro gendang gendruwo siluman semua .. Rezim jae pinokio memang sontoloyo hhuuu ..Ã°Å¸ËœÂ¬Ã°Å¸Ëœ,0,0.001824,0,0,0.5,1,1,xlm-roberta-base
+test,126,<username> <username> <username> <username> <username> <username> <username> <username> Goblok,0,0.011332,0,0,0.5,1,1,xlm-roberta-base
+test,127,Dungu .... tolol .... bego ..... semua di borong ama bani kampret .....<username> ... knp ngak nanya prabowo aja junjungannmu ... brp nyawa yg dia hilangkan ..dgn provokasi kelompok beliau ..... <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000442,0,0,0.5,1,1,xlm-roberta-base
+test,128,Sistem pemerintahan dah berubah dari presidensial menjadi menterisial :-) <hashtag>,1,0.004199,0,0,0.5,0,0,xlm-roberta-base
+test,129,<username> ðŸ¤£ðŸ¤£ðŸ¤£ðŸ¤£ <hashtag>,0,0.00075,0,0,0.5,1,1,xlm-roberta-base
+test,130,Jangan takut banjir orang Jakarta sudah terlatih anggap saja ini berkah Imlek cukup pegang toa teriak banjir banjir ... Ayo ngopi bareng dilantai atas sambil nunggu antrian air masuk ke tanah!!. ????<hashtag>,1,0.998791,1,1,0.5,1,1,xlm-roberta-base
+test,131,Aku juga mau jadi nia ramadhani <link>,0,0.000372,0,0,0.5,1,1,xlm-roberta-base
+test,132,LONTE SEMUA GBLK,0,0.000634,0,0,0.5,1,1,xlm-roberta-base
+test,133,<username> <username> <username> <username> Yg negur <username> koplak Mungkin mau praktekin slogan tuannya BOLEH KORUPSI ASAL SANTUN CC <username>,0,0.007461,0,0,0.5,1,1,xlm-roberta-base
+test,134,Kamu ini sapa ?? ko mau <hashtag> padahal selama ini kalian yg demen nyerang NU kalian yg paling nyinyir Islam Nusantara kalian yg paling benci Banser semua amaliah NU kalian anggap Bid\'ah ... Ojo nggaya-nggaya ndadak <hashtag> . . <link>,0,0.000376,0,0,0.5,1,1,xlm-roberta-base
+test,135,<hashtag> ternyata ga jadi menteri karena ga setuju ama reklamasi katanya gugel tapi gw pingin tau dari netijen <hashtag> <hashtag>,0,0.000626,0,0,0.5,1,1,xlm-roberta-base
+test,136,<username> Jangan menyalahkan anies .wg tidak kerja kk d salahkan .yang salah itu yang kerjs,1,0.982389,1,1,0.5,1,1,xlm-roberta-base
+test,137,<username> YUNIKA WULANDARI JAKARTA SELATAN A Anti lengket mudah dibersikan n cepet matang <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000497,0,0,0.5,1,1,xlm-roberta-base
+test,138,Hatimu panas? Hanguslah persahabatan' 0,0,0.001274,0,0,0.5,1,1,xlm-roberta-base
+test,139,prabowo emg kenamaan di google ... lah banyak yg nyari ... apakah prab terlibat ham ..anak prabowo apkh beneran homo ..jumatan dimana ..itu yg dicari smua org ..pgn tau kbnran ..dan pas tok ketik hasil prabowo ..muncul nyebarin hoax rs,1,0.002387,0,0,0.5,0,0,xlm-roberta-base
+test,140,Anies klaim 73% warga PUAS dengan kinerja Pemprov DKI . Iya Nies puas jadi Korban PHP janji mAnies mu,1,0.995702,1,1,0.5,1,1,xlm-roberta-base
+test,141,<username> Ini dokter bedah plastik itu ya? Tolong betulin mulutmu dulu baru ngomong,0,0.000508,0,0,0.5,1,1,xlm-roberta-base
+test,142,Takbeer ..... Allahu Akbar ... Colosseum .... M a n t a p !! GNPF Ulama Bela Pemprov DKI Soal Penghargaan Diskotek,1,0.995685,1,1,0.5,1,1,xlm-roberta-base
+test,143,<username> <username> <username> Cie ... cie ... yg gagal makan lobsterðŸ˜„ðŸ˜„ðŸ˜„,0,0.000623,0,0,0.5,1,1,xlm-roberta-base
+test,144,penting banget sumpah ini 7 fakta unik yuni shara . wow ! ternyata yuni suka mandi pakai air anget!!!,1,0.998738,1,1,0.5,1,1,xlm-roberta-base
+test,145,<username> Semoga selalu sukses dalam bertugas untuk menjaga pertahanan dan keamanan NKRI <hashtag>,0,0.000785,0,0,0.5,1,1,xlm-roberta-base
+test,146,Gue pengen lihat dia terjatuh suatu saat nanti . <hashtag>,0,0.001604,0,0,0.5,1,1,xlm-roberta-base
+test,147,<username> penghargaan banyak umumkan saja gt saja repot . Paling Pintar dan smart banyak penghargaan saat kerja sekali kali <hashtag> diumumkan gt sebagai penghargaan,1,0.995618,1,1,0.5,1,1,xlm-roberta-base
+test,148,Bukan soal beda pilihan bos !! Soal etika tidak adanya rasa terimakasih terhadap pemerintah yg selama ini terlah banyak berkontribusi untuk kemajuan BL..,0,0.98222,1,1,0.5,0,0,xlm-roberta-base
+test,149,Ayo pak polisi cepat umumkan aktor intelektual & penyokong dana demo ricuh <hashtag>,0,0.012601,0,0,0.5,1,1,xlm-roberta-base
+test,150,<hashtag> Pohon tidak ditebang untuk Formula E tapi TETAP DITEBANG untuk REVITALISASI . MONAS tetap jadi gundul,1,0.014729,0,0,0.5,0,0,xlm-roberta-base
+test,151,Halo semuanya~ Veneta System lagi butuh <hashtag> ni Silahkan drop CV nya bagi yang berminat . Full Time kantornya ada di daerah mangga dua ðŸ˜‰ Ditunggu ya ^^ <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.000342,0,0,0.5,1,1,xlm-roberta-base
+test,152,<username> <username> <username> <username> Mantap bro aq stuju .,0,0.000714,0,0,0.5,1,1,xlm-roberta-base
+test,153,Saat sadar orang berbuat sopan saat tidak sadar jadi tidak sopan sontoloyo,0,0.09628,0,0,0.5,1,1,xlm-roberta-base
+test,154,Indonesia butuh Presiden bukan tukang lenong & tukang pijit <hashtag>,1,0.080141,0,0,0.5,0,0,xlm-roberta-base
+test,155,<username> Pada keseleq kursi .... ðŸ¤£ðŸ¤£ <hashtag>,0,0.000473,0,0,0.5,1,1,xlm-roberta-base
+test,156,MAR ingatkan kader <username> jgn hnya kejar dunia <username> <username> <username> <username> <username> <link>,0,0.00114,0,0,0.5,1,1,xlm-roberta-base
+test,157,Jancuk sarkasme keren wkwk <link>,0,0.000462,0,0,0.5,1,1,xlm-roberta-base
+test,158,hebat kamu mbak sudah memikirkan,0,0.998316,1,1,0.5,0,0,xlm-roberta-base
+test,159,<username> Hanya ada di Rezim sontoloyo,0,0.000485,0,0,0.5,1,1,xlm-roberta-base
+test,160,<username> <username> tangkap tukang nyinyir Pak,0,0.000747,0,0,0.5,1,1,xlm-roberta-base
+test,161,Kadrunnya cuma 3% saja . Alhamdulilah Ã°Å¸â„¢ÂÃ°Å¸â„¢ÂÃ°Å¸â„¢Â <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.112698,0,0,0.5,1,1,xlm-roberta-base
+test,162,<username> <username> <username> <username> Dasar kamu min ðŸ™ƒ,0,0.000496,0,0,0.5,1,1,xlm-roberta-base
+test,163,mengaku lah kalah masalah selesai . tirulah mertua bapak <username> <hashtag> <hashtag> <hashtag>,0,0.886862,1,1,0.5,0,0,xlm-roberta-base
+test,164,Padahal udh masuk <hashtag> tapi gabener oversmart koq masih aja <hashtag> dan kacung2nya ribut belain kayak <hashtag>,0,0.005041,0,0,0.5,1,1,xlm-roberta-base
+test,165,Beri tangguhlah barang sesaat .. Sama sama kita saksikan mana Jihad Fi' Sabilillah .. Jihad di jalan Allah dengan Jihad di jalan Ks Tubun !!! <hashtag> <hashtag> <hashtag>,0,0.051893,0,0,0.5,1,1,xlm-roberta-base
+test,166,Aku tidak peduli kalaupun harus mati ketika berjuang meraih mimpiku . Aku tidak akan menyesalinya .,0,0.001522,0,0,0.5,1,1,xlm-roberta-base
+test,167,Berkat infotainment 98 67% Ibu Ibu menjadikan pencapaian Mayangsari &amp; Nia Ramadhani sebagai prestasi yang harus ditiru anak perempuannya .,0,0.549354,1,1,0.5,0,0,xlm-roberta-base
+test,168,<username> Naik seweknya Nyi Roro Kidul koh,0,0.000609,0,0,0.5,1,1,xlm-roberta-base
+test,169,<username> Naik kereta kencana Nyi Roro Kidul,0,0.000495,0,0,0.5,1,1,xlm-roberta-base
+test,170,Mereka bukan hanya mengingkari konsitusi tp juga mengingkari ketetapan tuhan <hashtag>,0,0.011938,0,0,0.5,1,1,xlm-roberta-base
+test,171,Terima kasih Indonesia team sekalian yang main top legen . Beri peluang raja Malaysia angkat piala harini,1,0.996669,1,1,0.5,1,1,xlm-roberta-base
+test,172,Ini knp ya ko tranding ??? <hashtag>,0,0.0037,0,0,0.5,1,1,xlm-roberta-base
+test,173,<username> <username> <username> <username> <username> Ok ... trims ya,0,0.002187,0,0,0.5,1,1,xlm-roberta-base
+test,174,bapak anies baswedan sudah menepati janjinya untuk menyediakan kolam bagi warga jakarta . Jadi yang bilang bapak anies tidak becus kerja coba di sentil hidungnya wkkwkwk,1,0.998319,1,1,0.5,1,1,xlm-roberta-base
+test,175,Buat yg UNBK hari ini semangat berjuangnya dan saya masi perjuangin kamu kok biar kita sama2 berjuang :) <hashtag>,0,0.000475,0,0,0.5,1,1,xlm-roberta-base
+test,176,jadi gini ..Belum ada Kartu Pra Kerja saja Pak <username> sdh bisa menurunkan angka kemiskinan sejauh ini . Apalagi nanti,0,0.000977,0,0,0.5,1,1,xlm-roberta-base
+test,177,Teladan rekonsiliasi . Jokowi Prabowo bertemulah <hashtag> <hashtag>,0,0.002878,0,0,0.5,1,1,xlm-roberta-base
+test,178,<username> BPJS . Budget pas pas an jiwa sosialita,0,0.001738,0,0,0.5,1,1,xlm-roberta-base
+test,179,Membela kaum yang lemah katanyaâ€¦ Pro wong cilik katanyaâ€¦ . Merangkul masyarakat bawah katanyaâ€¦ Tapi kok buktinya malah suka memaki-maki kalangan bawah? <hashtag>,0,0.123842,0,0,0.5,1,1,xlm-roberta-base
+test,180,Tuan <username> memang luar biasa . Selain suka menghina Kyai ternyata suka bohong . Bahkan ada info soal hoax Sarumpaet dibelakangnya si <hashtag> ini ..,1,0.98191,1,1,0.5,1,1,xlm-roberta-base
+test,181,Ada wacana cadar dan celansla cingkrang di larang ... Haha <link>,0,0.000436,0,0,0.5,1,1,xlm-roberta-base
+test,182,Pertemuan yg sangat menyejukkan .Selamat pJokoWi Selamat pPrabowo anda layak disebut Pahlawan Pemersatu Bangsa <hashtag>,0,0.02494,0,0,0.5,1,1,xlm-roberta-base
+test,183,NU tidak pernah mengklaim mewakili segenap ummat Muslim . NU justru sering diklaim oleh sebagian orang yang kurang percaya diri .,1,0.222531,0,0,0.5,0,0,xlm-roberta-base
+test,184,<username> Iya Dasar Kadrun Ã°Å¸ËœÅ <hashtag>,0,0.000441,0,0,0.5,1,1,xlm-roberta-base
+test,185,Sejarah baru DKI berkat Gabener Seiman Rasa Pesinden. <hashtag> <hashtag>,1,0.996343,1,1,0.5,1,1,xlm-roberta-base
+test,186,"Emang warbiyasak, gabener <hashtag> sejarah mencatat. Tahun 2020, January-Februari sdh terjadi 6x banjir, ngalahin demo yg berjilid-jilid itu.Wajah menyeringai Gubernur di daerah manapun blm bisa menyaingi prestasi bliyo <username> ini.",1,0.92944,1,1,0.5,1,1,xlm-roberta-base
+test,187,Indonesia kan unggul dengan Esemka Romo . Pas kampanye beliau sih zaman dulu . Hehe Maaf <hashtag> :-),1,0.988313,1,1,0.5,1,1,xlm-roberta-base
+test,188,Arif Satria terdorong terus berbuat untuk kemajuan IPB . <link>,0,0.000449,0,0,0.5,1,1,xlm-roberta-base
+test,189,Tahuuuu bulat . Enakenakenakenakenak <hashtag>,0,0.000741,0,0,0.5,1,1,xlm-roberta-base
+test,190,Menyambut Siti Aisyah . Teruslah memberikan yang terbaik untuk bangsa . <username> <hashtag>,0,0.001131,0,0,0.5,1,1,xlm-roberta-base
+test,191,Cara memulai adalah dengan berhenti berbicara dan mulai melakukan . <hashtag>,0,0.000641,0,0,0.5,1,1,xlm-roberta-base
+test,192,pada ngapain si lempar botol lempar batu seharusnya tuh mikir kasian anak istri dirumah lah situ enak dateng demo dikasih nasbung lah anak istri dirumah mau makan apa? sejuta kerinduan? <hashtag>,0,0.96128,1,1,0.5,0,0,xlm-roberta-base
+test,193,<username> mana mungkin mau dia kan kaum KW keahliannya hanya qalam qalam doank,0,0.00411,0,0,0.5,1,1,xlm-roberta-base
+test,194,Kenapa <hashtag> .. Aku kasih ini aja deh <link>,0,0.000394,0,0,0.5,1,1,xlm-roberta-base
+test,195,<username> <username> Aku Bangga jadi Alumni UGM karena JOKOWI Aku Malu jadi Alumni UGM karena ANIES dan AMIEN . PAHAM ???,1,0.105671,0,0,0.5,0,0,xlm-roberta-base
+test,196,Memang bola tak punya hati tapi soal membahagiakan dia lebih hebat darimu ðŸ˜ðŸ‘ðŸ‘<hashtag>,0,0.000773,0,0,0.5,1,1,xlm-roberta-base
+test,197,<username> Uwu banget tapi yang ngelempar botol kok goblok?!,0,0.001375,0,0,0.5,1,1,xlm-roberta-base
+test,198,Terima kasih bapak Gub Anies .. baru di sadari kerja sebagai gubernur DKI ternyata tidak semudah berkata kata dan teori yang belum nyata ..harap semangat bapak dan agar buang ego yang tidak perlu .. kehebatan bapak akan berhasil pabila teruskan kerja yang baik dari pendahulu,1,0.997929,1,1,0.5,1,1,xlm-roberta-base
+test,199,Klo buat w yg unggul yah pasti yg cerdas klo menurut lo2 pada Metro_TV yg mana ??? yg IQ nya berapa? :D :D : D :D,0,0.985963,1,1,0.5,0,0,xlm-roberta-base
+test,200,Tidak munculnya nama Susi Pudjiastuti di antara 34 nama menteri Kabinet Indonesia Maju dipertanyakan oleh banyak pihak . <hashtag> <link>,0,0.000368,0,0,0.5,1,1,xlm-roberta-base
+test,201,<username> pertama . kamu tololÃ°Å¸ËœÂ­ tp ucullÃ°Å¸ËœÂ­,0,0.005675,0,0,0.5,1,1,xlm-roberta-base
+test,202,Benar-benar ide yang brilian Out of The Box .. Monas akan dijadikan kolam raksasa seluas Lapangan Bola oleh Gabener Wan Abud buat tangkap air kalau hujan di wilayah Jakarta sekalian nanti jadi t4 wisata halal ala Kadrun ..?? <hashtag>,1,0.995417,1,1,0.5,1,1,xlm-roberta-base
+test,203,selamat malam rakyat negara bangun .. apakah sudah sembuh dari penyakit kamipolitiken?,1,0.998592,1,1,0.5,1,1,xlm-roberta-base
+test,204,<username> anjir goblok bgt ya malah marah fancamnya kehalang!!! bgst,0,0.000557,0,0,0.5,1,1,xlm-roberta-base
+test,205,Berkat program Toa Jkt sudah tidak banjir lagi .... hanya Kelelep !! <hashtag>,1,0.943034,1,1,0.5,1,1,xlm-roberta-base
+test,206,Oh ternyata Jokuwi Yang pakai consultant luar negeri ... Ngakuin ketololannya sendiri Dungunya mendunia,1,0.922831,1,1,0.5,1,1,xlm-roberta-base
+test,207,Kukira cuma pendukung Prabowo yang dengan gobloknya bikin hestek uninstall uninstall . Ternyata pendukung Jokowi juga bisa bikin hestek <hashtag> . Sama aja gobloknya . Siap2 kehilangan swing voters aja kalo masih tetep kayak gini . Pantesan kok banyak yg milih golput .,0,0.000517,0,0,0.5,1,1,xlm-roberta-base
+test,208,Ketika malam minggu seperti ini datang : Sendiri sudah biasa Berdua sudah biasa Bertiga juga biasa Bertempat kita remi aja <hashtag> <hashtag> <hashtag>,0,0.002993,0,0,0.5,1,1,xlm-roberta-base
+test,209,Presiden RI lantik Kapolri baru .. <hashtag> <link>,0,0.000543,0,0,0.5,1,1,xlm-roberta-base
+test,210,terimakasih kepada <username> telah menyalurkan csrnya kepada lelayan tradisional khususnya dikabupaten <username> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.012576,0,0,0.5,1,1,xlm-roberta-base
+test,211,Memimpin dan menginspirasi Sehat selalu Pa Presiden <username> <hashtag> <hashtag>,0,0.001782,0,0,0.5,1,1,xlm-roberta-base
+test,212,Barusan ngecek . Jakarta masih baik2 saja . Tapi kerugian besar terjadi . Pentolan paling atas tetap harus bertanggungjawab siapa suruh ngomong hoax tidak habis2? <hashtag> <hashtag>,1,0.935524,1,1,0.5,1,1,xlm-roberta-base
+test,213,<username> Ini pengusaha apa pejabat atau pensiunan atau apa ya .. buanyak banget dapat dri mana itu ??,0,0.003046,0,0,0.5,1,1,xlm-roberta-base
+test,214,<username> Kok bisa <hashtag> . Jd acuan kemenag...?,0,0.000519,0,0,0.5,1,1,xlm-roberta-base
+test,215,<username> Ngaco .. laporkan ke badan Hukum kalau kamu tidak lapor saudara termasuk orang-orang yang gak berbadan Hukum ..tau Barbar .. padahal Barbar harus dihapuskan dari muka Bumi ..Camkan itu pak Prabowo saya sama sekali tidak bela pk jokowi saya bela kebenaran maksutnya kebenaran bukan ala,0,0.000687,0,0,0.5,1,1,xlm-roberta-base
+test,216,Mulia sekali para elit politikku mereka tidak sungkan untuk menumpuk kursi agar memudahkan pihak EO pada saat memberikan ruangan tsb.,1,0.996771,1,1,0.5,1,1,xlm-roberta-base
+test,217,Bisa jadi karena kurang dikelon tiap malam akhirnya muncul hastag <hashtag> .. Kalau dikelon biasanya sih bisa adem .. <hashtag>,0,0.000818,0,0,0.5,1,1,xlm-roberta-base
+test,218,Gubernur yang santun yang hebat dan pandai masa iya tidak tahu . <hashtag>,1,0.998603,1,1,0.5,1,1,xlm-roberta-base
+test,219,<username> Yups tp merusak kepercayaan rakyat boleh lah kan pak <username>,0,0.000568,0,0,0.5,1,1,xlm-roberta-base
+test,220,<username> Abis kalau ke akun lain sedang berenang om . Mantul banget lah <username> sarkasme nya,0,0.002878,0,0,0.5,1,1,xlm-roberta-base
+test,221,Maenan lu kaya pengangguran kaga pernah sekolah PRETT ! <hashtag> <hashtag>,0,0.034651,0,0,0.5,1,1,xlm-roberta-base
+test,222,Hanya karena gak rutin qunut subuh dituduh anti pancasila dan intoleran . <hashtag>,0,0.000685,0,0,0.5,1,1,xlm-roberta-base
+test,223,Lem aibon 82 8 M Pulpen 124 M Jamban 166 M Jalur sepeda 73 M Selamat kepada seluruh rakyat JKT58 gubernur kalian memang luar binasa nikmatilah kinerja gubernur kalian sampai mabok . <hashtag> <hashtag>,1,0.998481,1,1,0.5,1,1,xlm-roberta-base
+test,224,<username> <username> Belio penterjemah bahasa Twitter . Tolong hargailah . Sesungguhnya bahasa Twitter tu njelimet .,0,0.010449,0,0,0.5,1,1,xlm-roberta-base
+test,225,<username> <username> Kamu memang mantap,0,0.054099,0,0,0.5,1,1,xlm-roberta-base
+test,226,Sandiaga Uno janjikan program Kartu Jakarta Jomblo Hingga Sandi maju menjadi Cawapres kartu ini tidak pernah terwujud dasar hoak nipu masyarakat ...,1,0.978094,1,1,0.5,1,1,xlm-roberta-base
+test,227,Kalo yang lebih pintar bikin musik daripada marketing Sajama Cut bang . <link>,0,0.0022,0,0,0.5,1,1,xlm-roberta-base
+test,228,Luwar biasa kan Gubernur seiman ini . Gelar Ph .D luar negri mantan rektor Paramadina dan mantan Mentri Pendidikan ini sudah berhasil membuat senang anakÂ² dengan menghadirkan kolam renang buat warganya . Ngerti ora bong!!! <hashtag>,1,0.998073,1,1,0.5,1,1,xlm-roberta-base
+test,229,<username> deuh emak emak sosialita huh,0,0.000938,0,0,0.5,1,1,xlm-roberta-base
+test,230,<username> <username> Bukan buat pebisnis pastinya dan sosialita yg kelebihan uang . Masak buat IG story doang ? Kan konyol Ã°Å¸Â¤Â£,0,0.000748,0,0,0.5,1,1,xlm-roberta-base
+test,231,Untung saya tidak punya Bukalapak tapi keluarga besar saya sudah uninstallbukalapak tidak tahu diri!!!,1,0.998408,1,1,0.5,1,1,xlm-roberta-base
+test,232,JAdi manusia itu lebih baik jangan angkuh dan sombong sampai berani merendahkan ulama NU kita bukan orang lugu yang tidak mengerti bahsa ambigumu .,1,0.959345,1,1,0.5,1,1,xlm-roberta-base
+test,233,Terlebih nanti Presiden <username> masih akan berkunjung ke Universitas Aisyiyah . Jadi kalau ada yang bilang presiden\u2026 <link>,0,0.000428,0,0,0.5,1,1,xlm-roberta-base
+test,234,"gila gila gila keren keren keren .... rakyat dihajar abis abisan , koruptor dibiarkan liar... inilah pertumbuhan 7% , pertumbuhan koruptor",1,0.99857,1,1,0.5,1,1,xlm-roberta-base
+test,235,Semoga Kejujuran dinegri ini bisa ditegakkn .. bila MK melanggar tujuan dibentuknya MK .. ayo bangkit kt lawan tirani yg telh melecehkan konstitusi dinegri ini .. Kedaulatan Rakyat & demokrasi hrs ditegakkn sesuai dngn konstitusi .. Allahuakbar .. Merdeka .. <hashtag>,0,0.000429,0,0,0.5,1,1,xlm-roberta-base
+test,236,Bukan Karena tdk ada Rintangan hidup kita Optimis tapi krn kita Optimis maka Rintangan mjd tdk terasa,0,0.000577,0,0,0.5,1,1,xlm-roberta-base
+test,237,Pintar banget sih kalau suruh membolak balikkan fakta . belajar dimana?,1,0.998387,1,1,0.5,1,1,xlm-roberta-base
+test,238,Tak perlu iri atas keberhasilan orang lain . Jadikan itu motivasi agar semangatmu terpacu .,0,0.000635,0,0,0.5,1,1,xlm-roberta-base
+test,239,<username> <username> Kalo lu sok komentarin lu lonte anjing..... sampah goblok biadab . Kalo bodoh ya bodoh aja mba jgn goblok lg ... tiap hari makan taik ya makanya gda otak .,0,0.000468,0,0,0.5,1,1,xlm-roberta-base
+test,240,produsen petasan kaya mendadak . asli seberangnya pihak yg paling diuntungkan ya tukang petasan . Jadi lebaran lah pokoknya <hashtag>,0,0.965771,1,1,0.5,0,0,xlm-roberta-base
+test,241,Ada yg bisa membantu adik kita ini Ã°Å¸â„¢Â <hashtag> <hashtag> <hashtag> <link>,0,0.000378,0,0,0.5,1,1,xlm-roberta-base
+test,242,<username> <username> <username> Haha kasian lho dokðŸ˜…,0,0.000565,0,0,0.5,1,1,xlm-roberta-base
+test,243,<hashtag> Jokowi cukur rambut aja dia iri . Apalagi Jokowi berprestasi .,0,0.013248,0,0,0.5,1,1,xlm-roberta-base
+test,244,Semoga dapat menjadi generasi penerus bangsa yang cerdas dan dapat mengharumkan serta mengangkat martabat bangsa,0,0.023735,0,0,0.5,1,1,xlm-roberta-base
+test,245,<username> Ketika fungsi jempol mendahului fungsi otak ðŸ¤­,0,0.000442,0,0,0.5,1,1,xlm-roberta-base
+test,246,Permasalahannya apa sih ngak ngerti ??? ??? <hashtag> <hashtag> <hashtag>,0,0.001552,0,0,0.5,1,1,xlm-roberta-base
+test,247,<username> Fi semalem si sam jakpot goblok bgt wkkwkwkwkw,0,0.000427,0,0,0.5,1,1,xlm-roberta-base
+test,248,Tetaplah semangat dan teruslah berjuang . Karna tanpa semangatmu akupun berhenti berjuang .,0,0.000849,0,0,0.5,1,1,xlm-roberta-base
+test,249,Pemimpin jakarta si anies alhamdulillah amanah dengan kolam banjirnya,1,0.998197,1,1,0.5,1,1,xlm-roberta-base
+test,250,Tagar <hashtag> ini bukankah terliat seperti hinaan halus ya? Gw justru kasian dengan pak prabowo yg kalah tpi malah dapat hinaan kyk gini,0,0.000514,0,0,0.5,1,1,xlm-roberta-base
+test,251,Yang telah berlalu biarkan ia berlalu yang mendatang hadapi dengan cemerlang . <hashtag>,0,0.003423,0,0,0.5,1,1,xlm-roberta-base
+test,252,Yang seharusnya jd korban kerusuhan itu wakil rakyat kyk fadly ini .jgn rakyatnya ..<hashtag>,0,0.003686,0,0,0.5,1,1,xlm-roberta-base
+test,253,Sekolah tinggi2 untuk jadi pintar . Tapi negeri ini tidak butuh orang pintar butuhnya orang yg jujur .,0,0.003344,0,0,0.5,1,1,xlm-roberta-base
+test,254,Iblis2 pun melakukan sidang istimewa membahas kedudukan mereka yang sudah turun derajatnya karena oknum wakil rakyat yang sudah menghina Ulama .,1,0.298083,0,0,0.5,0,0,xlm-roberta-base
+test,255,<username> Kami merasa bangga memiliki president seperti bapak jokowi . Smoga tahun ini bpk jokowi tetap mnjdi president kami<hashtag>#,0,0.001305,0,0,0.5,1,1,xlm-roberta-base
+test,256,Yg krg waras biasanya jago menghibur yg waras jd penyejuk . Klop kan Berteman itu bth insting tajam kenyamanan . Yg krg waras dan yg waras sama sama asal sreg dihati knp tidak ?,0,0.00186,0,0,0.5,1,1,xlm-roberta-base
+test,257,Melakukan aksi uninstallbukalapak bukan ketololan tapi sebuah sikap yang tegas dan protes atas attitude buruk <username> Justru yang tolol adl orang yang membela attitude buruk tsb.,1,0.866867,1,1,0.5,1,1,xlm-roberta-base
+test,258,<username> <username> .......anda serius ga ngerti? Ato sarkasme?,0,0.000831,0,0,0.5,1,1,xlm-roberta-base
+test,259,juara bohong <hashtag>,1,0.990768,1,1,0.5,1,1,xlm-roberta-base
+test,260,<username> Mulia sekali cita2 mu nak bapak nyesal tidak gugurin kamu ??,1,0.998342,1,1,0.5,1,1,xlm-roberta-base
+test,261,<username> Bangsat kau hina agama Islam mksd lo apa ... dasar otak butek <hashtag>,0,0.001061,0,0,0.5,1,1,xlm-roberta-base
+test,262,mereka yg menyerukan Jihad untuk membela kebenaran dgn cara Jahad <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000595,0,0,0.5,1,1,xlm-roberta-base
+test,263,<username> pejabat optimis dg kenaikan kesejahterannya dan menyejahterakan pemilik modal ..,0,0.008745,0,0,0.5,1,1,xlm-roberta-base
+test,264,<username> Nia ramadhani ga bisa buka salak . Kalau gue mau belaga ga bisa buka rambutan .ðŸ¥º,0,0.000439,0,0,0.5,1,1,xlm-roberta-base
+test,265,<username> Gabener terbaik? Terbaik menata kata memang iya . <hashtag> <hashtag>,1,0.715026,1,1,0.5,1,1,xlm-roberta-base
+test,266,Manusia ini <username> tidak ada kontribusi kepada bangsa dan negara bisanya cuma ngebacot dan nyinyir <hashtag>,0,0.01896,0,0,0.5,1,1,xlm-roberta-base
+test,267,<username> Semoga sukses terus ya FPI muuu <hashtag> <hashtag>,0,0.000609,0,0,0.5,1,1,xlm-roberta-base
+test,268,Filosofi duduk di tangga ala pak jokowi apasi ada yang tau?? <hashtag>,0,0.001655,0,0,0.5,1,1,xlm-roberta-base
+test,269,Jika benar ada penyalah gunaan ambulance oleh pihak lain tidak menghapus atau mengurangi kesalahan Rocky Gerung dan Said Didu apalagi menghapuskan . Jgn jd pengcut mengalihkan dosamu pada pelanggaran org lain . Moral rendah tdk berintegritas yang dua ini contohnya .,0,0.001694,0,0,0.5,1,1,xlm-roberta-base
+test,270,<username> Gmna yaa kok kayak nyi roro kidul,0,0.000885,0,0,0.5,1,1,xlm-roberta-base
+test,271,wooww ... kehidupan syekali pendukung prabohong memaksa dan mendoktrin agar memilih c wowo :d takut ya kalau 2019 kalahlagi :d :d <hashtag>,1,0.249173,0,0,0.5,0,0,xlm-roberta-base
+test,272,yang penting bahagia y seiman ini <hashtag>,1,0.948775,1,1,0.5,1,1,xlm-roberta-base
+test,273,Teu keren kumaha atuh nguruskeun hirup batur :)) <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,1,0.003299,0,0,0.5,0,0,xlm-roberta-base
+test,274,<username> <username> <username> haters dijadiin jubir .. ambyarrr,0,0.001333,0,0,0.5,1,1,xlm-roberta-base
+test,275,Manusia ... tidak semata mata meninggalkan sesuatu yg sangat berharga .. kalau gk bosan /lelah .. pasti lebih mengguntungkan / lebih baik . <hashtag>,0,0.000764,0,0,0.5,1,1,xlm-roberta-base
+test,276,<username> <username> <username> Salut ðŸ˜Š <username> <username>,0,0.002043,0,0,0.5,1,1,xlm-roberta-base
+test,277,Ngapain coba ngajakin orang uninstallbukalapak padahal lagi ada serbu seru . <hashtag> aja otak kamu yang bodoh udah disakitin tetep aja bertahan .,0,0.002453,0,0,0.5,1,1,xlm-roberta-base
+test,278,prabohong berpidato terlalu lantang sampai lupa yang disampaikan isinya tidak karuan alias kacau .,1,0.998835,1,1,0.5,1,1,xlm-roberta-base
+test,279,Yang baik dicaci yang jelek di rangkul <hashtag>,1,0.006145,0,0,0.5,0,0,xlm-roberta-base
+test,280,Lihat yuk seperti apa sih sosok bapak <username> Menteri Perindustrian <username> periode 2019-2024? <hashtag> <link>,0,0.001016,0,0,0.5,1,1,xlm-roberta-base
+test,281,indonesiaku sedang berberdaya gunaan yang menolak perdamaian berarti mereka menolak nkri dan pancasila . <hashtag>,1,0.99684,1,1,0.5,1,1,xlm-roberta-base
+test,282,Belanjanya di kedai tek er dekat rumah aja .. gak bayar parkir <hashtag>,0,0.001149,0,0,0.5,1,1,xlm-roberta-base
+test,283,<username> <username> Jangan kasih kendor maju terus <hashtag> <hashtag>,0,0.002817,0,0,0.5,1,1,xlm-roberta-base
+test,284,<username> Udah Dungu ... Buta Hati pulak . <hashtag>,0,0.000551,0,0,0.5,1,1,xlm-roberta-base
+test,285,<username> <username> Korupsi 10m diganjar 1th 4bln termasuk diobral nih vonis . Benar era sontoloyo .,0,0.003331,0,0,0.5,1,1,xlm-roberta-base
+test,286,<username> Lah ada lagi level tukang kebon klo dari kacamata Anies mah Dah cari duit lagi sana ga usah ganggu otak kapitalis sok sok an masuk wilayah birokrasi yang ada korupsi ...,0,0.000826,0,0,0.5,1,1,xlm-roberta-base
+test,287,<username> Seneng loh baca2 komen disini ... banyak yang pinter ternyata rakyat indonesia .... yang kepinteran juga banyak ... yang dong dong juga buanyak banget ... ðŸ˜‹,0,0.007403,0,0,0.5,1,1,xlm-roberta-base
+test,288,Kesaksian <username> tentang penilaian <username> terhadap <username> Kesimpulannya <username> didampingi cawap\u2026 <link>,0,0.000483,0,0,0.5,1,1,xlm-roberta-base
+test,289,<username> Lempar botol? Anjing kok tolol si bangsat,0,0.000574,0,0,0.5,1,1,xlm-roberta-base
+test,290,Apa jadinya negeri ini kalau dipimpin oleh bandar dan pengguna narkoba <hashtag>,0,0.002439,0,0,0.5,1,1,xlm-roberta-base
+test,291,<username> <username> WASPADA MANUVER POLITIK NU GARIS BENGKOK CARI KURSI MENTRI <hashtag> <hashtag>,0,0.000612,0,0,0.5,1,1,xlm-roberta-base
+test,292,<username> .....katanya kecewa dengan pinjaman dari saudi.....ko malah ke sana.....,0,0.026632,0,0,0.5,1,1,xlm-roberta-base
+test,293,Emng gk cocok bu irma .ah jngn mimpi presiden deh .jauh ... kata2 dl br tindkan ..ibratnya wooii kebakaran ... ngomng dl bru ambil air ..keburu habis pak2 ..Ã°Å¸ËœÂ <hashtag> <link>,0,0.000511,0,0,0.5,1,1,xlm-roberta-base
+test,294,BANJIR HUJAN dan BANJIR ANGGARAN Akhirnya BERJALAN BERIRINGAN Nikmati Pilihan PEMIMPI(n)mu ??????????,1,0.997796,1,1,0.5,1,1,xlm-roberta-base
+test,295,Terkadang kita harus berfikir secerdik penipu dan bermain selicik pembunuh <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.034651,0,0,0.5,1,1,xlm-roberta-base
+test,296,<username> <username> <username> Karena baru masih g ngerti pat gulipat yg umum terjadi dan normal ya .,0,0.001626,0,0,0.5,1,1,xlm-roberta-base
+test,297,prabowo sudah tau kalah sejak dia klaim 62% dan hanya cara kerusuhan ini <hashtag> prabowo bisa menjadi presiden drama yang terstruktur dan sistematis . dengan cara menggiring opini publik <hashtag> <hashtag> <hashtag>,0,0.753648,1,1,0.5,0,0,xlm-roberta-base
+test,298,ni nih yang gua suka . Capek kadang rasanya 2 kubu yang saling menjatuhkan satu sama lain terus2 an nyindir lewat twitter.,1,0.060418,0,0,0.5,0,0,xlm-roberta-base
+test,299,nelayan itu berangkat melaut malam hari dan kembali pada siang hari . lalu waktu jam 12 malam pergi berdua supir ke pantai siapa yang dia temui itu ya? ini namanya bohong pangkat 12,1,0.33497,0,0,0.5,0,0,xlm-roberta-base
+test,300,DÃ mai untuk papua <hashtag> <link>,0,0.000373,0,0,0.5,1,1,xlm-roberta-base
+test,301,Lord Luhut trending topik . Menteri kesayangan <username> nih . <hashtag>,0,0.982922,1,1,0.5,0,0,xlm-roberta-base
+test,302,Hahahhaha .. Maha benar anies dgn segala ceritanya <hashtag> <link>,0,0.001655,0,0,0.5,1,1,xlm-roberta-base
+test,303,Diskotik halal Main catur haram Nonton film korea haram . Ok . Selamat datang dinegaraku .,0,0.988514,1,1,0.5,0,0,xlm-roberta-base
+test,304,<username> Kayaknya sudah pinter banget dokter satu ini memang kamu sudah pernah nyusun RAPBD ??? <hashtag>,1,0.657648,1,1,0.5,1,1,xlm-roberta-base
+test,305,<username> Ngapain kamu di pantai? Mau jadi budaknya nyi roro kidul?,0,0.001419,0,0,0.5,1,1,xlm-roberta-base
+test,306,"negara ini keren, koruptor aja yang milih rakyat. bhahahak..",1,0.998718,1,1,0.5,1,1,xlm-roberta-base
+test,307,<username> Masa kampanye sudah lewat pemenang Pilpres sudah ada . Kenapa kalian hancurkan Indonesia .,0,0.007651,0,0,0.5,1,1,xlm-roberta-base
+test,308,Lebih baek banjir daripada ngutang katenye lebih baek anggaran bocor daripada genteng bocor . Genteng kagak bocor sih tapi rumah nyilem <hashtag>,1,0.002571,0,0,0.5,0,0,xlm-roberta-base
+test,309,Apa saja konsekuensi membuat dan menyebarkan berita menyesatkan?,0,0.013716,0,0,0.5,1,1,xlm-roberta-base
+test,310,Mantan Ketua Dewan Guru Besar UGM Koentjoro khawatir Nadiem akan diperalat oleh pembantunya mengingat pengalamannya mengurusi pendidikan tinggi sangat minim . Begini katanya: <hashtag> <hashtag> <link>,0,0.000417,0,0,0.5,1,1,xlm-roberta-base
+test,311,<username> <username> Et nia ramadhani bakrie,0,0.001734,0,0,0.5,1,1,xlm-roberta-base
+test,312,otak penuh dengan sarkasme yang ga tega dikeluarkan,0,0.000916,0,0,0.5,1,1,xlm-roberta-base
+test,313,Macan itu tempatnya dihutan ! Kalau sudah keluar hutan trus naik panggung jadi bahan tertawaan... tidak garang lagi ! <hashtag>,0,0.881869,1,1,0.5,0,0,xlm-roberta-base
+test,314,Teruntuk Pak <username> &amp; Pak <username> jujur saya sangat senang karena bapak berdua mencalonkan diri sebagai Presiden\u2026 <link>,0,0.005512,0,0,0.5,1,1,xlm-roberta-base
+test,315,<username> Cina jgn dimanja dong para pejabat harus waspada nih .,0,0.000459,0,0,0.5,1,1,xlm-roberta-base
+test,316,<username> <username> Amin .... smoga menang <hashtag> Jokowi = \Jaa Al-Qawi (datang orang yang kuat),0,0.191252,0,0,0.5,1,1,xlm-roberta-base
+test,317,<username> Apa yang lain tidak menjadi iri dgn penghasilan yang luar biasa utk menjadi pejabat . Para pensiunan jenderal berlomba lomba utk aktif menjadi bergelimbang harta setelah karir di militer hanya mendapatkan gaji yang pas saja TDK lebih cari an,0,0.002463,0,0,0.5,1,1,xlm-roberta-base
+test,318,Pacar kamu memang Cantik tapi sayang nya dia Licik â–”â–¡â–”)/,0,0.621254,1,1,0.5,0,0,xlm-roberta-base
+test,319,Tuhhh pak ..dengerin tat zul yg TRANSPARAN dan BERTANGGUNG JAWAB jgn cuma nata Kata2 tp ngorbanin rang lain jgn <hashtag> aja yg sllu Apes . <link> <link>,0,0.000363,0,0,0.5,1,1,xlm-roberta-base
+test,320,seratus buat kamu anak pintar ! cariin alesan yang lebih tepat dong,1,0.075585,0,0,0.5,0,0,xlm-roberta-base
+test,321,Semua poling dimenangkan pasangan <username> <username> bahkan 3 diantaranya diatas 88 % !! Robot2 kampret pada habis kontrak atau pada kelojotan sekarat gegara melihat GBK kemarin ?? <hashtag> <hashtag>,0,0.997474,1,1,0.5,0,0,xlm-roberta-base
+test,322,Anies dan Hidayat Nur Wahid (HNW) menghadiri acara Pembukaan Rakernas ke-15 Ikatan Persaudaraan Haji Indonesia (IPHI). Begini pantauannya: <hashtag> <hashtag> <link>,0,0.000401,0,0,0.5,1,1,xlm-roberta-base
+test,323,<username> Penyakit anies dari dulu sampe sekarang ga sembuh2 dok.......yaitu penyakit selalu menyalahkan gubernur yg dulu ... tolong dok itu mukanya di permak sekalian ya kalo ketemu bikin seperti mukannya bowo tiktok ðŸ˜ðŸ˜ðŸ˜ sama2 rai gedek dablek songong sisann ..,0,0.000957,0,0,0.5,1,1,xlm-roberta-base
+test,324,Si buniyani kemakan omongannya sendiri !! Dasar buniyani memang bodoh !! :D :D,1,0.703855,1,1,0.5,1,1,xlm-roberta-base
+test,325,Polisi baik hanya polisi tidur <hashtag> <hashtag>,1,0.980129,1,1,0.5,1,1,xlm-roberta-base
+test,326,memang harus diakui kalau anies pintar . Buat live IG di tempat yang tidak banjir . PR ????,1,0.998855,1,1,0.5,1,1,xlm-roberta-base
+test,327,Kalau mereka bilang ada brimob dari cina kalau ini gimana ya jeng jeng kena deh ! <hashtag>,0,0.09628,0,0,0.5,1,1,xlm-roberta-base
+test,328,<username> Mmg sontoloyo,0,0.000744,0,0,0.5,1,1,xlm-roberta-base
+test,329,<username> <username> <username> Bentar lg dipecat jd jubir,0,0.000964,0,0,0.5,1,1,xlm-roberta-base
+test,330,Ketua DPR RI Puan Maharani Perintahkan DKI Kembalikan Monas sedia kala . <hashtag>,0,0.001579,0,0,0.5,1,1,xlm-roberta-base
+test,331,Fadli Zon si Penista Ulama .. !! :X :X :X :X,0,0.764804,1,1,0.5,0,0,xlm-roberta-base
+test,332,Buang ae yg kek giniannnn<hashtag>,0,0.000451,0,0,0.5,1,1,xlm-roberta-base
+test,333,woy itu orang berpendidikan ! bahkan yg ndak berpendidikan juga ndak boleh digitukan ! sontoloyo maksimal sih ini kalo aku diginikan ku putar dia punya kepala!!! <link>,0,0.001546,0,0,0.5,1,1,xlm-roberta-base
+test,334,<username> <username> Kopi sontoloyo,0,0.001472,0,0,0.5,1,1,xlm-roberta-base
+test,335,Dgn logika yg sama ketika PResiden mmilih Nadiem mjadi Mendikbud shrsnya para pria mjadikan baby sitter sbg istrinya . Ini jika mganalogikan solusi dari mgerjakan standarisasi sekolah yg tsebar di sluruh negeri dgn solusi dari pgasuhan anak dgn kuantitas yg cukup . <hashtag>,0,0.000495,0,0,0.5,1,1,xlm-roberta-base
+test,336,<username> wkwkwkwkwkwkwkwk ormas ormas goblok makannya modal sewa sound sama stage tolol,0,0.00097,0,0,0.5,1,1,xlm-roberta-base
+test,337,Ferdinand Murka Edhy Prabowo Disebut Menteri Sontoloyo <link>,0,0.000662,0,0,0.5,1,1,xlm-roberta-base
+test,338,aws hoax mlai Bertebaran menjelang putusan sidang MK . te2p <hashtag> <hashtag>,0,0.000621,0,0,0.5,1,1,xlm-roberta-base
+test,339,<username> <username> <username> <username> <username> <username> <username> <username> Na lah sigoe ngen rombongan nyi roro kidul troeh ðŸ˜¹ðŸ˜¹ðŸ˜¹,0,0.000497,0,0,0.5,1,1,xlm-roberta-base
+test,340,DKI banjir lagi ya .. kata abang2 jawara banjir itu berkah .. jadi kita ucapkan selamat saja buat warga DKI atas berkah air berlimpahnya selamat ya .. selamat juga buat bapak <username> atas pengadaan TOA 4 milyar saya yakin banyak berkah bisa dipetik disitu <hashtag>,1,0.982757,1,1,0.5,1,1,xlm-roberta-base
+test,341,Aduh kepencet .... Rekor Utang Meroket .. :P :P,1,0.130452,0,0,0.5,0,0,xlm-roberta-base
+test,342,<username> Gelar boleh dokter tapi isi otak level tk,0,0.003179,0,0,0.5,1,1,xlm-roberta-base
+test,343,Radikalisme diganti kata menjadi Manipulator Agama .. Tujuannya sama ingin menghancurkan sistem pemerintahan menjadi sistem Khilafah . <link> <hashtag>,0,0.000349,0,0,0.5,1,1,xlm-roberta-base
+test,344,Ibukota ... Presiden telah berinisiatif mencari Ibu Kota baru . That\'s a good step . And what about the FLAG... ??? <hashtag> <hashtag> <username> <username> <link>,0,0.005051,0,0,0.5,1,1,xlm-roberta-base
+test,345,<username> <username> Jangan ambigu mas bro . Yang dimaksud transparansi itu bukan semua diumbar . Itu dokumen negara bukan bungkus kacanh .,0,0.001942,0,0,0.5,1,1,xlm-roberta-base
+test,346,sudah bang <username> tidak harus demo turun ke jalan lah wong katanya banjir berkah yaudah biar dinikmati saja . <hashtag>,1,0.9987,1,1,0.5,1,1,xlm-roberta-base
+test,347,Aku bergegas menuju rumahmu . Berjalan kaki . Tentu saja aku punya alasan kenapa aku berjalan kaki ketimbang naik sepeda motor . Supaya bunga-bunga cantik yang kubeli tidak rusak diterpa angin . Haha aku pintar bukan? Tentu saja . Bunga-bunga untukmu harus masih terlihat segar,0,0.004158,0,0,0.5,1,1,xlm-roberta-base
+test,348,Si pengagum karl marx dan lenin <username> makin kurang ajar Setelah hina Ulama NU kini dia hina ulama Muhammadiyah <hashtag>,0,0.142291,0,0,0.5,1,1,xlm-roberta-base
+test,349,Berdasarkan informasi yang dikumpulkan ada seorang profesor di perguruan tinggi negeri yang merupakan anggota HTI . Kemudian ada kepala dinas pegawai negeri sipil (PNS) dosen hingga tentara yang masuk dalam HTI . <hashtag>,0,0.000924,0,0,0.5,1,1,xlm-roberta-base
+test,350,<username> Bahaya sampe kesehatan china yg urusin .. <hashtag> <hashtag>,0,0.000392,0,0,0.5,1,1,xlm-roberta-base
+test,351,saya aj nyelundupin contekan pas uas aja degdekan apalagi nyelundupin harley dalam pesawat <hashtag> <hashtag>,0,0.00097,0,0,0.5,1,1,xlm-roberta-base
+test,352,<username> <username> <username> Harusnya jawab ajaa ... yaaa kalian yang orang lama udah pada bau tanah sih ... ðŸ˜ðŸ˜ðŸ˜,0,0.000817,0,0,0.5,1,1,xlm-roberta-base
+test,353,aibon alpa ketik bolpoin alpa input penghargaan diskotek colosseum alpa kadis sekarang ... . rekomendasi formula e alpa ketik lagi. bukannya alpa otak tuhÃ°Ã¿Â¤Â£,1,0.997909,1,1,0.5,1,1,xlm-roberta-base
+test,354,Tangkap dan Adili MANUSIA yg tak berguna ini . Membuat profokasi dan mencoreng nama baik TNI . Mau jadi apa Indonesia kalau mreka terus mnginjak hrga diri TNI Lagu kelanjutan nya terlalu sensitif .. Nah berarti lagu nya memang ada d buat dan panjang . <hashtag>,0,0.000397,0,0,0.5,1,1,xlm-roberta-base
+test,355,Walaupun sibuk tapi masih sempat meluangkan waktu berbagi ilmu dengan mahasiswa FH Indonesia Esa Unggul dan FISIP UNS . <hashtag>,0,0.004709,0,0,0.5,1,1,xlm-roberta-base
+test,356,<username> <username> <username> <username> <username> <username> Sontoloyo tenan,0,0.00157,0,0,0.5,1,1,xlm-roberta-base
+test,357,<username> Saya optimis MU menang,0,0.000644,0,0,0.5,1,1,xlm-roberta-base
+test,358,<username> Saya memang pintar dan kamu aja memang goblok,0,0.051177,0,0,0.5,1,1,xlm-roberta-base
+test,359,Komunis punya makar tapi makar Allah lebih besar !!!!!! <hashtag>,0,0.395076,0,0,0.5,1,1,xlm-roberta-base
+test,360,di medan lagi ada gerakan <hashtag>. bergaya juga ya mantan kamu banyak yang peduli.,1,0.992108,1,1,0.5,1,1,xlm-roberta-base
+test,361,Berkhayal jd nia ramadhani,0,0.000516,0,0,0.5,1,1,xlm-roberta-base
+test,362,gw terinsipirasi untuk kondisi indonesia saat ini seperti film olympus has fallen .............. edannn <hashtag> <hashtag> <hashtag>,1,0.291132,0,0,0.5,0,0,xlm-roberta-base
+test,363,desain <hashtag> ini hanya peduli pada skala raksasa skala pemodal perusahaan dan abai terhadap skala manusia dan kepentingan konservasi lingkungan yang mana mestinya jadi prioritas pembangunannya cc <username>,0,0.911259,1,1,0.5,0,0,xlm-roberta-base
+test,364,FD: itu oknum partai People : bapak partainya apa? FD : gerindra People : well bapak oknumnya <hashtag> <hashtag> <hashtag>,0,0.039788,0,0,0.5,1,1,xlm-roberta-base
+test,365,Wanita bijak seperti angsa diatas air . Anggun namun tetap bekerja . Tetap tegar meski terluka .,0,0.025227,0,0,0.5,1,1,xlm-roberta-base
+test,366,saya membolehkan 02 beroleh hadiah tapi itu dlu pas pemilu 2014 <hashtag>,1,0.970632,1,1,0.5,1,1,xlm-roberta-base
+test,367,Banyak yang menginginkan istri seperti nia ramadhani tapi mereka lupa menjadi suami seperti ardi bakrie status buk ibuk jaman nowðŸ˜‚,0,0.019069,0,0,0.5,1,1,xlm-roberta-base
+test,368,Terima kasih bapak Anies . Hasil naturalisasi sudah terlihat .,1,0.998445,1,1,0.5,1,1,xlm-roberta-base
+test,369,<username> Bahaya nih org kadal gurun sontoloyo .... cm fitnah dan provokator ... suruh liat Arab dan negara islam lainnya aja membuka pintu lebar2 skrg sm China .... goblok koq bangga ..idiot permanen tuh kadrun,0,0.001996,0,0,0.5,1,1,xlm-roberta-base
+test,370,POLITIK BANGSAATTT MINGGAT COK NGELU DELOK WONG TOLOL GELUD,0,0.000741,0,0,0.5,1,1,xlm-roberta-base
+test,371,santun tapi pembohong ! <hashtag>,1,0.997561,1,1,0.5,1,1,xlm-roberta-base
+test,372,Kok ribet amat sihh Kalo ngak percaya medsos Percaya aja sama media massa Kek koran atau tv kalo masih ngak percaya ya udah percaya aja sama tuhan semoga indonesia diberikan yang terbaik <hashtag> <hashtag> <hashtag> <hashtag>,0,0.000524,0,0,0.5,1,1,xlm-roberta-base
+test,373,<username> Terima kasih JKT58 <username> Berkah politisasi ayat dan mayat <hashtag>,1,0.994969,1,1,0.5,1,1,xlm-roberta-base
+test,374,<username> Percayakn semuanya kepada pa <hashtag> kerja dulu baru koment blm apa apa dah koment terlalu jauh,0,0.014091,0,0,0.5,1,1,xlm-roberta-base
+test,375,Ada yg nyimpen thread cewe2 travelling ke jogja yg dideketi nyi roro kidul gak? Perasaan aku udh nyimpen tp ilang :(,0,0.000446,0,0,0.5,1,1,xlm-roberta-base
+test,376,<username> <username> <username> <username> Nitip tagar uni <hashtag> <hashtag>,0,0.001775,0,0,0.5,1,1,xlm-roberta-base
+test,377,Gak usah heran dengan kelakuan <username> yang tak beradab . Lha ulamanya aja Sugik Nur . <hashtag>,0,0.000645,0,0,0.5,1,1,xlm-roberta-base
+test,378,Katanya sih pengusaha muda berpengalaman tapi .. <hashtag>,1,0.418697,0,0,0.5,0,0,xlm-roberta-base
+test,379,Pilpres sdh selesai .. Satu yg mungkin menyelamatkan mrk ya cari2 trs kasus hukum ke 02 ..,0,0.826922,1,1,0.5,0,0,xlm-roberta-base
+test,380,Sabar bapak .. Setelah bulan april 2019 semua pasti <hashtag>,1,0.998066,1,1,0.5,1,1,xlm-roberta-base
+test,381,Haduduu .. EVA CELIAðŸ’”,0,0.000537,0,0,0.5,1,1,xlm-roberta-base
+test,382,Prabowo nuduh tanpa bukti Demo berakhir rusuh dalam waktu -1 hari . YANG DIMINTA MUNDUR JOKOWI . LOLLLL . OTAK PENDUKUNG 02 ANJERRRR . SEMPIT BANGET PANTES GAMPANG DI HOAX LOE PADA 43% DOANG TAPI BACOT NYA SETINGGI LANGIT <hashtag> <hashtag> <hashtag>,0,0.713382,1,1,0.5,0,0,xlm-roberta-base
+test,383,<username> <username> Menurut Prof Mahfud md \Disetiap aturan yang dibuat pasti ada politik hukum yang mempengaruhi\ mun\u2026 <link>,0,0.000504,0,0,0.5,1,1,xlm-roberta-base
+test,384,<username> Mulia sekali anak2 itu tidak ingin otaknya cepat rusak maka jarang digunakan : ) hallo.... <username>,1,0.953923,1,1,0.5,1,1,xlm-roberta-base
+test,385,Padahal musim hujan kok kepanasan yah <hashtag>,0,0.001424,0,0,0.5,1,1,xlm-roberta-base
+test,386,Makin banyak orang dungu .. <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.004265,0,0,0.5,1,1,xlm-roberta-base
+test,387,Ujian sekolah sekarang lebih mentingin hasil daripada kejujurannya :( <hashtag>,1,0.01721,0,0,0.5,0,0,xlm-roberta-base
+test,388,bukan nya amatir .. tp memang mahir memanipulasi .. tp semahir2 nya tupai melompat suatu saat pasti kejengkang jg .. <hashtag> <hashtag>,1,0.223886,0,0,0.5,0,0,xlm-roberta-base
+test,389,Rasa optimisme dari Pak <username> merupakan sebuah kekuatan utk para Sahabat milenial . Jokowi mensosialisasikan bahwa kebijakannya sangat berpihak kpd kaum milenial . <hashtag> <hashtag> <hashtag>,0,0.000401,0,0,0.5,1,1,xlm-roberta-base
+test,390,"Kita harus bersyukur. Banjir besar ini selalu hari Libur. Ini kalau bukan Anies, Gubenur Sholeh, doanya, ini bisa terjadi senin, selasa, rabu. kata Wakil Ketua Bamus Betawi, Rahmat HS Woyy ini selasa. BNGST <hashtag>",1,0.996385,1,1,0.5,1,1,xlm-roberta-base
+test,391,Hai ..sobat <hashtag> ðŸ¤— Ada nasehat nih katanya klo pulang sekolah jangan langsung tidur sambil \'telentang\' yua .. nanti bisa modar ..ðŸ¤­ðŸ˜…ðŸ˜… <hashtag> walaupun <hashtag> .. <hashtag> <link>,0,0.000402,0,0,0.5,1,1,xlm-roberta-base
+test,392,Menjemput Tiga Poin Perdana di AFC Cup . Bismillah !,0,0.979996,1,1,0.5,0,0,xlm-roberta-base
+test,393,kempesin perutnya <hashtag>,0,0.001034,0,0,0.5,1,1,xlm-roberta-base
+test,394,Orang2 pada uninstallbukalapak tapi hr ini ada serba seru hadianya rumah 1M apa bisa naikin presentase menang gua yah? :D :D,0,0.997917,1,1,0.5,0,0,xlm-roberta-base
+test,395,Udah fiks pilih polisi tidur aja \'( <hashtag> <link>,0,0.000397,0,0,0.5,1,1,xlm-roberta-base
+test,396,Saya rakyat Indonesia sy mendukung <hashtag> & sy menolak diwakili narasi <hashtag>,0,0.000803,0,0,0.5,1,1,xlm-roberta-base
+test,397,<username> Cantik bgt woi!!! Auranya cantik aja gtu kaya lukisan nyi roro kidul . Senyum sama matanya pokonya auranya dah . Apa emang mbaknya cakep ya wkwkwk,0,0.0018,0,0,0.5,1,1,xlm-roberta-base
+test,398,Selamat Belajar Biologi itu asiiik banget ! <hashtag>,0,0.499313,0,0,0.5,1,1,xlm-roberta-base
+test,399,<username> Nia ramadhani deh contoh barangnya . Klo dia gak cantik (banget) emang ardi bakrie mau?,0,0.00236,0,0,0.5,1,1,xlm-roberta-base
+test,400,<username> Keren bgt tuntutannya . Pdhl partaimu bobrok . Serang anies biar hasto dan mba mega aman ya mba meskipun PAW harun ada tanda tangan keduanya . Uang ke wahyu dari hasto . Hasto darimana coba . Hehe,1,0.040579,0,0,0.5,0,0,xlm-roberta-base
+test,401,silahkan yg mau julid dan menghujat ibu2 sosialita ini kami persilahkan di mohon menghujat sejahat2nya <link>,0,0.00055,0,0,0.5,1,1,xlm-roberta-base
+test,402,Pengguna <hashtag> sudah dapat SMS ini? Ayo yang mau turun kelas segera turun kelas sekarang . Sebelum terlambat . Turun kelas juga bisa melalui aplikasi android jkn ... Cepet tanpa antri <link>,0,0.000613,0,0,0.5,1,1,xlm-roberta-base
+test,403,Dulu ada yang lucu namanya ondel2 betawi sekarang ada yang lebih lucu namanya wan aibon kota sering banjir pohon dicabutin . <hashtag>,1,0.939192,1,1,0.5,1,1,xlm-roberta-base
+test,404,<username> <username> <username> <username> <username> Manusia dungu seperti tompi Mana berani kritik jokowi . Coba kritik dollar 10rb tolak utang luar negeri berani ga ente kritik?,0,0.019644,0,0,0.5,1,1,xlm-roberta-base
+test,405,Welcome to Indonesia. Dimana copy paste menjadi hal yang lumrah disini,1,0.996544,1,1,0.5,1,1,xlm-roberta-base
+test,406,Siap2 uninstall ya Mau dipakai alat politik :D :D :D,0,0.997897,1,1,0.5,0,0,xlm-roberta-base
+test,407,Kami butuh pemimpin sungguhan bukan boneka <hashtag>,1,0.038829,0,0,0.5,0,0,xlm-roberta-base
+test,408,salah foto tolol <link>,0,0.000537,0,0,0.5,1,1,xlm-roberta-base
+test,409,<username> <username> Betul sekali sambil menyelam minum air,0,0.005642,0,0,0.5,1,1,xlm-roberta-base
+test,410,Jangan bersedih ketika melakukan salah . Karena kesalahan kita banyak belajar karena kesalahan kita menjadi pintar .,0,0.01721,0,0,0.5,1,1,xlm-roberta-base
+test,411,<username> sangat disayangkan padahal keterbukaan anggaran di periode sebulmunya sudah sangat baik <hashtag>,0,0.921499,1,1,0.5,0,0,xlm-roberta-base
+test,412,Allahu akbar.<hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.050752,0,0,0.5,1,1,xlm-roberta-base
+test,413,Untuk Indonesia Maju Pilih <username> - KMA . <hashtag> <hashtag> <hashtag> Fakta membuktikan bahwa angka pengangguran di era <username> terjadi penurunan .,0,0.002079,0,0,0.5,1,1,xlm-roberta-base
+test,414,<username> 3)lu tak bisa memaknai arti ungkapan rantai yg dinarasikan pak <username> sungguh kasihan bangsa ini,0,0.000672,0,0,0.5,1,1,xlm-roberta-base
+test,415,Satu jiwa satu cita satu cinta Persija <hashtag>,0,0.00339,0,0,0.5,1,1,xlm-roberta-base
+test,416,Daritadi googling tentang Kanjeng Ratu Kidul dan Nyi Roro Kidul baca-baca tetep masih bingung ..,0,0.001008,0,0,0.5,1,1,xlm-roberta-base
+test,417,Wahai tuan <username> yth makasih ya mobil saya kerendem oleh air yang se-Iman dengan kita . Jaman bapak Ahok warga lingkungan sini sudah sempet lupa tuh sama yang namanya banjir setinggi ini . Selamat bekerja bapak eh .. selamat tidur .,1,0.996802,1,1,0.5,1,1,xlm-roberta-base
+test,418,Rejim ini ada 34 mentri + 12 wamen 8 pejabat setingkat Mentri .Di dukung 14 stafsus (7 staf milenial). Di sokong KSP &amp; para Jubir istana Di tatar 6 BPIP . Di nasehati 9 wantimpres . Di riuhkan tim hore buzzer pro INDONESIA pasti hancur .,1,0.000831,0,0,0.5,0,0,xlm-roberta-base
+test,419,Dari kasus <hashtag> dan boikotsariroti kita dapat belajar bahwa pendukung capres di Indo fanatiknya luar biasa . Yang diatas ketawa bahagia eh yang dibawah malah berantem wkwk,1,0.025299,0,0,0.5,0,0,xlm-roberta-base
+test,420,Logika jangan terbalik . Hrsnya Permisi dulu baru masuk rumah' jangan ngacak2 rumah baru permisi . Tolong <username> suruh kembalikan Kawasan monas seperti semula Anies Kirim Surat Persetujuan Revitalisasi Monas ke Setneg,0,0.025859,0,0,0.5,1,1,xlm-roberta-base
+test,421,Yg rame sekarang cuma radikal radikul tadz <username> Ekonomi lesu bodo amat <hashtag> <link>,0,0.000439,0,0,0.5,1,1,xlm-roberta-base
+test,422,Mulia sekali bapak-bapak ini daripada rebutan kursi mereka malah saling memberikan kursi.,1,0.998609,1,1,0.5,1,1,xlm-roberta-base
+test,423,Coba anda pakai akal sehat nya deh .. Jargon KIS dan KIP Dibagikan untuk masyarkat kurang mampu .kan begitu .sudah berapa dibagikan ..hampir 60 juta ..artinya masyarakat Indonesia 60 juta yang tidak mampu . Katanya kemiskinan berkurang ..gak nyambung toh :D,1,0.025131,0,0,0.5,0,0,xlm-roberta-base
+test,424,plus62 panas <hashtag>,1,0.136781,0,0,0.5,0,0,xlm-roberta-base
+test,425,Prabowo dan Jokowi saling berjabat untuk indonesia hebat <hashtag>,0,0.001455,0,0,0.5,1,1,xlm-roberta-base
+test,426,Jangan sampai terjadi kalau tidak milih junjungannya silahkan hengkang dari Indonesia :P :D,1,0.988906,1,1,0.5,1,1,xlm-roberta-base
+test,427,Ada yg tau ga? Kenapa sikap dinginnya gebetan malah bikin panas?? Kan harusnya dinginnn ... Anehh â˜¹ï¸ <hashtag> <hashtag> <hashtag>,0,0.000523,0,0,0.5,1,1,xlm-roberta-base
+test,428,<hashtag> bismillah 3 poin,0,0.000718,0,0,0.5,1,1,xlm-roberta-base
+test,429,Kopi menjadi haram ketika korupsi menjadi seni .,1,0.003869,0,0,0.5,0,0,xlm-roberta-base
+test,430,Ketua Dewan Kehormatan DPP Partai Amanat Nasional (PAN) Amien Rais memberikan waktu enam bulan kepada Kabinet Indonesia Maju bentukan Presiden Joko Widodo (Jokowi) <hashtag> <link>,0,0.000388,0,0,0.5,1,1,xlm-roberta-base
+test,431,<username> SETUJU PAK PRESIDEN LANJUTKAN PEMBANGUNAN KEDEPAN PAK!!! sy pribadi sangat puas dgn kepimipinan Bapak . Salam dari Merauke .,0,0.017729,0,0,0.5,1,1,xlm-roberta-base
+test,432,<username> kebanyakan minum anies jd mabok,0,0.000897,0,0,0.5,1,1,xlm-roberta-base
+test,433,ibadah itu panggilan dari hati bukan pangilan capres,1,0.998522,1,1,0.5,1,1,xlm-roberta-base
+test,434,Ada kakek tua.....Biang Provokator pula .... siapakah dia ??? <hashtag>,0,0.24599,0,0,0.5,1,1,xlm-roberta-base
+test,435,Tidak pake kipas angin kepanasan Giliran pake kipas angin besoknya pasti flu ðŸ˜« <hashtag>,0,0.000806,0,0,0.5,1,1,xlm-roberta-base
+test,436,kemaren sharing sama temen: yasssss . mulai tersadar bahwa panggilan kepada seseorang adalah salah satu menunjukkan tingkat pertemanan kita . ex: eh kampret (temen deket ni) kalau hey beb (temen sosialita tp bukan kepercayaan) tingkat ukur bukan hanya dari prioritas rep chat !,0,0.167423,0,0,0.5,1,1,xlm-roberta-base
+test,437,<username> Nia Ramadhani Asyik Karaoke Pakai Busana Terbuka Ramai Disentil Soal Akhirat d <link>,0,0.003403,0,0,0.5,1,1,xlm-roberta-base
+test,438,Pak Nadiem meskipun menurutmu tak berguna kami akan terus menghafal Al Quran dan ilmu2 lain sebagai awal penting dalam proses belajar yang lebih mendalam . <link>,0,0.000339,0,0,0.5,1,1,xlm-roberta-base
+test,439,Melly Goeslaw marah ke beberapa rekan selebritas yang memparodikan gaya berpakaian dirinya dan disambut dengan tawa . <hashtag> <link>,0,0.000374,0,0,0.5,1,1,xlm-roberta-base
+test,440,<username> <username> Aku tambahin lagi plus jadi nia ramadhani,0,0.001942,0,0,0.5,1,1,xlm-roberta-base
+test,441,"Presiden Jokowi Minta 4nies Keruk Waduk untuk Atasi Banjir 4nies Disuruh Keruk Waduk, malah Keruk Anggaran.! Terlaluuuu <username> <hashtag>",1,0.753285,1,1,0.5,1,1,xlm-roberta-base
+test,442,<username> <username> <username> <username> iya salah info karena mungkin gak konfirmasi dulu ðŸ˜‚,0,0.000561,0,0,0.5,1,1,xlm-roberta-base
+test,443,Semua akan menjadi baik pada akhirnya nanti . Jika belum baik itu berarti bukan akhir .,0,0.009917,0,0,0.5,1,1,xlm-roberta-base
+test,444,Butuh pengorbanan untuk menuju sukses .,0,0.001589,0,0,0.5,1,1,xlm-roberta-base
+test,445,Jangan korbankan rakyat untuk kepentingan politik <hashtag>,0,0.001645,0,0,0.5,1,1,xlm-roberta-base
+test,446,Media Asing Soroti Prabowo yang Jabat Menteri Jokowi . <hashtag>,0,0.000676,0,0,0.5,1,1,xlm-roberta-base
+test,447,Jurus ampuhh di Indonesia biar ga disalahin Ã¢â‚¬Å“Mohon maaf sekadar mengingatkanÃ°Å¸â„¢ÂÃ°Å¸ÂÂ»Ã¢â‚¬Â <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.007877,0,0,0.5,1,1,xlm-roberta-base
+test,448,Tiada hari tanpa HOAX :D,0,0.935228,1,1,0.5,0,0,xlm-roberta-base
+test,449,Katanya Ijtima Ulama tapi kok tidak paham basic Islami <hashtag>,1,0.109515,0,0,0.5,0,0,xlm-roberta-base
+test,450,Kalau jualannya tdk laku ya jangan marah2 Kadrun Yang benar itu Tauhid tempatnya didalam hati kukan bendera anda dan Takbir itu tempatnya di Madjid bukan di jalanan Drun . Jadi berhentilah menjual Agama ORA LAKU krn Agama itu bukan untuk dijual Drun Sasar Sontoloyo . <link>,0,0.000453,0,0,0.5,1,1,xlm-roberta-base
+test,451,Kenapa infrastruktur tidak berhasil pada era sebelumnya dan berjalan dgn mulus di era JOKOWI . Karena sebelumnya kasih ganti rugi sedangkan JOKOWI berika GANTI UNTUNG . Pakar managemen kelas dunia Rhenald Kasali <username> Soetta sukses pembangunan runway3 <hashtag>,0,0.990803,1,1,0.5,0,0,xlm-roberta-base
+test,452,Untuuung ibu gua emak emak posyandu pkk bukan sosialita .. Hadehhh <link>,0,0.000405,0,0,0.5,1,1,xlm-roberta-base
+test,453,Anak buahnya pak nadiem makarimðŸ‹ðŸ»â€â™€ï¸ pengen post di wa nge blur :( <hashtag> <link>,0,0.000447,0,0,0.5,1,1,xlm-roberta-base
+test,454,Gara-gara PRABOWO yang gila jabatan Indonesia yang kemarin dipuji karena telah menyelenggarakan pemilu terbesar di <link>,0,0.049635,0,0,0.5,1,1,xlm-roberta-base
+test,455,Belum ada penelitian yang membuktikan penggunaan cadar dan celana cingkrang identik dengan tindakan radikalisme . <link>,0,0.000402,0,0,0.5,1,1,xlm-roberta-base
+test,456,<username> anda nyanyia saja bapak .. lebih merdu ketimbang ngomongin soal kerjaan bapak Anis ..,1,0.053403,0,0,0.5,0,0,xlm-roberta-base
+test,457,<username> Terkutuk lu <username> koplakkk,0,0.000722,0,0,0.5,1,1,xlm-roberta-base
+test,458,Alhamdulillah nih di bdg ga ada org tolol yg pencet klakson pdhl lampu ijo baru nyala,0,0.000888,0,0,0.5,1,1,xlm-roberta-base
+test,459,<username> Ini anggota DPRD yg ga tau fungsi dan tugasnya deh . Emang sekolah ada yunior dan senior ... Pasti jiwa preman dia .... Kok bisa jadi anggota dewan ya .. Cc <username>,0,0.000712,0,0,0.5,1,1,xlm-roberta-base
+test,460,Ada yang ngomongin dari belakang? Senyumin ajaaaa ðŸ˜„ | MC Kondang <hashtag> <username> <link>,0,0.000364,0,0,0.5,1,1,xlm-roberta-base
+test,461,Kerjasama IPB dan Gojek <link>,0,0.000466,0,0,0.5,1,1,xlm-roberta-base
+test,462,Ibu-ibu sosialita jaksel ternyata ramah2 bgttt Jd td abis meeting terus sempet ketemu dan salaman sm client company itu . dan pas selesai gue makan . pas masuk tmpt makannya si ibu-ibu client tadi nyapa gue dadah2 dan mukanya ramah bgtt uwu,0,0.000639,0,0,0.5,1,1,xlm-roberta-base
+test,463,Ketika Jakarta lagi dalam darurat banjir pohon2 malah di tebangi .Masyakat bingung KESERIUSAN <username> dlm menangani banjir . <hashtag> <hashtag>,0,0.017661,0,0,0.5,1,1,xlm-roberta-base
+test,464,Information Center: Memberikan informasi real terkait produk dan program <hashtag> : memberikan informasi berupa Hoax agar Hoax nya makin kuat tidak tertandingi . Sadeeessshhhh,1,0.128088,0,0,0.5,0,0,xlm-roberta-base
+test,465,Di IPB SPP mahasiswa bervariasi antara 15 .000 .000 per semester hingga 500 .000 . Tergantung penghasilan bulanan orang tua mereka . Bahkan ada pula yg gratis ..cmiiw .. <username> <username>,0,0.000403,0,0,0.5,1,1,xlm-roberta-base
+test,466,Presiden jajan cilok jadi jadi prestasi? <hashtag>,0,0.998502,1,1,0.5,0,0,xlm-roberta-base
+test,467,Anies jauh lebih hebat dari bu Susi bu Susi cuma bisa menenggelamkan kapal kalo Anies bisa menenggelamkan Jakarta owkwowkaakwowk HEBAT <hashtag>,0,0.938632,1,1,0.5,0,0,xlm-roberta-base
+test,468,<username> Intinya pak bgmn nelayan bisa sejahtera dan kalau bisa kita tingkatkan eksport ikan ke luar negeri,0,0.000489,0,0,0.5,1,1,xlm-roberta-base
+test,469,<hashtag> syarat jadi anggota PDI PERJUANGAN apa ya? Kantor cabang PDI PERJUANGAN KABUPATEN ROKAN HILIR RIAU di mana ya? Saya mau daftar jd anggota PDI PERJUANGAN,0,0.000689,0,0,0.5,1,1,xlm-roberta-base
+test,470,Nanti kalo mau masuk tol ditanya dulu : kamu pilih 01/02?,0,0.001051,0,0,0.5,1,1,xlm-roberta-base
+test,471,Dia bilang jangan pilih pemimpin yang tidak memiliki pengalaman .. tapi dia amatiran :D :D :D :D <hashtag>,1,0.997513,1,1,0.5,1,1,xlm-roberta-base
+test,472,Rasa muntah ... Gnpf ulama bela pemprov dki soal penghargaan diskotek <link>,0,0.000427,0,0,0.5,1,1,xlm-roberta-base
+test,473,Ketika ada bungkus rokok tergeletak diambil dan otomatis langsung di goyang-goyang dulu baru dibuang nah disitulah masih banyak orang mencari keberuntungan . Mbokmenowo bejo isih ono udude sek penting yakin karo digajal generasioptimis :D,0,0.071074,0,0,0.5,1,1,xlm-roberta-base
+test,474,<username> Rakyat Papua rindu dengan pemimpinnya . <hashtag> <link>,0,0.000807,0,0,0.5,1,1,xlm-roberta-base
+test,475,Jum'atan biar diaku sebagai umat nabi Muhammad bukan biar diaku sebagai anggota/ pendukung partai . Situ sehat ???,1,0.996669,1,1,0.5,1,1,xlm-roberta-base
+test,476,Ya sudah lah udah mirip <hashtag> kan <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.000404,0,0,0.5,1,1,xlm-roberta-base
+test,477,Dasar JANCUK gampang banget obral janji Emang msh ada yg mau kau tipu ? Klo cebong gue maklumin,0,0.000452,0,0,0.5,1,1,xlm-roberta-base
+test,478,KAMU KEREN JOOO ! KONSISTEN TERUS ðŸ¥°â¤ï¸,0,0.121947,0,0,0.5,1,1,xlm-roberta-base
+test,479,RINSO RINI SONTOLOYO <link>,0,0.000432,0,0,0.5,1,1,xlm-roberta-base
+test,480,Terimakasih bapak wowo sudah mau berterus terang bahwa anda berkiblat ke barat . jadi tidak perlu lagi di perdebatkan bahwa anda tidak pantas menjadi pemimpin negeri ini,1,0.997855,1,1,0.5,1,1,xlm-roberta-base
+test,481,<username> Bagusss Ã°Å¸ËœÂ­ apaka mereka akan ada di s2 Fyi pertama kalo aku baca nama Ã¢â‚¬Å“ZOOLÃ¢â‚¬Â kupikir Ã¢â‚¬Å“tololÃ¢â‚¬Â Ã°Å¸ËœÂ­Ã°Å¸ËœÂ­ maapkan huhu Ã°Å¸â„¢ÂÃ°Å¸ÂÂ»,0,0.986726,1,1,0.5,0,0,xlm-roberta-base
+test,482,kasian perempuan kalo terus2an kalian jadikan alat utk berkampanye hitam dari pintu ke pintu woy <hashtag>,0,0.003124,0,0,0.5,1,1,xlm-roberta-base
+test,483,Banyaknya PR yang Menanti Nadiem Makarim di Kemdikbud Apakah Ia Sanggup? <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.000419,0,0,0.5,1,1,xlm-roberta-base
+test,484,Terlalu <hashtag> buat ungkapin rasa ini :,0,0.000479,0,0,0.5,1,1,xlm-roberta-base
+test,485,Tidak ada orang yang malas yang ada hanya orang yang kehilangan motivasi . <hashtag>,0,0.005992,0,0,0.5,1,1,xlm-roberta-base
+test,486,Beda pilihan calon presiden sampai tidak akur sama temen tetangga apalagi sama keluarga . Ada ada saja kelakuan negara berkembang ini.,1,0.011553,0,0,0.5,0,0,xlm-roberta-base
+test,487,<username> Gubernur ane mang warbiasa .... kosakata yang dipake langsung diturunken ke anak buah nya... abaikan yang laen tidak faham???????? <hashtag>,1,0.998183,1,1,0.5,1,1,xlm-roberta-base
+test,488,<username> <username> memang benar2 bangsat <hashtag> <hashtag> <hashtag> <hashtag>,0,0.02143,0,0,0.5,1,1,xlm-roberta-base
+test,489,Jualan asik pake politik laris manis ..,0,0.995027,1,1,0.5,0,0,xlm-roberta-base
+test,490,Terkadang anak muda merasa sesak nafas dan pekat dada karena tuntutan orang tua . Tapi itulah proses pendewasaan .,0,0.00517,0,0,0.5,1,1,xlm-roberta-base
+test,491,<username> goblok .,0,0.001576,0,0,0.5,1,1,xlm-roberta-base
+test,492,<username> <username> Otak MALING YA TETAP AJA MALING ..MALING ANGGARAN APBD DKI ... PASTI SATU JARINGAN GA MUNGKIN SALAH INPUT KESALAHAN DARI BAWAHAN SAJA .... <hashtag>,0,0.029257,0,0,0.5,1,1,xlm-roberta-base
+test,493,Setelah PSI sekarang PDIP yang terang2an menolak perda syariah bukankah mereka yang paling kencang berteriak; KAMI PALING PANCASILA!!! <hashtag>,1,0.939969,1,1,0.5,1,1,xlm-roberta-base
+test,494,Kelebihan Aa adalah doa ?????? sehingga Wan Abut sebagai Gubernur tidak pernah lelah MERUSAK Jakarta . <hashtag>,1,0.998581,1,1,0.5,1,1,xlm-roberta-base
+test,495,Satgas Novel semoga berguna ya bukan gimik-gimik manja menjelang Pilpres .,0,0.920576,1,1,0.5,0,0,xlm-roberta-base
+test,496,kmaren ada yang bilang antek asing skrng malah minta dukungan dengan orang asing dari negara cina weleh weleh kok ngomul mulu sihh ommm ndut .... mau jdi seorang pemimpin kok Bisanya hanya bikin Hoax ya ... aneh .,1,0.016075,0,0,0.5,0,0,xlm-roberta-base
+test,497,<username> <username> Ko ndak mendampingi pak <username> bu?...,0,0.000945,0,0,0.5,1,1,xlm-roberta-base
+test,498,<username> <username> <username> Baca jg tl ane Yg ada tulisan ASN tdk mlarang cadar & cingkrang dtempat umum kcuali tempat2 khusus ... Trus apa yg mesti ane Info ke ASN kalo cadar &amp; cingkrang boleh dtempat2 umum ??,0,0.000543,0,0,0.5,1,1,xlm-roberta-base
+test,499,<username> Wah kayanya gak pengen dikeritik ini tuan <username>,0,0.000443,0,0,0.5,1,1,xlm-roberta-base
+test,500,Kita tunggu duet Wishnutama â¦<username>© dan Angela â¦<username> memajukan pariwisata Indonesia mendulang devisaâ© â¦<username>© â¦<username>© <hashtag> <hashtag> <link>,0,0.001226,0,0,0.5,1,1,xlm-roberta-base
+test,501,<username> <username> <username> <username> Judul Film = Maling Kondang Sutradara = Gubernur Produser = Parpol doyan duit Aktor = Suku Dinas Kritikus = <username> <hashtag>,0,0.009055,0,0,0.5,1,1,xlm-roberta-base
+test,502,<username> Wait <username> jadi publik ga boleh tau apa yg dibahas di dewan gitu?,0,0.000598,0,0,0.5,1,1,xlm-roberta-base
+test,503,Politisi <username> yg biasa suka mengkritik Jokowi tapi giliran dikritik ngeblock salah satu pengusung paslon 02 ditangkap karena narkoba . Ahok keluar yg masuk banyak . Allah maha adil . <hashtag>,0,0.001099,0,0,0.5,1,1,xlm-roberta-base
+test,504,<username> <username> tolol,0,0.001259,0,0,0.5,1,1,xlm-roberta-base
+test,505,Semua yg dia omongin adalah dusta ..<hashtag>,0,0.000525,0,0,0.5,1,1,xlm-roberta-base
+test,506,Dia bersikap semaunya tapi tidak tahu semuanya .Dia bukan egois tetapi hanya sedikit egosentris.<hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.047736,0,0,0.5,1,1,xlm-roberta-base
+test,507,<username> Eksistensi setan ki turun bro nyi roro kidul we saiki berhijab . Mending cosplay dadi anggota DPR .,0,0.000909,0,0,0.5,1,1,xlm-roberta-base
+test,508,<username> Nia ramadhani?,0,0.001057,0,0,0.5,1,1,xlm-roberta-base
+test,509,Gk ada salah nya jika presiden <hashtag> malah itu menunjukkan sikap rendah hati yg sangat baik . Respect ðŸ™,0,0.000649,0,0,0.5,1,1,xlm-roberta-base
+test,510,Testimoni Papua Kitorang Basudara Kita Indonesia . . . Pentas Seni Budaya Papua Polres Kepulauan Seribu . . Kitorang Basudara Kita Indonesia . . <username> .pmj <username> <username> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0.002059,0,0,0.5,1,1,xlm-roberta-base
+test,511,<username> Alhamdulillah akhirnya ada yang positif dari lucinta Luna,1,0.115063,0,0,0.5,0,0,xlm-roberta-base
+test,512,<username> adem kembali ke solo saja ke habitat mu,1,0.000611,0,0,0.5,0,0,xlm-roberta-base
+test,513,Semoga Sukses Dulurrrr,0,0.024008,0,0,0.5,1,1,xlm-roberta-base
+test,514,Keberhasilan Polri mengungkap rencana besar untuk menggagalkan pelantikan presiden <hashtag> <hashtag> <link>,0,0.000394,0,0,0.5,1,1,xlm-roberta-base
+test,515,<username> <username> tolong kasih tahu ke Pak Inggrad Joshua ya ... Anda kan lama disitu apalagi udah tua . saya harap JGN TERLALU DIAM jadi kerjanya ga jelas,0,0.000457,0,0,0.5,1,1,xlm-roberta-base
+test,516,<username> Anies tuh hebat bikin banjir gimana seh,1,0.01131,0,0,0.5,0,0,xlm-roberta-base
+test,517,Wooow keren mental koruptor toh,1,0.987876,1,1,0.5,1,1,xlm-roberta-base
+test,518,lulusan kampus lokal aja belagunya ampe trending gimana yg lulusan LN?? minta dibayar pake emas batangan kali ya <hashtag>,0,0.001934,0,0,0.5,1,1,xlm-roberta-base
+test,519,Bikin Prestasi yang Positif lah jangan nyebar hoax terus bikin rush saja <username> <username> Kita bangun yang Positif yuk ... <hashtag>,0,0.000514,0,0,0.5,1,1,xlm-roberta-base
+test,520,<username> ajakin ahok aja tom biar ga salah tanda tangan ngelolosin RAPBD jadi APBD di kasus UPS ðŸ™ˆðŸ™ˆðŸ™ˆ,0,0.000386,0,0,0.5,1,1,xlm-roberta-base
+test,521,<username> Rocky gerung pakai akal sehat . Antum pakai akal Busuk .,0,0.00934,0,0,0.5,1,1,xlm-roberta-base
+test,522,<username> <username> Mantap sekali pk <username> maju terus .... <hashtag> <hashtag>,0,0.035311,0,0,0.5,1,1,xlm-roberta-base
+test,523,<username> <username> Pak Tito sj lempar anduk padahal janji ungkap kss Novel B . Sy mah cuma takut tuk para\'pelaku bhw di dunia nyata boleh selamat . Tolong ingat ada Hakim Yang Maha Adil pemilik kerajaan langit dan bumi .,0,0.000576,0,0,0.5,1,1,xlm-roberta-base
+test,524,2 orang bodoh berdebat di tepi sungai yang keruh tentang apa yang ada di dalamnya . Yang bijak akan menunggu sampai airnya jernih .,0,0.003273,0,0,0.5,1,1,xlm-roberta-base
+test,525,Tapi para wartawan ada yangvsuka klo doi berkomentar Smoga ga jadi pimpinan dpr lgi zonk <hashtag>,0,0.000486,0,0,0.5,1,1,xlm-roberta-base
+test,526,Bapak Kapolri Idham Aziz . ðŸ˜ðŸ˜ Media aja selalu di awasi dan di jaga sepenuh Hati . Apa lagi aku ðŸ˜˜ðŸ˜˜ðŸ˜˜ðŸ˜˜ <hashtag> <link>,0,0.000367,0,0,0.5,1,1,xlm-roberta-base
+test,527,PERIHBAHASA JAMAN OLD .Lempar batu sembunyi tangan JAMAN NOW .Lempar batu yang diSEMBUNYIKAN di AMBULANCE GERINDRA <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0.507518,1,1,0.5,0,0,xlm-roberta-base
+test,528,Nyawa itu berharga karena ada batasnya . Dan batas itulah yang membuat kita berjuang,0,0.006229,0,0,0.5,1,1,xlm-roberta-base
+test,529,kamu cantik bgt tapi kamu anjing tai babi,0,0.958069,1,1,0.5,0,0,xlm-roberta-base
+test,530,Hasil Itjima Ulama keagamaannya nihil .. Orang dekatnya <username> malah menghina ulama dengan puisinya ..Kubu sebelah memang sudah rusak .. <username> <username> <username> <username> <hashtag> <hashtag> <hashtag> <hashtag>,1,0.025227,0,0,0.5,0,0,xlm-roberta-base
+test,531,<username> Sontoloyo,0,0.001741,0,0,0.5,1,1,xlm-roberta-base
+test,532,Well jadi unfaedah :D:D,0,0.10079,0,0,0.5,1,1,xlm-roberta-base
+test,533,Ciyee petani bawang nih :D :D Udahlah yaa sandiwaramu FAZDLIZONK muluu,1,0.938067,1,1,0.5,1,1,xlm-roberta-base
+test,534,<username> <username> yg gue tangkep itu antara apart-nya serem dia digangguin setan sm dia diikutin nyi roro kidul <link>,0,0.000384,0,0,0.5,1,1,xlm-roberta-base
+test,535,<username> Wuih pak capres memang keren kalau pakai jas .... besok saya pilih deh yang pakai jas,1,0.401805,0,0,0.5,0,0,xlm-roberta-base
+test,536,<username> Welcome to Indonesia!!!! Sedih bangetttt!!! Siap siap bakal ada lagi kasus sama seperti ini karna gapernah adaaa hukuman untuk pelaku bullying??????,1,0.996131,1,1,0.5,1,1,xlm-roberta-base
+test,537,terimakasih sudah dikasih liburan gratis <hashtag> <hashtag>,1,0.998103,1,1,0.5,1,1,xlm-roberta-base
