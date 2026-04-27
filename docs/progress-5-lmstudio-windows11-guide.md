@@ -133,7 +133,7 @@ Parser sudah diperbarui agar menerima jawaban Indonesia seperti `sarkastis`, `ti
 git pull
 ```
 
-Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull.
+Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final.
 
 ---
 
@@ -148,7 +148,8 @@ python scripts/run_modern_llm_experiments.py `
   --model-alias lmstudio-smoke `
   --api-base $env:API_BASE `
   --max-samples 5 `
-  --print-every 1
+  --print-every 1 `
+  --print-invalid-outputs
 ```
 
 Output masuk ke:
@@ -181,10 +182,11 @@ python scripts/run_modern_llm_experiments.py `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --max-samples 10 `
-  --print-every 1
+  --print-every 1 `
+  --print-invalid-outputs
 ```
 
 Kalau ini sukses dan `invalid_outputs` kecil/0, pakai pola strict few-shot untuk full run.
@@ -202,7 +204,7 @@ python scripts/run_modern_llm_experiments.py `
   --model-alias qwen3.5-4b-gguf `
   --api-base $env:API_BASE `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
@@ -216,7 +218,7 @@ python scripts/run_modern_llm_experiments.py `
   --model-alias gemma-3n-e4b-gguf `
   --api-base $env:API_BASE `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
@@ -230,7 +232,7 @@ python scripts/run_modern_llm_experiments.py `
   --model-alias bahasa-or-cendol-gguf `
   --api-base $env:API_BASE `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
@@ -250,7 +252,7 @@ python scripts/run_modern_llm_experiments.py `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
@@ -284,7 +286,7 @@ python scripts/run_modern_llm_experiments.py `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 100
 ```

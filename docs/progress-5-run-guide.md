@@ -257,13 +257,14 @@ python scripts/run_modern_llm_experiments.py `
   --model-alias lmstudio-smoke `
   --api-base $env:API_BASE `
   --max-samples 5 `
-  --print-every 1
+  --print-every 1 `
+  --print-invalid-outputs
 ```
 
 Cek hasil:
 
 ```powershell
-Import-Csv results	ables\modern_llm_smoke.csv | Format-Table dataset,mode,model_alias,f1,invalid_outputs,num_examples
+Import-Csv results\tables\modern_llm_smoke.csv | Format-Table dataset,mode,model_alias,f1,invalid_outputs,num_examples
 ```
 
 Jika `invalid_outputs` tinggi, pakai strict few-shot.
@@ -279,10 +280,11 @@ python scripts/run_modern_llm_experiments.py `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --max-samples 10 `
-  --print-every 1
+  --print-every 1 `
+  --print-invalid-outputs
 ```
 
 ### 7.5 Full run Twitter few-shot
@@ -296,7 +298,7 @@ python scripts/run_modern_llm_experiments.py `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
@@ -322,7 +324,7 @@ python scripts/run_modern_llm_experiments.py `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
-  --max-tokens 12 `
+  --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 100
 ```

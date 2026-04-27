@@ -108,22 +108,65 @@ def maybe_limit_dataset(dataset: Any, max_samples: Optional[int]) -> Any:
     return dataset.select(range(min(max_samples, len(dataset))))
 
 
+def strip_thinking_blocks(text: str) -> str:
+    """Remove common reasoning wrappers before label parsing.
+
+    Some Qwen/Gemma local chat models emit <think>...</think> or preface text
+    before the final label. Removing these wrappers makes parsing robust without
+    changing the actual prompt/evaluation path.
+    """
+    without_xml_think = re.sub(r"<think>.*?</think>", " ", text, flags=re.IGNORECASE | re.DOTALL)
+    without_markdown_think = re.sub(r"```.*?```", " ", without_xml_think, flags=re.DOTALL)
+    return without_markdown_think.strip()
+
+
 def parse_generated_label(text: str) -> Optional[int]:
-    normalized = re.sub(r"\s+", " ", text.strip().lower())
+    cleaned = strip_thinking_blocks(text)
+    normalized = re.sub(r"\s+", " ", cleaned.strip().lower())
     normalized = normalized.strip(" .,:;!?'\"`[](){}")
     if not normalized:
         return None
-    if re.search(
-        r"\b(not\s+sarcastic|non[-\s]?sarcastic|not\s+sarcasm|tidak\s+sarkastik|tidak\s+sarkastis|bukan\s+sarkastik|bukan\s+sarkastis|non\s+sarkastik|non\s+sarkastis)\b",
+
+    # Prefer explicit label/final-answer clauses if present.
+    explicit_match = re.search(
+        r"(?:label|answer|jawaban|final)\s*[:=\-]?\s*(not[_\s-]?sarcastic|non[_\s-]?sarcastic|tidak\s+sarkas(?:tik|tis|me)?|bukan\s+sarkas(?:tik|tis|me)?|non\s+sarkas(?:tik|tis|me)?|0|sarcastic|sarcasm|sarkas(?:tik|tis|me)?|1)\b",
         normalized,
-    ):
-        return 0
-    if re.search(r"\b(sarcastic|sarcasm|sarkastik|sarkastis|sarkasme)\b", normalized):
+    )
+    if explicit_match:
+        token = explicit_match.group(1).replace("_", " ").replace("-", " ")
+        if re.search(r"^(not|non|tidak|bukan)|^0$", token):
+            return 0
         return 1
+
+    negative_patterns = (
+        r"not[_\s-]?sarcastic",
+        r"non[_\s-]?sarcastic",
+        r"not\s+sarcasm",
+        r"tidak\s+sarkas(?:tik|tis|me)?",
+        r"bukan\s+sarkas(?:tik|tis|me)?",
+        r"non\s+sarkas(?:tik|tis|me)?",
+        r"tidak\s+mengandung\s+sarkas(?:tik|tis|me)?",
+    )
+    if re.search(r"\b(" + "|".join(negative_patterns) + r")\b", normalized):
+        return 0
+
+    positive_patterns = (
+        r"sarcastic",
+        r"sarcasm",
+        r"sarkas(?:tik|tis|me)?",
+        r"mengandung\s+sarkas(?:tik|tis|me)?",
+    )
+    if re.search(r"\b(" + "|".join(positive_patterns) + r")\b", normalized):
+        return 1
+
     if re.search(r"\blabel\s*[:=]?\s*0\b|^0$", normalized):
         return 0
     if re.search(r"\blabel\s*[:=]?\s*1\b|^1$", normalized):
         return 1
+    if normalized in {"yes", "ya", "iya", "true"}:
+        return 1
+    if normalized in {"no", "tidak", "false"}:
+        return 0
     return None
 
 
@@ -299,6 +342,9 @@ def run_modern_llm(args: argparse.Namespace) -> Dict[str, Any]:
         latency_total += latency
         parsed = parse_generated_label(raw_output)
         invalid = parsed is None
+        if args.print_raw_outputs or (invalid and args.print_invalid_outputs):
+            preview = raw_output.replace("\n", "\\n")
+            print(f"[raw] idx={idx} parsed={parsed} invalid={invalid} output={preview[:500]}")
         if invalid:
             invalid_outputs += 1
         pred_label = args.invalid_fallback_label if parsed is None else parsed
@@ -410,6 +456,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--invalid-fallback-label", type=int, choices=(0, 1), default=0)
     parser.add_argument("--print-every", type=int, default=50)
+    parser.add_argument("--print-raw-outputs", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--print-invalid-outputs", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument("--save-few-shot-examples", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument(
         "--system-prompt",
