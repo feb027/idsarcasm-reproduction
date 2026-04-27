@@ -1,57 +1,32 @@
-# Progress 5 — Panduan LM Studio di Windows 11
+# Progress 5 — LM Studio Windows 11 Guide
 
-Panduan ini untuk menjalankan eksperimen tambahan Progress 5: Gemma/Qwen/Cendol/Bahasa-4B zero-shot/few-shot lewat LM Studio di Windows 11.
+Panduan ini **Windows-first**. Jalankan LM Studio dan script dari Windows PowerShell, bukan WSL. WSL hanya opsional kalau memang API LM Studio bisa diakses dari WSL.
 
-Eksperimen ini **bukan optimasi utama transformer**. Ini pembanding modern local LLM terhadap zero-shot BLOOMZ/mT0 Progress 4.
-
----
-
-## 1. Konsep singkat
-
-Alurnya:
-
-```text
-LM Studio Windows 11
-  ↓ local server OpenAI-compatible
-http://localhost:1234/v1
-  ↓ dipanggil dari WSL2 / PowerShell
-scripts/run_modern_llm_experiments.py
-  ↓ output
-results/modern_llm/*
-results/tables/modern_llm_experiments.csv
-```
-
-Rekomendasi lingkungan:
-
-- **LM Studio:** jalan di Windows 11.
-- **Script repo:** jalankan dari WSL2 Ubuntu kalau repo kamu sudah di WSL.
-- Kalau WSL tidak bisa akses `localhost:1234`, pakai IP host Windows dari WSL.
+Tujuan eksperimen ini: menjalankan modern local LLM zero-shot/few-shot untuk pembanding Progress 5. Optimasi utama transformer sudah ada di `results/tables/optimization_runs.csv`; bagian LM Studio ini adalah eksperimen tambahan.
 
 ---
 
-## 2. Install dan setup LM Studio
+## 1. Setup LM Studio
 
-1. Download LM Studio dari:
+1. Install LM Studio:
 
 ```text
 https://lmstudio.ai/
 ```
 
-2. Install seperti aplikasi Windows biasa.
-3. Buka LM Studio.
-4. Masuk ke tab **Discover/Search**.
-5. Cari model GGUF ringan.
+2. Buka LM Studio.
+3. Download model GGUF ringan.
 
-Prioritas model untuk Progress 5:
+Rekomendasi awal:
 
-| Prioritas | Cari di LM Studio | Catatan |
+| Prioritas | Model yang dicari di LM Studio | Catatan |
 |---|---|---|
-| 1 | `Qwen3.5 4B GGUF` atau `Qwen 4B Instruct GGUF` | Kandidat paling praktis. Pilih Q4_K_M/Q4. |
-| 2 | `Gemma 3n E4B GGUF` | Kalau belum muncul/unsupported di LM Studio, skip dulu. |
-| 3 | `Bahasa 4B GGUF` atau model Indonesia 4B | Pembanding Indonesia-specific. |
-| 4 | `Cendol GGUF` | Kalau tidak ada GGUF, skip. Cendol HF biasa tidak otomatis bisa jalan di LM Studio. |
+| 1 | Qwen 4B / Qwen3.5 4B Instruct GGUF | Paling praktis untuk smoke/full run. |
+| 2 | Gemma 3n E4B GGUF | Pakai kalau tersedia dan bisa load. |
+| 3 | Bahasa-4B GGUF | Pembanding Indonesia-specific. |
+| 4 | Cendol GGUF | Pakai hanya kalau ada GGUF yang bisa diload LM Studio. |
 
-Untuk RX 6600 8GB, pilih quantization:
+Untuk RX 6600 8GB, pilih quantization ringan:
 
 ```text
 Q4_K_M / Q4_0 / Q4_K_S
@@ -60,357 +35,335 @@ Q4_K_M / Q4_0 / Q4_K_S
 Hindari dulu:
 
 ```text
-Q8, F16, 8B+ besar
+F16 / Q8 / model 8B+ besar
 ```
-
-karena bisa berat di VRAM/RAM.
 
 ---
 
-## 3. Load model dan start Local Server
+## 2. Start local server LM Studio
 
-1. Buka model yang sudah didownload di LM Studio.
-2. Klik **Load Model**.
-3. Masuk ke tab **Developer** atau **Local Server**.
-4. Klik **Start Server**.
-5. Pastikan server aktif di:
+Di LM Studio:
+
+1. Load model.
+2. Buka tab **Developer** / **Local Server**.
+3. Klik **Start Server**.
+4. Pastikan URL:
 
 ```text
 http://localhost:1234/v1
 ```
 
-6. Kalau ada opsi **Serve on Local Network**, aktifkan jika script dijalankan dari WSL dan `localhost` gagal.
+Jangan tutup LM Studio selama eksperimen berjalan.
 
 ---
 
-## 4. Cek API dari Windows PowerShell
+## 3. Test API dari Windows PowerShell
 
-Buka PowerShell biasa, jalankan:
+Buka **PowerShell** biasa, jalankan:
 
 ```powershell
 Invoke-RestMethod http://localhost:1234/v1/models
 ```
 
-Kalau berhasil, akan muncul daftar model. Catat `id` modelnya. Contoh:
+Kalau berhasil, output berisi model `id`. Contoh:
 
 ```text
-qwen3.5-4b-instruct-q4_k_m
+qwen3.5-4b
 ```
 
-Kalau gagal:
+Set variable di PowerShell:
 
-- pastikan server LM Studio sudah Start,
-- pastikan model sudah loaded,
-- jangan tutup LM Studio.
+```powershell
+$env:API_BASE = "http://localhost:1234/v1"
+$env:MODEL_ID = "qwen3.5-4b"
+```
+
+Ganti `qwen3.5-4b` sesuai `id` yang muncul dari LM Studio.
+
+Kalau `Invoke-RestMethod` gagal, berarti server LM Studio belum benar-benar aktif atau model belum loaded.
 
 ---
 
-## 5. Cek akses dari WSL2
+## 4. Setup repo di Windows PowerShell
 
-Masuk WSL Ubuntu, masuk repo:
+Kalau repo sudah ada di drive Windows seperti contoh `G:\semester 6\idsarcasm-reproduction`, masuk ke folder itu:
 
-```bash
-cd ~/idsarcasm-reproduction
+```powershell
+cd "G:\semester 6\idsarcasm-reproduction"
 git pull
 ```
 
-Tes localhost:
+Kalau belum ada repo Windows-native:
 
-```bash
-curl http://localhost:1234/v1/models
+```powershell
+cd $env:USERPROFILE
+git clone https://github.com/feb027/idsarcasm-reproduction.git
+cd idsarcasm-reproduction
 ```
 
-Kalau berhasil, pakai:
+Buat/aktifkan venv Windows:
 
-```bash
-export API_BASE="http://localhost:1234/v1"
-```
-
-Kalau gagal, cari IP host Windows:
-
-```bash
-WIN_HOST=$(grep nameserver /etc/resolv.conf | awk '{print $2}')
-echo $WIN_HOST
-curl http://$WIN_HOST:1234/v1/models
-```
-
-Kalau ini berhasil, pakai:
-
-```bash
-export API_BASE="http://$WIN_HOST:1234/v1"
-```
-
-Kalau tetap gagal:
-
-1. Di LM Studio aktifkan **Serve on Local Network**.
-2. Izinkan firewall Windows jika muncul popup.
-3. Ulangi `curl` dari WSL.
-
----
-
-## 6. Setup Python di WSL
-
-Kalau environment belum siap:
-
-```bash
-cd ~/idsarcasm-reproduction
-python3 -m venv .venv
-source .venv/bin/activate
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Kalau sudah pernah setup:
+Kalau PowerShell memblokir activate:
 
-```bash
-cd ~/idsarcasm-reproduction
-source .venv/bin/activate
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+.\.venv\Scripts\Activate.ps1
+```
+
+Kalau venv sudah ada:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
 ---
 
-## 7. Ambil model id
+## 5. Penting: pull update parser dulu
 
-Dari WSL, jalankan:
+Parser sudah diperbarui agar menerima jawaban Indonesia seperti `sarkastis`, `tidak sarkastis`, dan `bukan sarkastis`. Jadi sebelum rerun smoke/full:
 
-```bash
-python3 - <<'PY'
-import json, urllib.request, os
-api_base = os.environ.get('API_BASE', 'http://localhost:1234/v1').rstrip('/')
-with urllib.request.urlopen(api_base + '/models') as r:
-    data = json.loads(r.read().decode())
-print(json.dumps(data, indent=2))
-PY
+```powershell
+git pull
 ```
 
-Ambil nilai `id`, lalu set:
-
-```bash
-export MODEL_ID="ISI_MODEL_ID_DARI_LM_STUDIO"
-```
-
-Contoh:
-
-```bash
-export MODEL_ID="qwen3.5-4b-instruct-q4_k_m"
-```
-
-Kalau bingung model id-nya, boleh coba:
-
-```bash
-export MODEL_ID="local-model"
-```
-
-Tapi lebih aman pakai `id` asli dari `/v1/models`.
+Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull.
 
 ---
 
-## 8. Smoke test pertama
+## 6. Smoke test zero-shot
 
 Jalankan 5 sampel dulu:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias lmstudio-smoke \
-  --api-base "$API_BASE" \
-  --max-samples 5 \
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias lmstudio-smoke `
+  --api-base $env:API_BASE `
+  --max-samples 5 `
   --print-every 1
 ```
 
-Output yang diharapkan:
+Output masuk ke:
 
 ```text
 results/tables/modern_llm_smoke.csv
-results/modern_llm/twitter-lmstudio-smoke-zeroshot-smoke/predictions.csv
-results/modern_llm/twitter-lmstudio-smoke-zeroshot-smoke/metrics.json
+results/modern_llm/twitter-lmstudio-smoke-zeroshot-smoke/
 ```
 
-Kalau smoke test sukses, lanjut full run.
+Cek hasil smoke:
+
+```powershell
+Import-Csv results\tables\modern_llm_smoke.csv | Format-Table dataset,mode,model_alias,f1,invalid_outputs,num_examples
+```
+
+Kalau `invalid_outputs` masih tinggi, lanjut ke smoke strict di bawah.
 
 ---
 
-## 9. Run zero-shot Twitter
+## 7. Smoke test strict few-shot
+
+Untuk model chat seperti Qwen, few-shot + strict prompt biasanya lebih stabil:
+
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-strict-smoke `
+  --api-base $env:API_BASE `
+  --few-shot `
+  --shots-per-class 2 `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
+  --max-samples 10 `
+  --print-every 1
+```
+
+Kalau ini sukses dan `invalid_outputs` kecil/0, pakai pola strict few-shot untuk full run.
+
+---
+
+## 8. Full run Twitter zero-shot
 
 Untuk Qwen:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias qwen3.5-4b-gguf \
-  --api-base "$API_BASE" \
-  --temperature 0.0 \
-  --max-tokens 8 \
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-gguf `
+  --api-base $env:API_BASE `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
 
-Untuk Gemma:
+Untuk Gemma, ganti alias:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias gemma-3n-e4b-gguf \
-  --api-base "$API_BASE" \
-  --temperature 0.0 \
-  --max-tokens 8 \
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias gemma-3n-e4b-gguf `
+  --api-base $env:API_BASE `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
 
-Untuk Bahasa/Cendol:
+Untuk Bahasa/Cendol, ganti alias:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias bahasa-or-cendol-gguf \
-  --api-base "$API_BASE" \
-  --temperature 0.0 \
-  --max-tokens 8 \
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias bahasa-or-cendol-gguf `
+  --api-base $env:API_BASE `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
-
-Catatan: jalankan satu model dulu sampai selesai. Jangan ganti model di LM Studio saat script sedang jalan.
 
 ---
 
-## 10. Run few-shot Twitter
+## 9. Full run Twitter few-shot — direkomendasikan
 
-Few-shot default: 2 contoh sarkastik + 2 contoh non-sarkastik dari train split.
+Ini command yang paling direkomendasikan untuk Qwen/Gemma/Bahasa/Cendol:
 
-Untuk Qwen:
-
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias qwen3.5-4b-gguf \
-  --api-base "$API_BASE" \
-  --few-shot \
-  --shots-per-class 2 \
-  --temperature 0.0 \
-  --max-tokens 8 \
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-gguf `
+  --api-base $env:API_BASE `
+  --few-shot `
+  --shots-per-class 2 `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 50
 ```
 
-Untuk Gemma:
+Kalau ganti model, cukup ganti:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias gemma-3n-e4b-gguf \
-  --api-base "$API_BASE" \
-  --few-shot \
-  --shots-per-class 2 \
-  --temperature 0.0 \
-  --max-tokens 8 \
-  --print-every 50
+```powershell
+$env:MODEL_ID = "ID_MODEL_BARU_DARI_LM_STUDIO"
 ```
 
-Few-shot biasanya lebih relevan untuk model chat/instruct karena model diberi contoh format jawaban.
+lalu ganti `--model-alias`, misalnya:
+
+```text
+gemma-3n-e4b-gguf
+bahasa-4b-gguf
+cendol-gguf
+```
 
 ---
 
-## 11. Reddit hanya setelah Twitter selesai
+## 10. Reddit hanya setelah Twitter selesai
 
-Reddit lebih lama. Jalankan hanya untuk model terbaik dari Twitter.
+Reddit lebih lama. Jalankan hanya untuk model/mode terbaik dari Twitter:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset reddit \
-  --model "$MODEL_ID" \
-  --model-alias qwen3.5-4b-gguf \
-  --api-base "$API_BASE" \
-  --few-shot \
-  --shots-per-class 2 \
-  --temperature 0.0 \
-  --max-tokens 8 \
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset reddit `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-gguf `
+  --api-base $env:API_BASE `
+  --few-shot `
+  --shots-per-class 2 `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
   --print-every 100
 ```
 
 ---
 
-## 12. Cek hasil
+## 11. Cek hasil full run
 
-```bash
-python3 - <<'PY'
-import csv
-from pathlib import Path
-for p in [Path('results/tables/modern_llm_smoke.csv'), Path('results/tables/modern_llm_experiments.csv')]:
-    print('\n##', p)
-    if not p.exists():
-        print('missing')
-        continue
-    rows = list(csv.DictReader(p.open(encoding='utf-8')))
-    for r in rows:
-        print(r.get('dataset'), r.get('mode'), r.get('model_alias'), 'F1=', r.get('f1'), 'invalid=', r.get('invalid_outputs'), 'n=', r.get('num_examples'))
-PY
+```powershell
+Import-Csv results\tables\modern_llm_experiments.csv |
+  Format-Table dataset,mode,model_alias,f1,precision,recall,invalid_outputs,num_examples,runtime_seconds
 ```
 
-Yang harus diperhatikan:
+Cek contoh output mentah kalau invalid masih tinggi:
 
-- `f1`
-- `precision`
-- `recall`
-- `invalid_outputs`
-- `runtime_seconds`
+```powershell
+Import-Csv results\modern_llm\twitter-qwen3.5-4b-gguf-fewshot-full\predictions.csv |
+  Select-Object -First 10 sample_idx,true_label,pred_label,raw_output,invalid_output |
+  Format-List
+```
 
-Kalau `invalid_outputs` tinggi, model sering tidak menjawab label yang diminta.
+Path folder bisa beda sesuai alias/mode. Lihat folder:
 
----
-
-## 13. Kalau output banyak invalid
-
-Coba ulang dengan instruksi lebih ketat:
-
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model "$MODEL_ID" \
-  --model-alias qwen3.5-4b-gguf-strict \
-  --api-base "$API_BASE" \
-  --few-shot \
-  --shots-per-class 2 \
-  --temperature 0.0 \
-  --max-tokens 12 \
-  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." \
-  --print-every 50
+```powershell
+Get-ChildItem results\modern_llm
 ```
 
 ---
 
-## 14. Commit hasil
+## 12. Commit hasil
 
-Setelah minimal satu zero-shot/few-shot full Twitter selesai:
+Setelah minimal satu full Twitter zero-shot/few-shot selesai:
 
-```bash
-git status --short
-git add results/tables/modern_llm_experiments.csv results/modern_llm
+```powershell
+git status
+git add results\tables\modern_llm_experiments.csv results\modern_llm
 git commit -m "results: add Progress 5 modern local LLM experiments"
 git push
 ```
 
-Kalau hanya smoke test, jangan commit dulu kecuali ingin menyimpan bukti uji awal.
+Kalau baru smoke test, tidak perlu commit hasil smoke kecuali ingin disimpan sebagai bukti debugging.
 
 ---
 
-## 15. Kapan balik ke agent
+## 13. Kalau tetap ingin lewat WSL
 
-Balik ke agent setelah salah satu kondisi ini:
+Tidak direkomendasikan untuk kasus ini, karena LM Studio jalan di Windows dan `localhost:1234` sering tidak tembus dari WSL.
 
-1. Minimal satu full Twitter zero-shot/few-shot selesai.
-2. Kamu bingung karena `curl /v1/models` gagal dari WSL.
-3. `invalid_outputs` tinggi.
-4. Model terlalu lambat atau crash.
+Kalau tetap mau coba:
 
-Kirim info ini:
+1. Aktifkan **Serve on Local Network** di LM Studio.
+2. Izinkan Windows Firewall.
+3. Dari WSL:
+
+```bash
+WIN_HOST=$(grep nameserver /etc/resolv.conf | awk '{print $2}')
+curl http://$WIN_HOST:1234/v1/models
+```
+
+Kalau gagal, balik ke Windows PowerShell. Itu jalur utama.
+
+---
+
+## 14. Kapan balik ke agent
+
+Balik ke agent setelah:
+
+1. satu full Twitter zero-shot/few-shot selesai, atau
+2. `invalid_outputs` masih tinggi setelah strict few-shot, atau
+3. model terlalu lambat/crash.
+
+Kirim info:
 
 ```text
-Model yang dipakai:
-API_BASE yang jalan:
-Mode: zero-shot / few-shot
-File hasil: results/tables/modern_llm_experiments.csv
-Masalah/error jika ada:
+Model:
+Model alias:
+Mode: zero-shot/few-shot
+F1:
+Invalid outputs:
+File hasil:
+Error kalau ada:
 ```

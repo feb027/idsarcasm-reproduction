@@ -113,9 +113,12 @@ def parse_generated_label(text: str) -> Optional[int]:
     normalized = normalized.strip(" .,:;!?'\"`[](){}")
     if not normalized:
         return None
-    if re.search(r"\b(not\s+sarcastic|non[-\s]?sarcastic|not\s+sarcasm|tidak\s+sarkastik|bukan\s+sarkastik|non\s+sarkastik)\b", normalized):
+    if re.search(
+        r"\b(not\s+sarcastic|non[-\s]?sarcastic|not\s+sarcasm|tidak\s+sarkastik|tidak\s+sarkastis|bukan\s+sarkastik|bukan\s+sarkastis|non\s+sarkastik|non\s+sarkastis)\b",
+        normalized,
+    ):
         return 0
-    if re.search(r"\b(sarcastic|sarcasm|sarkastik|sarkasme)\b", normalized):
+    if re.search(r"\b(sarcastic|sarcasm|sarkastik|sarkastis|sarkasme)\b", normalized):
         return 1
     if re.search(r"\blabel\s*[:=]?\s*0\b|^0$", normalized):
         return 0

@@ -195,101 +195,136 @@ PY
 
 ---
 
-## 7. Jalur Local PC — LM Studio / GGUF Modern LLM
+## 7. Jalur Windows 11 — LM Studio / GGUF Modern LLM
 
-Jalur ini **bukan untuk Colab** kecuali kamu membuat tunnel. Cara paling aman: jalankan di PC lokal/WSL sambil LM Studio server aktif.
+Jalur ini **Windows-first**. Karena LM Studio berjalan di Windows, jalankan script dari Windows PowerShell + Windows venv. Panduan lengkap ada di:
 
-### 7.1 Setup LM Studio
+```text
+docs/progress-5-lmstudio-windows11-guide.md
+```
 
-1. Buka LM Studio.
-2. Download/load model GGUF, misalnya:
-   - Gemma 3n E4B GGUF jika tersedia,
-   - Qwen3.5-4B GGUF jika tersedia,
-   - Cendol/Bahasa-4B GGUF atau model lokal Indonesia lain.
-3. Masuk ke tab Local Server.
-4. Start server di:
+### 7.1 Start LM Studio server
+
+Di LM Studio:
+
+1. Load model GGUF.
+2. Buka **Developer / Local Server**.
+3. Klik **Start Server**.
+4. Pastikan aktif di:
 
 ```text
 http://localhost:1234/v1
 ```
 
-5. Pastikan model sedang loaded.
+Test dari PowerShell:
 
-### 7.2 Smoke test API
+```powershell
+Invoke-RestMethod http://localhost:1234/v1/models
+```
 
-Jalankan dari repo lokal:
+Set variable PowerShell:
 
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model local-model \
-  --model-alias lmstudio-smoke \
-  --api-base http://localhost:1234/v1 \
-  --max-samples 5 \
+```powershell
+$env:API_BASE = "http://localhost:1234/v1"
+$env:MODEL_ID = "qwen3.5-4b"
+```
+
+Ganti `$env:MODEL_ID` sesuai `id` yang muncul dari LM Studio.
+
+### 7.2 Setup Windows venv
+
+```powershell
+cd "G:\semester 6\idsarcasm-reproduction"
+git pull
+.\.venv\Scripts\Activate.ps1
+```
+
+Kalau venv belum ada:
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 7.3 Smoke test
+
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias lmstudio-smoke `
+  --api-base $env:API_BASE `
+  --max-samples 5 `
   --print-every 1
 ```
 
-Catatan:
-- `--model local-model` bisa diganti dengan model identifier yang tampil di LM Studio.
-- Kalau LM Studio menerima request apa pun ke model loaded, `local-model` biasanya cukup.
+Cek hasil:
 
-Output smoke:
+```powershell
+Import-Csv results	ables\modern_llm_smoke.csv | Format-Table dataset,mode,model_alias,f1,invalid_outputs,num_examples
+```
+
+Jika `invalid_outputs` tinggi, pakai strict few-shot.
+
+### 7.4 Strict few-shot smoke — direkomendasikan
+
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-strict-smoke `
+  --api-base $env:API_BASE `
+  --few-shot `
+  --shots-per-class 2 `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
+  --max-samples 10 `
+  --print-every 1
+```
+
+### 7.5 Full run Twitter few-shot
+
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset twitter `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-gguf `
+  --api-base $env:API_BASE `
+  --few-shot `
+  --shots-per-class 2 `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
+  --print-every 50
+```
+
+Untuk Gemma/Bahasa/Cendol, ganti `--model-alias` saja, misalnya:
 
 ```text
-results/tables/modern_llm_smoke.csv
-results/modern_llm/twitter-lmstudio-smoke-zeroshot-smoke/
-```
-
-### 7.3 Zero-shot full Twitter
-
-Contoh untuk Gemma:
-
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model local-model \
-  --model-alias gemma-3n-e4b-gguf \
-  --api-base http://localhost:1234/v1 \
-  --temperature 0.0 \
-  --max-tokens 8 \
-  --print-every 50
-```
-
-### 7.4 Few-shot full Twitter
-
-```bash
-python scripts/run_modern_llm_experiments.py \
-  --dataset twitter \
-  --model local-model \
-  --model-alias gemma-3n-e4b-gguf \
-  --api-base http://localhost:1234/v1 \
-  --few-shot \
-  --shots-per-class 2 \
-  --temperature 0.0 \
-  --max-tokens 8 \
-  --print-every 50
-```
-
-### 7.5 Ganti model
-
-Untuk Qwen:
-
-```bash
-python scripts/run_modern_llm_experiments.py --dataset twitter --model local-model --model-alias qwen3.5-4b-gguf --api-base http://localhost:1234/v1 --few-shot --shots-per-class 2 --temperature 0.0 --max-tokens 8 --print-every 50
-```
-
-Untuk Cendol/Bahasa-4B:
-
-```bash
-python scripts/run_modern_llm_experiments.py --dataset twitter --model local-model --model-alias cendol-or-bahasa-4b-gguf --api-base http://localhost:1234/v1 --few-shot --shots-per-class 2 --temperature 0.0 --max-tokens 8 --print-every 50
+gemma-3n-e4b-gguf
+bahasa-4b-gguf
+cendol-gguf
 ```
 
 ### 7.6 Reddit modern LLM
 
-Reddit lebih lama. Jalankan hanya untuk model terbaik dari Twitter:
+Reddit lebih lama. Jalankan hanya untuk model/mode terbaik dari Twitter:
 
-```bash
-python scripts/run_modern_llm_experiments.py --dataset reddit --model local-model --model-alias gemma-3n-e4b-gguf --api-base http://localhost:1234/v1 --few-shot --shots-per-class 2 --temperature 0.0 --max-tokens 8 --print-every 100
+```powershell
+python scripts/run_modern_llm_experiments.py `
+  --dataset reddit `
+  --model $env:MODEL_ID `
+  --model-alias qwen3.5-4b-gguf `
+  --api-base $env:API_BASE `
+  --few-shot `
+  --shots-per-class 2 `
+  --temperature 0.0 `
+  --max-tokens 12 `
+  --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
+  --print-every 100
 ```
 
 ---
