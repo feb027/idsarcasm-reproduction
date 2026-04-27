@@ -256,6 +256,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias lmstudio-smoke `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --max-samples 5 `
   --print-every 1 `
   --print-invalid-outputs
@@ -277,6 +278,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-strict-smoke `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
@@ -295,6 +297,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
@@ -321,6 +324,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `

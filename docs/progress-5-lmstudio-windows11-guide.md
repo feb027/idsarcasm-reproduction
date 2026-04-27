@@ -133,7 +133,7 @@ Parser sudah diperbarui agar menerima jawaban Indonesia seperti `sarkastis`, `ti
 git pull
 ```
 
-Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final.
+Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final. Pakai `--disable-reasoning`; runner akan menambahkan `/no_think` dan parameter `enable_thinking=false` untuk server yang mendukung.
 
 ---
 
@@ -147,6 +147,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias lmstudio-smoke `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --max-samples 5 `
   --print-every 1 `
   --print-invalid-outputs
@@ -179,6 +180,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-strict-smoke `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
@@ -203,6 +205,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --temperature 0.0 `
   --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
@@ -217,6 +220,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias gemma-3n-e4b-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --temperature 0.0 `
   --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
@@ -231,6 +235,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias bahasa-or-cendol-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --temperature 0.0 `
   --max-tokens 128 `
   --system-prompt "You are a strict binary classifier. Answer exactly one label only: sarcastic or not sarcastic. Do not explain." `
@@ -249,6 +254,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `
@@ -283,6 +289,7 @@ python scripts/run_modern_llm_experiments.py `
   --model $env:MODEL_ID `
   --model-alias qwen3.5-4b-gguf `
   --api-base $env:API_BASE `
+  --disable-reasoning `
   --few-shot `
   --shots-per-class 2 `
   --temperature 0.0 `

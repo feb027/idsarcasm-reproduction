@@ -203,8 +203,17 @@ def call_openai_compatible(
     max_tokens: int,
     request_timeout: int,
     seed: Optional[int],
+    disable_reasoning: bool,
 ) -> str:
     endpoint = f"{api_base.rstrip('/')}/chat/completions"
+    if disable_reasoning:
+        system_prompt = (
+            system_prompt
+            + " Do not use reasoning mode. Do not think step by step. Return the final label immediately."
+        )
+        # Qwen thinking models and several llama.cpp/LM Studio templates honor
+        # /no_think in the prompt even when OpenAI-compatible parameters are ignored.
+        user_prompt = user_prompt.rstrip() + "\n/no_think"
     payload: Dict[str, Any] = {
         "model": model,
         "messages": [
@@ -214,6 +223,12 @@ def call_openai_compatible(
         "temperature": temperature,
         "max_tokens": max_tokens,
     }
+    if disable_reasoning:
+        # Different local servers use different names. Unknown fields are ignored
+        # by LM Studio/llama.cpp-style servers, but these help on compatible builds.
+        payload["chat_template_kwargs"] = {"enable_thinking": False}
+        payload["enable_thinking"] = False
+        payload["reasoning"] = {"effort": "none"}
     if seed is not None:
         payload["seed"] = seed
     data = json.dumps(payload).encode("utf-8")
@@ -337,6 +352,7 @@ def run_modern_llm(args: argparse.Namespace) -> Dict[str, Any]:
             max_tokens=args.max_tokens,
             request_timeout=args.request_timeout,
             seed=args.seed,
+            disable_reasoning=args.disable_reasoning,
         )
         latency = time.perf_counter() - call_start
         latency_total += latency
@@ -394,6 +410,7 @@ def run_modern_llm(args: argparse.Namespace) -> Dict[str, Any]:
         "api_base": args.api_base,
         "temperature": args.temperature,
         "max_tokens": args.max_tokens,
+        "disable_reasoning": args.disable_reasoning,
         "run_started_at": run_started_at,
         "run_ended_at": run_ended_at,
     }
@@ -458,6 +475,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--print-every", type=int, default=50)
     parser.add_argument("--print-raw-outputs", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument("--print-invalid-outputs", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument(
+        "--disable-reasoning",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Try to disable Qwen/Gemma thinking mode via prompt and OpenAI-compatible extra fields",
+    )
     parser.add_argument("--save-few-shot-examples", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument(
         "--system-prompt",
