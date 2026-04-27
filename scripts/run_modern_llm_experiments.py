@@ -207,6 +207,9 @@ def call_openai_compatible(
 ) -> str:
     endpoint = f"{api_base.rstrip('/')}/chat/completions"
     if disable_reasoning:
+        thinking_template_directive = "{%- set enable_thinking = false %}"
+        if thinking_template_directive not in system_prompt:
+            system_prompt = f"{thinking_template_directive}\n{system_prompt}"
         system_prompt = (
             system_prompt
             + " Do not use reasoning mode. Do not think step by step. Return the final label immediately."

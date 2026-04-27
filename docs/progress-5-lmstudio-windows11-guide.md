@@ -133,7 +133,7 @@ Parser sudah diperbarui agar menerima jawaban Indonesia seperti `sarkastis`, `ti
 git pull
 ```
 
-Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final. Pakai `--disable-reasoning`; runner akan menaruh `/no_think` di awal prompt dan mengirim `enable_thinking=false`/`reasoning_effort=none` untuk server yang mendukung.
+Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final. Pakai `--disable-reasoning`; runner akan menaruh `{%- set enable_thinking = false %}` di system prompt, `/no_think` di awal user prompt, dan mengirim `enable_thinking=false`/`reasoning_effort=none` untuk server yang mendukung.
 
 ---
 
@@ -192,6 +192,8 @@ python scripts/run_modern_llm_experiments.py `
 ```
 
 Kalau ini sukses dan `invalid_outputs` kecil/0, pakai pola strict few-shot untuk full run.
+
+Smoke berhasil jika `invalid_outputs = 0`. Contoh hasil yang sudah cukup untuk lanjut full run: F1 smoke sekitar 0,5 pada 10 sampel dengan `invalid_outputs: 0`. Jangan menilai kualitas akhir dari smoke kecil; smoke hanya memastikan parsing dan API berjalan.
 
 ---
 
