@@ -212,8 +212,8 @@ def call_openai_compatible(
             + " Do not use reasoning mode. Do not think step by step. Return the final label immediately."
         )
         # Qwen thinking models and several llama.cpp/LM Studio templates honor
-        # /no_think in the prompt even when OpenAI-compatible parameters are ignored.
-        user_prompt = user_prompt.rstrip() + "\n/no_think"
+        # /no_think only when it appears before the task, not after `Label:`.
+        user_prompt = "/no_think\n" + user_prompt.lstrip()
     payload: Dict[str, Any] = {
         "model": model,
         "messages": [
@@ -229,6 +229,7 @@ def call_openai_compatible(
         payload["chat_template_kwargs"] = {"enable_thinking": False}
         payload["enable_thinking"] = False
         payload["reasoning"] = {"effort": "none"}
+        payload["reasoning_effort"] = "none"
     if seed is not None:
         payload["seed"] = seed
     data = json.dumps(payload).encode("utf-8")

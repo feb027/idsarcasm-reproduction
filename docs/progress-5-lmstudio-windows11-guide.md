@@ -133,7 +133,7 @@ Parser sudah diperbarui agar menerima jawaban Indonesia seperti `sarkastis`, `ti
 git pull
 ```
 
-Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final. Pakai `--disable-reasoning`; runner akan menambahkan `/no_think` dan parameter `enable_thinking=false` untuk server yang mendukung.
+Kalau smoke sebelumnya menghasilkan `invalid_outputs: 5`, rerun setelah pull. Penyebab umum di Qwen/Gemma lokal: model mengeluarkan token reasoning `<think>` dulu, sehingga `--max-tokens` kecil hanya menangkap bagian berpikir dan belum sampai label final. Pakai `--disable-reasoning`; runner akan menaruh `/no_think` di awal prompt dan mengirim `enable_thinking=false`/`reasoning_effort=none` untuk server yang mendukung.
 
 ---
 
