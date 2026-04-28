@@ -26,10 +26,10 @@ Progress 6 menutup proyek dengan finalisasi laporan, analisis komparatif akhir, 
 
 | Dataset | Model terbaik | F1 akhir | Target paper |
 |---|---|---:|---:|
-| Twitter | XLM-R Large + threshold tuning | 0.7649 | 0.7692 |
+| Twitter | XLM-R Large lr=2e-5 | 0.7905 | 0.7692 |
 | Reddit | XLM-R Large + threshold tuning | 0.6241 | 0.6274 |
 
-Kesimpulan utama: XLM-R Large setelah threshold tuning menjadi pendekatan terbaik pada kedua dataset. Classical ML masih kuat pada Twitter, tetapi transformer lebih unggul terutama pada Reddit. Zero-shot dan modern local LLM berguna sebagai pembanding, namun belum mendekati fine-tuned transformer.
+Kesimpulan utama: XLM-R Large menjadi pendekatan terbaik pada kedua dataset. Pada Twitter, optimasi learning rate ke 2e-5 berhasil melampaui skor paper. Pada Reddit, threshold tuning masih menjadi hasil terbaik walaupun sedikit di bawah paper. Zero-shot dan modern local LLM berguna sebagai pembanding, namun belum mendekati fine-tuned transformer.
 
 ## File Utama
 

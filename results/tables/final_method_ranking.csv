@@ -1,5 +1,5 @@
 dataset,rank,method_family,model,f1
-twitter,1,Optimized transformer,xlmr-large-threshold,0.7649
+twitter,1,Optimized transformer,xlmr-large-lr2e-5-default,0.7905
 twitter,2,Transformer baseline,xlmr-large,0.7226
 twitter,3,Classical ML,BOW LR,0.7206
 twitter,4,Modern local LLM,qwen3.5-4b (few-shot),0.4755

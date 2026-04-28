@@ -17,7 +17,7 @@ Status saat ini:
 - Progress 3: ✅ selesai (12/12 baseline fine-tuned transformer paper pada Twitter + Reddit sudah dijalankan dan hasil/log tersimpan)
 - Progress 4: ✅ selesai sebagai complete attempt (Twitter 9/9 selesai; Reddit 5/9 selesai; 4 run Reddit dicoba tetapi runtime/session Colab habis dan log tersimpan)
 - Progress 5: ✅ optimasi dan eksperimen lanjutan selesai
-- Progress 6: ✅ analisis komparatif, finalisasi laporan, dan perapian repository selesai
+- Progress 6: ✅ analisis komparatif, finalisasi laporan, dan perapian repository selesai; update akhir Twitter XLM-R Large lr=2e-5 melampaui paper
 
 ---
 
@@ -277,7 +277,7 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 | 6 | analisis komparatif dan finalisasi laporan |
 
 ### Hasil akhir Progress 6
-- Laporan akhir diperbarui di `docs/laporan-proyek.md`.
+- Laporan akhir diperbarui di `docs/laporan-proyek.md`, termasuk hasil final Twitter F1 0,7905 yang melampaui paper 0,7692.
 - Tabel final: `results/tables/final_method_comparison.csv` dan `results/tables/final_method_ranking.csv`.
 - Figure final: `results/figures/final_*.png`.
 - Repository dirapikan: file review sementara dan artifact percobaan dipisahkan dari current tree; progress docs dipindahkan ke `docs/progress/`.

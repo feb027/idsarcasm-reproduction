@@ -109,7 +109,32 @@ results/tables/modern_llm_experiments.csv
 results/modern_llm/
 ```
 
-## 6. Derived Analysis Figures
+## 6. Optimasi Lanjutan Twitter
+
+Run final yang melampaui paper pada Twitter:
+
+```bash
+python scripts/run_transformer_optimization.py \
+  --dataset twitter \
+  --model xlmr-large \
+  --run-name twitter-xlmr-large-lr2e-5-len128 \
+  --learning-rate 2e-5 \
+  --max-length 128 \
+  --batch-size 8 \
+  --eval-batch-size 32 \
+  --gradient-accumulation-steps 4 \
+  --gradient-checkpointing \
+  --auto-find-batch-size \
+  --fp16
+```
+
+Output utama:
+
+```text
+results/optimization/twitter-xlmr-large-lr2e-5-len128/
+```
+
+## 7. Derived Analysis Figures
 
 Setelah semua hasil utama tersedia, generate ulang figure dan tabel ringkasan:
 

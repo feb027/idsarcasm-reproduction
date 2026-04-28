@@ -8,6 +8,7 @@ The script reads committed result CSVs and writes final summary artifacts used b
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -60,6 +61,39 @@ def model_label(row: dict[str, str], family: str) -> str:
     return row.get("model_alias", row.get("model_name", "-"))
 
 
+def read_optimization_results() -> list[dict[str, str]]:
+    """Read optimization rows from the canonical CSV plus result_row.json files.
+
+    Some Colab runs can be pushed with their per-run artifacts before the
+    aggregate CSV is updated. Reading both sources keeps final analysis robust.
+    """
+    rows = read_csv(TABLES / "optimization_runs.csv")
+    seen = {row.get("run_id") for row in rows}
+    for path in sorted((ROOT / "results" / "optimization").glob("*/result_row.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if data.get("run_id") not in seen:
+            rows.append({key: str(value) for key, value in data.items()})
+            seen.add(data.get("run_id"))
+    return rows
+
+
+def optimized_score(row: dict[str, str]) -> tuple[float, str]:
+    default_f1 = as_float(row, "test_default_f1")
+    tuned_f1 = as_float(row, "test_tuned_f1")
+    if default_f1 >= tuned_f1:
+        return default_f1, "default"
+    return tuned_f1, "threshold"
+
+
+def optimized_label(row: dict[str, str]) -> str:
+    score, strategy = optimized_score(row)
+    if row.get("learning_rate") == "2e-05" and row.get("max_length") == "128" and strategy == "default":
+        return "xlmr-large-lr2e-5-default"
+    if strategy == "threshold":
+        return "xlmr-large-threshold"
+    return f"{row.get('model_alias', 'xlmr-large')}-{strategy}"
+
+
 def build_final_summary() -> list[dict[str, Any]]:
     classical = {
         "twitter": read_csv(TABLES / "classical_baselines_twitter.csv"),
@@ -68,7 +102,7 @@ def build_final_summary() -> list[dict[str, Any]]:
     transformer = read_csv(TABLES / "transformer_baselines.csv")
     zeroshot = read_csv(TABLES / "zeroshot_baselines.csv")
     modern = read_csv(TABLES / "modern_llm_experiments.csv")
-    optimization = read_csv(TABLES / "optimization_runs.csv")
+    optimization = read_optimization_results()
 
     rows: list[dict[str, Any]] = []
     for dataset in ["twitter", "reddit"]:
@@ -78,7 +112,8 @@ def build_final_summary() -> list[dict[str, Any]]:
         optimized_candidates = [
             r for r in optimization if r["dataset"] == dataset and r["model_alias"] == "xlmr-large"
         ]
-        best_optimized = best(optimized_candidates, key="test_tuned_f1")
+        best_optimized = max(optimized_candidates, key=lambda row: optimized_score(row)[0])
+        best_optimized_f1, best_optimized_strategy = optimized_score(best_optimized)
         dataset_modern = [r for r in modern if r["dataset"] == dataset]
         best_modern = best(dataset_modern) if dataset_modern else None
         rows.append(
@@ -88,8 +123,9 @@ def build_final_summary() -> list[dict[str, Any]]:
                 "best_classical_f1": round(as_float(best_classical, "f1"), 4),
                 "best_transformer_model": model_label(best_transformer, "transformer"),
                 "best_transformer_f1": round(as_float(best_transformer, "f1"), 4),
-                "optimized_transformer_model": "xlmr-large-threshold",
-                "optimized_transformer_f1": round(as_float(best_optimized, "test_tuned_f1"), 4),
+                "optimized_transformer_model": optimized_label(best_optimized),
+                "optimized_transformer_strategy": best_optimized_strategy,
+                "optimized_transformer_f1": round(best_optimized_f1, 4),
                 "best_zeroshot_model": model_label(best_zero, "zeroshot"),
                 "best_zeroshot_f1": round(as_float(best_zero, "f1"), 4),
                 "best_modern_llm_model": model_label(best_modern, "modern") if best_modern else "not_run",

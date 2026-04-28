@@ -76,7 +76,7 @@ def generate_transformer_summary() -> None:
         )
     write_csv(TABLES / "progress5_transformer_optimization_summary.csv", summary)
 
-    xlmr_large = [r for r in rows if r["model_alias"] == "xlmr-large"]
+    xlmr_large = [r for r in rows if r["run_id"] in {"twitter-xlmr-large-threshold", "reddit-xlmr-large-threshold"}]
     labels = ["Twitter\nXLM-R Large", "Reddit\nXLM-R Large"]
     xlmr_large = sorted(xlmr_large, key=lambda r: 0 if r["dataset"] == "twitter" else 1)
     default = [f(r, "test_default_f1") for r in xlmr_large]

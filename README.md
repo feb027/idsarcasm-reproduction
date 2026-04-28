@@ -13,13 +13,13 @@ Repository ini berisi reproduksi dan optimasi paper **“IdSarcasm: Benchmarking
 
 | Dataset | Metode terbaik | F1 baseline | F1 setelah optimasi | Target paper |
 |---|---|---:|---:|---:|
-| Twitter | XLM-R Large + threshold tuning | 0.7226 | 0.7649 | 0.7692 |
+| Twitter | XLM-R Large + LR 2e-5 | 0.7226 | 0.7905 | 0.7692 |
 | Reddit | XLM-R Large + threshold tuning | 0.6117 | 0.6241 | 0.6274 |
 
 Temuan utama:
 
-- XLM-R Large menjadi model terbaik pada Twitter dan Reddit.
-- Threshold tuning menaikkan F1 Twitter dari `0.7226` ke `0.7649` dan Reddit dari `0.6117` ke `0.6241`.
+- XLM-R Large menjadi model terbaik pada Twitter dan Reddit; hasil Twitter setelah tuning learning rate sudah melampaui paper.
+- Optimasi lanjutan XLM-R Large menaikkan F1 Twitter dari `0.7226` ke `0.7905`, sehingga melampaui target paper `0.7692`. Pada Reddit, threshold tuning menaikkan F1 dari `0.6117` ke `0.6241`, masih sedikit di bawah paper `0.6274`.
 - Classical ML tetap kompetitif pada Twitter, terutama BoW Logistic Regression (`F1 = 0.7206`).
 - Zero-shot LLM sesuai paper berhasil direproduksi dekat dengan target paper, tetapi performanya tetap rendah (`F1 ≈ 0.39–0.40`).
 - Modern local LLM via LM Studio lebih baik dari zero-shot paper pada Twitter, tetapi belum mendekati fine-tuned transformer. Qwen3.5-4B few-shot memperoleh `F1 = 0.4755`.
