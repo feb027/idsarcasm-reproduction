@@ -1,0 +1,5 @@
+dataset,model_alias,mode,accuracy,precision,recall,f1,invalid_outputs,num_examples,runtime_minutes,avg_latency_seconds
+twitter,qwen3.5-4b-gguf,zero-shot,0.6896,0.4078,0.5448,0.4665,0,538,29.21,3.2577
+twitter,qwen3.5-4b-gguf,few-shot,0.7416,0.4809,0.4701,0.4755,0,538,33.82,3.772
+twitter,gemma-4-e4b-gguf,zero-shot,0.3755,0.2833,0.9851,0.44,0,538,28.55,3.1837
+twitter,gemma-4-e4b-gguf,few-shot,0.4721,0.3077,0.8955,0.458,0,538,28.78,3.2094

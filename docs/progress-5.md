@@ -1,260 +1,146 @@
 # Progress 5 — Optimasi Transformer dan Eksperimen Model Ringan Modern
 
-**Status:** aset eksekusi disiapkan, belum menjalankan training/inference full.
+**Status:** ✅ selesai.
 
-**Tujuan utama:** melanjutkan proyek dari reproduksi baseline ke tahap optimasi yang terukur. Progress ini tetap menempatkan fine-tuned transformer sebagai jalur utama, lalu menambahkan eksperimen LLM ringan modern sebagai pembanding praktis/local.
-
----
-
-## 1. Ringkasan Keputusan Scope
-
-Progress 5 memakai empat target kerja:
-
-1. **Wajib:** threshold tuning XLM-R Large.
-2. **Wajib:** small hyperparameter experiment XLM-R Base → XLM-R Large.
-3. **Wajib:** error analysis dari baseline vs optimized.
-4. **Tambahan:** Gemma 3n E4B + Qwen3.5-4B + Cendol/Bahasa-4B untuk zero-shot/few-shot.
-
-Pembagian ini penting karena model baru seperti Gemma/Qwen/Cendol tidak otomatis disebut optimasi transformer. Model-model tersebut lebih tepat ditulis sebagai **eksperimen model ringan modern**, sedangkan optimasi utama tetap dilakukan pada XLM-R yang sudah menjadi baseline terbaik Progress 3.
+Progress 5 menyelesaikan tahap optimasi utama proyek. Fokusnya adalah memperbaiki performa XLM-R Large melalui *threshold tuning*, menjalankan screening hyperparameter kecil pada XLM-R Base, membuat error analysis baseline vs optimized, dan menambahkan pembanding modern local LLM via LM Studio.
 
 ---
 
-## 2. Dasar dari Progress Sebelumnya
+## 1. Scope yang Dijalankan
 
-Sampai Progress 4, proyek sudah punya tiga kelompok baseline:
+Target Progress 5:
 
-| Kelompok | Hasil utama |
-|---|---|
-| Classical ML | Twitter sangat kuat; best Twitter BoW LR F1 = 0,7206, best Reddit TF-IDF LR F1 = 0,4959 |
-| Fine-tuned transformer | Best: XLM-R Large, Twitter F1 = 0,7226, Reddit F1 = 0,6117 |
-| Zero-shot LLM paper | Twitter 9/9 selesai, Reddit 5/9 selesai; F1 sekitar 0,39–0,40 |
+1. **Threshold tuning XLM-R Large** ✅
+2. **Small hyperparameter experiment XLM-R Base → XLM-R Large** ✅
+3. **Error analysis baseline vs optimized** ✅
+4. **Modern local LLM comparison: Qwen3.5-4B dan Gemma 4 E4B** ✅
 
-Dari sini, target Progress 5 bukan mengulang baseline, tetapi menjawab:
-
-- apakah XLM-R Large bisa diperbaiki setelah baseline paper,
-- apakah trade-off precision/recall bisa dibuat lebih baik,
-- contoh kesalahan apa yang masih terjadi,
-- apakah LLM ringan modern yang bisa jalan lokal/Colab bisa mendekati zero-shot paper atau fine-tuned transformer.
+Cendol/Bahasa-4B tidak dijalankan karena waktu dan ketersediaan model lokal. Scope tetap cukup karena sudah ada dua model modern ringan yang berhasil dievaluasi penuh pada Twitter.
 
 ---
 
-## 3. Riset Singkat dan Alasan Metode
+## 2. Hasil Utama Optimasi Transformer
 
-### 3.1 Threshold tuning
-
-Dari hasil Progress 3, XLM-R Large Twitter memiliki recall tinggi tetapi precision lebih rendah. Ini menunjukkan model cukup agresif memprediksi kelas sarkastik. Praktik umum untuk binary classification adalah mengambil probabilitas/logit model, lalu mengubah threshold dari default 0,5 menjadi nilai lain. Namun threshold harus dipilih dari validation set, bukan test set.
-
-Exa menemukan diskusi HuggingFace tentang pengubahan threshold klasifikasi: logits model sequence classification dapat dikonversi menjadi probabilitas, lalu threshold bisa diubah untuk mengatur prediksi kelas positif. Dokumentasi HuggingFace `Trainer.predict` juga menjelaskan bahwa output prediksi menyediakan `predictions`/logits dan metrik, sehingga cocok untuk menyimpan probabilitas dan melakukan analisis threshold.
-
-### 3.2 Model modern ringan
-
-Hasil pencarian Exa awal:
-
-| Model | Catatan ringkas | Posisi di Progress 5 |
-|---|---|---|
-| `google/gemma-3n-E4B` | HuggingFace menyebut Gemma 3n E4B mendukung Transformers, effective 4B walaupun raw sekitar 8B, dirancang low-resource dan multilingual. | Kandidat utama local/Colab. |
-| `Qwen/Qwen3.5-4B` | HuggingFace menyebut Qwen3.5-4B kompatibel dengan Transformers/vLLM/SGLang/KTransformers, rilis 2026. | Kandidat ringan terbaru. |
-| `indonlp/cendol` | Koleksi Indonesian LLM 300M–13B berbasis mT5 dan LLaMA2. | Pembanding Indonesia-specific. |
-| `Bahasalab/Bahasa-4b` | Continued training dari Qwen-4B pada data Indonesia. | Pembanding Indonesia 4B. |
-
-Untuk LM Studio, Exa menemukan dokumentasi resmi bahwa LM Studio menyediakan endpoint OpenAI-compatible `POST /v1/chat/completions`, dengan contoh Python `OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")`. Jadi model GGUF yang dimuat di LM Studio bisa diuji melalui script OpenAI-compatible.
-
----
-
-## 4. Desain Eksperimen Wajib
-
-### 4.1 Threshold tuning XLM-R Large
-
-Langkah:
-
-1. Fine-tune ulang XLM-R Large dengan konfigurasi baseline Progress 3.
-2. Simpan probabilitas kelas sarkastik untuk validation dan test.
-3. Cari threshold terbaik di validation set berdasarkan F1.
-4. Terapkan threshold tersebut ke test set.
-5. Bandingkan:
-   - default argmax / threshold 0,5,
-   - tuned threshold dari validation.
-
-Output:
-
-```text
-results/optimization/<run-id>/predictions.csv
-results/optimization/<run-id>/threshold_sweep.csv
-results/optimization/<run-id>/metrics.json
-results/optimization/<run-id>/result_row.json
-results/tables/optimization_runs.csv
-```
-
-### 4.2 Small hyperparameter experiment XLM-R Base → XLM-R Large
-
-Agar biaya Colab tidak terlalu besar, screening dilakukan di XLM-R Base dulu. Setelah itu, 1–2 konfigurasi terbaik baru dibawa ke XLM-R Large.
-
-Konfigurasi screening yang disarankan:
-
-| Run | Model | Dataset | Learning rate | Max length | Weight decay | Label smoothing |
-|---|---|---|---:|---:|---:|---:|
-| baseline-threshold | XLM-R Large | Twitter | 1e-5 | 128 | 0,03 | 0,00 |
-| lr-low | XLM-R Base | Twitter | 5e-6 | 128 | 0,03 | 0,00 |
-| lr-high | XLM-R Base | Twitter | 2e-5 | 128 | 0,03 | 0,00 |
-| length-256 | XLM-R Base | Twitter | 1e-5 | 256 | 0,03 | 0,00 |
-| wd-001 | XLM-R Base | Twitter | 1e-5 | 128 | 0,01 | 0,00 |
-| smoothing | XLM-R Base | Twitter | 1e-5 | 128 | 0,03 | 0,05 |
-| reddit-check | XLM-R Large | Reddit | 1e-5 | 128 | 0,03 | 0,00 |
-
-Setelah screening, pilih 1–2 konfigurasi dengan F1 validation/test terbaik dan trade-off precision/recall paling masuk akal. Jalankan ulang pada XLM-R Large bila resource masih cukup.
-
-### 4.3 Error analysis baseline vs optimized
-
-Error analysis dilakukan setelah minimal satu optimized run selesai. Ambil `predictions.csv` lalu bandingkan:
-
-- false positive baseline yang menjadi benar setelah threshold tuning,
-- false negative baseline yang menjadi benar setelah threshold tuning,
-- contoh yang tetap salah pada baseline dan optimized,
-- perubahan precision/recall.
-
-Pola yang dicari:
-
-- teks terlalu pendek,
-- sarkasme implisit tanpa kata kunci,
-- humor/slang Indonesia,
-- ekspresi positif yang sebenarnya menyindir,
-- konteks sosial/politik yang tidak muncul lengkap di teks.
-
----
-
-## 5. Eksperimen Tambahan: Modern LLM Zero-shot/Few-shot
-
-Eksperimen ini memakai script:
-
-```text
-scripts/run_modern_llm_experiments.py
-```
-
-Mode yang disiapkan:
-
-1. **Zero-shot:** model langsung diberi teks dan diminta menjawab `sarcastic` atau `not sarcastic`.
-2. **Few-shot:** prompt diberi contoh dari train split, default 2 contoh per kelas.
-
-Target model:
-
-- Gemma 3n E4B / GGUF di LM Studio,
-- Qwen3.5-4B / GGUF di LM Studio,
-- Cendol atau Bahasa-4B sebagai pembanding Indonesia-specific.
-
-Output:
-
-```text
-results/modern_llm/<run-id>/predictions.csv
-results/modern_llm/<run-id>/metrics.json
-results/modern_llm/<run-id>/result_row.json
-results/tables/modern_llm_experiments.csv
-```
-
-Hasil ini nanti dibandingkan dengan zero-shot Progress 4, bukan langsung dianggap optimasi transformer.
-
----
-
-## 6. File Aset Progress 5
-
-Aset yang disiapkan:
-
-```text
-scripts/run_transformer_optimization.py
-scripts/run_modern_llm_experiments.py
-notebooks/04_progress5_optimization_and_modern_llm.ipynb
-docs/progress-5.md
-docs/progress-5-run-guide.md
-```
-
-File hasil yang akan muncul setelah user menjalankan eksperimen:
+File utama:
 
 ```text
 results/tables/optimization_runs.csv
-results/tables/modern_llm_experiments.csv
+results/tables/progress5_transformer_optimization_summary.csv
 results/optimization/*
-results/modern_llm/*
-results/logs/progress-5-*.log
+results/progress5_error_analysis/*
+```
+
+Ringkasan threshold tuning XLM-R Large:
+
+| Dataset | Threshold | F1 Default | F1 Tuned | Delta F1 | Precision Tuned | Recall Tuned |
+|---|---:|---:|---:|---:|---:|---:|
+| Twitter | 0.85 | 0.7226 | 0.7649 | +0.0423 | 0.7219 | 0.8134 |
+| Reddit | 0.26 | 0.6117 | 0.6241 | +0.0124 | 0.5596 | 0.7054 |
+
+Interpretasi:
+
+- Twitter mendapat kenaikan paling jelas. Threshold 0.85 membuat model lebih selektif memprediksi sarkastik, sehingga precision naik tanpa kehilangan recall terlalu banyak.
+- Reddit juga naik, tetapi lebih kecil. Threshold optimal 0.26 menunjukkan karakter probabilitas model berbeda dari Twitter.
+- Hasil Twitter tuned F1 0.7649 sudah mendekati target paper XLM-R Large Twitter 0.7692.
+- Hasil Reddit tuned F1 0.6241 juga mendekati target paper 0.6274.
+
+Figure:
+
+```text
+results/figures/progress5_threshold_tuning_f1.png
+results/figures/progress5_xlmr_base_screening.png
+results/figures/progress5_threshold_error_transitions.png
 ```
 
 ---
 
-## 7. Kapan Harus Commit
+## 3. Screening Hyperparameter XLM-R Base
 
-### Commit A — setelah aset Progress 5 siap
-Commit ini boleh dilakukan setelah script, notebook, dan dokumentasi lolos validasi ringan.
+Ringkasan Twitter XLM-R Base:
 
-Isi commit:
+| Konfigurasi | F1 Default | F1 Tuned | Delta F1 | Threshold |
+|---|---:|---:|---:|---:|
+| lr=5e-6, len=128 | 0.0000 | 0.4800 | +0.4800 | 0.25 |
+| lr=2e-5, len=128 | 0.7039 | 0.7317 | +0.0278 | 0.17 |
+| lr=1e-5, len=256 | 0.6953 | 0.6953 | 0.0000 | 0.50 |
+| lr=1e-5, wd=0.01 | 0.7154 | 0.7115 | -0.0039 | 0.41 |
+| label smoothing=0.05 | 0.7260 | 0.6877 | -0.0383 | 0.67 |
 
-```text
-scripts/run_transformer_optimization.py
-scripts/run_modern_llm_experiments.py
-notebooks/04_progress5_optimization_and_modern_llm.ipynb
-docs/progress-5.md
-docs/progress-5-run-guide.md
-README.md atau docs/progress-plan.md jika ikut diupdate
-```
+Konfigurasi paling menjanjikan dari screening adalah `lr=2e-5, max_length=128`, karena menghasilkan F1 tuned 0.7317. Namun, hasil terbaik keseluruhan tetap XLM-R Large dengan threshold tuning.
 
-Contoh pesan commit:
+---
 
-```bash
-git add scripts/run_transformer_optimization.py scripts/run_modern_llm_experiments.py notebooks/04_progress5_optimization_and_modern_llm.ipynb docs/progress-5.md docs/progress-5-run-guide.md docs/progress-plan.md README.md
-git commit -m "feat: add Progress 5 optimization experiment assets"
-git push
-```
+## 4. Error Analysis
 
-### Commit B — setelah run transformer selesai
-Setelah menjalankan threshold tuning dan hyperparameter screening, commit hasil:
+File:
 
 ```text
-results/tables/optimization_runs.csv
-results/optimization/*
-results/logs/progress-5-optimization-*.log
+results/progress5_error_analysis/twitter-xlmr-large-threshold_transition_summary.csv
+results/progress5_error_analysis/twitter-xlmr-large-threshold_examples.csv
+results/progress5_error_analysis/reddit-xlmr-large-threshold_transition_summary.csv
+results/progress5_error_analysis/reddit-xlmr-large-threshold_examples.csv
 ```
 
-Contoh pesan:
+Ringkasan transisi prediksi:
 
-```bash
-git add results/tables/optimization_runs.csv results/optimization results/logs/progress-5-optimization-*.log
-git commit -m "results: add Progress 5 transformer optimization runs"
-git push
-```
+| Dataset | Membaik | Memburuk | Tetap Benar | Tetap Salah |
+|---|---:|---:|---:|---:|
+| Twitter | 22 | 3 | 449 | 64 |
+| Reddit | 71 | 129 | 2153 | 471 |
 
-Setelah Commit B, kembalikan ke agent untuk dibuatkan analisis, figure, dan narasi laporan.
+Interpretasi:
 
-### Commit C — setelah run LM Studio modern LLM selesai
-Commit hasil modern LLM:
+- Pada Twitter, threshold tuning jelas efektif karena lebih banyak contoh yang membaik daripada memburuk.
+- Pada Reddit, jumlah contoh memburuk lebih banyak, tetapi perubahan precision/recall secara agregat masih menaikkan F1 sedikit.
+- Dengan kata lain, threshold tuning lebih cocok untuk karakter output XLM-R Large di Twitter.
+
+---
+
+## 5. Modern Local LLM via LM Studio
+
+File utama:
 
 ```text
 results/tables/modern_llm_experiments.csv
+results/tables/progress5_modern_llm_summary.csv
 results/modern_llm/*
 ```
 
-Contoh pesan:
+Hasil Twitter:
 
-```bash
-git add results/tables/modern_llm_experiments.csv results/modern_llm
-git commit -m "results: add Progress 5 modern local LLM experiments"
-git push
+| Model | Mode | Accuracy | Precision | Recall | F1 | Invalid Output |
+|---|---|---:|---:|---:|---:|---:|
+| Qwen3.5-4B | Zero-shot | 0.6896 | 0.4078 | 0.5448 | 0.4665 | 0 |
+| Qwen3.5-4B | Few-shot | 0.7416 | 0.4809 | 0.4701 | 0.4755 | 0 |
+| Gemma 4 E4B | Zero-shot | 0.3755 | 0.2833 | 0.9851 | 0.4400 | 0 |
+| Gemma 4 E4B | Few-shot | 0.4721 | 0.3077 | 0.8955 | 0.4580 | 0 |
+
+Interpretasi:
+
+- Qwen3.5-4B few-shot menjadi modern LLM lokal terbaik dengan F1 0.4755.
+- Gemma 4 E4B sangat agresif memprediksi sarkastik, terlihat dari recall tinggi tetapi precision rendah.
+- Modern LLM lokal lebih baik dari zero-shot BLOOMZ/mT0 Progress 4 pada Twitter, tetapi masih jauh di bawah XLM-R Large tuned.
+- Masalah awal Qwen reasoning-only berhasil diatasi dengan `{%- set enable_thinking = false %}`, `/no_think`, dan parser label Indonesia.
+
+Figure:
+
+```text
+results/figures/progress5_modern_llm_f1_comparison.png
+results/figures/progress5_modern_llm_precision_recall.png
 ```
-
-Setelah Commit C, kembalikan lagi ke agent. Agent bisa lanjut membuat grafik, error analysis final, dan update `docs/laporan-proyek.md`.
 
 ---
 
-## 8. Kriteria Selesai Progress 5
+## 6. Kesimpulan Progress 5
 
-Progress 5 dianggap cukup jika minimal punya:
+Progress 5 sudah memenuhi target. Optimasi yang paling berhasil adalah threshold tuning XLM-R Large. Hasilnya bukan hanya menaikkan F1, tetapi juga membuat hasil reproduksi sangat dekat dengan paper untuk model terbaik.
 
-1. satu run XLM-R Large dengan threshold tuning,
-2. minimal 3 run screening XLM-R Base,
-3. satu tabel before/after baseline vs optimized,
-4. minimal 10 contoh error analysis dari `predictions.csv`,
-5. minimal satu eksperimen modern LLM zero-shot atau few-shot,
-6. log dan hasil tersimpan di repo.
+Kesimpulan utama:
 
-Jika waktu terbatas, prioritasnya:
+1. XLM-R Large tetap model terkuat untuk IdSarcasm.
+2. Threshold tuning sederhana bisa memberi peningkatan nyata, terutama di Twitter.
+3. Hyperparameter screening memberi petunjuk tambahan, tetapi belum mengalahkan XLM-R Large tuned.
+4. Modern LLM lokal berguna sebagai pembanding praktis, namun belum mendekati fine-tuned transformer.
+5. Untuk deteksi sarkasme bahasa Indonesia, data berlabel dan fine-tuning masih lebih penting daripada sekadar memakai model generatif baru.
 
-1. XLM-R Large threshold tuning,
-2. XLM-R Base screening,
-3. error analysis,
-4. baru Gemma/Qwen/Cendol.
+Progress berikutnya adalah Progress 6: finalisasi laporan, komparasi akhir, dan kesimpulan proyek.

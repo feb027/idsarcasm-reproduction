@@ -1,0 +1,28 @@
+run_id,category,sample_idx,true_label,prob_sarcastic,pred_default,pred_tuned,text
+twitter-xlmr-large-threshold,improved,17,0,0.582792,1,0,Mantap mas tetap jangan dengerin omongan haters ya tetap optimis dan terus percaya
+twitter-xlmr-large-threshold,improved,76,0,0.636833,1,0,Negara ini milik Rakyat bukan milik Pejabat/aparat <hashtag>
+twitter-xlmr-large-threshold,improved,82,0,0.669664,1,0,setan dunia khianat <hashtag>
+twitter-xlmr-large-threshold,improved,84,0,0.679278,1,0,isu pemeriksaan ketertiban yang ternyata hoax kini berakibat tertibnya para siswa <hashtag>
+twitter-xlmr-large-threshold,improved,167,0,0.704008,1,0,Berkat infotainment 98 67% Ibu Ibu menjadikan pencapaian Mayangsari &amp; Nia Ramadhani sebagai prestasi yang harus ditiru anak perempuannya .
+twitter-xlmr-large-threshold,improved,172,0,0.500671,1,0,Ini knp ya ko tranding ??? <hashtag>
+twitter-xlmr-large-threshold,improved,210,0,0.721939,1,0,terimakasih kepada <username> telah menyalurkan csrnya kepada lelayan tradisional khususnya dikabupaten <username> <hashtag> <hashtag> <hashtag> <hashtag> <link>
+twitter-xlmr-large-threshold,improved,253,0,0.566723,1,0,Sekolah tinggi2 untuk jadi pintar . Tapi negeri ini tidak butuh orang pintar butuhnya orang yg jujur .
+twitter-xlmr-large-threshold,improved,275,0,0.694329,1,0,Manusia ... tidak semata mata meninggalkan sesuatu yg sangat berharga .. kalau gk bosan /lelah .. pasti lebih mengguntungkan / lebih baik . <hashtag>
+twitter-xlmr-large-threshold,improved,292,0,0.768125,1,0,<username> .....katanya kecewa dengan pinjaman dari saudi.....ko malah ke sana.....
+twitter-xlmr-large-threshold,improved,295,0,0.627324,1,0,Terkadang kita harus berfikir secerdik penipu dan bermain selicik pembunuh <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>
+twitter-xlmr-large-threshold,improved,301,0,0.847021,1,0,Lord Luhut trending topik . Menteri kesayangan <username> nih . <hashtag>
+twitter-xlmr-large-threshold,worsened,44,1,0.760473,1,0,Jaangan ... jangan dijawab ntar waras diemin saja biar otaknya kebalik kaya kampret <hashtag>
+twitter-xlmr-large-threshold,worsened,418,1,0.566648,1,0,Rejim ini ada 34 mentri + 12 wamen 8 pejabat setingkat Mentri .Di dukung 14 stafsus (7 staf milenial). Di sokong KSP &amp; para Jubir istana Di tatar 6 BPIP . Di nasehati 9 wantimpres . Di riuhkan tim hore buzzer pro INDONESIA pasti hancur .
+twitter-xlmr-large-threshold,worsened,424,1,0.60499,1,0,plus62 panas <hashtag>
+twitter-xlmr-large-threshold,both_wrong,8,1,0.004718,0,0,<username> Tolong dong bapakÂ² DPR kasih kuliah khusus dulu buat Menag ini biar tidak bikin ribut mulu .
+twitter-xlmr-large-threshold,both_wrong,18,0,0.980148,1,1,Terima kasih sudah pernah menemani hari hariku . Wkwk <hashtag>
+twitter-xlmr-large-threshold,both_wrong,21,1,0.49022,0,0,Jadi pengin denger tanggapan bang pandji nih ayok bikin video bang Betapa lucunya negeri ini <username> <hashtag>
+twitter-xlmr-large-threshold,both_wrong,27,0,0.99912,1,1,Orang Indonesia ini sopan-sopan banget ya .. Mau nyapres saja misi dulu .
+twitter-xlmr-large-threshold,both_wrong,31,1,0.15662,0,0,Baru kali pertama atmosfir debat capres di Indonesia ngalahin atmosfir final bola piala dunia !! Jancok !! <hashtag> <hashtag>
+twitter-xlmr-large-threshold,both_wrong,32,0,0.998125,1,1,Sangat memalukan !!!! <hashtag>
+twitter-xlmr-large-threshold,both_wrong,36,1,0.23375,0,0,Susah memang orang pinter mah <hashtag>
+twitter-xlmr-large-threshold,both_wrong,47,0,0.95846,1,1,Koruptor / pejabat yang terkena kasus pasti alesanya sakit seperti sudah menjadi tradisi di indonesia . <hashtag>
+twitter-xlmr-large-threshold,both_wrong,50,0,0.930774,1,1,Level kepedulian tertinggi fans terhadap tim kesayangan adalah KRITIK . Kritik akan memacu apresiasi berlebih akan menjatuhkan . Maju terus <username> berantas mafia fans kardus .
+twitter-xlmr-large-threshold,both_wrong,63,0,0.998899,1,1,kita ingin menjadi bijaksana tapi mengapa menyuruh mereka untuk menjadi bijak .karena kita egois
+twitter-xlmr-large-threshold,both_wrong,71,0,0.913907,1,1,rismaselamanya kok bisa ya ? para pendukungnya kompak-kompak ayo buk ndang dipilih penggantimu <username> biar puas para pendukungmu <hashtag>
+twitter-xlmr-large-threshold,both_wrong,86,1,0.208098,0,0,semoga tetap sehat Walafiat mbah kakuunggg .. <hashtag>

@@ -79,6 +79,15 @@ Model yang digunakan mengikuti daftar zero-shot pada paper, yaitu keluarga BLOOM
 
 Berbeda dari transformer Progress 3, zero-shot tidak membutuhkan training epoch, optimizer, atau early stopping. Beban utamanya justru ada pada inference. Setiap data test dievaluasi dengan lima prompt, sehingga Twitter membutuhkan 538 × 5 scoring per model, sedangkan Reddit membutuhkan 2.824 × 5 scoring per model. Karena itu, Reddit jauh lebih berat dan beberapa run Reddit tidak selesai di Colab karena sesi komputasi berakhir sebelum evaluasi selesai.
 
+
+#### 2.2.4 Optimasi Transformer dan Eksperimen Model Ringan Modern (Progress 5)
+
+Pada Progress 5, fokus utama proyek masuk ke optimasi performa, bukan hanya penambahan model baru. Optimasi yang dipilih adalah *threshold tuning* pada XLM-R Large. Secara sederhana, model transformer menghasilkan skor probabilitas untuk kelas sarkastik. Pada evaluasi standar, prediksi biasanya memakai ambang 0,5. Jika probabilitas sarkastik di atas 0,5, teks dianggap sarkastik. Namun, dari Progress 3 terlihat bahwa XLM-R Large pada Twitter memiliki recall tinggi tetapi precision lebih rendah. Artinya, model cukup agresif memprediksi sarkastik. Karena itu, ambang keputusan perlu dicoba ulang menggunakan data validasi.
+
+Selain *threshold tuning*, dilakukan juga eksperimen kecil hyperparameter pada XLM-R Base. Tujuannya bukan membuat grid besar, tetapi melihat apakah perubahan learning rate, panjang maksimum input, weight decay, dan label smoothing memberi arah perbaikan yang masuk akal. XLM-R Base dipakai sebagai tahap screening karena lebih ringan dibanding XLM-R Large. Konfigurasi yang terlihat baik dapat menjadi kandidat untuk dicoba pada XLM-R Large jika waktu komputasi masih tersedia.
+
+Sebagai eksperimen tambahan, proyek juga mencoba dua model LLM ringan modern melalui LM Studio, yaitu Qwen3.5-4B dan Gemma 4 E4B dalam format GGUF. Keduanya diuji pada dataset Twitter dalam mode zero-shot dan few-shot. Eksperimen ini tidak dianggap sebagai optimasi utama transformer, tetapi sebagai pembanding praktis: apakah model modern yang bisa berjalan lokal dapat mengungguli zero-shot BLOOMZ/mT0 dari Progress 4 atau mendekati model fine-tuned.
+
 ### 2.3 Analisis Kebutuhan Proyek
 
 Untuk menjalankan eksperimen baseline classical ML, dibutuhkan Python 3.10+ dengan pustaka scikit-learn, pandas, nltk, dan dataset dari HuggingFace yang di-cache lokal. Untuk perangkat keras, eksperimen classical ML tidak butuh GPU dan bisa dijalankan di komputer lokal standar (i5-12400F, 16GB RAM) dalam waktu beberapa menit.
@@ -88,6 +97,8 @@ Untuk eksperimen transformer pada Progress 3, kebutuhan komputasinya jauh lebih 
 Kebutuhan penyimpanan juga bertambah. Hasil metrik disimpan di `results/tables/transformer_baselines.csv`, ringkasan setiap run disimpan di `results/transformer/*/metrics.json` dan `result_row.json`, sedangkan log Colab disimpan di `results/logs/`. Folder checkpoint model tidak dimasukkan ke Git karena ukurannya besar. Yang dimasukkan ke repo hanya hasil, log, script, notebook, dan figure agar laporan tetap bisa diverifikasi.
 
 Untuk Progress 4 zero-shot, kebutuhan GPU tetap ada, tetapi karakter bebannya berbeda. Tidak ada proses training, namun inference dilakukan berulang untuk setiap kombinasi model, dataset, dan prompt. Twitter relatif ringan karena test set hanya 538 data, sedangkan Reddit jauh lebih berat karena test set berisi 2.824 data. Pada praktiknya, seluruh 9 model Twitter berhasil dijalankan di Colab, tetapi Reddit baru selesai untuk 5 dari 9 model. Empat run Reddit lainnya sudah dicoba dan memiliki log, tetapi tidak selesai karena sesi Colab berakhir sebelum evaluasi selesai. Kondisi ini tidak dihapus, melainkan dicatat sebagai keterbatasan sumber daya komputasi pada reproduksi.
+
+Untuk Progress 5, kebutuhan komputasi terbagi menjadi dua jalur. Jalur optimasi transformer tetap dijalankan di Colab GPU karena membutuhkan fine-tuning dan prediksi ulang model XLM-R. Hasil yang disimpan tidak hanya metrik akhir, tetapi juga `predictions.csv`, `threshold_sweep.csv`, dan `metrics.json` agar proses pemilihan threshold dapat diperiksa kembali. Jalur modern LLM dijalankan di Windows 11 melalui LM Studio karena model GGUF lebih praktis dijalankan secara lokal. Pada jalur ini, tantangan utamanya bukan training, tetapi konsistensi format output model. Untuk Qwen3.5-4B, perlu menonaktifkan mode berpikir dengan instruksi khusus agar model langsung mengeluarkan label akhir.
 
 ---
 
@@ -204,6 +215,38 @@ Tahapan eksperimen dilakukan sebagai berikut:
 ![Status Run Zero-shot Progress 4](../results/figures/zeroshot_run_completion_matrix.png)
 **Gambar 7.** Status penyelesaian run zero-shot LLM pada dataset Twitter dan Reddit.
 
+
+#### 3.2.4 Tahapan Optimasi dan Eksperimen Modern LLM (Progress 5)
+
+Progress 5 dilaksanakan dalam dua jalur. Jalur pertama adalah optimasi transformer, sedangkan jalur kedua adalah eksperimen modern local LLM. Tahapan optimasi transformer dilakukan sebagai berikut:
+
+1. XLM-R Large dijalankan ulang pada dataset Twitter dan Reddit menggunakan konfigurasi baseline dari Progress 3.
+2. Runner `scripts/run_transformer_optimization.py` menyimpan probabilitas kelas sarkastik untuk subset validasi dan test.
+3. Threshold terbaik dipilih dari validation set berdasarkan F1-score. Dengan cara ini, test set tidak dipakai untuk memilih threshold, sehingga evaluasi akhir tetap lebih adil.
+4. Threshold terpilih diterapkan satu kali ke test set. Hasil default dan hasil tuned kemudian dibandingkan.
+5. Untuk screening hyperparameter, XLM-R Base dijalankan pada beberapa konfigurasi kecil: learning rate 5e-6 dan 2e-5, max length 256, weight decay 0,01, dan label smoothing 0,05.
+6. File `predictions.csv` digunakan untuk melihat contoh yang membaik, memburuk, atau tetap salah setelah threshold tuning.
+
+Untuk jalur modern local LLM, tahapan yang dilakukan adalah:
+
+1. Model GGUF dimuat melalui LM Studio di Windows 11.
+2. Script `scripts/run_modern_llm_experiments.py` memanggil endpoint OpenAI-compatible `http://localhost:1234/v1`.
+3. Dua mode diuji, yaitu zero-shot dan few-shot. Pada few-shot, prompt diberi dua contoh per kelas dari data latih.
+4. Untuk Qwen3.5-4B, mode berpikir perlu dinonaktifkan. Jika tidak, model menghabiskan token untuk reasoning dan tidak mengeluarkan label akhir.
+5. Output model diparse menjadi dua label: `sarcastic` dan `not sarcastic`. Script juga menerima variasi bahasa Indonesia seperti `sarkastis`, `tidak sarkastis`, dan `bukan sarkastis`.
+6. Hasil lengkap disimpan pada `results/tables/modern_llm_experiments.csv` dan folder `results/modern_llm/`.
+
+**Tabel 3.** Ringkasan Konfigurasi Optimasi Progress 5
+
+| Komponen | Konfigurasi | Catatan |
+|----------|-------------|---------|
+| Model utama optimasi | XLM-R Large | Model transformer terbaik dari Progress 3 |
+| Metode optimasi | Threshold tuning | Threshold dipilih dari validation set, lalu diterapkan ke test set |
+| Screening ringan | XLM-R Base | Digunakan untuk melihat arah hyperparameter dengan biaya lebih rendah |
+| Hyperparameter yang dicoba | Learning rate, max length, weight decay, label smoothing | Grid kecil agar realistis untuk Colab |
+| Modern LLM tambahan | Qwen3.5-4B dan Gemma 4 E4B GGUF | Dijalankan lokal via LM Studio, bukan fine-tuning |
+| Dataset modern LLM | Twitter test set | Dipilih karena ukurannya lebih ringan untuk eksperimen lokal |
+
 ### 3.3 Hasil dan Evaluasi
 
 #### 3.3.1 Hasil Baseline Classical ML (Progress 2)
@@ -212,7 +255,7 @@ Untuk mengevaluasi performa model, digunakan empat metrik klasifikasi standar: a
 
 Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 
-**Tabel 3.** Hasil Eksperimen pada Dataset Twitter
+**Tabel 4.** Hasil Eksperimen pada Dataset Twitter
 
 | Vektorisasi | Model | Best Params | Accuracy | Precision | Recall | F1-Score |
 |-------------|-------|-------------|----------|-----------|--------|----------|
@@ -228,7 +271,7 @@ Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 
 Berikut adalah hasil eksperimen pada dataset Reddit:
 
-**Tabel 4.** Hasil Eksperimen pada Dataset Reddit
+**Tabel 5.** Hasil Eksperimen pada Dataset Reddit
 
 | Vektorisasi | Model | Best Params | Accuracy | Precision | Recall | F1-Score |
 |-------------|-------|-------------|----------|-----------|--------|----------|
@@ -244,7 +287,7 @@ Berikut adalah hasil eksperimen pada dataset Reddit:
 
 Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target F1-score yang dilaporkan dalam paper IdSarcasm [5]:
 
-**Tabel 5.** Perbandingan Hasil Reproduksi vs Paper (TF-IDF)
+**Tabel 6.** Perbandingan Hasil Reproduksi vs Paper (TF-IDF)
 
 | Model | Twitter Paper | Twitter Reproduksi | Selisih | Reddit Paper | Reddit Reproduksi | Selisih |
 |-------|--------------|-------------------|---------|-------------|-------------------|---------|
@@ -261,9 +304,9 @@ Namun, untuk Naive Bayes terdapat gap yang cukup besar, terutama pada dataset Tw
 
 #### 3.3.2 Hasil Model Transformer (Progress 3)
 
-Progress 3 menghasilkan 12 baseline fine-tuned transformer: enam model pada dataset Reddit dan enam model pada dataset Twitter. Keenam model tersebut adalah IndoBERT Base (IndoNLU), IndoBERT Large (IndoNLU), IndoBERT Base (IndoLEM), mBERT, XLM-R Base, dan XLM-R Large. Hasil utama dapat dilihat pada Tabel 6.
+Progress 3 menghasilkan 12 baseline fine-tuned transformer: enam model pada dataset Reddit dan enam model pada dataset Twitter. Keenam model tersebut adalah IndoBERT Base (IndoNLU), IndoBERT Large (IndoNLU), IndoBERT Base (IndoLEM), mBERT, XLM-R Base, dan XLM-R Large. Hasil utama dapat dilihat pada Tabel 7.
 
-**Tabel 6.** Hasil Reproduksi Baseline Transformer Progress 3
+**Tabel 7.** Hasil Reproduksi Baseline Transformer Progress 3
 
 | Model | Reddit Paper | Reddit Reproduksi | Selisih | Twitter Paper | Twitter Reproduksi | Selisih |
 |-------|-------------:|------------------:|--------:|--------------:|-------------------:|--------:|
@@ -288,7 +331,7 @@ Perbedaan ini kemungkinan dipengaruhi oleh beberapa hal. Pertama, training trans
 
 Jika dibandingkan dengan baseline classical ML terbaik, peningkatan transformer paling terlihat pada Reddit. Baseline classical terbaik Reddit adalah TF-IDF Logistic Regression dengan F1-score 0,4959, sedangkan XLM-R Large mencapai 0,6117. Kenaikannya +0,1158. Untuk Twitter, baseline classical terbaik adalah BoW Logistic Regression dengan F1-score 0,7206, sedangkan XLM-R Large mencapai 0,7226. Kenaikannya hanya +0,0020. Jadi, pada Twitter, model classical yang sederhana masih mampu bersaing dengan transformer terbaik pada reproduksi ini.
 
-**Tabel 7.** Perbandingan Model Terbaik Classical ML dan Transformer
+**Tabel 8.** Perbandingan Model Terbaik Classical ML dan Transformer
 
 | Dataset | Best Classical ML | F1 Classical | Best Transformer | F1 Transformer | Selisih |
 |---------|-------------------|-------------:|------------------|---------------:|--------:|
@@ -315,7 +358,7 @@ Progress 4 menghasilkan eksekusi penuh zero-shot untuk seluruh 9 model pada data
 
 Empat run Reddit yang terputus tidak dimasukkan ke tabel hasil akhir dan tidak dipakai dalam perbandingan kuantitatif, walaupun beberapa log masih menyimpan jejak proses atau metrik parsial. Misalnya, log mT0 Base sempat mencatat metrik untuk sebagian prompt, tetapi belum menghasilkan metrik rata-rata akhir yang sah untuk dibandingkan.
 
-**Tabel 8.** Hasil Zero-shot LLM Progress 4 Dibandingkan dengan Paper
+**Tabel 9.** Hasil Zero-shot LLM Progress 4 Dibandingkan dengan Paper
 
 | Model | Twitter Paper | Twitter Reproduksi | Selisih | Reddit Paper | Reddit Reproduksi / Status | Selisih |
 |-------|--------------:|-------------------:|--------:|-------------:|----------------------------:|--------:|
@@ -350,7 +393,7 @@ Kesimpulan Progress 4 sementara adalah hasil zero-shot LLM sangat mendekati pape
 
 Jika dibandingkan antar-kelompok metode, transformer masih menjadi pendekatan terbaik pada proyek ini. Classical ML cukup kuat pada Twitter, tetapi tertinggal di Reddit. Zero-shot LLM berada paling rendah pada kedua dataset, meskipun hasilnya paling dekat dengan paper karena memang pola zero-shot paper juga rendah.
 
-**Tabel 9.** Perbandingan Model Terbaik per Kelompok Metode sampai Progress 4
+**Tabel 10.** Perbandingan Model Terbaik per Kelompok Metode sampai Progress 4
 
 | Dataset | Best Classical ML | F1 Classical | Best Transformer | F1 Transformer | Best Zero-shot yang Selesai | F1 Zero-shot |
 |---------|-------------------|-------------:|------------------|---------------:|------------------------|-------------:|
@@ -361,17 +404,84 @@ Pada Reddit, transformer memberi kenaikan yang jelas dibanding classical ML dan 
 
 Interpretasi utamanya adalah model besar tidak otomatis lebih baik jika tidak diadaptasi ke tugas. Untuk deteksi sarkasme bahasa Indonesia, data berlabel dan fine-tuning masih jauh lebih penting daripada ukuran model saja. Progress berikutnya sebaiknya tidak memaksa zero-shot untuk mengalahkan transformer, tetapi memakai hasil ini sebagai pembanding: model tanpa fine-tuning cepat disiapkan, tetapi akurasinya lemah dan cenderung bias ke label sarkastik.
 
+
+#### 3.3.5 Hasil Optimasi dan Eksperimen Modern LLM (Progress 5)
+
+Progress 5 menunjukkan bahwa optimasi sederhana melalui threshold tuning berhasil memperbaiki model transformer utama. Pada dataset Twitter, XLM-R Large meningkat dari F1 0,7226 menjadi 0,7649. Kenaikan sebesar +0,0423 ini penting karena hasil tuned sudah mendekati target paper Twitter untuk XLM-R Large, yaitu 0,7692 [5]. Threshold terbaik yang dipilih dari validation set adalah 0,85. Angka ini lebih tinggi dari threshold standar 0,5, sehingga model menjadi lebih selektif saat memberi label sarkastik. Dampaknya terlihat pada precision yang naik dari 0,6364 menjadi 0,7219, sementara recall masih relatif tinggi, yaitu 0,8134.
+
+Pada dataset Reddit, XLM-R Large juga meningkat, tetapi lebih kecil. F1 naik dari 0,6117 menjadi 0,6241, dengan threshold terbaik 0,26. Kenaikannya +0,0124. Hasil ini tetap bernilai karena F1 paper untuk Reddit XLM-R Large adalah 0,6274, sehingga hasil tuned sudah mendekati target paper. Pada Reddit, threshold 0,26 menurunkan precision dari 0,6188 menjadi 0,5596, tetapi recall naik dari 0,6048 menjadi 0,7054. Jadi kenaikan F1 terjadi karena tambahan recall lebih besar daripada penurunan precision. Perbedaan arah threshold antara Twitter dan Reddit menunjukkan bahwa karakter kedua dataset memang berbeda.
+
+**Tabel 11.** Hasil Threshold Tuning XLM-R Large
+
+| Dataset | Threshold | F1 Default | F1 Tuned | Delta F1 | Precision Tuned | Recall Tuned |
+|---------|----------:|-----------:|---------:|---------:|----------------:|-------------:|
+| Twitter | 0,85 | 0,7226 | 0,7649 | +0,0423 | 0,7219 | 0,8134 |
+| Reddit | 0,26 | 0,6117 | 0,6241 | +0,0124 | 0,5596 | 0,7054 |
+
+![Hasil Threshold Tuning XLM-R Large](../results/figures/progress5_threshold_tuning_f1.png)
+**Gambar 18.** Perbandingan F1-score XLM-R Large sebelum dan sesudah threshold tuning pada dataset Twitter dan Reddit.
+
+Hasil screening XLM-R Base pada Twitter memperlihatkan bahwa tidak semua perubahan hyperparameter memberi dampak positif. Konfigurasi learning rate 2e-5 dengan max length 128 menghasilkan F1 tuned terbaik di antara varian XLM-R Base, yaitu 0,7317. Konfigurasi label smoothing 0,05 justru turun setelah threshold tuning, dari F1 default 0,7260 menjadi 0,6877. Sementara itu, learning rate 5e-6 menghasilkan F1 default 0,0000 tetapi setelah threshold tuning naik menjadi 0,4800. Kasus ini menunjukkan bahwa threshold tuning bisa memperbaiki output model yang probabilitasnya tidak terkalibrasi dengan baik, tetapi bukan berarti model tersebut menjadi kandidat terbaik.
+
+**Tabel 12.** Ringkasan Screening XLM-R Base pada Twitter
+
+| Konfigurasi | F1 Default | F1 Tuned | Delta F1 | Threshold |
+|-------------|-----------:|---------:|---------:|----------:|
+| lr=5e-6, len=128 | 0,0000 | 0,4800 | +0,4800 | 0,25 |
+| lr=2e-5, len=128 | 0,7039 | 0,7317 | +0,0278 | 0,17 |
+| lr=1e-5, len=256 | 0,6953 | 0,6953 | 0,0000 | 0,50 |
+| lr=1e-5, wd=0,01 | 0,7154 | 0,7115 | -0,0039 | 0,41 |
+| label smoothing=0,05 | 0,7260 | 0,6877 | -0,0383 | 0,67 |
+
+![Screening Hyperparameter XLM-R Base](../results/figures/progress5_xlmr_base_screening.png)
+**Gambar 19.** Hasil screening hyperparameter XLM-R Base berdasarkan F1-score setelah threshold tuning.
+
+Analisis transisi error memperjelas dampak threshold tuning. Pada Twitter, terdapat 22 contoh test yang sebelumnya salah dan menjadi benar setelah threshold tuning, sedangkan hanya 3 contoh yang sebelumnya benar menjadi salah. Ini menjelaskan kenapa F1 Twitter naik cukup besar. Pada Reddit, terdapat 71 contoh yang membaik, tetapi 129 contoh justru memburuk. Walaupun demikian, pergeseran precision dan recall secara keseluruhan tetap memberi kenaikan F1 kecil pada Reddit. Dengan kata lain, threshold tuning lebih efektif pada Twitter daripada Reddit.
+
+**Tabel 13.** Transisi Prediksi Setelah Threshold Tuning XLM-R Large
+
+| Dataset | Membaik | Memburuk | Tetap Benar | Tetap Salah |
+|---------|--------:|---------:|------------:|------------:|
+| Twitter | 22 | 3 | 449 | 64 |
+| Reddit | 71 | 129 | 2153 | 471 |
+
+![Transisi Error Threshold Tuning](../results/figures/progress5_threshold_error_transitions.png)
+**Gambar 20.** Jumlah contoh test yang membaik, memburuk, atau tetap salah setelah threshold tuning.
+
+Untuk eksperimen modern local LLM, empat run penuh Twitter berhasil diselesaikan: Qwen3.5-4B zero-shot, Qwen3.5-4B few-shot, Gemma 4 E4B zero-shot, dan Gemma 4 E4B few-shot. Seluruh run memiliki `invalid_outputs=0`, sehingga hasilnya valid untuk dibandingkan. Qwen3.5-4B few-shot menjadi yang terbaik di kelompok modern LLM lokal dengan F1 0,4755. Qwen3.5-4B zero-shot sedikit lebih rendah, yaitu 0,4665. Gemma 4 E4B memperoleh F1 0,4400 pada zero-shot dan 0,4580 pada few-shot.
+
+**Tabel 14.** Hasil Modern Local LLM pada Dataset Twitter
+
+| Model | Mode | Accuracy | Precision | Recall | F1 | Invalid Output |
+|-------|------|---------:|----------:|-------:|---:|---------------:|
+| Qwen3.5-4B | Zero-shot | 0,6896 | 0,4078 | 0,5448 | 0,4665 | 0 |
+| Qwen3.5-4B | Few-shot | 0,7416 | 0,4809 | 0,4701 | 0,4755 | 0 |
+| Gemma 4 E4B | Zero-shot | 0,3755 | 0,2833 | 0,9851 | 0,4400 | 0 |
+| Gemma 4 E4B | Few-shot | 0,4721 | 0,3077 | 0,8955 | 0,4580 | 0 |
+
+![Perbandingan Modern Local LLM](../results/figures/progress5_modern_llm_f1_comparison.png)
+**Gambar 21.** Perbandingan F1-score modern local LLM dengan baseline zero-shot terbaik dan XLM-R Large hasil optimasi.
+
+Dari hasil ini, modern LLM lokal memang lebih baik daripada zero-shot BLOOMZ/mT0 Progress 4 pada Twitter yang berada di sekitar F1 0,3989. Namun, jaraknya masih jauh dari XLM-R Large hasil optimasi yang mencapai F1 0,7649. Hal ini memperkuat kesimpulan utama proyek bahwa, pada eksperimen ini, model yang dilatih atau dioptimasi pada dataset target masih lebih kuat daripada LLM yang hanya diberi prompt untuk deteksi sarkasme Indonesia.
+
+Pola precision dan recall juga menarik. Gemma 4 E4B memiliki recall sangat tinggi, terutama zero-shot dengan recall 0,9851, tetapi precision rendah 0,2833. Artinya, model sangat sering memilih label sarkastik. Qwen3.5-4B lebih seimbang, terutama few-shot dengan precision 0,4809 dan recall 0,4701. Meskipun F1 Qwen belum tinggi, perilakunya lebih stabil dibanding Gemma yang terlalu agresif memprediksi sarkasme.
+
+![Precision dan Recall Modern Local LLM](../results/figures/progress5_modern_llm_precision_recall.png)
+**Gambar 22.** Perbandingan precision dan recall modern local LLM pada dataset Twitter.
+
+Secara keseluruhan, Progress 5 memberi jawaban yang cukup kuat terhadap tujuan optimasi proyek. Peningkatan terbesar diperoleh dari threshold tuning XLM-R Large, terutama pada Twitter. Eksperimen hyperparameter XLM-R Base memberi informasi tambahan bahwa learning rate 2e-5 cukup menjanjikan, tetapi hasil terbaik proyek tetap XLM-R Large yang dioptimasi threshold. Modern LLM lokal berguna sebagai pembanding praktis, namun belum mendekati performa fine-tuned transformer. Dengan demikian, arah final proyek sebaiknya menekankan bahwa optimasi kecil pada transformer yang sudah dilatih lebih efektif daripada hanya mengganti ke model generatif baru tanpa fine-tuning.
+
 ---
 
 ## 4. Rencana Pengembangan Proyek
 
 (Subbab ini akan diperbarui setiap progress.)
 
-Berdasarkan Progress 4, baseline proyek sudah mencakup tiga kelompok utama dari paper IdSarcasm: classical ML, fine-tuned transformer, dan zero-shot LLM. Untuk transformer, seluruh 12 run paper sudah selesai. Untuk zero-shot, seluruh 9 run Twitter selesai dan 5 run Reddit selesai, sementara 4 run Reddit lain tercatat sebagai percobaan yang belum tuntas karena batas durasi sesi Colab.
+Sampai Progress 5, proyek sudah mencakup baseline classical ML, baseline fine-tuned transformer, baseline zero-shot LLM paper, optimasi threshold untuk XLM-R Large, screening hyperparameter kecil, serta pembanding modern local LLM. Bagian optimasi utama sudah menunjukkan hasil positif. XLM-R Large Twitter meningkat dari F1 0,7226 menjadi 0,7649, sedangkan Reddit meningkat dari 0,6117 menjadi 0,6241. Dengan demikian, Progress 5 sudah cukup untuk membuktikan bahwa performa transformer dapat diperbaiki tanpa mengganti arsitektur model.
 
-Rencana berikutnya adalah Progress 5, yaitu analisis komparatif dan error analysis. Pada tahap itu, hasil classical ML, transformer, dan zero-shot dapat dibandingkan secara lebih utuh untuk menjawab pertanyaan utama proyek: kapan transformer benar-benar memberi keuntungan, dataset mana yang paling sulit, dan jenis kesalahan apa yang masih sering terjadi pada deteksi sarkasme bahasa Indonesia. Jika waktu memungkinkan, empat run Reddit zero-shot yang belum selesai dapat dicoba ulang dengan strategi lebih hemat, misalnya menjalankan satu model per sesi baru, memakai Colab Pro, atau memecah evaluasi per prompt agar hasil parsial tidak hilang saat sesi berakhir.
+Rencana berikutnya adalah Progress 6, yaitu finalisasi analisis komparatif dan kesimpulan akhir. Pada tahap itu, fokusnya bukan lagi menjalankan banyak model baru, tetapi merapikan jawaban penelitian: kelompok metode mana yang paling kuat, kapan transformer memberi keuntungan yang jelas, dan mengapa modern LLM lokal belum mengalahkan model fine-tuned. Error analysis dari Progress 5 juga dapat dipakai untuk menjelaskan jenis data yang masih sulit, misalnya teks yang membutuhkan konteks sosial, sindiran implisit, atau humor lokal.
 
-Untuk arah optimasi, fokus yang lebih realistis bukan menaikkan zero-shot LLM, tetapi memperbaiki model transformer atau analisis kesalahannya. Pilihan yang bisa dilakukan adalah mencoba variasi seed, mengecek contoh salah prediksi, membandingkan pola kesalahan Reddit dan Twitter, serta melihat apakah preprocessing tertentu membantu. Hasil Progress 4 sudah cukup menjadi bukti bahwa tanpa fine-tuning, model besar masih tertinggal jauh dari transformer yang dilatih pada data IdSarcasm.
+Jika masih ada waktu komputasi, eksperimen tambahan yang paling masuk akal adalah menjalankan satu konfigurasi XLM-R Large dengan learning rate 2e-5 karena screening XLM-R Base menunjukkan konfigurasi tersebut cukup menjanjikan. Namun, eksperimen itu bersifat opsional. Untuk kebutuhan laporan UAS, hasil Progress 5 sudah memadai karena mencakup optimasi utama, pembanding model modern, dan analisis before-after yang jelas.
 
 ---
 

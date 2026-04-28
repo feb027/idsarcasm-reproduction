@@ -180,21 +180,21 @@ Progress 4 dianggap selesai sebagai **complete attempt** jika semua kombinasi ze
 
 ---
 
-## Progress 5: Optimasi dan Eksperimen Lanjutan ⬜
+## Progress 5: Optimasi dan Eksperimen Lanjutan ✅
 
 ### Tujuan
 Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar memakai transformer, tetapi mencoba meningkatkan performanya secara metodologis. Progress 5 difokuskan pada XLM-R sebagai model transformer terbaik Progress 3, lalu ditambah eksperimen LLM ringan modern sebagai pembanding praktis.
 
 ### Cakupan wajib
-- [ ] **Threshold tuning XLM-R Large**: simpan probabilitas/logit validation-test, pilih threshold dari validation set, lalu terapkan ke test set.
-- [ ] **Small hyperparameter experiment XLM-R Base → XLM-R Large**: screening konfigurasi ringan di XLM-R Base, lalu bawa konfigurasi terbaik ke XLM-R Large bila resource Colab cukup.
-- [ ] **Error analysis baseline vs optimized**: ambil contoh false positive/false negative dari `predictions.csv`, bandingkan sebelum dan sesudah threshold tuning.
+- [x] **Threshold tuning XLM-R Large**: Twitter F1 0,7226 → 0,7649; Reddit F1 0,6117 → 0,6241.
+- [x] **Small hyperparameter experiment XLM-R Base → XLM-R Large**: lima konfigurasi XLM-R Base selesai; konfigurasi lr=2e-5 menjadi kandidat screening terbaik.
+- [x] **Error analysis baseline vs optimized**: transisi prediksi dan contoh error tersimpan di `results/progress5_error_analysis/`.
 
 ### Eksperimen tambahan
-- [ ] **Gemma 3n E4B** zero-shot/few-shot sebagai model ringan modern.
-- [ ] **Qwen3.5-4B** zero-shot/few-shot sebagai model ringan terbaru.
-- [ ] **Cendol atau Bahasa-4B** zero-shot/few-shot sebagai pembanding Indonesia-specific.
-- [ ] Untuk model GGUF/quantized, jalankan via LM Studio/OpenAI-compatible API di PC lokal.
+- [x] **Gemma 4 E4B** zero-shot/few-shot sebagai model ringan modern.
+- [x] **Qwen3.5-4B** zero-shot/few-shot sebagai model ringan terbaru.
+- [ ] **Cendol atau Bahasa-4B** zero-shot/few-shot sebagai pembanding Indonesia-specific (opsional, tidak dijalankan pada Progress 5).
+- [x] Untuk model GGUF/quantized, jalankan via LM Studio/OpenAI-compatible API di PC lokal.
 
 ### Fokus evaluasi
 - [ ] Bandingkan baseline XLM-R Large vs optimized XLM-R Large.

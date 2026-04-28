@@ -99,7 +99,7 @@ Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcas
 | 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
 | 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ✅ | Paper baseline complete fine-tuned transformer selesai: 12/12 run pada Twitter + Reddit, hasil/log tersimpan |
 | 4 | Zero-shot LLM Baseline | ✅ | Twitter selesai 9/9; Reddit selesai 5/9; 4 run Reddit tercatat sebagai runtime/session limitation |
-| 5 | Optimasi dan Eksperimen Lanjutan | ⬜ | Threshold tuning XLM-R Large, screening hyperparameter XLM-R Base → XLM-R Large, error analysis baseline vs optimized, dan eksperimen tambahan Gemma/Qwen/Cendol/Bahasa-4B zero-shot/few-shot via Colab/LM Studio |
+| 5 | Optimasi dan Eksperimen Lanjutan | ✅ | XLM-R Large threshold tuning selesai: Twitter F1 0,7226 → 0,7649; Reddit 0,6117 → 0,6241. Modern local LLM selesai untuk Qwen3.5-4B dan Gemma 4 E4B pada Twitter. |
 | 6 | Analisis Komparatif dan Finalisasi Laporan | ⬜ | Komparasi penuh, error analysis, README, laporan akhir, dan kesimpulan |
 
 Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, `docs/progress-3.md`, `docs/progress-4.md`, `docs/progress-5.md`, dan `source-code/README.md`. Untuk melihat workflow transformer baseline Progress 3, gunakan `notebooks/02_transformer_baseline_colab.ipynb` atau ikuti `docs/progress-3-paper-baseline-complete-plan.md`. Untuk Progress 5, gunakan `notebooks/04_progress5_optimization_and_modern_llm.ipynb` dan `docs/progress-5-run-guide.md`.

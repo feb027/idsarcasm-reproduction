@@ -1,0 +1,5 @@
+run_id,category,count
+reddit-xlmr-large-threshold,improved,71
+reddit-xlmr-large-threshold,worsened,129
+reddit-xlmr-large-threshold,both_correct,2153
+reddit-xlmr-large-threshold,both_wrong,471

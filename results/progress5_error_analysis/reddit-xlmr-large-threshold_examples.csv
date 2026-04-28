@@ -1,0 +1,37 @@
+run_id,category,sample_idx,true_label,prob_sarcastic,pred_default,pred_tuned,text
+reddit-xlmr-large-threshold,improved,80,1,0.392511,0,1,"Contoh yang sangat baik dari aparat, bahkan sampai ada dokumentasinya demi kemajuan generasi mendatang"
+reddit-xlmr-large-threshold,improved,111,1,0.438184,0,1,anis gubernur indonesia kan? dia harus tanggung jawab sih menurut ku
+reddit-xlmr-large-threshold,improved,119,1,0.420391,0,1,"uraaaaaaa!, semoga Allah melindungi paman putin"
+reddit-xlmr-large-threshold,improved,146,1,0.416055,0,1,Jual peninggi badan pemutih badan
+reddit-xlmr-large-threshold,improved,253,1,0.444384,0,1,lupa nambah
+reddit-xlmr-large-threshold,improved,317,1,0.438545,0,1,"Soalnya mereka udah nonton ciri-ciri sexual predator dari TV, jadi setiap ketemu yang ciri2nya mirip, mereka bakal galak"
+reddit-xlmr-large-threshold,improved,365,1,0.435391,0,1,"Si paling ""sahabat"" kita sedang sibuk di ukren, harap maklum"
+reddit-xlmr-large-threshold,improved,379,1,0.305665,0,1,kalau dibungkus aja? Buat penelitian
+reddit-xlmr-large-threshold,improved,431,1,0.34354,0,1,~~skill~~ money issue. Tinggal beli 1 hp lagi buat main ml
+reddit-xlmr-large-threshold,improved,443,1,0.431045,0,1,Itu situ terawan ngapain pake masker? Bukannya cuma untuk orang sakit??
+reddit-xlmr-large-threshold,improved,491,1,0.349262,0,1,"Mungkin dihitung semua guru honorer, guru les, dan guru privat?"
+reddit-xlmr-large-threshold,improved,492,1,0.492432,0,1,Ampun bang saya lupa pake
+reddit-xlmr-large-threshold,worsened,94,0,0.366193,0,1,&gt; jadi polisi kelas bawah
+reddit-xlmr-large-threshold,worsened,107,0,0.285266,0,1,Rakyat Tangsel juga ngarep2 dibebaskan dari penjajahan dinasti
+reddit-xlmr-large-threshold,worsened,109,0,0.478894,0,1,"Ya karena dia gak pernah kena rasanya. Either lo bawa ke dokter jiwa karena emang ini sebuah kelainan, atau lo lepasin aja biar ditampar sama kehidupan"
+reddit-xlmr-large-threshold,worsened,110,0,0.370416,0,1,"Di Unpad (nangor) banyak. Di DU udah ada ceu Euis, di Telyu ada Mekdun, di Widya ada Yurin. Di Unpar masa rich rich semua sih?"
+reddit-xlmr-large-threshold,worsened,122,0,0.264525,0,1,Bukan memang tugas art salah satunya laundry?
+reddit-xlmr-large-threshold,worsened,163,0,0.273993,0,1,wuidih udah fix ke jakarta nih kayaknya
+reddit-xlmr-large-threshold,worsened,187,0,0.314958,0,1,la la la galileo ini lagu?
+reddit-xlmr-large-threshold,worsened,198,0,0.302314,0,1,Konyol jg ini. Osis (dan ketua) yg kerjanya gabecus banyak padahal
+reddit-xlmr-large-threshold,worsened,215,0,0.281702,0,1,berarti 3 jenis bahan ini dimasukin aja gt ke dalam berasnya?
+reddit-xlmr-large-threshold,worsened,245,0,0.3348,0,1,"ikuti jejak mod kampret dulu, ke toilet terus lu main reddit disana"
+reddit-xlmr-large-threshold,worsened,257,0,0.338473,0,1,Tenang gaes Corona baru masuknya baru tanggal 1
+reddit-xlmr-large-threshold,worsened,301,0,0.298019,0,1,Anjir cok TI taun ini di Singapur let's fucking goooo
+reddit-xlmr-large-threshold,both_wrong,4,0,0.908739,1,1,"Pokoknya bantai semua PKI dan keturununan dan keluarganya, walaupun mereka bukan suporter PKI. Jadi kek Dinasti KIM yang menghukum orang sekeluarganya ampe keturunannya"
+reddit-xlmr-large-threshold,both_wrong,9,1,0.114418,0,0,Prioritas skrg vaksin ya? Luar biasa memang.
+reddit-xlmr-large-threshold,both_wrong,10,0,0.738103,1,1,makanya partai gelora itu karma-nya PKS.
+reddit-xlmr-large-threshold,both_wrong,15,0,0.815233,1,1,"Tolong bilang, kalau ini hanya joke"
+reddit-xlmr-large-threshold,both_wrong,18,1,0.004365,0,0,"Tour ke rumah sakit lalu tour guidenya ngomong ""Ini contoh pasien komorbid, bapak-bapak ibu-ibu. Kita bisa lihat beliau sedang sekarat"" atau ""Ini contoh pasien yang lumayan sehat walau perlu ventilator"""
+reddit-xlmr-large-threshold,both_wrong,19,0,0.915394,1,1,"I mean.... Kita udah jelas, barang mentah harus diproduksi di sini buat buka lapangan kerja di sini"
+reddit-xlmr-large-threshold,both_wrong,21,1,0.132627,0,0,Ini salah satu contoh paling nyata betapa ketidakpedulian dan ketidakseriusan pemerintah di awal pandemi memakan korban jiwa
+reddit-xlmr-large-threshold,both_wrong,25,0,0.95418,1,1,Qurban itu P2W untuk masuk surga
+reddit-xlmr-large-threshold,both_wrong,27,0,0.891952,1,1,berarti menjadi asshole much more better?
+reddit-xlmr-large-threshold,both_wrong,35,1,0.084644,0,0,Barang-barang yang diperlihatkan sangat mencerminkan insan yang cinta damai ya bunda
+reddit-xlmr-large-threshold,both_wrong,37,0,0.753399,1,1,Jadi gak melulu dpr
+reddit-xlmr-large-threshold,both_wrong,40,0,0.581511,1,1,Kan emang kuliah tujuannya biar ga dicekokin ilmu dari dosen doang. Makanya sering ada ujian dadakan.
