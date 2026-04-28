@@ -34,3 +34,6 @@ models/
 .DS_Store
 Thumbs.db
 AGENTS.md
+
+.hermes/
+.pytest_cache/

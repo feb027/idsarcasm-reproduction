@@ -1,8 +1,0 @@
-dataset,split,mode,model_alias,model_name,accuracy,precision,recall,f1,num_examples,invalid_outputs,runtime_seconds,avg_latency_seconds,sample_limited,shots_per_class,api_base,temperature,max_tokens,run_started_at,run_ended_at,disable_reasoning
-twitter,test,zero-shot,lmstudio-smoke,qwen3.5-4b,0.6,0.0,0.0,0.0,5,5,18.68,3.735,True,0,http://localhost:1234/v1,0.0,8,2026-04-27T11:43:29+00:00,2026-04-27T11:43:48+00:00,
-twitter,test,zero-shot,lmstudio-smoke,qwen3.5-4b,0.6,0.0,0.0,0.0,5,5,18.1,3.6189,True,0,http://localhost:1234/v1,0.0,8,2026-04-27T11:48:58+00:00,2026-04-27T11:49:16+00:00,
-twitter,test,few-shot,qwen3.5-4b-strict-smoke,qwen3.5-4b,0.5,0.0,0.0,0.0,10,10,42.69,4.2689,True,2,http://localhost:1234/v1,0.0,12,2026-04-27T11:49:35+00:00,2026-04-27T11:50:18+00:00,
-twitter,test,few-shot,qwen3.5-4b-debug-smoke,qwen3.5-4b,0.5,0.0,0.0,0.0,10,10,153.45,15.345,True,2,http://localhost:1234/v1,0.0,128,2026-04-27T11:58:18+00:00,2026-04-27T12:00:52+00:00,
-twitter,test,few-shot,qwen3.5-4b-strict-smoke,qwen3.5-4b,0.5,0.0,0.0,0.0,10,10,154.65,15.4648,True,2,http://localhost:1234/v1,0.0,128,2026-04-27T12:18:12+00:00,2026-04-27T12:20:46+00:00,True
-twitter,test,few-shot,qwen3.5-4b-no-think-smoke-v2,qwen3.5-4b,0.5,0.0,0.0,0.0,10,10,154.38,15.4375,True,2,http://localhost:1234/v1,0.0,128,2026-04-27T12:25:27+00:00,2026-04-27T12:28:01+00:00,True
-twitter,test,few-shot,qwen3.5-4b-strict-smoke,qwen3.5-4b,0.6,0.6667,0.4,0.5,10,0,35.7,3.5691,True,2,http://localhost:1234/v1,0.0,128,2026-04-27T12:28:59+00:00,2026-04-27T12:29:34+00:00,True

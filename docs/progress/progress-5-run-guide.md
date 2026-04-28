@@ -8,7 +8,7 @@ Panduan ini dipakai untuk menjalankan Progress 5 IdSarcasm. Ada dua jalur:
 Untuk Windows 11 + LM Studio yang lebih rinci, baca juga:
 
 ```text
-docs/progress-5-lmstudio-windows11-guide.md
+docs/progress/progress-5-lmstudio-windows11-guide.md
 ```
 
 ---
@@ -83,7 +83,7 @@ results/tables/optimization_smoke.csv
 results/optimization/smoke-twitter-xlmr-base-progress5/
 ```
 
-Kalau smoke test gagal, jangan lanjut full run. Kirim error/log ke agent.
+Kalau smoke test gagal, jangan lanjut full run. Simpan error/log untuk pengecekan.
 
 ---
 
@@ -123,7 +123,7 @@ results/optimization/twitter-xlmr-large-threshold/metrics.json
 results/logs/progress-5-optimization-twitter-xlmr-large-threshold.log
 ```
 
-Kirim balik ke agent setelah run ini selesai kalau ingin dicek dulu sebelum lanjut run mahal lain.
+Cek hasil run terlebih dahulu sebelum lanjut ke run yang lebih mahal.
 
 ---
 
@@ -161,7 +161,7 @@ Jalankan satu per satu. Jangan sekaligus satu loop panjang, supaya kalau Colab p
 !python scripts/run_transformer_optimization.py --dataset twitter --model xlmr-base --run-name twitter-xlmr-base-label-smoothing005 --epochs 100 --batch-size 32 --eval-batch-size 64 --learning-rate 1e-5 --lr-scheduler-type cosine --weight-decay 0.03 --label-smoothing-factor 0.05 --max-length 128 --early-stopping-threshold 0.01 --seed 42 --pad-to-max-length --shuffle-train-dataset --fp16 --disable-tqdm 2>&1 | tee results/logs/progress-5-optimization-twitter-xlmr-base-label-smoothing005.log
 ```
 
-Setelah 3–5 run XLM-R Base selesai, commit hasil dulu atau kirim tabel `optimization_runs.csv` ke agent untuk dipilihkan konfigurasi XLM-R Large final.
+Setelah 3–5 run XLM-R Base selesai, commit hasil dulu, lalu pilih konfigurasi XLM-R Large final berdasarkan `optimization_runs.csv`.
 
 ---
 
@@ -200,7 +200,7 @@ PY
 Jalur ini **Windows-first**. Karena LM Studio berjalan di Windows, jalankan script dari Windows PowerShell + Windows venv. Panduan lengkap ada di:
 
 ```text
-docs/progress-5-lmstudio-windows11-guide.md
+docs/progress/progress-5-lmstudio-windows11-guide.md
 ```
 
 ### 7.1 Start LM Studio server
@@ -335,19 +335,19 @@ python scripts/run_modern_llm_experiments.py `
 
 ---
 
-## 8. Kapan Commit dan Kapan Balik ke Agent
+## 8. Kapan Commit dan Kapan Balik ke Asisten
 
 ### Setelah aset ini dibuat
 Commit boleh dilakukan sekarang setelah validasi script/notebook:
 
 ```bash
-git add scripts/run_transformer_optimization.py scripts/run_modern_llm_experiments.py notebooks/04_progress5_optimization_and_modern_llm.ipynb docs/progress-5.md docs/progress-5-run-guide.md docs/progress-plan.md README.md
+git add scripts/run_transformer_optimization.py scripts/run_modern_llm_experiments.py notebooks/04_progress5_optimization_and_modern_llm.ipynb docs/progress/progress-5.md docs/progress/progress-5-run-guide.md docs/progress/progress-plan.md README.md
 git commit -m "feat: add Progress 5 optimization experiment assets"
 git push
 ```
 
 ### Setelah XLM-R Large threshold selesai
-Balik ke agent dengan:
+Cek hasil dengan:
 
 ```text
 results/tables/optimization_runs.csv
@@ -357,7 +357,7 @@ results/optimization/twitter-xlmr-large-threshold/threshold_sweep.csv
 results/logs/progress-5-optimization-twitter-xlmr-large-threshold.log
 ```
 
-Kalau hasilnya bagus, agent bisa bantu pilih konfigurasi berikutnya.
+Kalau hasilnya bagus, konfigurasi berikutnya bisa dipilih berdasarkan tabel metrik.
 
 ### Setelah XLM-R Base screening selesai
 Commit:
@@ -368,7 +368,7 @@ git commit -m "results: add Progress 5 transformer optimization runs"
 git push
 ```
 
-Lalu balik ke agent untuk:
+Langkah lanjutan:
 
 - pilih 1–2 konfigurasi XLM-R Large final,
 - buat figure awal,
@@ -383,12 +383,12 @@ git commit -m "results: add Progress 5 modern local LLM experiments"
 git push
 ```
 
-Lalu balik ke agent untuk:
+Langkah lanjutan:
 
 - komparasi modern LLM vs zero-shot Progress 4,
 - figure final,
 - update `docs/laporan-proyek.md`,
-- review Codex final.
+- validasi akhir.
 
 ---
 

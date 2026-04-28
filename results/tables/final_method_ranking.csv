@@ -1,0 +1,10 @@
+dataset,rank,method_family,model,f1
+twitter,1,Optimized transformer,xlmr-large-threshold,0.7649
+twitter,2,Transformer baseline,xlmr-large,0.7226
+twitter,3,Classical ML,BOW LR,0.7206
+twitter,4,Modern local LLM,qwen3.5-4b (few-shot),0.4755
+twitter,5,Zero-shot paper LLM,mt0-large,0.3989
+reddit,1,Optimized transformer,xlmr-large-threshold,0.6241
+reddit,2,Transformer baseline,xlmr-large,0.6117
+reddit,3,Classical ML,TFIDF LR,0.4959
+reddit,4,Zero-shot paper LLM,mt0-small,0.4

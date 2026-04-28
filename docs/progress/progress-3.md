@@ -19,7 +19,7 @@ Progress ini belum mencakup zero-shot LLM. Zero-shot dipindahkan ke **Progress 4
 - [x] Menyamakan setting utama dengan recipe paper: epoch 100, batch 32/64, scheduler cosine, learning rate 1e-5, weight decay 0.03, max length 128, pad-to-max-length, shuffle train, early stopping threshold 0.01, seed 42, fp16.
 - [x] Menyiapkan runner fine-tuning: `scripts/run_transformer_baseline.py`.
 - [x] Menyiapkan notebook Colab lengkap: `notebooks/02_transformer_baseline_colab.ipynb`.
-- [x] Menyiapkan panduan eksekusi: `docs/progress-3-local-run-guide.md` dan `docs/progress-3-paper-baseline-complete-plan.md`.
+- [x] Menyiapkan panduan eksekusi: `docs/progress/progress-3-local-run-guide.md` dan `docs/progress/progress-3-paper-baseline-complete-plan.md`.
 - [x] Menjalankan smoke test.
 - [x] Menjalankan 12 baseline transformer paper pada Twitter dan Reddit.
 - [x] Menyimpan metrik, konfigurasi, dan log Colab.

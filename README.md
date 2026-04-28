@@ -1,108 +1,70 @@
-# IdSarcasm Reproduction — UAS NLP
+# IdSarcasm Reproduction and Transformer Optimization
 
-Reproduksi paper: **IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection**
-(Derwin Suhartono, Wilson Wongso, Alif Tri Handoyo — IEEE Access 2024)
+Repository ini berisi reproduksi dan optimasi paper **“IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection”** (Suhartono, Wongso, Handoyo — IEEE Access 2024).
 
-## Paper Info
-- **Paper acuan:** IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection
-- **Judul proyek (Google Sheets):** Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm
-- **DOI:** [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955)
-- **Original Repo:** https://github.com/w11wo/id_sarcasm
-- **Published:** 20 June 2024
+**Judul proyek:** Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm
 
-## Project Structure
+- Paper DOI: [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955)
+- Original repository: <https://github.com/w11wo/id_sarcasm>
+- Final report: [`docs/laporan-proyek.md`](docs/laporan-proyek.md)
+- Reproducibility guide: [`docs/reproducibility.md`](docs/reproducibility.md)
 
-```
-├── data/
-│   ├── raw/              # Dataset CSV dari HuggingFace
-│   └── processed/        # Dataset setelah preprocessing
-├── notebooks/
-│   ├── 01_eda.ipynb      # EDA: label distribution, text length, data quality
-│   ├── 02_transformer_baseline_colab.ipynb  # Progress 3 Colab runner
-│   └── 03_zeroshot_baseline_colab_or_lmstudio.ipynb  # Progress 4 zero-shot runner
-├── scripts/
-│   ├── download_data.py  # Download dataset dari HuggingFace
-│   ├── run_classical_baselines.py  # Progress 2 classical ML
-│   ├── run_transformer_baseline.py # Progress 3 transformer baseline
-│   └── run_zeroshot_baseline.py    # Progress 4 zero-shot LLM baseline
-├── results/
-│   ├── tables/           # Hasil evaluasi (CSV/tabel)
-│   └── figures/          # Grafik & visualisasi (PNG)
-├── source-code/
-│   ├── README.md         # Penjelasan snapshot source code upstream
-│   └── original-id-sarcasm/  # Snapshot repo asli paper (read-only reference)
+## Ringkasan Hasil
+
+| Dataset | Metode terbaik | F1 baseline | F1 setelah optimasi | Target paper |
+|---|---|---:|---:|---:|
+| Twitter | XLM-R Large + threshold tuning | 0.7226 | 0.7649 | 0.7692 |
+| Reddit | XLM-R Large + threshold tuning | 0.6117 | 0.6241 | 0.6274 |
+
+Temuan utama:
+
+- XLM-R Large menjadi model terbaik pada Twitter dan Reddit.
+- Threshold tuning menaikkan F1 Twitter dari `0.7226` ke `0.7649` dan Reddit dari `0.6117` ke `0.6241`.
+- Classical ML tetap kompetitif pada Twitter, terutama BoW Logistic Regression (`F1 = 0.7206`).
+- Zero-shot LLM sesuai paper berhasil direproduksi dekat dengan target paper, tetapi performanya tetap rendah (`F1 ≈ 0.39–0.40`).
+- Modern local LLM via LM Studio lebih baik dari zero-shot paper pada Twitter, tetapi belum mendekati fine-tuned transformer. Qwen3.5-4B few-shot memperoleh `F1 = 0.4755`.
+
+## Struktur Repository
+
+```text
+├── data/                 # Dataset lokal, tidak dikomit jika besar
 ├── docs/
-│   ├── paper-summary.md  # Ringkasan paper + catatan EDA/progress
-│   ├── progress-plan.md  # Timeline & rencana 6 progress (revisi)
-│   ├── progress-1.md     # Dokumentasi Progress 1
-│   ├── progress-2.md     # Progress 2 gabungan: dataset, EDA, baseline classical ML
-│   ├── progress-3.md     # Progress 3: paper baseline complete transformer
-│   ├── progress-3-local-run-guide.md  # Panduan run transformer di Colab
-│   ├── progress-3-paper-baseline-complete-plan.md  # Plan 12 baseline transformer
-│   ├── progress-4.md     # Progress 4 zero-shot LLM baseline
-│   └── progress-4-zero-shot-run-guide.md  # Panduan run zero-shot
-├── 10565877.pdf          # Paper asli
-├── requirements.txt      # Python dependencies
-└── README.md
+│   ├── laporan-proyek.md # Laporan akhir
+│   ├── reproducibility.md
+│   ├── paper-summary.md
+│   └── progress/         # Catatan progress dan run guide pendukung
+├── notebooks/            # Notebook EDA, Colab, dan eksperimen
+├── results/
+│   ├── figures/          # Figure laporan
+│   ├── tables/           # Tabel hasil utama
+│   ├── transformer/      # Output transformer baseline
+│   ├── zeroshot/         # Output zero-shot LLM
+│   ├── optimization/     # Output optimasi transformer
+│   └── modern_llm/       # Output eksperimen local LLM
+├── scripts/              # Runner eksperimen dan generator analisis
+├── source-code/          # Snapshot repo paper asli sebagai referensi
+└── tests/                # Unit tests untuk runner
 ```
 
 ## Dataset
 
-| Dataset | Train | Val | Test | Total |
-|---------|-------|-----|------|-------|
+| Dataset | Train | Validation | Test | Total |
+|---|---:|---:|---:|---:|
 | Reddit Indonesia Sarcastic | 9,881 | 1,411 | 2,824 | 14,116 |
 | Twitter Indonesia Sarcastic | 1,878 | 268 | 538 | 2,684 |
 
-Source: [HuggingFace](https://huggingface.co/collections/w11wo/indonesian-sarcasm-detection-65840069489f3b53a0452c04)
+Dataset berasal dari koleksi HuggingFace IdSarcasm. Kedua dataset memiliki proporsi kelas 25% sarkastik dan 75% non-sarkastik pada setiap split.
 
-**Catatan:** Twitter dataset di paper disebut 12,861, itu adalah total *cleaned unbalanced*. Yang di-publish ke HuggingFace adalah versi *balanced* (1:3 ratio sarcastic:non-sarcastic) = 2,684 total. Paper experiments menggunakan balanced version.
+## Eksperimen
 
-## Reproduction Scope
-
-### Primary (wajib)
-- Classical ML: Logistic Regression, Naive Bayes, SVM
-- Feature: BoW (CountVectorizer) + TF-IDF
-- Tokenizer: NLTK word_tokenize
-- Hyperparameter tuning: GridSearchCV dengan PredefinedSplit
-- Eval: F1-score (primary), accuracy, precision, recall
-
-### Secondary
-- Classical ML pada Reddit dataset
-
-### Stretch / Progress 3
-- Fine-tune baseline transformer paper-complete pada Twitter dan Reddit: 6 model × 2 dataset = 12 run.
-
-### Progress 4
-- Zero-shot LLM baseline menggunakan HuggingFace/Colab (`hf-logprobs`) atau LM Studio lokal sebagai OpenAI-compatible inference server.
-- Setiap run menyimpan metrics, predictions, result row, log, dan runtime (`runtime_seconds`, `avg_latency_seconds`).
-
-## Methodology (Classical ML)
-
-1. Load dataset dari HuggingFace
-2. Tokenisasi dengan NLTK word_tokenize
-3. Vectorisasi dengan BoW dan TF-IDF
-4. GridSearchCV untuk hyperparameter tuning:
-   - LR: C = [0.01, 0.1, 1, 10, 100]
-   - SVM: C = [0.01, 0.1, 1, 10, 100], kernel = [rbf, linear]
-   - NB: alpha = np.linspace(0.001, 1, 50)
-5. PredefinedSplit: train+val digabung, val sebagai holdout
-6. Best params dipilih berdasarkan validation
-7. Evaluasi final di test set
-
-## Progress
-
-> Revisi struktur: Progress 2 lama (dataset + EDA) dan Progress 3 lama (classical ML baseline) sekarang digabung menjadi Progress 2 baru. Saat ini baseline classical ML sudah berhasil dijalankan, dan source snapshot repo asli sudah disimpan untuk fase berikutnya.
-
-| # | Progress | Status | Detail |
-|---|----------|--------|--------|
-| 1 | Topik, Paper, dan Target Reproduksi | ✅ | Paper final, repo setup, scope reproduksi ditetapkan |
-| 2 | Dataset, EDA, dan Baseline Classical ML | ✅ | EDA + baseline Twitter/Reddit sudah jalan, hasil tabel tersimpan |
-| 3 | Reproduksi Transformer Baseline dan Benchmark Lanjutan | ✅ | Paper baseline complete fine-tuned transformer selesai: 12/12 run pada Twitter + Reddit, hasil/log tersimpan |
-| 4 | Zero-shot LLM Baseline | ✅ | Twitter selesai 9/9; Reddit selesai 5/9; 4 run Reddit tercatat sebagai runtime/session limitation |
-| 5 | Optimasi dan Eksperimen Lanjutan | ✅ | XLM-R Large threshold tuning selesai: Twitter F1 0,7226 → 0,7649; Reddit 0,6117 → 0,6241. Modern local LLM selesai untuk Qwen3.5-4B dan Gemma 4 E4B pada Twitter. |
-| 6 | Analisis Komparatif dan Finalisasi Laporan | ⬜ | Komparasi penuh, error analysis, README, laporan akhir, dan kesimpulan |
-
-Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.md`, `docs/progress-3.md`, `docs/progress-4.md`, `docs/progress-5.md`, dan `source-code/README.md`. Untuk melihat workflow transformer baseline Progress 3, gunakan `notebooks/02_transformer_baseline_colab.ipynb` atau ikuti `docs/progress-3-paper-baseline-complete-plan.md`. Untuk Progress 5, gunakan `notebooks/04_progress5_optimization_and_modern_llm.ipynb` dan `docs/progress-5-run-guide.md`.
+| Tahap | Isi | Status |
+|---|---|---|
+| Classical ML | Logistic Regression, Naive Bayes, SVM + BoW/TF-IDF | selesai |
+| Transformer baseline | IndoBERT, mBERT, XLM-R pada Twitter dan Reddit | selesai |
+| Zero-shot LLM | BLOOMZ dan mT0 sesuai paper | selesai sebagian penuh: Twitter 9/9, Reddit 5/9 |
+| Optimasi transformer | Threshold tuning XLM-R Large + screening XLM-R Base | selesai |
+| Modern local LLM | Qwen3.5-4B dan Gemma 4 E4B via LM Studio | selesai pada Twitter |
+| Final analysis | Perbandingan akhir, figure final, laporan akhir | selesai |
 
 ## Quick Start
 
@@ -110,59 +72,41 @@ Detail dokumentasi saat ini tersedia di `docs/progress-1.md`, `docs/progress-2.m
 git clone https://github.com/feb027/idsarcasm-reproduction.git
 cd idsarcasm-reproduction
 python -m venv .venv
-# Windows PowerShell:
-.venv\Scripts\activate
-# Linux / WSL / Colab-like shell:
-source .venv/bin/activate
+source .venv/bin/activate      # Linux/WSL
+# .venv\Scripts\activate      # Windows PowerShell
 pip install -r requirements.txt
-python scripts/download_data.py     # Download dataset
-jupyter notebook                    # Buka notebook
+python scripts/download_data.py
 ```
 
-Untuk menjalankan Progress 2 di PC lokal / WSL2, ikuti panduan:
-- `docs/progress-2-local-run-guide.md`
-- script utama baseline: `scripts/run_classical_baselines.py`
 
-Untuk Progress 3 transformer baseline yang sudah selesai:
-- notebook Colab: `notebooks/02_transformer_baseline_colab.ipynb`
-- panduan detail: `docs/progress-3-paper-baseline-complete-plan.md`
-- script utama: `scripts/run_transformer_baseline.py`
-- hasil utama: `results/tables/transformer_baselines.csv`
-- scope selesai: 6 model transformer × 2 dataset = 12 run
+Catatan environment: baseline classical ML dapat dijalankan lokal, transformer membutuhkan Colab/GPU, sedangkan eksperimen local LLM membutuhkan LM Studio atau endpoint OpenAI-compatible lokal. Detail lengkap ada di [`docs/reproducibility.md`](docs/reproducibility.md).
 
-Untuk Progress 4 zero-shot LLM baseline yang sudah dicoba:
-- script utama: `scripts/run_zeroshot_baseline.py`
-- notebook Colab/LM Studio: `notebooks/03_zeroshot_baseline_colab_or_lmstudio.ipynb`
-- panduan: `docs/progress-4-zero-shot-run-guide.md`
-- rencana/detail + hasil: `docs/progress-4.md`
-- hasil utama: `results/tables/zeroshot_baselines.csv`
-- visualisasi laporan: `results/figures/zeroshot_*.png`
-- status: Twitter 9/9 selesai; Reddit 5/9 selesai; 4 run Reddit sudah dicoba tetapi runtime/session habis
-- cetak semua command paper-complete jika ingin rerun:
-  ```bash
-  python scripts/run_zeroshot_baseline.py --print-paper-commands
-  ```
-- smoke test aman:
-  ```bash
-  python scripts/run_zeroshot_baseline.py --dataset twitter --model mt0-small --backend hf-logprobs --max-samples 8 --dtype float16 --device-map auto --disable-tqdm --write-log
-  ```
+Generate ulang tabel/figure final dari hasil yang sudah ada:
 
-Untuk Progress 5 optimasi dan eksperimen lanjutan:
-- script optimasi transformer: `scripts/run_transformer_optimization.py`
-- script modern LLM lokal/LM Studio: `scripts/run_modern_llm_experiments.py`
-- notebook Colab/local guide: `notebooks/04_progress5_optimization_and_modern_llm.ipynb`
-- panduan detail: `docs/progress-5-run-guide.md`
-- plan progress: `docs/progress-5.md`
-- cetak command optimasi transformer:
-  ```bash
-  python scripts/run_transformer_optimization.py --print-progress5-commands
-  ```
-- cetak contoh command LM Studio:
-  ```bash
-  python scripts/run_modern_llm_experiments.py --print-lmstudio-commands
-  ```
+```bash
+python scripts/generate_progress5_analysis.py
+python scripts/generate_final_analysis.py
+```
 
-## Reference
+Jalankan test:
+
+```bash
+python -m pytest tests/ -q
+```
+
+## Output Utama
+
+```text
+results/tables/classical_baselines_*.csv
+results/tables/transformer_baselines.csv
+results/tables/zeroshot_baselines.csv
+results/tables/optimization_runs.csv
+results/tables/modern_llm_experiments.csv
+results/tables/final_method_comparison.csv
+results/figures/final_*.png
+```
+
+## Citation
 
 ```bibtex
 @article{10565877,

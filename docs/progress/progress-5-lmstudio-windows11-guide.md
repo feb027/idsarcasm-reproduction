@@ -359,9 +359,9 @@ Kalau gagal, balik ke Windows PowerShell. Itu jalur utama.
 
 ---
 
-## 14. Kapan balik ke agent
+## 14. Kapan hasil perlu dicek
 
-Balik ke agent setelah:
+Setelah run selesai:
 
 1. satu full Twitter zero-shot/few-shot selesai, atau
 2. `invalid_outputs` masih tinggi setelah strict few-shot, atau

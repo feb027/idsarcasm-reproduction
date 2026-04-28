@@ -138,8 +138,8 @@ Interpretasi utama:
 ```text
 scripts/run_zeroshot_baseline.py
 notebooks/03_zeroshot_baseline_colab_or_lmstudio.ipynb
-docs/progress-4.md
-docs/progress-4-zero-shot-run-guide.md
+docs/progress/progress-4.md
+docs/progress/progress-4-zero-shot-run-guide.md
 results/tables/zeroshot_baselines.csv        # dibuat setelah full run
 results/tables/zeroshot_smoke.csv            # dibuat otomatis untuk --max-samples
 results/zeroshot/{dataset}-{backend}-{model}/metrics.json

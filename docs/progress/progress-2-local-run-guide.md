@@ -145,10 +145,10 @@ Minimal simpan ini:
 - `results/tables/classical_baselines_twitter.csv`
 - `results/tables/classical_baselines_reddit.csv`
 - file `*_best_params.json` yang relevan
-- update `docs/progress-2.md` dengan hasil real run
+- update `docs/progress/progress-2.md` dengan hasil real run
 
 Kalau nanti mau rapih, kita bisa bikin 1 file ringkasan lagi, misalnya:
-- `docs/progress-2-results.md`
+- `docs/progress/progress-2-results.md`
 
 ## Step 10 — troubleshooting cepat
 
@@ -189,7 +189,7 @@ pip list | grep -E "datasets|scikit-learn|nltk|pandas|numpy"
 Urutan paling pas setelah kamu selesai run lokal:
 1. kirim hasil CSV / angka F1 ke gue,
 2. gue bantu baca gap vs paper,
-3. gue update `docs/progress-2.md`,
+3. gue update `docs/progress/progress-2.md`,
 4. lalu kita putuskan lanjut ke:
    - Progress 3 transformer baseline, atau
    - perapihan hasil classical dulu.

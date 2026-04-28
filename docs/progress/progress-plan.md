@@ -16,8 +16,8 @@ Status saat ini:
 - Progress 2: ✅ selesai (EDA + baseline classical Twitter/Reddit sudah jalan dan hasil tabel tersimpan)
 - Progress 3: ✅ selesai (12/12 baseline fine-tuned transformer paper pada Twitter + Reddit sudah dijalankan dan hasil/log tersimpan)
 - Progress 4: ✅ selesai sebagai complete attempt (Twitter 9/9 selesai; Reddit 5/9 selesai; 4 run Reddit dicoba tetapi runtime/session Colab habis dan log tersimpan)
-- Progress 5: ⬜ optimasi dan eksperimen lanjutan
-- Progress 6: ⬜ analisis komparatif, error analysis, dan finalisasi laporan
+- Progress 5: ✅ optimasi dan eksperimen lanjutan selesai
+- Progress 6: ✅ analisis komparatif, finalisasi laporan, dan perapian repository selesai
 
 ---
 
@@ -39,8 +39,8 @@ Menetapkan paper utama, memahami kontribusi paper, menentukan scope reproduksi y
 ### Output
 - Repo proyek siap pakai
 - `docs/paper-summary.md`
-- `docs/progress-1.md`
-- `docs/progress-plan.md`
+- `docs/progress/progress-1.md`
+- `docs/progress/progress-plan.md`
 - `source-code/original-id-sarcasm/` — snapshot repo asli paper untuk referensi dan adaptasi fase berikutnya
 
 ### Gate kelulusan progress
@@ -102,7 +102,7 @@ Menggabungkan pekerjaan persiapan eksperimen dan eksekusi baseline classical ML 
 - figure EDA di `results/figures/`
 - script atau notebook baseline classical ML
 - tabel hasil awal reproduksi di `results/tables/`
-- dokumentasi lengkap Progress 2 di `docs/progress-2.md`
+- dokumentasi lengkap Progress 2 di `docs/progress/progress-2.md`
 
 ### Gate kelulusan progress
 Progress 2 baru dianggap benar-benar selesai jika:
@@ -130,8 +130,8 @@ Menaikkan proyek dari level baseline classical ML ke level fine-tuned transforme
 
 ### Output
 - Script/notebook fine-tuning transformer: `scripts/run_transformer_baseline.py` dan `notebooks/02_transformer_baseline_colab.ipynb`
-- Panduan eksekusi Colab: `docs/progress-3-local-run-guide.md`
-- Plan complete baseline: `docs/progress-3-paper-baseline-complete-plan.md`
+- Panduan eksekusi Colab: `docs/progress/progress-3-local-run-guide.md`
+- Plan complete baseline: `docs/progress/progress-3-paper-baseline-complete-plan.md`
 - Tabel hasil baseline transformer: `results/tables/transformer_baselines.csv`
 - Artifact per run: `results/transformer/*/metrics.json` dan `results/transformer/*/result_row.json`
 - Log Colab: `results/logs/progress-3-*.log`
@@ -168,12 +168,12 @@ Menguji baseline zero-shot LLM sebagaimana kategori ketiga pada paper IdSarcasm.
 ### Output
 - `scripts/run_zeroshot_baseline.py`
 - `notebooks/03_zeroshot_baseline_colab_or_lmstudio.ipynb`
-- `docs/progress-4-zero-shot-run-guide.md`
+- `docs/progress/progress-4-zero-shot-run-guide.md`
 - `results/tables/zeroshot_baselines.csv`
 - `results/tables/zeroshot_smoke.csv`
 - `results/zeroshot/.../predictions.csv` dan `metrics.json`
 - `results/logs/progress-4-zeroshot-*.log`
-- Dokumentasi Progress 4 di `docs/progress-4.md`
+- Dokumentasi Progress 4 di `docs/progress/progress-4.md`
 
 ### Gate kelulusan progress
 Progress 4 dianggap selesai sebagai **complete attempt** jika semua kombinasi zero-shot paper sudah dicoba satu per satu sesuai resource, run yang berhasil punya artefak hasil, run yang gagal punya log/error, prompt/parsing terdokumentasi, dan hasil dibandingkan dengan angka zero-shot paper. Status saat ini memenuhi gate tersebut: Twitter selesai 9/9, Reddit selesai 5/9, dan 4 run Reddit yang tidak selesai memiliki log runtime/session limitation.
@@ -206,8 +206,8 @@ Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar 
 - `scripts/run_transformer_optimization.py`
 - `scripts/run_modern_llm_experiments.py`
 - `notebooks/04_progress5_optimization_and_modern_llm.ipynb`
-- `docs/progress-5.md`
-- `docs/progress-5-run-guide.md`
+- `docs/progress/progress-5.md`
+- `docs/progress/progress-5-run-guide.md`
 - `results/tables/optimization_runs.csv`
 - `results/tables/modern_llm_experiments.csv`
 - `results/optimization/*/predictions.csv`
@@ -216,11 +216,11 @@ Melakukan optimasi yang benar-benar sesuai dengan framing proyek: bukan sekadar 
 - Contoh error analysis
 
 ### Gate kelulusan progress
-Progress 5 dianggap cukup jika minimal ada satu run XLM-R Large dengan threshold tuning, beberapa screening run XLM-R Base, pembanding baseline-vs-optimized yang eksplisit, dan error analysis. Eksperimen Gemma/Qwen/Cendol menjadi nilai tambah, tetapi tidak menggantikan optimasi transformer utama.
+Progress 5 selesai: XLM-R Large threshold tuning, screening XLM-R Base, error analysis, dan eksperimen Qwen/Gemma local LLM sudah masuk laporan.
 
 ---
 
-## Progress 6: Analisis Komparatif dan Finalisasi Laporan ⬜
+## Progress 6: Analisis Komparatif dan Finalisasi Laporan ✅
 
 ### Tujuan
 Menyusun analisis matang terhadap seluruh rangkaian hasil dan menutup proyek dalam bentuk laporan/repo yang rapi, dapat diperiksa, dan siap dipresentasikan.
@@ -275,3 +275,9 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 | 4 | zero-shot LLM baseline paper-complete (18 command siap; run Colab satu-satu berikutnya) |
 | 5 | optimasi dan eksperimen lanjutan |
 | 6 | analisis komparatif dan finalisasi laporan |
+
+### Hasil akhir Progress 6
+- Laporan akhir diperbarui di `docs/laporan-proyek.md`.
+- Tabel final: `results/tables/final_method_comparison.csv` dan `results/tables/final_method_ranking.csv`.
+- Figure final: `results/figures/final_*.png`.
+- Repository dirapikan: file review sementara dan artifact percobaan dipisahkan dari current tree; progress docs dipindahkan ke `docs/progress/`.

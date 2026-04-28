@@ -247,7 +247,7 @@ Bagian ini merekam struktur eksekusi yang dipakai untuk menutup Progress 2. Lang
 - install dependency minimum: `nltk`, `datasets`, `scikit-learn`, `pandas`, `numpy`
 - download tokenizer NLTK (`punkt`, `punkt_tab`) bila belum ada
 - pastikan dataset bisa dimuat tanpa error
-- ikuti panduan lokal di `docs/progress-2-local-run-guide.md`
+- ikuti panduan lokal di `docs/progress/progress-2-local-run-guide.md`
 
 ### 9.2 Implementasi baseline
 - siapkan script/notebook untuk menjalankan LR, NB, SVM
@@ -274,21 +274,21 @@ Bagian ini merekam struktur eksekusi yang dipakai untuk menutup Progress 2. Lang
 - [x] Dokumentasi ringkasan paper dan EDA
 - [x] Figure EDA tersimpan di `results/figures/`
 - [x] Script baseline local-ready: `scripts/run_classical_baselines.py`
-- [x] Panduan run lokal: `docs/progress-2-local-run-guide.md`
+- [x] Panduan run lokal: `docs/progress/progress-2-local-run-guide.md`
 
 ## 11. Figures Generated
 
 ### Label Distribution
 
-![Label Distribution](../results/figures/label_distribution.png)
+![Label Distribution](../../results/figures/label_distribution.png)
 
 ### Text Length Distribution
 
-![Text Length Distribution](../results/figures/text_length_distribution.png)
+![Text Length Distribution](../../results/figures/text_length_distribution.png)
 
 ### Split Distribution
 
-![Split Distribution](../results/figures/split_distribution.png)
+![Split Distribution](../../results/figures/split_distribution.png)
 
 ---
 
