@@ -13,6 +13,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
 
+import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +50,86 @@ def f(row: dict[str, str], key: str) -> float:
 
 def load_metrics(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def generate_pipeline_architecture() -> None:
+    """Draw the two-lane Progress 5 workflow: transformer optimization and modern local LLM experiments."""
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    fig, ax = plt.subplots(figsize=(13.8, 6.2))
+    ax.set_xlim(0, 13.8)
+    ax.set_ylim(0, 6.2)
+    ax.axis("off")
+
+    ax.text(
+        6.9,
+        5.72,
+        "Arsitektur Pipeline Progress 5: Optimasi XLM-R dan Eksperimen LLM Lokal",
+        ha="center",
+        va="center",
+        fontsize=14,
+        fontweight="bold",
+        color="#0f172a",
+    )
+
+    lanes = [
+        (
+            "Jalur A: Optimasi Transformer XLM-R",
+            3.62,
+            [
+                (0.35, "Model\nTerbaik", "XLM-R Large\nProgress 3", "#dbeafe", "#1d4ed8"),
+                (2.35, "Prediksi\nProbabilitas", "validation + test\npredictions.csv", "#e0f2fe", "#0369a1"),
+                (4.35, "Pencarian\nThreshold", "dipilih dari\nF1 validasi", "#dcfce7", "#15803d"),
+                (6.35, "Evaluasi\nData Uji", "threshold 0,5 vs\nthreshold terpilih", "#fef3c7", "#b45309"),
+                (8.35, "Transisi\nError", "membaik, memburuk,\ntetap salah", "#fee2e2", "#b91c1c"),
+                (10.35, "Artefak\nFinal", "metrik, tabel,\ngambar, analisis", "#ede9fe", "#6d28d9"),
+            ],
+        ),
+        (
+            "Jalur B: Eksperimen Modern Local LLM",
+            1.36,
+            [
+                (0.35, "Twitter\nTest Set", "538 data\nevaluasi ringan", "#f1f5f9", "#475569"),
+                (2.35, "LM Studio\nLocal API", "endpoint localhost\nOpenAI-compatible", "#ffedd5", "#c2410c"),
+                (4.35, "Model\nGGUF", "Qwen3.5-4B +\nGemma 4 E4B", "#fef3c7", "#b45309"),
+                (6.35, "Mode\nPrompting", "zero-shot +\nfew-shot", "#dcfce7", "#15803d"),
+                (8.35, "Parsing\nLabel", "sarcastic vs\nnot sarcastic", "#e0e7ff", "#4338ca"),
+                (10.35, "Pembanding\nPraktis", "dibandingkan dengan\nBLOOMZ/mT0 + XLM-R", "#ede9fe", "#6d28d9"),
+            ],
+        ),
+    ]
+
+    arrow = dict(arrowstyle="->", color="#64748b", lw=1.75, shrinkA=5, shrinkB=5)
+    for lane_title, y, stages in lanes:
+        ax.text(0.38, y + 1.24, lane_title, ha="left", va="center", fontsize=10.2, fontweight="bold", color="#0f172a")
+        for i, (x, title, desc, fc, ec) in enumerate(stages):
+            rect = mpatches.FancyBboxPatch(
+                (x, y),
+                1.55,
+                1.02,
+                boxstyle="round,pad=0.12,rounding_size=0.11",
+                facecolor=fc,
+                edgecolor=ec,
+                linewidth=1.45,
+            )
+            ax.add_patch(rect)
+            ax.text(x + 0.775, y + 0.66, title, ha="center", va="center", fontsize=8.8, fontweight="bold", color=ec)
+            ax.text(x + 0.775, y - 0.27, desc, ha="center", va="center", fontsize=7.8, color="#475569")
+            if i < len(stages) - 1:
+                ax.annotate("", xy=(stages[i + 1][0], y + 0.51), xytext=(x + 1.58, y + 0.51), arrowprops=arrow)
+
+    ax.text(
+        6.9,
+        0.22,
+        "Progress 5 memisahkan optimasi utama transformer dari eksperimen pembanding LLM lokal agar hasilnya tidak dicampur sebagai klaim yang sama.",
+        ha="center",
+        va="center",
+        fontsize=8.4,
+        color="#64748b",
+    )
+    plt.tight_layout()
+    plt.savefig(FIGURES / "progress5_pipeline_architecture.png", dpi=180)
+    plt.close()
+
 
 
 def generate_transformer_summary() -> None:
@@ -245,6 +326,7 @@ def generate_error_analysis() -> None:
 
 
 def main() -> None:
+    generate_pipeline_architecture()
     generate_transformer_summary()
     generate_modern_llm_summary()
     generate_error_analysis()

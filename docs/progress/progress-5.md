@@ -47,6 +47,7 @@ Interpretasi:
 Figure:
 
 ```text
+results/figures/progress5_pipeline_architecture.png
 results/figures/progress5_threshold_tuning_f1.png
 results/figures/progress5_xlmr_base_screening.png
 results/figures/progress5_threshold_error_transitions.png
