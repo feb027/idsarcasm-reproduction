@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IdSarcasm Dashboard</title>
+    <meta
+      name="description"
+      content="Static dashboard for IdSarcasm reproduction results, rankings, paper gaps, and final-run error exploration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dashboard/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="./dashboard/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M3 12h18M12 3v18M6 6l12 12M18 6 6 18" />
+            </svg>
+          </span>
+          <div>
+            <p class="eyebrow">GitHub Pages Static Dashboard</p>
+            <h1>IdSarcasm Reproduction Dashboard</h1>
+          </div>
+        </div>
+        <nav class="top-nav" aria-label="Section navigation">
+          <a href="#comparison">Comparison</a>
+          <a href="#ranking">Ranking</a>
+          <a href="#gap">Paper Gap</a>
+          <a href="#explorer">Error Explorer</a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <section class="hero card">
+          <div class="hero-copy">
+            <p class="eyebrow">Final benchmark snapshot</p>
+            <h2>Transformer optimization closes the paper gap unevenly across datasets.</h2>
+            <p class="hero-text">
+              The dashboard summarizes the final method comparison, dataset-specific ranking,
+              and test-set prediction traces for the selected final Twitter and Reddit runs.
+            </p>
+            <div class="hero-links">
+              <a class="button button-primary" href="./README.md">README</a>
+              <a class="button button-secondary" href="./docs/laporan-proyek.md">Final Report</a>
+              <a class="button button-secondary" href="./docs/reproducibility.md">Reproducibility</a>
+              <a class="button button-secondary" href="https://github.com/feb027/idsarcasm-reproduction">GitHub Repo</a>
+            </div>
+          </div>
+          <dl class="hero-meta" id="hero-meta">
+            <div>
+              <dt>Generated</dt>
+              <dd id="generated-at">Loading</dd>
+            </div>
+            <div>
+              <dt>Frontend</dt>
+              <dd>Plain HTML, CSS, JS</dd>
+            </div>
+            <div>
+              <dt>Charts</dt>
+              <dd>Chart.js</dd>
+            </div>
+            <div>
+              <dt>Explorer Scope</dt>
+              <dd>Final test split rows</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Overview</p>
+            <h2>Key performance indicators</h2>
+          </div>
+          <div class="kpi-grid" id="kpi-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="section chart-section" id="comparison">
+          <div class="section-heading">
+            <p class="eyebrow">Final comparison</p>
+            <h2>Method family performance by dataset</h2>
+            <p>Visible values are shown in-chart and repeated in the supporting legend table.</p>
+          </div>
+          <div class="panel-grid panel-grid-wide">
+            <article class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3>Final comparison chart</h3>
+                  <p>F1 scores across method families and paper reference.</p>
+                </div>
+              </div>
+              <div class="canvas-wrap">
+                <canvas id="comparison-chart" aria-label="Final comparison chart" role="img"></canvas>
+              </div>
+            </article>
+            <article class="card detail-card">
+              <h3>Comparison values</h3>
+              <div id="comparison-detail" class="stack-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section chart-section" id="ranking">
+          <div class="section-heading">
+            <p class="eyebrow">Method ranking</p>
+            <h2>Top-to-bottom leaderboard per dataset</h2>
+          </div>
+          <div class="panel-grid panel-grid-wide">
+            <article class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3>Ranking chart</h3>
+                  <p>Higher bars indicate better F1.</p>
+                </div>
+              </div>
+              <div class="canvas-wrap">
+                <canvas id="ranking-chart" aria-label="Method ranking chart" role="img"></canvas>
+              </div>
+            </article>
+            <article class="card detail-card">
+              <h3>Ranking details</h3>
+              <div id="ranking-detail" class="stack-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="gap">
+          <div class="section-heading">
+            <p class="eyebrow">Paper gap</p>
+            <h2>Distance from the paper-reported best F1</h2>
+          </div>
+          <div class="gap-grid" id="gap-grid"></div>
+        </section>
+
+        <section class="section" id="explorer">
+          <div class="section-heading">
+            <p class="eyebrow">Error explorer</p>
+            <h2>Filterable test-set prediction table</h2>
+            <p>
+              Selected strategy is dataset-specific: Twitter uses the default decision rule and
+              Reddit uses the tuned threshold strategy.
+            </p>
+          </div>
+
+          <article class="card controls-card">
+            <div class="filters-grid">
+              <label>
+                <span>Dataset</span>
+                <select id="dataset-filter"></select>
+              </label>
+              <label>
+                <span>Outcome</span>
+                <select id="outcome-filter">
+                  <option value="all">All rows</option>
+                  <option value="correct">Correct</option>
+                  <option value="error">Error</option>
+                </select>
+              </label>
+              <label>
+                <span>Strategy</span>
+                <select id="strategy-filter">
+                  <option value="selected">Selected</option>
+                  <option value="default">Default</option>
+                  <option value="tuned">Tuned</option>
+                </select>
+              </label>
+              <label>
+                <span>True label</span>
+                <select id="label-filter">
+                  <option value="all">All labels</option>
+                  <option value="sarcastic">Sarcastic</option>
+                  <option value="non-sarcastic">Non-sarcastic</option>
+                </select>
+              </label>
+              <label class="search-field">
+                <span>Search text</span>
+                <input
+                  id="search-filter"
+                  type="search"
+                  placeholder="Search text content"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+            <div class="dataset-summary" id="dataset-summary" aria-live="polite"></div>
+          </article>
+
+          <article class="card table-card">
+            <div class="table-toolbar">
+              <h3>Prediction rows</h3>
+              <p id="table-status">Loading rows</p>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Dataset</th>
+                    <th scope="col">Strategy</th>
+                    <th scope="col">Outcome</th>
+                    <th scope="col">True</th>
+                    <th scope="col">Pred</th>
+                    <th scope="col">P(sarc)</th>
+                    <th scope="col">Threshold</th>
+                    <th scope="col">Text</th>
+                  </tr>
+                </thead>
+                <tbody id="explorer-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Methodological notes</p>
+            <h2>Static delivery choices</h2>
+          </div>
+          <article class="card notes-card">
+            <ul id="notes-list" class="notes-list"></ul>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
