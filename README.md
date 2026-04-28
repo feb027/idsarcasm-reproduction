@@ -1,74 +1,118 @@
 # IdSarcasm Reproduction and Transformer Optimization
 
+[![Dashboard](https://img.shields.io/badge/Dashboard-GitHub%20Pages-2563EB?style=for-the-badge)](https://feb027.github.io/idsarcasm-reproduction/)
+[![Final Report](https://img.shields.io/badge/Report-Laporan%20Proyek-0F172A?style=for-the-badge)](docs/laporan-proyek.md)
+[![Tests](https://img.shields.io/badge/Tests-30%20passed-16A34A?style=for-the-badge)](#verification)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](requirements.txt)
+
 Repository ini berisi reproduksi dan optimasi paper **“IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection”** (Suhartono, Wongso, Handoyo — IEEE Access 2024).
 
 **Judul proyek:** Optimasi Performa Model Transformer dalam Klasifikasi Sarkasme Teks Berbahasa Indonesia Berdasarkan Benchmark IdSarcasm
 
-- Paper DOI: [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955)
-- Original repository: <https://github.com/w11wo/id_sarcasm>
-- Dashboard: [https://feb027.github.io/idsarcasm-reproduction/](https://feb027.github.io/idsarcasm-reproduction/)
-- Final report: [`docs/laporan-proyek.md`](docs/laporan-proyek.md)
-- Reproducibility guide: [`docs/reproducibility.md`](docs/reproducibility.md)
+## Quick Links
 
-## Ringkasan Hasil
+| Halaman | Link |
+|---|---|
+| Dashboard interaktif | <https://feb027.github.io/idsarcasm-reproduction/> |
+| Laporan akhir | [`docs/laporan-proyek.md`](docs/laporan-proyek.md) |
+| Reproducibility guide | [`docs/reproducibility.md`](docs/reproducibility.md) |
+| Paper DOI | [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955) |
+| Original repository | <https://github.com/w11wo/id_sarcasm> |
 
-| Dataset | Metode terbaik | F1 baseline | F1 setelah optimasi | Target paper |
-|---|---|---:|---:|---:|
-| Twitter | XLM-R Large + LR 2e-5 | 0.7226 | 0.7905 | 0.7692 |
-| Reddit | XLM-R Large + threshold tuning | 0.6117 | 0.6241 | 0.6274 |
+## Project Snapshot
+
+| Dataset | Metode terbaik | Baseline F1 | Final F1 | Paper F1 | Status |
+|---|---|---:|---:|---:|---|
+| Twitter | XLM-R Large + LR `2e-5` | 0.7226 | **0.7905** | 0.7692 | **+0.0213 above paper** |
+| Reddit | XLM-R Large + threshold tuning | 0.6117 | **0.6241** | 0.6274 | **-0.0033 near paper** |
 
 Temuan utama:
 
-- XLM-R Large menjadi model terbaik pada Twitter dan Reddit; hasil Twitter setelah tuning learning rate sudah melampaui paper.
-- Optimasi lanjutan XLM-R Large menaikkan F1 Twitter dari `0.7226` ke `0.7905`, sehingga melampaui target paper `0.7692`. Pada Reddit, threshold tuning menaikkan F1 dari `0.6117` ke `0.6241`, masih sedikit di bawah paper `0.6274`.
+- XLM-R Large menjadi model terbaik untuk kedua dataset.
+- Optimasi learning rate pada Twitter berhasil melampaui paper: `0.7905` vs `0.7692`.
+- Reddit membaik lewat threshold tuning: `0.6117` → `0.6241`, tetapi masih sedikit di bawah paper `0.6274`.
 - Classical ML tetap kompetitif pada Twitter, terutama BoW Logistic Regression (`F1 = 0.7206`).
-- Zero-shot LLM sesuai paper berhasil direproduksi dekat dengan target paper, tetapi performanya tetap rendah (`F1 ≈ 0.39–0.40`).
-- Modern local LLM via LM Studio lebih baik dari zero-shot paper pada Twitter, tetapi belum mendekati fine-tuned transformer. Qwen3.5-4B few-shot memperoleh `F1 = 0.4755`.
+- Zero-shot BLOOMZ/mT0 dan local LLM modern belum mendekati fine-tuned transformer.
 
-## Struktur Repository
+## Dashboard Preview
+
+Dashboard statis GitHub Pages membaca artefak hasil final yang sudah dikomit. Tidak ada backend, build step, atau training ulang.
+
+[![Open Dashboard](results/figures/final_method_comparison.png)](https://feb027.github.io/idsarcasm-reproduction/)
+
+Fitur dashboard:
+
+- KPI final Twitter dan Reddit.
+- Chart perbandingan metode dan ranking per dataset.
+- Paper-gap cards agar jelas dataset mana yang melampaui paper.
+- Error explorer untuk melihat contoh prediksi benar/salah pada split test.
+- Filter dataset, outcome, strategy, label, dan search text.
+
+## Repository Map
 
 ```text
-├── data/                 # Dataset lokal, tidak dikomit jika besar
+├── index.html                         # Entry point GitHub Pages dashboard
+├── dashboard/
+│   ├── app.js                         # Logic dashboard + error explorer
+│   ├── styles.css                     # Styling dashboard statis
+│   └── data/dashboard-data.json       # Data dashboard hasil generate
+├── data/                              # Dataset lokal, tidak dikomit jika besar
 ├── docs/
-│   ├── laporan-proyek.md # Laporan akhir
-│   ├── reproducibility.md
-│   ├── paper-summary.md
-│   └── progress/         # Catatan progress dan run guide pendukung
-├── notebooks/            # Notebook EDA, Colab, dan eksperimen
+│   ├── laporan-proyek.md              # Laporan akhir
+│   ├── reproducibility.md             # Panduan menjalankan ulang eksperimen
+│   ├── paper-summary.md               # Ringkasan paper
+│   └── progress/                      # Catatan progress dan run guide
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   ├── 02_transformer_baseline_colab.ipynb
+│   ├── 03_zeroshot_baseline_colab_or_lmstudio.ipynb
+│   └── 04_progress5_optimization_and_modern_llm.ipynb
 ├── results/
-│   ├── figures/          # Figure laporan
-│   ├── tables/           # Tabel hasil utama
-│   ├── transformer/      # Output transformer baseline
-│   ├── zeroshot/         # Output zero-shot LLM
-│   ├── optimization/     # Output optimasi transformer
-│   └── modern_llm/       # Output eksperimen local LLM
-├── scripts/              # Runner eksperimen dan generator analisis
-├── source-code/          # Snapshot repo paper asli sebagai referensi
-└── tests/                # Unit tests untuk runner
+│   ├── figures/                       # Figure untuk laporan dan README
+│   ├── tables/                        # CSV ringkasan hasil utama
+│   ├── transformer/                   # Output transformer baseline
+│   ├── zeroshot/                      # Output zero-shot LLM
+│   ├── optimization/                  # Output optimasi transformer
+│   ├── modern_llm/                    # Output eksperimen local LLM
+│   └── progress5_error_analysis/      # Analisis transisi error
+├── scripts/
+│   ├── run_classical_baselines.py
+│   ├── run_transformer_baseline.py
+│   ├── run_zeroshot_baseline.py
+│   ├── run_transformer_optimization.py
+│   ├── run_modern_llm_experiments.py
+│   ├── generate_final_analysis.py
+│   └── generate_dashboard_data.py
+├── source-code/                       # Snapshot repo paper asli sebagai referensi
+├── tests/                             # Unit tests runner dan utilitas
+└── .nojekyll                          # GitHub Pages: disable Jekyll processing
 ```
 
 ## Dataset
 
-| Dataset | Train | Validation | Test | Total |
-|---|---:|---:|---:|---:|
-| Reddit Indonesia Sarcastic | 9,881 | 1,411 | 2,824 | 14,116 |
-| Twitter Indonesia Sarcastic | 1,878 | 268 | 538 | 2,684 |
+| Dataset | Train | Validation | Test | Total | Rasio label |
+|---|---:|---:|---:|---:|---|
+| Reddit Indonesia Sarcastic | 9,881 | 1,411 | 2,824 | 14,116 | 25% sarcastic / 75% non-sarcastic |
+| Twitter Indonesia Sarcastic | 1,878 | 268 | 538 | 2,684 | 25% sarcastic / 75% non-sarcastic |
 
-Dataset berasal dari koleksi HuggingFace IdSarcasm. Kedua dataset memiliki proporsi kelas 25% sarkastik dan 75% non-sarkastik pada setiap split.
+Dataset berasal dari koleksi HuggingFace IdSarcasm. Proporsi kelas konsisten pada train, validation, dan test.
 
-## Eksperimen
+## Experiment Matrix
 
-| Tahap | Isi | Status |
-|---|---|---|
-| Classical ML | Logistic Regression, Naive Bayes, SVM + BoW/TF-IDF | selesai |
-| Transformer baseline | IndoBERT, mBERT, XLM-R pada Twitter dan Reddit | selesai |
-| Zero-shot LLM | BLOOMZ dan mT0 sesuai paper | selesai sebagian penuh: Twitter 9/9, Reddit 5/9 |
-| Optimasi transformer | Threshold tuning XLM-R Large + screening XLM-R Base | selesai |
-| Modern local LLM | Qwen3.5-4B dan Gemma 4 E4B via LM Studio | selesai pada Twitter |
-| Final analysis | Perbandingan akhir, figure final, laporan akhir | selesai |
-| Static dashboard | GitHub Pages dashboard + error explorer dari hasil final | selesai |
+| Tahap | Isi | Output utama | Status |
+|---|---|---|---|
+| Classical ML | Logistic Regression, Naive Bayes, SVM + BoW/TF-IDF | `results/tables/classical_baselines_*.csv` | selesai |
+| Transformer baseline | IndoBERT, mBERT, XLM-R | `results/tables/transformer_baselines.csv` | selesai |
+| Zero-shot LLM | BLOOMZ dan mT0 sesuai paper | `results/tables/zeroshot_baselines.csv` | Twitter 9/9, Reddit 5/9 selesai |
+| Optimasi transformer | Threshold tuning + LR screening | `results/tables/optimization_runs.csv` | selesai |
+| Modern local LLM | Qwen3.5-4B dan Gemma 4 E4B via LM Studio | `results/tables/modern_llm_experiments.csv` | Twitter selesai |
+| Final analysis | Perbandingan akhir + figure final | `results/tables/final_*.csv`, `results/figures/final_*.png` | selesai |
+| Static dashboard | GitHub Pages + error explorer | `dashboard/data/dashboard-data.json` | live |
 
-## Quick Start
+## Run Locally
+
+<details>
+<summary><strong>1. Setup environment</strong></summary>
 
 ```bash
 git clone https://github.com/feb027/idsarcasm-reproduction.git
@@ -80,10 +124,10 @@ pip install -r requirements.txt
 python scripts/download_data.py
 ```
 
+</details>
 
-Catatan environment: baseline classical ML dapat dijalankan lokal, transformer membutuhkan Colab/GPU, sedangkan eksperimen local LLM membutuhkan LM Studio atau endpoint OpenAI-compatible lokal. Detail lengkap ada di [`docs/reproducibility.md`](docs/reproducibility.md).
-
-Generate ulang tabel/figure final dan data dashboard dari hasil yang sudah ada:
+<details>
+<summary><strong>2. Regenerate final tables, figures, and dashboard data</strong></summary>
 
 ```bash
 python scripts/generate_progress5_analysis.py
@@ -91,24 +135,90 @@ python scripts/generate_final_analysis.py
 python scripts/generate_dashboard_data.py
 ```
 
-Jalankan test:
+Output utama:
+
+```text
+results/tables/progress5_*.csv
+results/tables/final_*.csv
+results/figures/progress5_*.png
+results/figures/final_*.png
+dashboard/data/dashboard-data.json
+```
+
+</details>
+
+<details>
+<summary><strong>3. Preview dashboard locally</strong></summary>
+
+```bash
+python -m http.server 8027
+```
+
+Buka:
+
+```text
+http://127.0.0.1:8027/
+```
+
+Catatan: gunakan local server, bukan `file://`, karena dashboard membaca JSON dengan `fetch()`.
+
+</details>
+
+<details>
+<summary><strong>4. Run tests</strong></summary>
 
 ```bash
 python -m pytest tests/ -q
 ```
 
-## Output Utama
+</details>
+
+## Verification
+
+Status terakhir:
 
 ```text
-results/tables/classical_baselines_*.csv
-results/tables/transformer_baselines.csv
-results/tables/zeroshot_baselines.csv
-results/tables/optimization_runs.csv
-results/tables/modern_llm_experiments.csv
-results/tables/final_method_comparison.csv
-results/figures/final_*.png
-dashboard/data/dashboard-data.json
+30 tests passed
+py_compile OK
+node --check dashboard/app.js OK
+missing_images []
+figs_ok True
+tables_ok True
+orphan_refs []
+missing_refs []
+dashboard_data_ok
+notebooks_json_ok
+GitHub Pages status: built
 ```
+
+Final verification summary:
+
+```text
+SCORE: 96/100
+STATUS: PASS
+Critical fixes: None
+```
+
+## Key Artifacts
+
+| Artefak | Path |
+|---|---|
+| Final comparison table | [`results/tables/final_method_comparison.csv`](results/tables/final_method_comparison.csv) |
+| Final ranking table | [`results/tables/final_method_ranking.csv`](results/tables/final_method_ranking.csv) |
+| Final comparison figure | [`results/figures/final_method_comparison.png`](results/figures/final_method_comparison.png) |
+| Final progress summary | [`results/figures/final_progress_summary.png`](results/figures/final_progress_summary.png) |
+| Twitter final predictions | [`results/optimization/twitter-xlmr-large-lr2e-5-len128/predictions.csv`](results/optimization/twitter-xlmr-large-lr2e-5-len128/predictions.csv) |
+| Reddit final predictions | [`results/optimization/reddit-xlmr-large-threshold/predictions.csv`](results/optimization/reddit-xlmr-large-threshold/predictions.csv) |
+| Dashboard data | [`dashboard/data/dashboard-data.json`](dashboard/data/dashboard-data.json) |
+| Final report | [`docs/laporan-proyek.md`](docs/laporan-proyek.md) |
+| Reproducibility guide | [`docs/reproducibility.md`](docs/reproducibility.md) |
+
+## Notes
+
+- Checkpoint model hasil fine-tuning tidak dikomit karena ukuran file besar.
+- Artefak yang dikomit adalah script, notebook, tabel, figure, log penting, dan prediction CSV untuk analisis.
+- Dashboard adalah visualisasi hasil, bukan eksperimen baru.
+- Reddit modern local LLM belum dijalankan karena inference akan jauh lebih lama dibanding Twitter.
 
 ## Citation
 
