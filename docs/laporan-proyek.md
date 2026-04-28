@@ -121,6 +121,14 @@ Pada Progress 4, arsitektur eksperimen berubah menjadi zero-shot inference. Data
 ![Arsitektur Pipeline Zero-shot LLM](../results/figures/zeroshot_pipeline_architecture.png)
 **Gambar 6.** Arsitektur pipeline zero-shot LLM pada Progress 4 dari dataset, prompt, scoring label, sampai penyimpanan hasil.
 
+Pada Progress 5, arsitektur proyek dipisahkan menjadi dua jalur. Jalur pertama adalah optimasi transformer XLM-R, sedangkan jalur kedua adalah eksperimen LLM lokal modern. Pemisahan ini dibuat agar proses optimasi utama tidak tercampur dengan eksperimen pembanding.
+
+![Arsitektur Progress 5 Jalur A](../results/figures/progress5_pipeline_jalur_a_optimasi_xlmr.png)
+**Gambar 7.** Arsitektur Progress 5 jalur A untuk optimasi transformer XLM-R melalui threshold tuning dan analisis error.
+
+![Arsitektur Progress 5 Jalur B](../results/figures/progress5_pipeline_jalur_b_modern_llm.png)
+**Gambar 8.** Arsitektur Progress 5 jalur B untuk eksperimen LLM lokal modern melalui LM Studio.
+
 ### 3.2 Tahapan
 
 #### 3.2.1 Tahapan Eksperimen Classical ML (Progress 2)
@@ -213,15 +221,12 @@ Tahapan eksperimen dilakukan sebagai berikut:
 | Status eksekusi | Twitter 9/9 selesai, Reddit 5/9 selesai | 4 run Reddit dicatat sebagai keterbatasan durasi sesi |
 
 ![Status Run Zero-shot Progress 4](../results/figures/zeroshot_run_completion_matrix.png)
-**Gambar 7.** Status penyelesaian run zero-shot LLM pada dataset Twitter dan Reddit.
+**Gambar 9.** Status penyelesaian run zero-shot LLM pada dataset Twitter dan Reddit.
 
 
 #### 3.2.4 Tahapan Optimasi dan Eksperimen Modern LLM (Progress 5)
 
-Progress 5 dilaksanakan dalam dua jalur. Jalur pertama adalah optimasi transformer, sedangkan jalur kedua adalah eksperimen LLM lokal modern. Pemisahan dua jalur ini diperlukan supaya hasil optimasi utama tidak tercampur dengan hasil eksperimen pembanding.
-
-![Arsitektur Pipeline Progress 5](../results/figures/progress5_pipeline_architecture.png)
-**Gambar 8.** Arsitektur pipeline Progress 5 yang memisahkan jalur optimasi XLM-R dan eksperimen LLM lokal modern.
+Progress 5 dilaksanakan dalam dua jalur. Jalur pertama adalah optimasi transformer, sedangkan jalur kedua adalah eksperimen LLM lokal modern. Ilustrasi kedua jalur tersebut sudah ditampilkan pada subbab 3.1, sehingga bagian ini berfokus pada tahapan eksekusi eksperimen.
 
 Tahapan optimasi transformer dilakukan sebagai berikut:
 
@@ -272,7 +277,7 @@ Berikut adalah hasil eksperimen baseline classical ML pada dataset Twitter:
 | TF-IDF | SVM | C=10, kernel=rbf | 0,8625 | 0,8125 | 0,5821 | 0,6783 |
 
 ![Perbandingan F1-Score pada Dataset Twitter](../results/figures/f1_twitter_bow_vs_tfidf.png)
-**Gambar 9.** Perbandingan F1-score antar model pada dataset Twitter untuk metode vektorisasi BoW dan TF-IDF.
+**Gambar 10.** Perbandingan F1-score antar model pada dataset Twitter untuk metode vektorisasi BoW dan TF-IDF.
 
 Berikut adalah hasil eksperimen pada dataset Reddit:
 
@@ -288,7 +293,7 @@ Berikut adalah hasil eksperimen pada dataset Reddit:
 | TF-IDF | SVM | C=1, kernel=linear | 0,7886 | 0,6461 | 0,3414 | 0,4467 |
 
 ![Perbandingan F1-Score pada Dataset Reddit](../results/figures/f1_reddit_bow_vs_tfidf.png)
-**Gambar 10.** Perbandingan F1-score antar model pada dataset Reddit untuk metode vektorisasi BoW dan TF-IDF.
+**Gambar 11.** Perbandingan F1-score antar model pada dataset Reddit untuk metode vektorisasi BoW dan TF-IDF.
 
 Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target F1-score yang dilaporkan dalam paper IdSarcasm [5]:
 
@@ -301,7 +306,7 @@ Untuk memvalidasi reproduktibilitas, hasil eksperimen dibandingkan dengan target
 | SVM | 0,6782 | 0,6783 | +0,0001 | 0,4467 | 0,4467 | 0,0000 |
 
 ![Perbandingan F1-Score Reproduksi vs Paper](../results/figures/f1_reproduksi_vs_paper.png)
-**Gambar 11.** Perbandingan F1-score hasil reproduksi dengan target paper pada dataset Twitter dan Reddit menggunakan TF-IDF.
+**Gambar 12.** Perbandingan F1-score hasil reproduksi dengan target paper pada dataset Twitter dan Reddit menggunakan TF-IDF.
 
 Dari tabel perbandingan di atas, terlihat bahwa reproduksi untuk Logistic Regression dan SVM pada dataset Twitter menghasilkan F1-score yang sangat mendekati bahkan identik dengan yang dilaporkan paper. Hal ini menunjukkan bahwa implementasi eksperimen berhasil mereproduksi hasil paper dengan baik untuk kedua model tersebut. Untuk Logistic Regression pada dataset Reddit, hasil reproduksi sedikit di atas target paper (+0,0072), yang kemungkinan disebabkan oleh perbedaan versi pustaka atau seed random yang berbeda saat GridSearchCV.
 
@@ -323,12 +328,12 @@ Progress 3 menghasilkan 12 baseline fine-tuned transformer: enam model pada data
 | XLM-R Large | 0,6274 | 0,6117 | -0,0157 | 0,7692 | 0,7226 | -0,0466 |
 
 ![Perbandingan F1 Transformer Paper vs Reproduksi](../results/figures/transformer_f1_vs_paper.png)
-**Gambar 12.** Perbandingan F1-score baseline transformer antara paper dan hasil reproduksi Progress 3.
+**Gambar 13.** Perbandingan F1-score baseline transformer antara paper dan hasil reproduksi Progress 3.
 
 Berdasarkan hasil tersebut, model terbaik pada kedua dataset adalah XLM-R Large. Pada Reddit, XLM-R Large memperoleh F1-score 0,6117, sedangkan target paper adalah 0,6274. Selisihnya -0,0157, jadi masih cukup dekat. Pada Twitter, XLM-R Large memperoleh F1-score 0,7226, lebih rendah dari paper 0,7692 dengan selisih -0,0466. Walaupun belum menyamai paper, urutan model terbaik tetap masuk akal karena XLM-R Large juga menjadi model terbaik pada paper IdSarcasm [5].
 
 ![Heatmap Selisih F1 Transformer](../results/figures/transformer_gap_heatmap.png)
-**Gambar 13.** Heatmap selisih F1-score hasil reproduksi terhadap paper untuk setiap model dan dataset.
+**Gambar 14.** Heatmap selisih F1-score hasil reproduksi terhadap paper untuk setiap model dan dataset.
 
 Ada beberapa pola yang menarik. Pada Reddit, gap reproduksi cenderung kecil. IndoBERT Base, IndoBERT Large, dan IndoLEM Base memang masih di bawah paper, tetapi XLM-R Base dan mBERT justru sedikit di atas paper. Hasil ini mengindikasikan bahwa pipeline reproduksi yang digunakan sudah menghasilkan performa yang relatif dekat dengan paper pada beberapa model. Pada Twitter, hasilnya lebih campuran. mBERT dan IndoLEM Base berada di atas paper, tetapi IndoBERT Base, IndoBERT Large, XLM-R Base, dan XLM-R Large masih di bawah paper.
 
@@ -344,14 +349,14 @@ Jika dibandingkan dengan baseline classical ML terbaik, peningkatan transformer 
 | Twitter | BoW Logistic Regression | 0,7206 | XLM-R Large | 0,7226 | +0,0020 |
 
 ![Best Classical ML vs Transformer](../results/figures/best_classical_vs_transformer.png)
-**Gambar 14.** Perbandingan model terbaik classical ML dan model terbaik transformer pada masing-masing dataset.
+**Gambar 15.** Perbandingan model terbaik classical ML dan model terbaik transformer pada masing-masing dataset.
 
 Hasil ini penting untuk interpretasi proyek. Transformer memang unggul, tetapi tidak selalu dengan margin besar. Temuan ini mengindikasikan bahwa transformer berpotensi lebih membantu pada teks Reddit yang relatif lebih panjang dan lebih kontekstual, meskipun dugaan ini masih perlu dikonfirmasi melalui analisis error yang lebih rinci. Model berbasis representasi kontekstual seperti XLM-R dapat menangkap pola yang tidak mudah ditangkap oleh TF-IDF. Pada Twitter, teks lebih pendek dan beberapa pola sarkasme kemungkinan dapat tertangkap oleh kata atau frasa tertentu, sehingga Logistic Regression dengan BoW mendekati performa XLM-R Large.
 
-Untuk melihat karakter model terbaik, metrik XLM-R Large ditampilkan pada Gambar 15. Pada Twitter, recall XLM-R Large mencapai 0,8358, lebih tinggi dari precision 0,6364. Artinya, model cukup agresif menangkap kelas sarkastik, tetapi sebagian prediksi sarkastik masih salah. Pada Reddit, precision dan recall XLM-R Large lebih seimbang, yaitu 0,6188 dan 0,6048. Ini menunjukkan performa Reddit lebih merata, meskipun F1 keseluruhannya masih lebih rendah daripada Twitter.
+Untuk melihat karakter model terbaik, metrik XLM-R Large ditampilkan pada Gambar 16. Pada Twitter, recall XLM-R Large mencapai 0,8358, lebih tinggi dari precision 0,6364. Artinya, model cukup agresif menangkap kelas sarkastik, tetapi sebagian prediksi sarkastik masih salah. Pada Reddit, precision dan recall XLM-R Large lebih seimbang, yaitu 0,6188 dan 0,6048. Ini menunjukkan performa Reddit lebih merata, meskipun F1 keseluruhannya masih lebih rendah daripada Twitter.
 
 ![Metrik XLM-R Large](../results/figures/xlmr_large_metrics.png)
-**Gambar 15.** Accuracy, precision, recall, dan F1-score XLM-R Large pada dataset Reddit dan Twitter.
+**Gambar 16.** Accuracy, precision, recall, dan F1-score XLM-R Large pada dataset Reddit dan Twitter.
 
 Keterbatasan Progress 3 tetap perlu dicatat. Pertama, setiap model dijalankan dengan satu seed utama, yaitu seed 42, sehingga laporan ini belum mengukur variasi hasil antar seed. Kedua, analisis error belum dilakukan, jadi penjelasan tentang kenapa model tertentu lebih unggul masih berupa interpretasi awal dari metrik, bukan kesimpulan final. Ketiga, beberapa checkpoint lama menampilkan warning kompatibilitas saat dijalankan dengan versi Transformers yang lebih baru. Keempat, checkpoint model tidak disimpan di repo karena ukurannya besar, sehingga verifikasi difokuskan pada script, notebook, log, dan file metrik.
 
@@ -378,19 +383,19 @@ Empat run Reddit yang terputus tidak dimasukkan ke tabel hasil akhir dan tidak d
 | mT0 XL | 0,3988 | 0,3988 | 0,0000 | 0,4001 | sesi terputus | - |
 
 ![Perbandingan F1 Zero-shot Paper vs Reproduksi](../results/figures/zeroshot_f1_vs_paper.png)
-**Gambar 16.** Perbandingan F1-score zero-shot LLM antara paper dan hasil Progress 4.
+**Gambar 17.** Perbandingan F1-score zero-shot LLM antara paper dan hasil Progress 4.
 
 Dari hasil tersebut, bagian Twitter sangat mendekati hasil paper. Semua selisih F1 berada di sekitar -0,0017 sampai +0,0011. Artinya, implementasi zero-shot yang dipakai kemungkinan sudah cukup dekat dengan metode paper untuk dataset Twitter. Pada Reddit, lima model yang selesai juga sangat dekat dengan paper. BLOOMZ-560M, BLOOMZ-1.1B, BLOOMZ-1.7B, BLOOMZ-3B, dan mT0 Small semuanya memiliki selisih yang sangat kecil. Empat model Reddit yang belum selesai tidak diisi dengan angka perkiraan karena tidak ada evaluasi final yang valid.
 
 Namun, hasil zero-shot ini perlu dibaca hati-hati. F1 sekitar 0,39-0,40 bukan berarti model benar-benar memahami sarkasme dengan baik. Pada banyak run, recall sangat tinggi tetapi precision rendah. Contohnya, mT0 Small pada Twitter dan Reddit memiliki recall 1,0000, tetapi precision hanya sekitar 0,249-0,250. Pola ini berarti model sering memilih label sarkastik. Karena kelas sarkastik hanya 25% dari data, strategi yang terlalu sering memprediksi sarkastik dapat menghasilkan recall tinggi dan F1 sekitar 0,40, tetapi accuracy tetap rendah.
 
 ![Profil Metrik Zero-shot](../results/figures/zeroshot_metrics_profile.png)
-**Gambar 17.** Profil accuracy, precision, recall, dan F1 pada beberapa model zero-shot yang mewakili hasil Progress 4.
+**Gambar 18.** Profil accuracy, precision, recall, dan F1 pada beberapa model zero-shot yang mewakili hasil Progress 4.
 
 Dari sisi waktu eksekusi, Twitter jauh lebih ringan dibanding Reddit. Eksekusi Twitter tercepat selesai sekitar 3 menit, sedangkan BLOOMZ-7.1B Twitter membutuhkan sekitar 27,9 menit. Untuk Reddit, eksekusi yang selesai membutuhkan sekitar 14-21 menit per model. Pada kondisi Colab yang digunakan, run Reddit yang lebih berat lebih rentan terputus karena keterbatasan durasi sesi, proses loading model, atau offloading ke CPU.
 
 ![Runtime Zero-shot](../results/figures/zeroshot_runtime_minutes.png)
-**Gambar 18.** Runtime eksekusi penuh zero-shot yang berhasil selesai pada Progress 4.
+**Gambar 19.** Runtime eksekusi penuh zero-shot yang berhasil selesai pada Progress 4.
 
 Kesimpulan Progress 4 sementara adalah hasil zero-shot LLM sangat mendekati paper untuk semua run Twitter dan lima run Reddit yang selesai. Akan tetapi, performanya masih jauh di bawah fine-tuned transformer. Pada reproduksi ini, model besar tanpa fine-tuning belum cukup kuat untuk deteksi sarkasme bahasa Indonesia, sejalan dengan temuan paper IdSarcasm [5].
 
@@ -426,7 +431,7 @@ Setelah hasil Progress 5 selesai, dilakukan satu run optimasi lanjutan yang lebi
 | Reddit | 0,26 | 0,6117 | 0,6241 | +0,0124 | 0,5596 | 0,7054 |
 
 ![Hasil Threshold Tuning XLM-R Large](../results/figures/progress5_threshold_tuning_f1.png)
-**Gambar 19.** Perbandingan F1-score XLM-R Large sebelum dan sesudah threshold tuning pada dataset Twitter dan Reddit.
+**Gambar 20.** Perbandingan F1-score XLM-R Large sebelum dan sesudah threshold tuning pada dataset Twitter dan Reddit.
 
 **Tabel 12.** Optimasi Lanjutan XLM-R Large pada Twitter
 
@@ -447,7 +452,7 @@ Hasil screening XLM-R Base pada Twitter memperlihatkan bahwa tidak semua perubah
 | label smoothing=0,05 | 0,7260 | 0,6877 | -0,0383 | 0,67 |
 
 ![Screening Hyperparameter XLM-R Base](../results/figures/progress5_xlmr_base_screening.png)
-**Gambar 20.** Hasil screening hyperparameter XLM-R Base berdasarkan F1-score setelah threshold tuning.
+**Gambar 21.** Hasil screening hyperparameter XLM-R Base berdasarkan F1-score setelah threshold tuning.
 
 Analisis transisi error memperjelas dampak threshold tuning. Pada Twitter, terdapat 22 contoh test yang sebelumnya salah dan menjadi benar setelah threshold tuning, sedangkan hanya 3 contoh yang sebelumnya benar menjadi salah. Ini menjelaskan kenapa F1 Twitter naik cukup besar. Pada Reddit, terdapat 71 contoh yang membaik, tetapi 129 contoh justru memburuk. Walaupun demikian, pergeseran precision dan recall secara keseluruhan tetap memberi kenaikan F1 kecil pada Reddit. Dengan kata lain, threshold tuning lebih efektif pada Twitter daripada Reddit.
 
@@ -459,7 +464,7 @@ Analisis transisi error memperjelas dampak threshold tuning. Pada Twitter, terda
 | Reddit | 71 | 129 | 2153 | 471 |
 
 ![Transisi Error Threshold Tuning](../results/figures/progress5_threshold_error_transitions.png)
-**Gambar 21.** Jumlah contoh test yang membaik, memburuk, atau tetap salah setelah threshold tuning.
+**Gambar 22.** Jumlah contoh test yang membaik, memburuk, atau tetap salah setelah threshold tuning.
 
 Untuk eksperimen LLM lokal modern, empat run penuh Twitter berhasil diselesaikan: Qwen3.5-4B zero-shot, Qwen3.5-4B few-shot, Gemma 4 E4B zero-shot, dan Gemma 4 E4B few-shot. Seluruh run memiliki `invalid_outputs=0`, sehingga hasilnya valid untuk dibandingkan. Qwen3.5-4B few-shot menjadi yang terbaik di kelompok modern LLM lokal dengan F1 0,4755. Qwen3.5-4B zero-shot sedikit lebih rendah, yaitu 0,4665. Gemma 4 E4B memperoleh F1 0,4400 pada zero-shot dan 0,4580 pada few-shot.
 
@@ -473,14 +478,14 @@ Untuk eksperimen LLM lokal modern, empat run penuh Twitter berhasil diselesaikan
 | Gemma 4 E4B | Few-shot | 0,4721 | 0,3077 | 0,8955 | 0,4580 | 0 |
 
 ![Perbandingan Modern Local LLM](../results/figures/progress5_modern_llm_f1_comparison.png)
-**Gambar 22.** Perbandingan F1-score LLM lokal modern dengan baseline zero-shot terbaik dan XLM-R Large hasil optimasi.
+**Gambar 23.** Perbandingan F1-score LLM lokal modern dengan baseline zero-shot terbaik dan XLM-R Large hasil optimasi.
 
 Dari hasil ini, modern LLM lokal memang lebih baik daripada zero-shot BLOOMZ/mT0 Progress 4 pada Twitter yang berada di sekitar F1 0,3989. Namun, jaraknya masih jauh dari XLM-R Large hasil optimasi lanjutan yang mencapai F1 0,7905 pada Twitter. Hal ini memperkuat kesimpulan utama proyek bahwa, pada eksperimen ini, model yang dilatih atau dioptimasi pada dataset target masih lebih kuat daripada LLM yang hanya diberi prompt untuk deteksi sarkasme Indonesia.
 
 Pola precision dan recall juga menarik. Gemma 4 E4B memiliki recall sangat tinggi, terutama zero-shot dengan recall 0,9851, tetapi precision rendah 0,2833. Artinya, model sangat sering memilih label sarkastik. Qwen3.5-4B lebih seimbang, terutama few-shot dengan precision 0,4809 dan recall 0,4701. Meskipun F1 Qwen belum tinggi, perilakunya lebih stabil dibanding Gemma yang terlalu agresif memprediksi sarkasme.
 
 ![Precision dan Recall Modern Local LLM](../results/figures/progress5_modern_llm_precision_recall.png)
-**Gambar 23.** Perbandingan precision dan recall LLM lokal modern pada dataset Twitter.
+**Gambar 24.** Perbandingan precision dan recall LLM lokal modern pada dataset Twitter.
 
 Secara keseluruhan, Progress 5 dan optimasi lanjutan memberi jawaban yang cukup kuat terhadap tujuan optimasi proyek. Threshold tuning memperbaiki XLM-R Large pada Twitter dan Reddit, lalu run lanjutan learning rate 2e-5 membuat hasil Twitter naik sampai 0,7905. Modern LLM lokal berguna sebagai pembanding praktis, namun belum mendekati performa fine-tuned transformer. Dengan demikian, arah final proyek menekankan bahwa optimasi kecil pada transformer yang sudah dilatih lebih efektif daripada hanya mengganti ke model generatif baru tanpa fine-tuning.
 
@@ -502,20 +507,20 @@ Perbandingan akhir menunjukkan bahwa model terbaik pada kedua dataset tetap XLM-
 | Reddit | TF-IDF Logistic Regression | 0,4959 | XLM-R Large | 0,6117 | XLM-R Large + threshold | 0,6241 | mT0 Small | 0,4000 | tidak dijalankan | - |
 
 ![Perbandingan Akhir Metode](../results/figures/final_method_comparison.png)
-**Gambar 24.** Perbandingan F1-score akhir antar kelompok metode pada dataset Twitter dan Reddit.
+**Gambar 25.** Perbandingan F1-score akhir antar kelompok metode pada dataset Twitter dan Reddit.
 
 Pada Twitter, classical ML ternyata sangat kompetitif. BoW Logistic Regression mencapai F1 0,7206, hanya sedikit di bawah baseline XLM-R Large 0,7226. Setelah optimasi, XLM-R Large learning rate 2e-5 naik menjadi 0,7905. Ini berarti optimasi tidak hanya memperjelas jarak dengan baseline klasik, tetapi juga membuat hasil reproduksi melampaui skor terbaik paper pada dataset Twitter.
 
 Pada Reddit, jarak antar metode lebih terlihat sejak awal. Classical terbaik hanya mencapai F1 0,4959, sedangkan XLM-R Large baseline sudah 0,6117 dan setelah tuning menjadi 0,6241. Pola ini mengindikasikan bahwa representasi kontekstual dari transformer lebih membantu pada Reddit, yang teksnya lebih panjang dan variasinya lebih besar dibanding Twitter.
 
 ![Ranking Metode Twitter](../results/figures/final_twitter_method_ranking.png)
-**Gambar 25.** Ranking akhir metode pada dataset Twitter berdasarkan F1-score.
+**Gambar 26.** Ranking akhir metode pada dataset Twitter berdasarkan F1-score.
 
 ![Ranking Metode Reddit](../results/figures/final_reddit_method_ranking.png)
-**Gambar 26.** Ranking akhir metode pada dataset Reddit berdasarkan F1-score.
+**Gambar 27.** Ranking akhir metode pada dataset Reddit berdasarkan F1-score.
 
 ![Confusion Matrix Final](../results/figures/final_confusion_matrices.png)
-**Gambar 27.** Confusion matrix final untuk run terpilih pada dataset Twitter dan Reddit.
+**Gambar 28.** Confusion matrix final untuk run terpilih pada dataset Twitter dan Reddit.
 
 Confusion matrix memperlihatkan pola error yang berbeda pada kedua dataset. Pada Twitter, model final menghasilkan 359 true negative, 117 true positive, 45 false positive, dan 17 false negative. Nilai false negative yang kecil menunjukkan bahwa sebagian besar contoh sarkastik Twitter berhasil ditangkap. Pada Reddit, jumlah false positive dan false negative masih lebih besar, yaitu 392 dan 208. Ini menjelaskan kenapa F1 Reddit masih berada sedikit di bawah paper walaupun threshold tuning sudah meningkatkan recall.
 
@@ -548,7 +553,7 @@ Jika proyek ini dilanjutkan, arah yang paling masuk akal adalah memperdalam tran
 Untuk jalur modern LLM, pengembangan yang lebih kuat adalah fine-tuning ringan atau LoRA pada model yang cukup cocok untuk bahasa Indonesia, bukan hanya zero-shot/few-shot prompting. Model seperti Qwen atau Gemma mungkin lebih kompetitif jika diberi adaptasi supervised pada data IdSarcasm. Namun, itu membutuhkan GPU dan waktu eksperimen tambahan di luar scope UAS ini. Di luar training, dashboard statis yang sudah dibuat dapat dikembangkan lagi dengan fitur pencarian error yang lebih rinci, misalnya pengelompokan pola salah prediksi berdasarkan jenis sarkasme.
 
 ![Ringkasan Progress Proyek](../results/figures/final_progress_summary.png)
-**Gambar 28.** Ringkasan alur progress proyek dari baseline sampai finalisasi.
+**Gambar 29.** Ringkasan alur progress proyek dari baseline sampai finalisasi.
 
 ### 4.5 Kesimpulan Akhir
 

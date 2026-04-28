@@ -52,83 +52,78 @@ def load_metrics(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def generate_pipeline_architecture() -> None:
-    """Draw the two-lane Progress 5 workflow: transformer optimization and modern local LLM experiments."""
+def draw_pipeline_lane(
+    *,
+    title: str,
+    subtitle: str,
+    stages: list[tuple[float, str, str, str, str]],
+    footer: str,
+    filename: str,
+) -> None:
+    """Draw a single-lane Progress 5 workflow figure."""
     FIGURES.mkdir(parents=True, exist_ok=True)
-    fig, ax = plt.subplots(figsize=(13.8, 6.2))
-    ax.set_xlim(0, 13.8)
-    ax.set_ylim(0, 6.2)
+    fig, ax = plt.subplots(figsize=(13.2, 3.9))
+    ax.set_xlim(0, 13.2)
+    ax.set_ylim(0, 3.9)
     ax.axis("off")
 
-    ax.text(
-        6.9,
-        5.72,
-        "Arsitektur Pipeline Progress 5: Optimasi XLM-R dan Eksperimen LLM Lokal",
-        ha="center",
-        va="center",
-        fontsize=14,
-        fontweight="bold",
-        color="#0f172a",
-    )
-
-    lanes = [
-        (
-            "Jalur A: Optimasi Transformer XLM-R",
-            3.62,
-            [
-                (0.35, "Model\nTerbaik", "XLM-R Large\nProgress 3", "#dbeafe", "#1d4ed8"),
-                (2.35, "Prediksi\nProbabilitas", "validation + test\npredictions.csv", "#e0f2fe", "#0369a1"),
-                (4.35, "Pencarian\nThreshold", "dipilih dari\nF1 validasi", "#dcfce7", "#15803d"),
-                (6.35, "Evaluasi\nData Uji", "threshold 0,5 vs\nthreshold terpilih", "#fef3c7", "#b45309"),
-                (8.35, "Transisi\nError", "membaik, memburuk,\ntetap salah", "#fee2e2", "#b91c1c"),
-                (10.35, "Artefak\nFinal", "metrik, tabel,\ngambar, analisis", "#ede9fe", "#6d28d9"),
-            ],
-        ),
-        (
-            "Jalur B: Eksperimen Modern Local LLM",
-            1.36,
-            [
-                (0.35, "Twitter\nTest Set", "538 data\nevaluasi ringan", "#f1f5f9", "#475569"),
-                (2.35, "LM Studio\nLocal API", "endpoint localhost\nOpenAI-compatible", "#ffedd5", "#c2410c"),
-                (4.35, "Model\nGGUF", "Qwen3.5-4B +\nGemma 4 E4B", "#fef3c7", "#b45309"),
-                (6.35, "Mode\nPrompting", "zero-shot +\nfew-shot", "#dcfce7", "#15803d"),
-                (8.35, "Parsing\nLabel", "sarcastic vs\nnot sarcastic", "#e0e7ff", "#4338ca"),
-                (10.35, "Pembanding\nPraktis", "dibandingkan dengan\nBLOOMZ/mT0 + XLM-R", "#ede9fe", "#6d28d9"),
-            ],
-        ),
-    ]
+    ax.text(6.6, 3.48, title, ha="center", va="center", fontsize=13.2, fontweight="bold", color="#0f172a")
+    ax.text(6.6, 3.12, subtitle, ha="center", va="center", fontsize=9.0, color="#475569")
 
     arrow = dict(arrowstyle="->", color="#64748b", lw=1.75, shrinkA=5, shrinkB=5)
-    for lane_title, y, stages in lanes:
-        ax.text(0.38, y + 1.24, lane_title, ha="left", va="center", fontsize=10.2, fontweight="bold", color="#0f172a")
-        for i, (x, title, desc, fc, ec) in enumerate(stages):
-            rect = mpatches.FancyBboxPatch(
-                (x, y),
-                1.55,
-                1.02,
-                boxstyle="round,pad=0.12,rounding_size=0.11",
-                facecolor=fc,
-                edgecolor=ec,
-                linewidth=1.45,
-            )
-            ax.add_patch(rect)
-            ax.text(x + 0.775, y + 0.66, title, ha="center", va="center", fontsize=8.8, fontweight="bold", color=ec)
-            ax.text(x + 0.775, y - 0.27, desc, ha="center", va="center", fontsize=7.8, color="#475569")
-            if i < len(stages) - 1:
-                ax.annotate("", xy=(stages[i + 1][0], y + 0.51), xytext=(x + 1.58, y + 0.51), arrowprops=arrow)
+    y = 1.55
+    for i, (x, box_title, desc, fc, ec) in enumerate(stages):
+        rect = mpatches.FancyBboxPatch(
+            (x, y),
+            1.55,
+            1.04,
+            boxstyle="round,pad=0.12,rounding_size=0.11",
+            facecolor=fc,
+            edgecolor=ec,
+            linewidth=1.45,
+        )
+        ax.add_patch(rect)
+        ax.text(x + 0.775, y + 0.67, box_title, ha="center", va="center", fontsize=8.8, fontweight="bold", color=ec)
+        ax.text(x + 0.775, y - 0.30, desc, ha="center", va="center", fontsize=7.8, color="#475569")
+        if i < len(stages) - 1:
+            ax.annotate("", xy=(stages[i + 1][0], y + 0.52), xytext=(x + 1.58, y + 0.52), arrowprops=arrow)
 
-    ax.text(
-        6.9,
-        0.22,
-        "Progress 5 memisahkan optimasi utama transformer dari eksperimen pembanding LLM lokal agar hasilnya tidak dicampur sebagai klaim yang sama.",
-        ha="center",
-        va="center",
-        fontsize=8.4,
-        color="#64748b",
-    )
+    ax.text(6.6, 0.18, footer, ha="center", va="center", fontsize=8.1, color="#64748b")
     plt.tight_layout()
-    plt.savefig(FIGURES / "progress5_pipeline_architecture.png", dpi=180)
+    plt.savefig(FIGURES / filename, dpi=180)
     plt.close()
+
+
+def generate_pipeline_architecture() -> None:
+    """Draw separate Progress 5 workflow figures for the two experiment lanes."""
+    draw_pipeline_lane(
+        title="Arsitektur Progress 5 Jalur A: Optimasi Transformer XLM-R",
+        subtitle="Jalur utama untuk memperbaiki performa XLM-R Large melalui pemilihan threshold dan analisis error.",
+        stages=[
+            (0.35, "Model\nTerbaik", "XLM-R Large\nProgress 3", "#dbeafe", "#1d4ed8"),
+            (2.35, "Prediksi\nProbabilitas", "validation + test\npredictions.csv", "#e0f2fe", "#0369a1"),
+            (4.35, "Pencarian\nThreshold", "dipilih dari\nF1 validasi", "#dcfce7", "#15803d"),
+            (6.35, "Evaluasi\nData Uji", "threshold 0,5 vs\nthreshold terpilih", "#fef3c7", "#b45309"),
+            (8.35, "Analisis\nTransisi Error", "membaik, memburuk,\ntetap salah", "#fee2e2", "#b91c1c"),
+            (10.35, "Artefak\nFinal", "metrik, tabel,\ngambar, analisis", "#ede9fe", "#6d28d9"),
+        ],
+        footer="Threshold dipilih berdasarkan data validasi, kemudian diterapkan satu kali pada data uji agar evaluasi akhir tetap adil.",
+        filename="progress5_pipeline_jalur_a_optimasi_xlmr.png",
+    )
+    draw_pipeline_lane(
+        title="Arsitektur Progress 5 Jalur B: Eksperimen LLM Lokal Modern",
+        subtitle="Jalur pembanding praktis untuk melihat kemampuan Qwen3.5-4B dan Gemma 4 E4B melalui LM Studio.",
+        stages=[
+            (0.35, "Data Uji\nTwitter", "538 sampel\nevaluasi ringan", "#f1f5f9", "#475569"),
+            (2.35, "API Lokal\nLM Studio", "endpoint localhost\nOpenAI-compatible", "#ffedd5", "#c2410c"),
+            (4.35, "Model\nGGUF", "Qwen3.5-4B +\nGemma 4 E4B", "#fef3c7", "#b45309"),
+            (6.35, "Mode\nPrompting", "zero-shot +\nfew-shot", "#dcfce7", "#15803d"),
+            (8.35, "Ekstraksi\nLabel", "sarkastik vs\nnon-sarkastik", "#e0e7ff", "#4338ca"),
+            (10.35, "Pembanding\nPraktis", "dibandingkan dengan\nBLOOMZ/mT0 + XLM-R", "#ede9fe", "#6d28d9"),
+        ],
+        footer="Eksperimen LLM lokal digunakan sebagai pembanding praktis, bukan sebagai fokus utama optimasi model transformer.",
+        filename="progress5_pipeline_jalur_b_modern_llm.png",
+    )
 
 
 
