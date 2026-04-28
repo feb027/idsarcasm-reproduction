@@ -17,7 +17,7 @@ Status saat ini:
 - Progress 3: ✅ selesai (12/12 baseline fine-tuned transformer paper pada Twitter + Reddit sudah dijalankan dan hasil/log tersimpan)
 - Progress 4: ✅ selesai sebagai complete attempt (Twitter 9/9 selesai; Reddit 5/9 selesai; 4 run Reddit dicoba tetapi runtime/session Colab habis dan log tersimpan)
 - Progress 5: ✅ optimasi dan eksperimen lanjutan selesai
-- Progress 6: ✅ analisis komparatif, finalisasi laporan, dashboard GitHub Pages, error explorer, dan perapian repository selesai; update akhir Twitter XLM-R Large lr=2e-5 melampaui paper
+- Progress 6: ✅ analisis komparatif, finalisasi laporan, dashboard GitHub Pages, model card, error analysis, confusion matrix, CI ringan, dan perapian repository selesai; update akhir Twitter XLM-R Large lr=2e-5 melampaui paper
 
 ---
 
@@ -226,17 +226,17 @@ Progress 5 selesai: XLM-R Large threshold tuning, screening XLM-R Base, error an
 Menyusun analisis matang terhadap seluruh rangkaian hasil dan menutup proyek dalam bentuk laporan/repo yang rapi, dapat diperiksa, dan siap dipresentasikan.
 
 ### Cakupan
-- [ ] Menyusun tabel komparatif semua eksperimen utama: classical ML, transformer baseline, zero-shot, dan optimasi/eksperimen lanjutan
-- [ ] Membuat confusion matrix untuk model terbaik
-- [ ] Menganalisis contoh benar/salah klasifikasi
-- [ ] Membandingkan karakteristik error antara classical ML, fine-tuned transformer, dan zero-shot LLM
-- [ ] Menjelaskan faktor penyebab gap hasil terhadap paper atau antar konfigurasi
-- [ ] Menentukan model/fase mana yang paling layak dijadikan highlight laporan
-- [ ] Finalisasi laporan proyek / laporan akhir
-- [ ] Rapikan README dan struktur repo
-- [ ] Rapikan tabel dan figure final
-- [ ] Tulis kesimpulan, keterbatasan, dan saran pengembangan lanjutan
-- [ ] Pastikan semua file penting ter-commit
+- [x] Menyusun tabel komparatif semua eksperimen utama: classical ML, transformer baseline, zero-shot, dan optimasi/eksperimen lanjutan
+- [x] Membuat confusion matrix untuk model terbaik
+- [x] Menganalisis contoh benar/salah klasifikasi
+- [x] Membandingkan karakteristik error antara classical ML, fine-tuned transformer, dan zero-shot LLM
+- [x] Menjelaskan faktor penyebab gap hasil terhadap paper atau antar konfigurasi
+- [x] Menentukan model/fase mana yang paling layak dijadikan highlight laporan
+- [x] Finalisasi laporan proyek / laporan akhir
+- [x] Rapikan README dan struktur repo
+- [x] Rapikan tabel dan figure final
+- [x] Tulis kesimpulan, keterbatasan, dan saran pengembangan lanjutan
+- [x] Pastikan semua file penting ter-commit
 
 ### Output akhir
 - Tabel komparatif final eksperimen
@@ -279,6 +279,7 @@ Orang lain harus bisa membaca repo dan mengerti: apa yang direproduksi, bagaiman
 ### Hasil akhir Progress 6
 - Laporan akhir diperbarui di `docs/laporan-proyek.md`, termasuk hasil final Twitter F1 0,7905 yang melampaui paper 0,7692.
 - Tabel final: `results/tables/final_method_comparison.csv` dan `results/tables/final_method_ranking.csv`.
-- Figure final: `results/figures/final_*.png`.
+- Figure final: `results/figures/final_*.png`, termasuk `results/figures/final_confusion_matrices.png`.
 - Dashboard statis ditambahkan di `index.html` dengan data `dashboard/data/dashboard-data.json`; target GitHub Pages: `https://feb027.github.io/idsarcasm-reproduction/`.
+- Dokumentasi tambahan: `docs/model-card.md`, `docs/error-analysis.md`, `CITATION.cff`, dan `.github/workflows/validate.yml`.
 - Repository dirapikan: file review sementara dan artifact percobaan dipisahkan dari current tree; progress docs dipindahkan ke `docs/progress/`.

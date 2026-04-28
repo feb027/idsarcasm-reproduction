@@ -1,0 +1,21 @@
+dataset,error_type,rank,sample_idx,true_label,predicted_label,prob_sarcastic,strategy,text
+twitter,false_positive,1,27,non_sarcastic,sarcastic,1.0,default,Orang Indonesia ini sopan-sopan banget ya .. Mau nyapres saja misi dulu .
+twitter,false_positive,2,303,non_sarcastic,sarcastic,1.0,default,Diskotik halal Main catur haram Nonton film korea haram . Ok . Selamat datang dinegaraku .
+twitter,false_positive,3,213,non_sarcastic,sarcastic,0.9999,default,<username> Ini pengusaha apa pejabat atau pensiunan atau apa ya .. buanyak banget dapat dri mana itu ??
+twitter,false_positive,4,318,non_sarcastic,sarcastic,0.9999,default,Pacar kamu memang Cantik tapi sayang nya dia Licik â–”â–¡â–”)/
+twitter,false_positive,5,398,non_sarcastic,sarcastic,0.9999,default,Selamat Belajar Biologi itu asiiik banget ! <hashtag>
+twitter,false_negative,1,21,sarcastic,non_sarcastic,0.0,default,Jadi pengin denger tanggapan bang pandji nih ayok bikin video bang Betapa lucunya negeri ini <username> <hashtag>
+twitter,false_negative,2,512,sarcastic,non_sarcastic,0.0001,default,<username> adem kembali ke solo saja ke habitat mu
+twitter,false_negative,3,279,sarcastic,non_sarcastic,0.0001,default,Yang baik dicaci yang jelek di rangkul <hashtag>
+twitter,false_negative,4,511,sarcastic,non_sarcastic,0.0001,default,<username> Alhamdulillah akhirnya ada yang positif dari lucinta Luna
+twitter,false_negative,5,139,sarcastic,non_sarcastic,0.0001,default,prabowo emg kenamaan di google ... lah banyak yg nyari ... apakah prab terlibat ham ..anak prabowo apkh beneran homo ..jumatan dimana ..itu yg dicari smua org ..pgn tau kbnran ..dan pas tok ketik hasil prabowo ..muncul …
+reddit,false_positive,1,1609,non_sarcastic,sarcastic,0.9669,tuned,ya kan perlu d ancem biar sukur2 dapet tax money...
+reddit,false_positive,2,2418,non_sarcastic,sarcastic,0.9663,tuned,"Loh iya kan modal halodek udah dapat, bukan kaya kita rakyat jelata yang perjuangannya mesti bisa membangun 1000 candi dalam satu malam"
+reddit,false_positive,3,252,non_sarcastic,sarcastic,0.966,tuned,"alhamdulillah, Indonesia menuju monopoli/duopoli."
+reddit,false_positive,4,2222,non_sarcastic,sarcastic,0.9636,tuned,"ya elah suku terdalam aja ga nerima peradaban baru, kayak please stop pakai minyak daur ulang dan ngrokong sepak sehari"
+reddit,false_positive,5,58,non_sarcastic,sarcastic,0.9632,tuned,Bilang aja kalau kena korona langsung auto kristen karena berarti imannya nggak kuat. Pasti langsung pakai masker biar nggak dituduh murtad
+reddit,false_negative,1,2729,sarcastic,non_sarcastic,0.0017,tuned,Poco X3 Pro 6/128 (beli bekas sekitar januari 2022). Gk flagship tpi msih baru rilis jga performanya mayan kenceng batre msih waras (good) fisik msih bagus sensor aman kamera working touchscreen lancar tahan percikan ae…
+reddit,false_negative,2,2052,sarcastic,non_sarcastic,0.0017,tuned,"dulu seinget gw sih gak pernah ke barak, tapi bawa ke laut. Deket laut kebetulan ada gentong sama semen yang ditinggal sama orang."
+reddit,false_negative,3,910,sarcastic,non_sarcastic,0.0019,tuned,"Perusahaan negara itu harusnya resmi dong, ya iklannya harusnya infografi ngalor-ngidul, pake tulisan warna-warni, kalo perlu pake empat typeface yang berbeda. Jangan lupa kasih logo perusahaan di bagian atas, sama foto…"
+reddit,false_negative,4,1116,sarcastic,non_sarcastic,0.0023,tuned,"Survivor bias. Ini adalah jumlah yang tertangkap bukan jumlah pelaku korupsi. If anything this gives some idea to which factions are most and least vulnerable. Swasta udah pasti, karena mayoritas tidak memiliki backing …"
+reddit,false_negative,5,137,sarcastic,non_sarcastic,0.0027,tuned,"Gaji guru itu sebenernya udh setara UMR. Cuma sebagian besar baru bisa ditebus di akhirat, dalam bentuk pahala."

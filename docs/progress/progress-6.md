@@ -15,14 +15,20 @@ Progress 6 menutup proyek dengan finalisasi laporan, analisis komparatif akhir, 
    - `results/figures/final_twitter_method_ranking.png`
    - `results/figures/final_reddit_method_ranking.png`
    - `results/figures/final_progress_summary.png`
-4. Membuat dashboard statis dan error explorer:
+   - `results/figures/final_confusion_matrices.png`
+4. Menambahkan analisis error final:
+   - `results/tables/final_confusion_matrices.csv`
+   - `results/tables/final_error_examples.csv`
+   - `docs/error-analysis.md`
+   - `docs/model-card.md`
+5. Membuat dashboard statis dan error explorer:
    - `index.html`
    - `dashboard/app.js`
    - `dashboard/styles.css`
    - `dashboard/data/dashboard-data.json`
-4. Memperbarui laporan akhir pada `docs/laporan-proyek.md`.
-5. Merapikan repository:
-      - file konfigurasi lokal dimasukkan ke `.gitignore`,
+6. Memperbarui laporan akhir pada `docs/laporan-proyek.md`.
+7. Merapikan repository:
+   - file konfigurasi lokal dimasukkan ke `.gitignore`,
    - artifact percobaan sementara dipisahkan dari hasil final,
    - dokumentasi progress dipindahkan ke `docs/progress/`,
    - README dibuat lebih ringkas dan profesional.

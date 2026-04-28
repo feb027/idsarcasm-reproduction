@@ -509,7 +509,12 @@ Pada Reddit, jarak antar metode lebih terlihat sejak awal. Classical terbaik han
 ![Ranking Metode Reddit](../results/figures/final_reddit_method_ranking.png)
 **Gambar 25.** Ranking akhir metode pada dataset Reddit berdasarkan F1-score.
 
-Sebagai pelengkap finalisasi, proyek ini juga menyediakan dashboard statis berbasis GitHub Pages di `https://feb027.github.io/idsarcasm-reproduction/`. Dashboard tersebut bukan eksperimen baru, tetapi visualisasi pendukung dari hasil yang sudah ada. Isinya mencakup ringkasan metrik final, perbandingan dengan paper, ranking metode, dan error explorer sederhana untuk melihat contoh prediksi benar/salah pada split test. Dengan begitu, hasil proyek tidak hanya tersedia dalam bentuk laporan dan CSV, tetapi juga bisa dicek secara interaktif langsung dari repository.
+![Confusion Matrix Final](../results/figures/final_confusion_matrices.png)
+**Gambar 26.** Confusion matrix final untuk run terpilih pada dataset Twitter dan Reddit.
+
+Confusion matrix memperlihatkan pola error yang berbeda pada kedua dataset. Pada Twitter, model final menghasilkan 359 true negative, 117 true positive, 45 false positive, dan 17 false negative. Nilai false negative yang kecil menunjukkan bahwa sebagian besar contoh sarkastik Twitter berhasil ditangkap. Pada Reddit, jumlah false positive dan false negative masih lebih besar, yaitu 392 dan 208. Ini menjelaskan kenapa F1 Reddit masih berada sedikit di bawah paper walaupun threshold tuning sudah meningkatkan recall.
+
+Sebagai pelengkap finalisasi, proyek ini juga menyediakan dashboard statis berbasis GitHub Pages di `https://feb027.github.io/idsarcasm-reproduction/`. Dashboard tersebut bukan eksperimen baru, tetapi visualisasi pendukung dari hasil yang sudah ada. Isinya mencakup ringkasan metrik final, perbandingan dengan paper, ranking metode, confusion matrix, dan error explorer sederhana untuk melihat contoh prediksi benar/salah pada split test. Dengan begitu, hasil proyek tidak hanya tersedia dalam bentuk laporan dan CSV, tetapi juga bisa dicek secara interaktif langsung dari repository.
 
 Hasil zero-shot LLM dari reproduksi paper berada di kisaran F1 0,39-0,40. Hasil ini dekat dengan paper, tetapi performanya tetap jauh di bawah transformer yang dilatih pada data IdSarcasm. LLM lokal modern seperti Qwen3.5-4B dan Gemma 4 E4B memberi hasil lebih baik daripada zero-shot BLOOMZ/mT0 pada Twitter, tetapi masih belum mendekati XLM-R Large. Qwen3.5-4B few-shot menjadi LLM lokal modern terbaik dengan F1 0,4755. Jadi, model generatif modern yang ringan berguna sebagai pembanding praktis, tetapi belum cukup untuk menggantikan fine-tuning pada tugas ini.
 
@@ -538,7 +543,7 @@ Jika proyek ini dilanjutkan, arah yang paling masuk akal adalah memperdalam tran
 Untuk jalur modern LLM, pengembangan yang lebih kuat adalah fine-tuning ringan atau LoRA pada model yang cukup cocok untuk bahasa Indonesia, bukan hanya zero-shot/few-shot prompting. Model seperti Qwen atau Gemma mungkin lebih kompetitif jika diberi adaptasi supervised pada data IdSarcasm. Namun, itu membutuhkan GPU dan waktu eksperimen tambahan di luar scope UAS ini. Di luar training, dashboard statis yang sudah dibuat dapat dikembangkan lagi dengan fitur pencarian error yang lebih rinci, misalnya pengelompokan pola salah prediksi berdasarkan jenis sarkasme.
 
 ![Ringkasan Progress Proyek](../results/figures/final_progress_summary.png)
-**Gambar 26.** Ringkasan alur progress proyek dari baseline sampai finalisasi.
+**Gambar 27.** Ringkasan alur progress proyek dari baseline sampai finalisasi.
 
 ### 4.5 Kesimpulan Akhir
 

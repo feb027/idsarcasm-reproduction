@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: "IdSarcasm Reproduction and Transformer Optimization"
+message: "If you use this reproduction repository, please cite both this repository and the original IdSarcasm paper."
+type: software
+authors:
+  - family-names: "Rochman"
+    given-names: "Febnawan Fatur"
+repository-code: "https://github.com/feb027/idsarcasm-reproduction"
+url: "https://feb027.github.io/idsarcasm-reproduction/"
+date-released: "2026-04-28"
+keywords:
+  - sarcasm detection
+  - Indonesian NLP
+  - IdSarcasm
+  - transformer
+  - XLM-R
+references:
+  - type: article
+    title: "IdSarcasm: Benchmarking and Evaluating Language Models for Indonesian Sarcasm Detection"
+    authors:
+      - family-names: "Suhartono"
+        given-names: "Derwin"
+      - family-names: "Wongso"
+        given-names: "Wilson"
+      - family-names: "Handoyo"
+        given-names: "Alif Tri"
+    journal: "IEEE Access"
+    year: 2024
+    doi: "10.1109/ACCESS.2024.3416955"

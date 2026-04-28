@@ -173,6 +173,7 @@ Setelah semua hasil utama tersedia, generate ulang figure dan tabel ringkasan:
 ```bash
 python scripts/generate_progress5_analysis.py
 python scripts/generate_final_analysis.py
+python scripts/generate_final_error_analysis.py
 ```
 
 Output utama:
@@ -182,6 +183,9 @@ results/tables/progress5_*.csv
 results/tables/final_*.csv
 results/figures/progress5_*.png
 results/figures/final_*.png
+results/tables/final_confusion_matrices.csv
+results/tables/final_error_examples.csv
+results/figures/final_confusion_matrices.png
 ```
 
 ## Catatan
@@ -189,3 +193,19 @@ results/figures/final_*.png
 - File percobaan sementara tidak disimpan di repo final agar repository tetap bersih.
 - Checkpoint model tidak disimpan karena ukurannya besar.
 - Hasil yang dikomit adalah tabel, prediksi, log penting, script, notebook, dan figure yang diperlukan untuk laporan.
+
+## 9. Documentation Extras
+
+Dokumen tambahan yang tidak membutuhkan training ulang:
+
+```text
+docs/model-card.md
+docs/error-analysis.md
+CITATION.cff
+.github/workflows/validate.yml
+```
+
+- `docs/model-card.md` merangkum intended use, out-of-scope use, metrik final, dan limitasi model.
+- `docs/error-analysis.md` merangkum confusion matrix, contoh false positive/false negative, dan pola error utama.
+- `CITATION.cff` menyediakan metadata sitasi repository dan referensi paper IdSarcasm asli.
+- `.github/workflows/validate.yml` menjalankan validasi ringan untuk syntax, unit test, dashboard JSON, dan link README.

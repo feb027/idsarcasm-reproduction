@@ -1,5 +1,6 @@
 # IdSarcasm Reproduction and Transformer Optimization
 
+[![CI](https://github.com/feb027/idsarcasm-reproduction/actions/workflows/validate.yml/badge.svg)](https://github.com/feb027/idsarcasm-reproduction/actions/workflows/validate.yml)
 [![Dashboard](https://img.shields.io/badge/Dashboard-GitHub%20Pages-2563EB?style=for-the-badge)](https://feb027.github.io/idsarcasm-reproduction/)
 [![Final Report](https://img.shields.io/badge/Report-Laporan%20Proyek-0F172A?style=for-the-badge)](docs/laporan-proyek.md)
 [![Tests](https://img.shields.io/badge/Tests-30%20passed-16A34A?style=for-the-badge)](#verification)
@@ -16,6 +17,8 @@ Repository ini berisi reproduksi dan optimasi paper **“IdSarcasm: Benchmarking
 | Dashboard interaktif | <https://feb027.github.io/idsarcasm-reproduction/> |
 | Laporan akhir | [`docs/laporan-proyek.md`](docs/laporan-proyek.md) |
 | Reproducibility guide | [`docs/reproducibility.md`](docs/reproducibility.md) |
+| Model card | [`docs/model-card.md`](docs/model-card.md) |
+| Error analysis | [`docs/error-analysis.md`](docs/error-analysis.md) |
 | Paper DOI | [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955) |
 | Original repository | <https://github.com/w11wo/id_sarcasm> |
 
@@ -38,7 +41,7 @@ Temuan utama:
 
 Dashboard statis GitHub Pages membaca artefak hasil final yang sudah dikomit. Tidak ada backend, build step, atau training ulang.
 
-[![Open Dashboard](results/figures/final_method_comparison.png)](https://feb027.github.io/idsarcasm-reproduction/)
+[![Open Dashboard](results/figures/dashboard-preview-1.png)](https://feb027.github.io/idsarcasm-reproduction/)
 
 Fitur dashboard:
 
@@ -48,9 +51,23 @@ Fitur dashboard:
 - Error explorer untuk melihat contoh prediksi benar/salah pada split test.
 - Filter dataset, outcome, strategy, label, dan search text.
 
+
+## Final Error Analysis
+
+![Final Confusion Matrices](results/figures/final_confusion_matrices.png)
+
+| Dataset | TN | FP | FN | TP | Reading |
+|---|---:|---:|---:|---:|---|
+| Twitter | 359 | 45 | 17 | 117 | Strong recall on sarcastic class; final F1 `0.7905`. |
+| Reddit | 1,726 | 392 | 208 | 498 | Higher FP/FN pressure; final F1 `0.6241`. |
+
+Detail examples and pattern notes are in [`docs/error-analysis.md`](docs/error-analysis.md).
+
 ## Repository Map
 
 ```text
+├── .github/workflows/validate.yml     # Lightweight CI checks
+├── CITATION.cff                       # Citation metadata for the repo
 ├── index.html                         # Entry point GitHub Pages dashboard
 ├── dashboard/
 │   ├── app.js                         # Logic dashboard + error explorer
@@ -61,6 +78,8 @@ Fitur dashboard:
 │   ├── laporan-proyek.md              # Laporan akhir
 │   ├── reproducibility.md             # Panduan menjalankan ulang eksperimen
 │   ├── paper-summary.md               # Ringkasan paper
+│   ├── model-card.md                  # Ringkasan model final, limitasi, intended use
+│   ├── error-analysis.md              # Analisis FP/FN dan confusion matrix final
 │   └── progress/                      # Catatan progress dan run guide
 ├── notebooks/
 │   ├── 01_eda.ipynb
@@ -82,6 +101,7 @@ Fitur dashboard:
 │   ├── run_transformer_optimization.py
 │   ├── run_modern_llm_experiments.py
 │   ├── generate_final_analysis.py
+│   ├── generate_final_error_analysis.py
 │   └── generate_dashboard_data.py
 ├── source-code/                       # Snapshot repo paper asli sebagai referensi
 ├── tests/                             # Unit tests runner dan utilitas
@@ -133,6 +153,7 @@ python scripts/download_data.py
 python scripts/generate_progress5_analysis.py
 python scripts/generate_final_analysis.py
 python scripts/generate_dashboard_data.py
+python scripts/generate_final_error_analysis.py
 ```
 
 Output utama:
@@ -143,6 +164,9 @@ results/tables/final_*.csv
 results/figures/progress5_*.png
 results/figures/final_*.png
 dashboard/data/dashboard-data.json
+results/tables/final_confusion_matrices.csv
+results/tables/final_error_examples.csv
+results/figures/final_confusion_matrices.png
 ```
 
 </details>
@@ -210,6 +234,11 @@ Critical fixes: None
 | Twitter final predictions | [`results/optimization/twitter-xlmr-large-lr2e-5-len128/predictions.csv`](results/optimization/twitter-xlmr-large-lr2e-5-len128/predictions.csv) |
 | Reddit final predictions | [`results/optimization/reddit-xlmr-large-threshold/predictions.csv`](results/optimization/reddit-xlmr-large-threshold/predictions.csv) |
 | Dashboard data | [`dashboard/data/dashboard-data.json`](dashboard/data/dashboard-data.json) |
+| Confusion matrix figure | [`results/figures/final_confusion_matrices.png`](results/figures/final_confusion_matrices.png) |
+| Error examples | [`results/tables/final_error_examples.csv`](results/tables/final_error_examples.csv) |
+| Model card | [`docs/model-card.md`](docs/model-card.md) |
+| Error analysis doc | [`docs/error-analysis.md`](docs/error-analysis.md) |
+| Citation metadata | [`CITATION.cff`](CITATION.cff) |
 | Final report | [`docs/laporan-proyek.md`](docs/laporan-proyek.md) |
 | Reproducibility guide | [`docs/reproducibility.md`](docs/reproducibility.md) |
 
@@ -218,7 +247,13 @@ Critical fixes: None
 - Checkpoint model hasil fine-tuning tidak dikomit karena ukuran file besar.
 - Artefak yang dikomit adalah script, notebook, tabel, figure, log penting, dan prediction CSV untuk analisis.
 - Dashboard adalah visualisasi hasil, bukan eksperimen baru.
+- Confusion matrix dan error analysis membaca prediction CSV final; tidak ada training tambahan.
 - Reddit modern local LLM belum dijalankan karena inference akan jauh lebih lama dibanding Twitter.
+
+
+## Cite This Reproduction
+
+If this repository is reused, cite the repository metadata in [`CITATION.cff`](CITATION.cff) and cite the original IdSarcasm paper below.
 
 ## Citation
 
