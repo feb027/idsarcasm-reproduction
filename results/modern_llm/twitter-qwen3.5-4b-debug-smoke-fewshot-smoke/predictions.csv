@@ -1,0 +1,11 @@
+sample_idx,split,text,true_label,pred_label,pred_label_text,raw_output,invalid_output,latency_seconds,mode,shots_per_class,model
+0,test,saraswati pintar sekali tida belajar dari pengalaman hufffffffffffff,1,0,not sarcastic,,True,14.9592,few-shot,2,qwen3.5-4b
+1,test,Menag bicara sola celana cingkrang gak bisa ikut aturan keluar .. Nah lhoo <link> <hashtag>,0,0,not sarcastic,,True,14.9635,few-shot,2,qwen3.5-4b
+2,test,Koruptor dihukum berat bukannya dikasih keringanan <hashtag>,0,0,not sarcastic,,True,14.7822,few-shot,2,qwen3.5-4b
+3,test,Belum jadi pemimpin udah bikin hoax gmn kalau diberi jabatan ?? Bisa lebih parah,0,0,not sarcastic,,True,15.3008,few-shot,2,qwen3.5-4b
+4,test,Karena JUJUR membuatku malu dan merasa bersalah . Itulah kenapa JKW sulit melakukannya.,1,0,not sarcastic,,True,15.6285,few-shot,2,qwen3.5-4b
+5,test,Oi tolong lah itu yg pada demo suruh pulang . <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,,True,15.5937,few-shot,2,qwen3.5-4b
+6,test,Astagfirullah Medina Zein make narkoba ..saya tidak kaget make narkoba nya saya kaget karena saya tidak tahu siapa pula Medina Zein,1,0,not sarcastic,,True,15.763,few-shot,2,qwen3.5-4b
+7,test,bapak ngantornya di jalan tol saja bapak .. Balaikota yang bikin bukan masa pemerintahan jokowi lho bapak .. :D :D,1,0,not sarcastic,,True,15.6214,few-shot,2,qwen3.5-4b
+8,test,<username> Tolong dong bapakÂ² DPR kasih kuliah khusus dulu buat Menag ini biar tidak bikin ribut mulu .,1,0,not sarcastic,,True,15.1391,few-shot,2,qwen3.5-4b
+9,test,Ah tolol Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ <link>,0,0,not sarcastic,,True,15.6981,few-shot,2,qwen3.5-4b

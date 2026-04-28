@@ -1,0 +1,539 @@
+sample_idx,split,text,true_label,pred_label,pred_label_text,raw_output,invalid_output,latency_seconds,mode,shots_per_class,model
+0,test,saraswati pintar sekali tida belajar dari pengalaman hufffffffffffff,1,1,sarcastic,sarcastic,False,3.3536,zero-shot,0,qwen3.5-4b
+1,test,Menag bicara sola celana cingkrang gak bisa ikut aturan keluar .. Nah lhoo <link> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2594,zero-shot,0,qwen3.5-4b
+2,test,Koruptor dihukum berat bukannya dikasih keringanan <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2793,zero-shot,0,qwen3.5-4b
+3,test,Belum jadi pemimpin udah bikin hoax gmn kalau diberi jabatan ?? Bisa lebih parah,0,1,sarcastic,sarcastic,False,3.2877,zero-shot,0,qwen3.5-4b
+4,test,Karena JUJUR membuatku malu dan merasa bersalah . Itulah kenapa JKW sulit melakukannya.,1,0,not sarcastic,not sarcastic,False,3.2299,zero-shot,0,qwen3.5-4b
+5,test,Oi tolong lah itu yg pada demo suruh pulang . <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2382,zero-shot,0,qwen3.5-4b
+6,test,Astagfirullah Medina Zein make narkoba ..saya tidak kaget make narkoba nya saya kaget karena saya tidak tahu siapa pula Medina Zein,1,0,not sarcastic,not sarcastic,False,3.2802,zero-shot,0,qwen3.5-4b
+7,test,bapak ngantornya di jalan tol saja bapak .. Balaikota yang bikin bukan masa pemerintahan jokowi lho bapak .. :D :D,1,1,sarcastic,sarcastic,False,3.3956,zero-shot,0,qwen3.5-4b
+8,test,<username> Tolong dong bapakÂ² DPR kasih kuliah khusus dulu buat Menag ini biar tidak bikin ribut mulu .,1,1,sarcastic,sarcastic,False,3.231,zero-shot,0,qwen3.5-4b
+9,test,Ah tolol Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ <link>,0,0,not sarcastic,not sarcastic,False,3.3112,zero-shot,0,qwen3.5-4b
+10,test,<username> <username> mana nih klarifikasi nya yg lem Aibon CC <username> <username> <username> <username> <username>,0,0,not sarcastic,not sarcastic,False,3.3016,zero-shot,0,qwen3.5-4b
+11,test,<username> Anaknya pinter mak nya tolol nih,0,1,sarcastic,sarcastic,False,3.2082,zero-shot,0,qwen3.5-4b
+12,test,Selamat menikmati berkah warge jakarte ... Terimakasih juge ame bapak <username> <hashtag> oke tidak tuh ??? Wkwkwkwkwkw ... kalau aye mah Ogah kebanjiran . Biar negara utang aye tidak ikut bayar ini .,1,1,sarcastic,sarcastic,False,3.3046,zero-shot,0,qwen3.5-4b
+13,test,Kamu terlalu samyang buat aku ya indomie ðŸ˜­ <hashtag>,0,1,sarcastic,sarcastic,False,3.2062,zero-shot,0,qwen3.5-4b
+14,test,Minta maaf krn rendah hati? Bisa aja &amp; baik adanya . Tp minta maaf atas kewenangan mutlak itu agaknya aneh . Tp itu bisa terjadi karna kepemimpinan yg lemah . <hashtag> <hashtag> <hashtag> <username> <username>,0,0,not sarcastic,not sarcastic,False,3.2708,zero-shot,0,qwen3.5-4b
+15,test,welcome to indonesia. ketika orang lengah harus di permalukan bersangkaan seluruh belahan dunia harus tahu akan dosa mereka. hei pendosa kita semua sama. hanya berbeda ladang dosa.,1,0,not sarcastic,not sarcastic,False,3.3003,zero-shot,0,qwen3.5-4b
+16,test,Untung ane tidak jadi mahasiswa anda nyet . Malu bgt dah kalau jadi mahasiswa anda .,1,0,not sarcastic,not sarcastic,False,3.2072,zero-shot,0,qwen3.5-4b
+17,test,Mantap mas tetap jangan dengerin omongan haters ya tetap optimis dan terus percaya,0,0,not sarcastic,not sarcastic,False,3.2386,zero-shot,0,qwen3.5-4b
+18,test,Terima kasih sudah pernah menemani hari hariku . Wkwk <hashtag>,0,1,sarcastic,sarcastic,False,3.1948,zero-shot,0,qwen3.5-4b
+19,test,FIFA Berikan Perhatian Khusus Untuk Sepak Bola Papua <link> <link> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2894,zero-shot,0,qwen3.5-4b
+20,test,Sokaps nich <hashtag> <hashtag> # <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2044,zero-shot,0,qwen3.5-4b
+21,test,Jadi pengin denger tanggapan bang pandji nih ayok bikin video bang Betapa lucunya negeri ini <username> <hashtag>,1,1,sarcastic,sarcastic,False,3.2849,zero-shot,0,qwen3.5-4b
+22,test,<username> <username> Betul Ã¢Å“Å Mari bersatu memerangi <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2535,zero-shot,0,qwen3.5-4b
+23,test,<username> Alhamdulilah sekarang jkt sudah ada gubernur santuy yang rendah hati bapak Ustad AA gym . Ayo lanjutken 3 periode .,1,0,not sarcastic,not sarcastic,False,3.2758,zero-shot,0,qwen3.5-4b
+24,test,3 Mantan CEO yang Kini Jadi Menteri Jokowi - <link> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2331,zero-shot,0,qwen3.5-4b
+25,test,<username> Ada ngaku ustadz ternyata croshijaber yah ... sony sontoloyo,0,1,sarcastic,sarcastic,False,3.2203,zero-shot,0,qwen3.5-4b
+26,test,Dia yang pertama ngomong people power . Kemarin bicara Polisi mirip PKI . Sorenya <username> konpers ttg kedepankan cara konstitusional orang ini berdiri di sebelahnya . Terus minta kami percaya? <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.3242,zero-shot,0,qwen3.5-4b
+27,test,Orang Indonesia ini sopan-sopan banget ya .. Mau nyapres saja misi dulu .,0,1,sarcastic,sarcastic,False,3.2206,zero-shot,0,qwen3.5-4b
+28,test,"<username> Kepala bapak kau Sholeh,mati aja kau bodoh buat emosi satu Indonesia aja kau eee <hashtag>",1,1,sarcastic,sarcastic,False,3.2204,zero-shot,0,qwen3.5-4b
+29,test,<username> <username> ajarin saya dulu donk . Yuk kita sambil ngopi dimana aja deh,0,0,not sarcastic,not sarcastic,False,3.2423,zero-shot,0,qwen3.5-4b
+30,test,Gaji pramugari cuma sekian 15 jtan tapi penampilan macam sosialita jangan salahkan org2 yg menilai kalau dianggap gundik,0,1,sarcastic,sarcastic,False,3.2743,zero-shot,0,qwen3.5-4b
+31,test,Baru kali pertama atmosfir debat capres di Indonesia ngalahin atmosfir final bola piala dunia !! Jancok !! <hashtag> <hashtag>,1,1,sarcastic,sarcastic,False,3.2826,zero-shot,0,qwen3.5-4b
+32,test,Sangat memalukan !!!! <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2127,zero-shot,0,qwen3.5-4b
+33,test,Welcome to indonesia yang katanya diversity tapi liat valentine saja sudah mampus setengah mati,1,1,sarcastic,sarcastic,False,3.2359,zero-shot,0,qwen3.5-4b
+34,test,Semangat gaesss seperti adrk ini siap siaga <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2018,zero-shot,0,qwen3.5-4b
+35,test,sosialita banget gayanya nak <link>,0,0,not sarcastic,not sarcastic,False,3.2575,zero-shot,0,qwen3.5-4b
+36,test,Susah memang orang pinter mah <hashtag>,1,0,not sarcastic,not sarcastic,False,3.1993,zero-shot,0,qwen3.5-4b
+37,test,Pak Prabowo bilang mau memberantas orang yang suka kongkalikong padahal kemarin bilangnya korupsi gapapa kalau ga seberapa . Emang ya semua cowok ngga ada yang bisa dipegang ucapannya ! <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.2987,zero-shot,0,qwen3.5-4b
+38,test,Kini Anda dapat membaca Koran Jakarta edisi digital (PDF) yang bisa didapatkan setiap harinya melalui email Anda baik edisi terkini dan edisi sebelumnya . . . Untuk berlangganan versi pdf Koran Jakarta bisaâ€¦ <link>,0,0,not sarcastic,not sarcastic,False,3.256,zero-shot,0,qwen3.5-4b
+39,test,Gayane songong bener sok banget ini ! Beneran ini di mesjid <hashtag> klo benar kenapa ga langsung sowan baikÃ‚Â² menghadap Pak <username> Ketua PBNU . Hahaha paling ga berani . Ilmu agama ga sebanding dg para ulama NU eh keminter ngajarin . <hashtag> <hashtag> <link>,0,1,sarcastic,sarcastic,False,3.2893,zero-shot,0,qwen3.5-4b
+40,test,<username> Wooohoo ... selamat atas penghargaan Best Digital Startup 2019 . Semoga selalu terus berinovasi dan memberikan dampak positif bagi masyarakat Indonesia dalam menyajikan beragam berita dan informasi . Terus junjung kredibilitas dan memegang teguh etika . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.29,zero-shot,0,qwen3.5-4b
+41,test,Andi Arief Sebut Megawati Dendam Turun Temurun ke SBY Ini Kata Puan <link> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2895,zero-shot,0,qwen3.5-4b
+42,test,Sejatinya sejak 2014 suara masyarakat Sultra vote for <username> Kebenaran akan menemukan jalannya sendiri . <link>,0,0,not sarcastic,not sarcastic,False,3.3004,zero-shot,0,qwen3.5-4b
+43,test,<username> <username> <username> gaaaskeeun <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2174,zero-shot,0,qwen3.5-4b
+44,test,Jaangan ... jangan dijawab ntar waras diemin saja biar otaknya kebalik kaya kampret <hashtag>,1,1,sarcastic,sarcastic,False,3.2417,zero-shot,0,qwen3.5-4b
+45,test,<username> <username> Pasti krn pemerintah skrng yg utama rakyat,0,0,not sarcastic,not sarcastic,False,3.2057,zero-shot,0,qwen3.5-4b
+46,test,kemana ibu susi kemana ibu mentri yg tangguh srikandi terbaik indonesia yg dilupakan ðŸ˜°ðŸ˜°<hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2766,zero-shot,0,qwen3.5-4b
+47,test,Koruptor / pejabat yang terkena kasus pasti alesanya sakit seperti sudah menjadi tradisi di indonesia . <hashtag>,0,1,sarcastic,sarcastic,False,3.2175,zero-shot,0,qwen3.5-4b
+48,test,<username> <username> Koau revolusi smua wrga negara digaji pkai ApBN tnpa hrus jd PNS Pejabat Pmnrntahan atau BUMN,0,0,not sarcastic,not sarcastic,False,3.2763,zero-shot,0,qwen3.5-4b
+49,test,<username> Awas jgn Asal ngomong masalah orde Baru apalagi main fitnah tanpa Bukti!!! Nanti kau lenyap bersama masadepan mu Pejabat skrg bisa besar krn jaman iTu <link>,0,0,not sarcastic,not sarcastic,False,3.2895,zero-shot,0,qwen3.5-4b
+50,test,Level kepedulian tertinggi fans terhadap tim kesayangan adalah KRITIK . Kritik akan memacu apresiasi berlebih akan menjatuhkan . Maju terus <username> berantas mafia fans kardus .,0,0,not sarcastic,not sarcastic,False,3.2864,zero-shot,0,qwen3.5-4b
+51,test,apa cuma gue yang klo buka youtube selalu ketemu orang ini ðŸ˜‚ <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.1965,zero-shot,0,qwen3.5-4b
+52,test,<username> <username> <username> Arif Satria rektor IPB,0,0,not sarcastic,not sarcastic,False,3.2382,zero-shot,0,qwen3.5-4b
+53,test,Terima kasih sudah mengajak kami jadi bagian dari ceritamu <hashtag> !,0,0,not sarcastic,not sarcastic,False,3.2243,zero-shot,0,qwen3.5-4b
+54,test,Tdi pas lg ngeliatin abg lg brsihin ember bkas racun dikolam tiba2 timbul rsa haru ðŸ˜¢ kasian ngeliatin ank kolam pd mabukðŸ¤¦â€â™‚ï¸ . sperti anak kecil yg gak dpt duduk dikursi yg didambakan . <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3937,zero-shot,0,qwen3.5-4b
+55,test,ga pejabat ga pengusaha ga artis semua aja pake brompton apa dayaku yg ngidam fnhon aja belom kebeli <link>,0,0,not sarcastic,not sarcastic,False,3.3167,zero-shot,0,qwen3.5-4b
+56,test,Kenyataan terpahit adalah kenyataan yang tak setinggi harapan itu . Jadi jangan terlalu tinggi menggantung harapan .,0,0,not sarcastic,not sarcastic,False,3.2516,zero-shot,0,qwen3.5-4b
+57,test,Mengungkap Sosok Azura Luna Sosialita Asal Indoensia Diduga Penipu Kelas Kakap <link>,0,0,not sarcastic,not sarcastic,False,3.2361,zero-shot,0,qwen3.5-4b
+58,test,<username> <username> <username> Jangan kasih kendor <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2081,zero-shot,0,qwen3.5-4b
+59,test,Ayo tanam persatuan selagi masih damai dan aman :) <username> <username> <username> <username> <username> <username> <username> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3385,zero-shot,0,qwen3.5-4b
+60,test,<username> Generasi milenial itu punya prestasi <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2023,zero-shot,0,qwen3.5-4b
+61,test,Mending jadi pengusaha saja daripada negara ini jadi ancooor <hashtag>,1,1,sarcastic,sarcastic,False,3.2318,zero-shot,0,qwen3.5-4b
+62,test,Mampus loe !!! <hashtag> <hashtag> <hashtag> <hashtag> <username> <username>,0,1,sarcastic,sarcastic,False,3.2159,zero-shot,0,qwen3.5-4b
+63,test,kita ingin menjadi bijaksana tapi mengapa menyuruh mereka untuk menjadi bijak .karena kita egois,0,0,not sarcastic,not sarcastic,False,3.2192,zero-shot,0,qwen3.5-4b
+64,test,<username> <username> <username> lho kok gitu? anda emang ikut partai apa bro?,0,0,not sarcastic,not sarcastic,False,3.2359,zero-shot,0,qwen3.5-4b
+65,test,â€œPerang Propagandaâ€ di Papua <link> <link> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2982,zero-shot,0,qwen3.5-4b
+66,test,Mari merapat <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2095,zero-shot,0,qwen3.5-4b
+67,test,<username> LO KALI YANG BACOT KPOPERS NGATAIN KPOPERS YANG LAIN NGACA AJA DEH LO TOLOL,0,1,sarcastic,sarcastic,False,3.3151,zero-shot,0,qwen3.5-4b
+68,test,dah punya rambut jess ... <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>§Ù„Ø¹Ø¨_Ù…Ø¹Ø§Ù‡Ù… <link>,0,0,not sarcastic,not sarcastic,False,3.3309,zero-shot,0,qwen3.5-4b
+69,test,<username> <username> ðŸ˜† ngambek ternyata ada hikmahnya ðŸ˜‰ <hashtag> indonesia maju harus lebih ceria riang gembira lagi dari kabinet kerja yg lalu ðŸ’ƒ,0,0,not sarcastic,not sarcastic,False,3.29,zero-shot,0,qwen3.5-4b
+70,test,Airnya sampai masuk Mall . Mau shopping kali ya? Santun banget ya <hashtag> <hashtag> <hashtag>,1,1,sarcastic,sarcastic,False,3.2168,zero-shot,0,qwen3.5-4b
+71,test,rismaselamanya kok bisa ya ? para pendukungnya kompak-kompak ayo buk ndang dipilih penggantimu <username> biar puas para pendukungmu <hashtag>,0,1,sarcastic,sarcastic,False,3.2795,zero-shot,0,qwen3.5-4b
+72,test,Prabowo <hashtag> dan berfikir <hashtag> pengennya makan HokBen Mulu tiap hari,0,0,not sarcastic,not sarcastic,False,3.2227,zero-shot,0,qwen3.5-4b
+73,test,Alhamdulillah yang namanya berkah tidak akan lari kemana . Semoga TOA nya segera berfungsi kalau bisa pasang TOA nya tiap rumah jadi bisa joget bareng . <hashtag> Banjir Jilid 2 <hashtag> Jadi Trending Twitter,1,0,not sarcastic,not sarcastic,False,3.2883,zero-shot,0,qwen3.5-4b
+74,test,Disayangkan ada politikus tak kenal dosa tdk sadar telah mlecehkan ulama sepuh yg dihormati di negeri ini .,0,0,not sarcastic,not sarcastic,False,3.2052,zero-shot,0,qwen3.5-4b
+75,test,Penghargaan yang perlu diapresiasi !! Dulu kalau denger diskotek biasanya ada yang pengen <hashtag> lho sekarang mah kagak ada ... Soalnya; saya kenal beliau kata seseorang .,1,0,not sarcastic,not sarcastic,False,3.3374,zero-shot,0,qwen3.5-4b
+76,test,Negara ini milik Rakyat bukan milik Pejabat/aparat <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1976,zero-shot,0,qwen3.5-4b
+77,test,2024 jadikan <username> dan <username> sebagai presiden dan wakil presiden . <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2541,zero-shot,0,qwen3.5-4b
+78,test,Dia ada sejarah hitam dengan orang Melayu ke apa sampai macam tu sekali dia punya triggered? <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> Baca sini: <link> <link>,0,1,sarcastic,sarcastic,False,3.2943,zero-shot,0,qwen3.5-4b
+79,test,BIKIN TAGAR YUK . JUDULNYA : KASIHAN 3X DAFTAR CAPRES TAPI GAGAL TERUS . MAU DAFTAR YG KE .4X ??? <hashtag>,0,1,sarcastic,sarcastic,False,3.3071,zero-shot,0,qwen3.5-4b
+80,test,<username> <username> <username> <username> Mabok lem mungkin nih orang ..,0,0,not sarcastic,not sarcastic,False,3.1976,zero-shot,0,qwen3.5-4b
+81,test,<username> Sudah 2 tahun keleeessss ... Untung ada PSI DKI yg obok-obok sekarang ini lah klo enggak adem2 aja sampai disahkan RAPBD nya APBD 2017 2018 2019 pasti di bancakan semua klo dilihat dari situasi saat iniðŸ˜¡ðŸ˜¡ðŸ˜¡ðŸ˜¡ðŸ˜¡,0,0,not sarcastic,not sarcastic,False,3.3865,zero-shot,0,qwen3.5-4b
+82,test,setan dunia khianat <hashtag>,0,0,not sarcastic,not sarcastic,False,3.254,zero-shot,0,qwen3.5-4b
+83,test,Banjir air berkah katanya tidak suka silahkan minggat dari Jakarta ???? . Rangorang setengah mati belain warga DKI biar mendapatkan haknya ini malah dituduh yang enggak2 ..kadrun kadrun <hashtag>,1,1,sarcastic,sarcastic,False,3.3118,zero-shot,0,qwen3.5-4b
+84,test,isu pemeriksaan ketertiban yang ternyata hoax kini berakibat tertibnya para siswa <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2428,zero-shot,0,qwen3.5-4b
+85,test,Membumi dengan caramu sendiri merakyat dengan cara kelompokmu . Pejabat emang gitu~ <link>,0,1,sarcastic,sarcastic,False,3.2081,zero-shot,0,qwen3.5-4b
+86,test,semoga tetap sehat Walafiat mbah kakuunggg .. <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2047,zero-shot,0,qwen3.5-4b
+87,test,kubu 02 Fitnah&Hoax adalah hal yg biasa mereka lakukan menghalalkan segala cara menggiring opini dgn kebohongan membuat video utk memperkuat <hashtag> biar masyarakat percaya&ini berita di india di edit seolahâ€terjadi di INA lagiâ€ capres02 naplokin TAIK keMuka sendiri :D,0,1,sarcastic,sarcastic,False,3.3243,zero-shot,0,qwen3.5-4b
+88,test,MUSIBAH PALA LOE BAU MENYANNN ... <hashtag> Andi Arief Ditangkap karena Narkoba BPN Prabowo: Ini Musibah,0,0,not sarcastic,not sarcastic,False,3.3028,zero-shot,0,qwen3.5-4b
+89,test,<username> <username> <username> <username> <username> <username> <username> <username> Anda tidak paham tapi komen ini bukan aibon yg anda lihat di pasar ini aibon import dari yaman ujung . Paham kenapa mahal? ðŸ˜€ðŸ¤£ <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2912,zero-shot,0,qwen3.5-4b
+90,test,Si Sontoloyo Ini Suruh Jadi Menteri BUMN ?!! - Mardigu Wowiek <link> lewat <username>,0,1,sarcastic,sarcastic,False,3.2307,zero-shot,0,qwen3.5-4b
+91,test,kalungnya kek ibu ibu sosialita Ã°Å¸Ëœâ€˜ <link>,0,0,not sarcastic,not sarcastic,False,3.1946,zero-shot,0,qwen3.5-4b
+92,test,Kesuksesan <hashtag> perlu kita dokumentasi terus supaya tidak ada lagi daerah lain mengalami azab seperti ini.. Pemimpin seiman yang ternyata malah mengakibatkan musibah.. <hashtag>,1,1,sarcastic,sarcastic,False,3.26,zero-shot,0,qwen3.5-4b
+93,test,Orang bebal selalu mengira bahwa tuhan ada di sampingnya . Sebaliknya orang bijak selalu berusaha mendekatkan diri kepada tuhan .,0,0,not sarcastic,not sarcastic,False,3.2206,zero-shot,0,qwen3.5-4b
+94,test,mana tau aku aku kan nia ramadhani,0,0,not sarcastic,not sarcastic,False,3.2085,zero-shot,0,qwen3.5-4b
+95,test,<username> Semoga dpt jodoh yg cantik dan pintar amin <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2048,zero-shot,0,qwen3.5-4b
+96,test,Setinggi pangkat apapun kalian bapak nyawa kawan kami tidak mampu kalian beli dengan gaji kalian seumur hidup . <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.3132,zero-shot,0,qwen3.5-4b
+97,test,Saya heran dg mereka2 yg suka nyiyirin presiden ..pdhl pak <username> di arab sangat dihormati dimuliakan ..sedangkan yg nyiyir rakyat indonesia sendiri,0,0,not sarcastic,not sarcastic,False,3.3078,zero-shot,0,qwen3.5-4b
+98,test,Menghina ulama sama saja menghina banyak orang . <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2214,zero-shot,0,qwen3.5-4b
+99,test,Kok lucu pas ayuk palembang itu bilang : sontoloyo . Nadanya .,0,0,not sarcastic,not sarcastic,False,3.197,zero-shot,0,qwen3.5-4b
+100,test,Inget ... Jangan nakal lagi ya wo jangan demo2 lagi . Iyee iyee wi elaahhh gw gak <hashtag> Kok mending kita makan yok,0,0,not sarcastic,not sarcastic,False,3.2893,zero-shot,0,qwen3.5-4b
+101,test,<username> isu ni aja senjatanya tapi sampai sekarang tak ada bukti dasar sontoloyo menutpi kebodohannya,0,1,sarcastic,sarcastic,False,3.2269,zero-shot,0,qwen3.5-4b
+102,test,Ya terserah kamu dah ... Maaf tapi kamu ingat ya ... Aku dan kamu itu sudah bukan \'kita\'. Jadi kalau nanti kamu akhirnya sadar dan menyesal jangan cari-cari aku lagi . <hashtag>,0,1,sarcastic,sarcastic,False,3.2986,zero-shot,0,qwen3.5-4b
+103,test,Kenapa tidak indonesia (pemerintah) bikin channel youtube lalu di subscribe dan di tonton oleh rakyatnya . Kan lumay\u2026 <link>,0,0,not sarcastic,not sarcastic,False,3.3054,zero-shot,0,qwen3.5-4b
+104,test,<username> Belahan sontoloyo <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1938,zero-shot,0,qwen3.5-4b
+105,test,Fakultas kedokteran dan keperawatan di Jogja ini banyak biangeeet seimbang dengan kekurangan tim medis yang banyak buuaanget !!,1,0,not sarcastic,not sarcastic,False,3.2271,zero-shot,0,qwen3.5-4b
+106,test,Sekarang ga ada lagi 01dan02 yang ada hanya Indonesia..<hashtag>,0,0,not sarcastic,not sarcastic,False,3.2406,zero-shot,0,qwen3.5-4b
+107,test,Daripada bahas <hashtag> apa tidak ingin mengajakku main? <link>,0,0,not sarcastic,not sarcastic,False,3.2239,zero-shot,0,qwen3.5-4b
+108,test,Tuhan telah meciptakan manusia yang unik yang terletak di orang ini .. smga lekas sadar ya bapak ??? <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2359,zero-shot,0,qwen3.5-4b
+109,test,Ketua Komisi Agama DPR: Pelarangan Cadar Gaduh dan Dangkal | Republika Online <link>,0,0,not sarcastic,not sarcastic,False,3.224,zero-shot,0,qwen3.5-4b
+110,test,Mantengin trendingnya twitter <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2964,zero-shot,0,qwen3.5-4b
+111,test,jadi begini ..Belajar dari masa orba dimana proyek pembangunan banyak yang mangkrak pilihlah pemimpin yang ahli,1,1,sarcastic,sarcastic,False,3.2355,zero-shot,0,qwen3.5-4b
+112,test,pengen ke Diskotik,0,0,not sarcastic,not sarcastic,False,3.1929,zero-shot,0,qwen3.5-4b
+113,test,TAIK ANJING Tetangga dangdutan keras banget gatau apa aku lagi nugas Kubukakan pintu dan jendela aku ikut nyanyi dan joget mantab,0,1,sarcastic,sarcastic,False,3.2914,zero-shot,0,qwen3.5-4b
+114,test,<username> SEMANGAT DADDIES!!! APAPUN HASILNYA KALIAN HEBAT !! OPTIMIS !! LUFFVVV,0,0,not sarcastic,not sarcastic,False,3.3187,zero-shot,0,qwen3.5-4b
+115,test,Akhirnya mereka sadar wkwkwk takut di per alat bahan dapurnya ... gosong sdhðŸ˜‚ðŸ˜‚ <link> <hashtag>,0,1,sarcastic,sarcastic,False,3.3472,zero-shot,0,qwen3.5-4b
+116,test,kamu adalah kenangan singkat yang terangkum dengan rapih tanpa dapat di kacaukan bahkan dengan memoriku sendiri <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2417,zero-shot,0,qwen3.5-4b
+117,test,Rusaklah sudah jekardah dipimpin gabener 4nies beserta parasit TGUPP nya . Kerja gak jelas anggaran segede2nya . Parasit!!! <hashtag>,0,1,sarcastic,sarcastic,False,3.3231,zero-shot,0,qwen3.5-4b
+118,test,Ah si Jancuk nyari perkara Sontoloyo tenan .. <link>,0,0,not sarcastic,not sarcastic,False,3.2099,zero-shot,0,qwen3.5-4b
+119,test,Benar-benar Parpol yang penuh semangat. Berlatih lempar-tangkap kursi sambil diiringi musik Mars. Semua menjadi gempita dan penuh gairah berolahraga. Mungkin mbah amin mo buat kartel dengan nama bawang ????,1,1,sarcastic,sarcastic,False,3.3009,zero-shot,0,qwen3.5-4b
+120,test,<username> <username> Nizar sekarang sudah pintar menghasut wkwkwkwkwk,1,1,sarcastic,sarcastic,False,3.2044,zero-shot,0,qwen3.5-4b
+121,test,semoga Generasi milenial harus bisa bertindak sebagai change agent dan memutus lingkaran setan tersebut .,0,0,not sarcastic,not sarcastic,False,3.2396,zero-shot,0,qwen3.5-4b
+122,test,<username> <username> Emang dia pasti masuk sorga?,0,0,not sarcastic,not sarcastic,False,3.2505,zero-shot,0,qwen3.5-4b
+123,test,Masok pak Eko <hashtag> Sebar Hoax Pemilik Akun FB <username> Dilaporkan ke Polisi,0,0,not sarcastic,not sarcastic,False,3.2043,zero-shot,0,qwen3.5-4b
+124,test,Mari kt sambit Artis nyokap kota yng sngt dicintai & disembah umatnya .???? jeng .. jeng ... <hashtag> <hashtag>,1,1,sarcastic,sarcastic,False,3.3238,zero-shot,0,qwen3.5-4b
+125,test,<username> Tul bro gendang gendruwo siluman semua .. Rezim jae pinokio memang sontoloyo hhuuu ..Ã°Å¸ËœÂ¬Ã°Å¸Ëœ,0,1,sarcastic,sarcastic,False,3.2867,zero-shot,0,qwen3.5-4b
+126,test,<username> <username> <username> <username> <username> <username> <username> <username> Goblok,0,0,not sarcastic,not sarcastic,False,3.1949,zero-shot,0,qwen3.5-4b
+127,test,Dungu .... tolol .... bego ..... semua di borong ama bani kampret .....<username> ... knp ngak nanya prabowo aja junjungannmu ... brp nyawa yg dia hilangkan ..dgn provokasi kelompok beliau ..... <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2883,zero-shot,0,qwen3.5-4b
+128,test,Sistem pemerintahan dah berubah dari presidensial menjadi menterisial :-) <hashtag>,1,0,not sarcastic,not sarcastic,False,3.1815,zero-shot,0,qwen3.5-4b
+129,test,<username> ðŸ¤£ðŸ¤£ðŸ¤£ðŸ¤£ <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3313,zero-shot,0,qwen3.5-4b
+130,test,Jangan takut banjir orang Jakarta sudah terlatih anggap saja ini berkah Imlek cukup pegang toa teriak banjir banjir ... Ayo ngopi bareng dilantai atas sambil nunggu antrian air masuk ke tanah!!. ????<hashtag>,1,1,sarcastic,sarcastic,False,3.2759,zero-shot,0,qwen3.5-4b
+131,test,Aku juga mau jadi nia ramadhani <link>,0,0,not sarcastic,not sarcastic,False,3.2363,zero-shot,0,qwen3.5-4b
+132,test,LONTE SEMUA GBLK,0,0,not sarcastic,not sarcastic,False,3.2394,zero-shot,0,qwen3.5-4b
+133,test,<username> <username> <username> <username> Yg negur <username> koplak Mungkin mau praktekin slogan tuannya BOLEH KORUPSI ASAL SANTUN CC <username>,0,0,not sarcastic,not sarcastic,False,3.3113,zero-shot,0,qwen3.5-4b
+134,test,Kamu ini sapa ?? ko mau <hashtag> padahal selama ini kalian yg demen nyerang NU kalian yg paling nyinyir Islam Nusantara kalian yg paling benci Banser semua amaliah NU kalian anggap Bid\'ah ... Ojo nggaya-nggaya ndadak <hashtag> . . <link>,0,0,not sarcastic,not sarcastic,False,3.2998,zero-shot,0,qwen3.5-4b
+135,test,<hashtag> ternyata ga jadi menteri karena ga setuju ama reklamasi katanya gugel tapi gw pingin tau dari netijen <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.306,zero-shot,0,qwen3.5-4b
+136,test,<username> Jangan menyalahkan anies .wg tidak kerja kk d salahkan .yang salah itu yang kerjs,1,0,not sarcastic,not sarcastic,False,3.2372,zero-shot,0,qwen3.5-4b
+137,test,<username> YUNIKA WULANDARI JAKARTA SELATAN A Anti lengket mudah dibersikan n cepet matang <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3037,zero-shot,0,qwen3.5-4b
+138,test,Hatimu panas? Hanguslah persahabatan' 0,0,1,sarcastic,sarcastic,False,3.2209,zero-shot,0,qwen3.5-4b
+139,test,prabowo emg kenamaan di google ... lah banyak yg nyari ... apakah prab terlibat ham ..anak prabowo apkh beneran homo ..jumatan dimana ..itu yg dicari smua org ..pgn tau kbnran ..dan pas tok ketik hasil prabowo ..muncul nyebarin hoax rs,1,1,sarcastic,sarcastic,False,3.3053,zero-shot,0,qwen3.5-4b
+140,test,Anies klaim 73% warga PUAS dengan kinerja Pemprov DKI . Iya Nies puas jadi Korban PHP janji mAnies mu,1,1,sarcastic,sarcastic,False,3.2745,zero-shot,0,qwen3.5-4b
+141,test,<username> Ini dokter bedah plastik itu ya? Tolong betulin mulutmu dulu baru ngomong,0,1,sarcastic,sarcastic,False,3.2147,zero-shot,0,qwen3.5-4b
+142,test,Takbeer ..... Allahu Akbar ... Colosseum .... M a n t a p !! GNPF Ulama Bela Pemprov DKI Soal Penghargaan Diskotek,1,0,not sarcastic,not sarcastic,False,3.2586,zero-shot,0,qwen3.5-4b
+143,test,<username> <username> <username> Cie ... cie ... yg gagal makan lobsterðŸ˜„ðŸ˜„ðŸ˜„,0,0,not sarcastic,not sarcastic,False,3.3185,zero-shot,0,qwen3.5-4b
+144,test,penting banget sumpah ini 7 fakta unik yuni shara . wow ! ternyata yuni suka mandi pakai air anget!!!,1,0,not sarcastic,not sarcastic,False,3.2384,zero-shot,0,qwen3.5-4b
+145,test,<username> Semoga selalu sukses dalam bertugas untuk menjaga pertahanan dan keamanan NKRI <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1929,zero-shot,0,qwen3.5-4b
+146,test,Gue pengen lihat dia terjatuh suatu saat nanti . <hashtag>,0,1,sarcastic,sarcastic,False,3.2371,zero-shot,0,qwen3.5-4b
+147,test,<username> penghargaan banyak umumkan saja gt saja repot . Paling Pintar dan smart banyak penghargaan saat kerja sekali kali <hashtag> diumumkan gt sebagai penghargaan,1,1,sarcastic,sarcastic,False,3.3301,zero-shot,0,qwen3.5-4b
+148,test,Bukan soal beda pilihan bos !! Soal etika tidak adanya rasa terimakasih terhadap pemerintah yg selama ini terlah banyak berkontribusi untuk kemajuan BL..,0,0,not sarcastic,not sarcastic,False,3.2956,zero-shot,0,qwen3.5-4b
+149,test,Ayo pak polisi cepat umumkan aktor intelektual & penyokong dana demo ricuh <hashtag>,0,1,sarcastic,sarcastic,False,3.2528,zero-shot,0,qwen3.5-4b
+150,test,<hashtag> Pohon tidak ditebang untuk Formula E tapi TETAP DITEBANG untuk REVITALISASI . MONAS tetap jadi gundul,1,1,sarcastic,sarcastic,False,3.2812,zero-shot,0,qwen3.5-4b
+151,test,Halo semuanya~ Veneta System lagi butuh <hashtag> ni Silahkan drop CV nya bagi yang berminat . Full Time kantornya ada di daerah mangga dua ðŸ˜‰ Ditunggu ya ^^ <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3514,zero-shot,0,qwen3.5-4b
+152,test,<username> <username> <username> <username> Mantap bro aq stuju .,0,0,not sarcastic,not sarcastic,False,3.2087,zero-shot,0,qwen3.5-4b
+153,test,Saat sadar orang berbuat sopan saat tidak sadar jadi tidak sopan sontoloyo,0,0,not sarcastic,not sarcastic,False,3.2363,zero-shot,0,qwen3.5-4b
+154,test,Indonesia butuh Presiden bukan tukang lenong & tukang pijit <hashtag>,1,1,sarcastic,sarcastic,False,3.2355,zero-shot,0,qwen3.5-4b
+155,test,<username> Pada keseleq kursi .... ðŸ¤£ðŸ¤£ <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2224,zero-shot,0,qwen3.5-4b
+156,test,MAR ingatkan kader <username> jgn hnya kejar dunia <username> <username> <username> <username> <username> <link>,0,0,not sarcastic,not sarcastic,False,3.324,zero-shot,0,qwen3.5-4b
+157,test,Jancuk sarkasme keren wkwk <link>,0,1,sarcastic,sarcastic,False,3.2104,zero-shot,0,qwen3.5-4b
+158,test,hebat kamu mbak sudah memikirkan,0,0,not sarcastic,not sarcastic,False,3.1747,zero-shot,0,qwen3.5-4b
+159,test,<username> Hanya ada di Rezim sontoloyo,0,1,sarcastic,sarcastic,False,3.2214,zero-shot,0,qwen3.5-4b
+160,test,<username> <username> tangkap tukang nyinyir Pak,0,0,not sarcastic,not sarcastic,False,3.2055,zero-shot,0,qwen3.5-4b
+161,test,Kadrunnya cuma 3% saja . Alhamdulilah Ã°Å¸â„¢ÂÃ°Å¸â„¢ÂÃ°Å¸â„¢Â <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3267,zero-shot,0,qwen3.5-4b
+162,test,<username> <username> <username> <username> Dasar kamu min ðŸ™ƒ,0,0,not sarcastic,not sarcastic,False,3.2409,zero-shot,0,qwen3.5-4b
+163,test,mengaku lah kalah masalah selesai . tirulah mertua bapak <username> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2368,zero-shot,0,qwen3.5-4b
+164,test,Padahal udh masuk <hashtag> tapi gabener oversmart koq masih aja <hashtag> dan kacung2nya ribut belain kayak <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3215,zero-shot,0,qwen3.5-4b
+165,test,Beri tangguhlah barang sesaat .. Sama sama kita saksikan mana Jihad Fi' Sabilillah .. Jihad di jalan Allah dengan Jihad di jalan Ks Tubun !!! <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3304,zero-shot,0,qwen3.5-4b
+166,test,Aku tidak peduli kalaupun harus mati ketika berjuang meraih mimpiku . Aku tidak akan menyesalinya .,0,0,not sarcastic,not sarcastic,False,3.2616,zero-shot,0,qwen3.5-4b
+167,test,Berkat infotainment 98 67% Ibu Ibu menjadikan pencapaian Mayangsari &amp; Nia Ramadhani sebagai prestasi yang harus ditiru anak perempuannya .,0,0,not sarcastic,not sarcastic,False,3.2713,zero-shot,0,qwen3.5-4b
+168,test,<username> Naik seweknya Nyi Roro Kidul koh,0,0,not sarcastic,not sarcastic,False,3.2373,zero-shot,0,qwen3.5-4b
+169,test,<username> Naik kereta kencana Nyi Roro Kidul,0,0,not sarcastic,not sarcastic,False,3.2067,zero-shot,0,qwen3.5-4b
+170,test,Mereka bukan hanya mengingkari konsitusi tp juga mengingkari ketetapan tuhan <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2093,zero-shot,0,qwen3.5-4b
+171,test,Terima kasih Indonesia team sekalian yang main top legen . Beri peluang raja Malaysia angkat piala harini,1,0,not sarcastic,not sarcastic,False,3.2265,zero-shot,0,qwen3.5-4b
+172,test,Ini knp ya ko tranding ??? <hashtag>,0,0,not sarcastic,not sarcastic,False,3.222,zero-shot,0,qwen3.5-4b
+173,test,<username> <username> <username> <username> <username> Ok ... trims ya,0,0,not sarcastic,not sarcastic,False,3.2228,zero-shot,0,qwen3.5-4b
+174,test,bapak anies baswedan sudah menepati janjinya untuk menyediakan kolam bagi warga jakarta . Jadi yang bilang bapak anies tidak becus kerja coba di sentil hidungnya wkkwkwk,1,1,sarcastic,sarcastic,False,3.3155,zero-shot,0,qwen3.5-4b
+175,test,Buat yg UNBK hari ini semangat berjuangnya dan saya masi perjuangin kamu kok biar kita sama2 berjuang :) <hashtag>,0,0,not sarcastic,not sarcastic,False,3.294,zero-shot,0,qwen3.5-4b
+176,test,jadi gini ..Belum ada Kartu Pra Kerja saja Pak <username> sdh bisa menurunkan angka kemiskinan sejauh ini . Apalagi nanti,0,0,not sarcastic,not sarcastic,False,3.1943,zero-shot,0,qwen3.5-4b
+177,test,Teladan rekonsiliasi . Jokowi Prabowo bertemulah <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2063,zero-shot,0,qwen3.5-4b
+178,test,<username> BPJS . Budget pas pas an jiwa sosialita,0,0,not sarcastic,not sarcastic,False,3.177,zero-shot,0,qwen3.5-4b
+179,test,Membela kaum yang lemah katanyaâ€¦ Pro wong cilik katanyaâ€¦ . Merangkul masyarakat bawah katanyaâ€¦ Tapi kok buktinya malah suka memaki-maki kalangan bawah? <hashtag>,0,1,sarcastic,sarcastic,False,3.3069,zero-shot,0,qwen3.5-4b
+180,test,Tuan <username> memang luar biasa . Selain suka menghina Kyai ternyata suka bohong . Bahkan ada info soal hoax Sarumpaet dibelakangnya si <hashtag> ini ..,1,1,sarcastic,sarcastic,False,3.2991,zero-shot,0,qwen3.5-4b
+181,test,Ada wacana cadar dan celansla cingkrang di larang ... Haha <link>,0,1,sarcastic,sarcastic,False,3.1959,zero-shot,0,qwen3.5-4b
+182,test,Pertemuan yg sangat menyejukkan .Selamat pJokoWi Selamat pPrabowo anda layak disebut Pahlawan Pemersatu Bangsa <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3054,zero-shot,0,qwen3.5-4b
+183,test,NU tidak pernah mengklaim mewakili segenap ummat Muslim . NU justru sering diklaim oleh sebagian orang yang kurang percaya diri .,1,0,not sarcastic,not sarcastic,False,3.2319,zero-shot,0,qwen3.5-4b
+184,test,<username> Iya Dasar Kadrun Ã°Å¸ËœÅ <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2216,zero-shot,0,qwen3.5-4b
+185,test,Sejarah baru DKI berkat Gabener Seiman Rasa Pesinden. <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2092,zero-shot,0,qwen3.5-4b
+186,test,"Emang warbiyasak, gabener <hashtag> sejarah mencatat. Tahun 2020, January-Februari sdh terjadi 6x banjir, ngalahin demo yg berjilid-jilid itu.Wajah menyeringai Gubernur di daerah manapun blm bisa menyaingi prestasi bliyo <username> ini.",1,1,sarcastic,sarcastic,False,3.3156,zero-shot,0,qwen3.5-4b
+187,test,Indonesia kan unggul dengan Esemka Romo . Pas kampanye beliau sih zaman dulu . Hehe Maaf <hashtag> :-),1,1,sarcastic,sarcastic,False,3.2445,zero-shot,0,qwen3.5-4b
+188,test,Arif Satria terdorong terus berbuat untuk kemajuan IPB . <link>,0,0,not sarcastic,not sarcastic,False,3.2258,zero-shot,0,qwen3.5-4b
+189,test,Tahuuuu bulat . Enakenakenakenakenak <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1908,zero-shot,0,qwen3.5-4b
+190,test,Menyambut Siti Aisyah . Teruslah memberikan yang terbaik untuk bangsa . <username> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2022,zero-shot,0,qwen3.5-4b
+191,test,Cara memulai adalah dengan berhenti berbicara dan mulai melakukan . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2336,zero-shot,0,qwen3.5-4b
+192,test,pada ngapain si lempar botol lempar batu seharusnya tuh mikir kasian anak istri dirumah lah situ enak dateng demo dikasih nasbung lah anak istri dirumah mau makan apa? sejuta kerinduan? <hashtag>,0,1,sarcastic,sarcastic,False,3.2963,zero-shot,0,qwen3.5-4b
+193,test,<username> mana mungkin mau dia kan kaum KW keahliannya hanya qalam qalam doank,0,1,sarcastic,sarcastic,False,3.191,zero-shot,0,qwen3.5-4b
+194,test,Kenapa <hashtag> .. Aku kasih ini aja deh <link>,0,0,not sarcastic,not sarcastic,False,3.1949,zero-shot,0,qwen3.5-4b
+195,test,<username> <username> Aku Bangga jadi Alumni UGM karena JOKOWI Aku Malu jadi Alumni UGM karena ANIES dan AMIEN . PAHAM ???,1,1,sarcastic,sarcastic,False,3.3032,zero-shot,0,qwen3.5-4b
+196,test,Memang bola tak punya hati tapi soal membahagiakan dia lebih hebat darimu ðŸ˜ðŸ‘ðŸ‘<hashtag>,0,0,not sarcastic,not sarcastic,False,3.2861,zero-shot,0,qwen3.5-4b
+197,test,<username> Uwu banget tapi yang ngelempar botol kok goblok?!,0,1,sarcastic,sarcastic,False,3.2052,zero-shot,0,qwen3.5-4b
+198,test,Terima kasih bapak Gub Anies .. baru di sadari kerja sebagai gubernur DKI ternyata tidak semudah berkata kata dan teori yang belum nyata ..harap semangat bapak dan agar buang ego yang tidak perlu .. kehebatan bapak akan berhasil pabila teruskan kerja yang baik dari pendahulu,1,0,not sarcastic,not sarcastic,False,3.3234,zero-shot,0,qwen3.5-4b
+199,test,Klo buat w yg unggul yah pasti yg cerdas klo menurut lo2 pada Metro_TV yg mana ??? yg IQ nya berapa? :D :D : D :D,0,1,sarcastic,sarcastic,False,3.3014,zero-shot,0,qwen3.5-4b
+200,test,Tidak munculnya nama Susi Pudjiastuti di antara 34 nama menteri Kabinet Indonesia Maju dipertanyakan oleh banyak pihak . <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3156,zero-shot,0,qwen3.5-4b
+201,test,<username> pertama . kamu tololÃ°Å¸ËœÂ­ tp ucullÃ°Å¸ËœÂ­,0,0,not sarcastic,not sarcastic,False,3.3118,zero-shot,0,qwen3.5-4b
+202,test,Benar-benar ide yang brilian Out of The Box .. Monas akan dijadikan kolam raksasa seluas Lapangan Bola oleh Gabener Wan Abud buat tangkap air kalau hujan di wilayah Jakarta sekalian nanti jadi t4 wisata halal ala Kadrun ..?? <hashtag>,1,1,sarcastic,sarcastic,False,3.2983,zero-shot,0,qwen3.5-4b
+203,test,selamat malam rakyat negara bangun .. apakah sudah sembuh dari penyakit kamipolitiken?,1,1,sarcastic,sarcastic,False,3.2178,zero-shot,0,qwen3.5-4b
+204,test,<username> anjir goblok bgt ya malah marah fancamnya kehalang!!! bgst,0,1,sarcastic,sarcastic,False,3.2305,zero-shot,0,qwen3.5-4b
+205,test,Berkat program Toa Jkt sudah tidak banjir lagi .... hanya Kelelep !! <hashtag>,1,1,sarcastic,sarcastic,False,3.2557,zero-shot,0,qwen3.5-4b
+206,test,Oh ternyata Jokuwi Yang pakai consultant luar negeri ... Ngakuin ketololannya sendiri Dungunya mendunia,1,1,sarcastic,sarcastic,False,3.2108,zero-shot,0,qwen3.5-4b
+207,test,Kukira cuma pendukung Prabowo yang dengan gobloknya bikin hestek uninstall uninstall . Ternyata pendukung Jokowi juga bisa bikin hestek <hashtag> . Sama aja gobloknya . Siap2 kehilangan swing voters aja kalo masih tetep kayak gini . Pantesan kok banyak yg milih golput .,0,1,sarcastic,sarcastic,False,3.3163,zero-shot,0,qwen3.5-4b
+208,test,Ketika malam minggu seperti ini datang : Sendiri sudah biasa Berdua sudah biasa Bertiga juga biasa Bertempat kita remi aja <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2884,zero-shot,0,qwen3.5-4b
+209,test,Presiden RI lantik Kapolri baru .. <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2103,zero-shot,0,qwen3.5-4b
+210,test,terimakasih kepada <username> telah menyalurkan csrnya kepada lelayan tradisional khususnya dikabupaten <username> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3093,zero-shot,0,qwen3.5-4b
+211,test,Memimpin dan menginspirasi Sehat selalu Pa Presiden <username> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1924,zero-shot,0,qwen3.5-4b
+212,test,Barusan ngecek . Jakarta masih baik2 saja . Tapi kerugian besar terjadi . Pentolan paling atas tetap harus bertanggungjawab siapa suruh ngomong hoax tidak habis2? <hashtag> <hashtag>,1,1,sarcastic,sarcastic,False,3.3171,zero-shot,0,qwen3.5-4b
+213,test,<username> Ini pengusaha apa pejabat atau pensiunan atau apa ya .. buanyak banget dapat dri mana itu ??,0,1,sarcastic,sarcastic,False,3.2271,zero-shot,0,qwen3.5-4b
+214,test,<username> Kok bisa <hashtag> . Jd acuan kemenag...?,0,0,not sarcastic,not sarcastic,False,3.2069,zero-shot,0,qwen3.5-4b
+215,test,<username> Ngaco .. laporkan ke badan Hukum kalau kamu tidak lapor saudara termasuk orang-orang yang gak berbadan Hukum ..tau Barbar .. padahal Barbar harus dihapuskan dari muka Bumi ..Camkan itu pak Prabowo saya sama sekali tidak bela pk jokowi saya bela kebenaran maksutnya kebenaran bukan ala,0,0,not sarcastic,not sarcastic,False,3.3147,zero-shot,0,qwen3.5-4b
+216,test,Mulia sekali para elit politikku mereka tidak sungkan untuk menumpuk kursi agar memudahkan pihak EO pada saat memberikan ruangan tsb.,1,1,sarcastic,sarcastic,False,3.1834,zero-shot,0,qwen3.5-4b
+217,test,Bisa jadi karena kurang dikelon tiap malam akhirnya muncul hastag <hashtag> .. Kalau dikelon biasanya sih bisa adem .. <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3142,zero-shot,0,qwen3.5-4b
+218,test,Gubernur yang santun yang hebat dan pandai masa iya tidak tahu . <hashtag>,1,1,sarcastic,sarcastic,False,3.2376,zero-shot,0,qwen3.5-4b
+219,test,<username> Yups tp merusak kepercayaan rakyat boleh lah kan pak <username>,0,1,sarcastic,sarcastic,False,3.2099,zero-shot,0,qwen3.5-4b
+220,test,<username> Abis kalau ke akun lain sedang berenang om . Mantul banget lah <username> sarkasme nya,0,0,not sarcastic,not sarcastic,False,3.2402,zero-shot,0,qwen3.5-4b
+221,test,Maenan lu kaya pengangguran kaga pernah sekolah PRETT ! <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.2348,zero-shot,0,qwen3.5-4b
+222,test,Hanya karena gak rutin qunut subuh dituduh anti pancasila dan intoleran . <hashtag>,0,1,sarcastic,sarcastic,False,3.2223,zero-shot,0,qwen3.5-4b
+223,test,Lem aibon 82 8 M Pulpen 124 M Jamban 166 M Jalur sepeda 73 M Selamat kepada seluruh rakyat JKT58 gubernur kalian memang luar binasa nikmatilah kinerja gubernur kalian sampai mabok . <hashtag> <hashtag>,1,1,sarcastic,sarcastic,False,3.3248,zero-shot,0,qwen3.5-4b
+224,test,<username> <username> Belio penterjemah bahasa Twitter . Tolong hargailah . Sesungguhnya bahasa Twitter tu njelimet .,0,1,sarcastic,sarcastic,False,3.3133,zero-shot,0,qwen3.5-4b
+225,test,<username> <username> Kamu memang mantap,0,0,not sarcastic,not sarcastic,False,3.2102,zero-shot,0,qwen3.5-4b
+226,test,Sandiaga Uno janjikan program Kartu Jakarta Jomblo Hingga Sandi maju menjadi Cawapres kartu ini tidak pernah terwujud dasar hoak nipu masyarakat ...,1,1,sarcastic,sarcastic,False,3.3492,zero-shot,0,qwen3.5-4b
+227,test,Kalo yang lebih pintar bikin musik daripada marketing Sajama Cut bang . <link>,0,0,not sarcastic,not sarcastic,False,3.2016,zero-shot,0,qwen3.5-4b
+228,test,Luwar biasa kan Gubernur seiman ini . Gelar Ph .D luar negri mantan rektor Paramadina dan mantan Mentri Pendidikan ini sudah berhasil membuat senang anakÂ² dengan menghadirkan kolam renang buat warganya . Ngerti ora bong!!! <hashtag>,1,1,sarcastic,sarcastic,False,3.2608,zero-shot,0,qwen3.5-4b
+229,test,<username> deuh emak emak sosialita huh,0,0,not sarcastic,not sarcastic,False,3.2295,zero-shot,0,qwen3.5-4b
+230,test,<username> <username> Bukan buat pebisnis pastinya dan sosialita yg kelebihan uang . Masak buat IG story doang ? Kan konyol Ã°Å¸Â¤Â£,0,1,sarcastic,sarcastic,False,3.3181,zero-shot,0,qwen3.5-4b
+231,test,Untung saya tidak punya Bukalapak tapi keluarga besar saya sudah uninstallbukalapak tidak tahu diri!!!,1,0,not sarcastic,not sarcastic,False,3.2227,zero-shot,0,qwen3.5-4b
+232,test,JAdi manusia itu lebih baik jangan angkuh dan sombong sampai berani merendahkan ulama NU kita bukan orang lugu yang tidak mengerti bahsa ambigumu .,1,1,sarcastic,sarcastic,False,3.3026,zero-shot,0,qwen3.5-4b
+233,test,Terlebih nanti Presiden <username> masih akan berkunjung ke Universitas Aisyiyah . Jadi kalau ada yang bilang presiden\u2026 <link>,0,0,not sarcastic,not sarcastic,False,3.3158,zero-shot,0,qwen3.5-4b
+234,test,"gila gila gila keren keren keren .... rakyat dihajar abis abisan , koruptor dibiarkan liar... inilah pertumbuhan 7% , pertumbuhan koruptor",1,1,sarcastic,sarcastic,False,3.3037,zero-shot,0,qwen3.5-4b
+235,test,Semoga Kejujuran dinegri ini bisa ditegakkn .. bila MK melanggar tujuan dibentuknya MK .. ayo bangkit kt lawan tirani yg telh melecehkan konstitusi dinegri ini .. Kedaulatan Rakyat & demokrasi hrs ditegakkn sesuai dngn konstitusi .. Allahuakbar .. Merdeka .. <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3149,zero-shot,0,qwen3.5-4b
+236,test,Bukan Karena tdk ada Rintangan hidup kita Optimis tapi krn kita Optimis maka Rintangan mjd tdk terasa,0,0,not sarcastic,not sarcastic,False,3.2674,zero-shot,0,qwen3.5-4b
+237,test,Pintar banget sih kalau suruh membolak balikkan fakta . belajar dimana?,1,1,sarcastic,sarcastic,False,3.2036,zero-shot,0,qwen3.5-4b
+238,test,Tak perlu iri atas keberhasilan orang lain . Jadikan itu motivasi agar semangatmu terpacu .,0,0,not sarcastic,not sarcastic,False,3.2248,zero-shot,0,qwen3.5-4b
+239,test,<username> <username> Kalo lu sok komentarin lu lonte anjing..... sampah goblok biadab . Kalo bodoh ya bodoh aja mba jgn goblok lg ... tiap hari makan taik ya makanya gda otak .,0,1,sarcastic,sarcastic,False,3.2944,zero-shot,0,qwen3.5-4b
+240,test,produsen petasan kaya mendadak . asli seberangnya pihak yg paling diuntungkan ya tukang petasan . Jadi lebaran lah pokoknya <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3029,zero-shot,0,qwen3.5-4b
+241,test,Ada yg bisa membantu adik kita ini Ã°Å¸â„¢Â <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.282,zero-shot,0,qwen3.5-4b
+242,test,<username> <username> <username> Haha kasian lho dokðŸ˜…,0,1,sarcastic,sarcastic,False,3.2526,zero-shot,0,qwen3.5-4b
+243,test,<hashtag> Jokowi cukur rambut aja dia iri . Apalagi Jokowi berprestasi .,0,1,sarcastic,sarcastic,False,3.2246,zero-shot,0,qwen3.5-4b
+244,test,Semoga dapat menjadi generasi penerus bangsa yang cerdas dan dapat mengharumkan serta mengangkat martabat bangsa,0,0,not sarcastic,not sarcastic,False,3.1996,zero-shot,0,qwen3.5-4b
+245,test,<username> Ketika fungsi jempol mendahului fungsi otak ðŸ¤­,0,0,not sarcastic,not sarcastic,False,3.2021,zero-shot,0,qwen3.5-4b
+246,test,Permasalahannya apa sih ngak ngerti ??? ??? <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.2228,zero-shot,0,qwen3.5-4b
+247,test,<username> Fi semalem si sam jakpot goblok bgt wkkwkwkwkw,0,1,sarcastic,sarcastic,False,3.2261,zero-shot,0,qwen3.5-4b
+248,test,Tetaplah semangat dan teruslah berjuang . Karna tanpa semangatmu akupun berhenti berjuang .,0,0,not sarcastic,not sarcastic,False,3.1906,zero-shot,0,qwen3.5-4b
+249,test,Pemimpin jakarta si anies alhamdulillah amanah dengan kolam banjirnya,1,1,sarcastic,sarcastic,False,3.2246,zero-shot,0,qwen3.5-4b
+250,test,Tagar <hashtag> ini bukankah terliat seperti hinaan halus ya? Gw justru kasian dengan pak prabowo yg kalah tpi malah dapat hinaan kyk gini,0,1,sarcastic,sarcastic,False,3.3282,zero-shot,0,qwen3.5-4b
+251,test,Yang telah berlalu biarkan ia berlalu yang mendatang hadapi dengan cemerlang . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2269,zero-shot,0,qwen3.5-4b
+252,test,Yang seharusnya jd korban kerusuhan itu wakil rakyat kyk fadly ini .jgn rakyatnya ..<hashtag>,0,1,sarcastic,sarcastic,False,3.1948,zero-shot,0,qwen3.5-4b
+253,test,Sekolah tinggi2 untuk jadi pintar . Tapi negeri ini tidak butuh orang pintar butuhnya orang yg jujur .,0,0,not sarcastic,not sarcastic,False,3.1957,zero-shot,0,qwen3.5-4b
+254,test,Iblis2 pun melakukan sidang istimewa membahas kedudukan mereka yang sudah turun derajatnya karena oknum wakil rakyat yang sudah menghina Ulama .,1,0,not sarcastic,not sarcastic,False,3.1932,zero-shot,0,qwen3.5-4b
+255,test,<username> Kami merasa bangga memiliki president seperti bapak jokowi . Smoga tahun ini bpk jokowi tetap mnjdi president kami<hashtag>#,0,0,not sarcastic,not sarcastic,False,3.3153,zero-shot,0,qwen3.5-4b
+256,test,Yg krg waras biasanya jago menghibur yg waras jd penyejuk . Klop kan Berteman itu bth insting tajam kenyamanan . Yg krg waras dan yg waras sama sama asal sreg dihati knp tidak ?,0,0,not sarcastic,not sarcastic,False,3.294,zero-shot,0,qwen3.5-4b
+257,test,Melakukan aksi uninstallbukalapak bukan ketololan tapi sebuah sikap yang tegas dan protes atas attitude buruk <username> Justru yang tolol adl orang yang membela attitude buruk tsb.,1,0,not sarcastic,not sarcastic,False,3.3188,zero-shot,0,qwen3.5-4b
+258,test,<username> <username> .......anda serius ga ngerti? Ato sarkasme?,0,1,sarcastic,sarcastic,False,3.2047,zero-shot,0,qwen3.5-4b
+259,test,juara bohong <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2218,zero-shot,0,qwen3.5-4b
+260,test,<username> Mulia sekali cita2 mu nak bapak nyesal tidak gugurin kamu ??,1,1,sarcastic,sarcastic,False,3.1914,zero-shot,0,qwen3.5-4b
+261,test,<username> Bangsat kau hina agama Islam mksd lo apa ... dasar otak butek <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1918,zero-shot,0,qwen3.5-4b
+262,test,mereka yg menyerukan Jihad untuk membela kebenaran dgn cara Jahad <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3136,zero-shot,0,qwen3.5-4b
+263,test,<username> pejabat optimis dg kenaikan kesejahterannya dan menyejahterakan pemilik modal ..,0,1,sarcastic,sarcastic,False,3.2415,zero-shot,0,qwen3.5-4b
+264,test,<username> Nia ramadhani ga bisa buka salak . Kalau gue mau belaga ga bisa buka rambutan .ðŸ¥º,0,0,not sarcastic,not sarcastic,False,3.3156,zero-shot,0,qwen3.5-4b
+265,test,<username> Gabener terbaik? Terbaik menata kata memang iya . <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2205,zero-shot,0,qwen3.5-4b
+266,test,Manusia ini <username> tidak ada kontribusi kepada bangsa dan negara bisanya cuma ngebacot dan nyinyir <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2242,zero-shot,0,qwen3.5-4b
+267,test,<username> Semoga sukses terus ya FPI muuu <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2043,zero-shot,0,qwen3.5-4b
+268,test,Filosofi duduk di tangga ala pak jokowi apasi ada yang tau?? <hashtag>,0,1,sarcastic,sarcastic,False,3.2061,zero-shot,0,qwen3.5-4b
+269,test,Jika benar ada penyalah gunaan ambulance oleh pihak lain tidak menghapus atau mengurangi kesalahan Rocky Gerung dan Said Didu apalagi menghapuskan . Jgn jd pengcut mengalihkan dosamu pada pelanggaran org lain . Moral rendah tdk berintegritas yang dua ini contohnya .,0,0,not sarcastic,not sarcastic,False,3.3039,zero-shot,0,qwen3.5-4b
+270,test,<username> Gmna yaa kok kayak nyi roro kidul,0,0,not sarcastic,not sarcastic,False,3.2195,zero-shot,0,qwen3.5-4b
+271,test,wooww ... kehidupan syekali pendukung prabohong memaksa dan mendoktrin agar memilih c wowo :d takut ya kalau 2019 kalahlagi :d :d <hashtag>,1,1,sarcastic,sarcastic,False,3.3039,zero-shot,0,qwen3.5-4b
+272,test,yang penting bahagia y seiman ini <hashtag>,1,0,not sarcastic,not sarcastic,False,3.196,zero-shot,0,qwen3.5-4b
+273,test,Teu keren kumaha atuh nguruskeun hirup batur :)) <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2889,zero-shot,0,qwen3.5-4b
+274,test,<username> <username> <username> haters dijadiin jubir .. ambyarrr,0,0,not sarcastic,not sarcastic,False,3.2228,zero-shot,0,qwen3.5-4b
+275,test,Manusia ... tidak semata mata meninggalkan sesuatu yg sangat berharga .. kalau gk bosan /lelah .. pasti lebih mengguntungkan / lebih baik . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3323,zero-shot,0,qwen3.5-4b
+276,test,<username> <username> <username> Salut ðŸ˜Š <username> <username>,0,0,not sarcastic,not sarcastic,False,3.2656,zero-shot,0,qwen3.5-4b
+277,test,Ngapain coba ngajakin orang uninstallbukalapak padahal lagi ada serbu seru . <hashtag> aja otak kamu yang bodoh udah disakitin tetep aja bertahan .,0,0,not sarcastic,not sarcastic,False,3.3151,zero-shot,0,qwen3.5-4b
+278,test,prabohong berpidato terlalu lantang sampai lupa yang disampaikan isinya tidak karuan alias kacau .,1,0,not sarcastic,not sarcastic,False,3.1957,zero-shot,0,qwen3.5-4b
+279,test,Yang baik dicaci yang jelek di rangkul <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2088,zero-shot,0,qwen3.5-4b
+280,test,Lihat yuk seperti apa sih sosok bapak <username> Menteri Perindustrian <username> periode 2019-2024? <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2868,zero-shot,0,qwen3.5-4b
+281,test,indonesiaku sedang berberdaya gunaan yang menolak perdamaian berarti mereka menolak nkri dan pancasila . <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2916,zero-shot,0,qwen3.5-4b
+282,test,Belanjanya di kedai tek er dekat rumah aja .. gak bayar parkir <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2136,zero-shot,0,qwen3.5-4b
+283,test,<username> <username> Jangan kasih kendor maju terus <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2268,zero-shot,0,qwen3.5-4b
+284,test,<username> Udah Dungu ... Buta Hati pulak . <hashtag>,0,1,sarcastic,sarcastic,False,3.2278,zero-shot,0,qwen3.5-4b
+285,test,<username> <username> Korupsi 10m diganjar 1th 4bln termasuk diobral nih vonis . Benar era sontoloyo .,0,1,sarcastic,sarcastic,False,3.2932,zero-shot,0,qwen3.5-4b
+286,test,<username> Lah ada lagi level tukang kebon klo dari kacamata Anies mah Dah cari duit lagi sana ga usah ganggu otak kapitalis sok sok an masuk wilayah birokrasi yang ada korupsi ...,0,1,sarcastic,sarcastic,False,3.2982,zero-shot,0,qwen3.5-4b
+287,test,<username> Seneng loh baca2 komen disini ... banyak yang pinter ternyata rakyat indonesia .... yang kepinteran juga banyak ... yang dong dong juga buanyak banget ... ðŸ˜‹,0,0,not sarcastic,not sarcastic,False,3.3146,zero-shot,0,qwen3.5-4b
+288,test,Kesaksian <username> tentang penilaian <username> terhadap <username> Kesimpulannya <username> didampingi cawap\u2026 <link>,0,0,not sarcastic,not sarcastic,False,3.3038,zero-shot,0,qwen3.5-4b
+289,test,<username> Lempar botol? Anjing kok tolol si bangsat,0,1,sarcastic,sarcastic,False,3.1772,zero-shot,0,qwen3.5-4b
+290,test,Apa jadinya negeri ini kalau dipimpin oleh bandar dan pengguna narkoba <hashtag>,0,1,sarcastic,sarcastic,False,3.2193,zero-shot,0,qwen3.5-4b
+291,test,<username> <username> WASPADA MANUVER POLITIK NU GARIS BENGKOK CARI KURSI MENTRI <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.318,zero-shot,0,qwen3.5-4b
+292,test,<username> .....katanya kecewa dengan pinjaman dari saudi.....ko malah ke sana.....,0,1,sarcastic,sarcastic,False,3.2091,zero-shot,0,qwen3.5-4b
+293,test,Emng gk cocok bu irma .ah jngn mimpi presiden deh .jauh ... kata2 dl br tindkan ..ibratnya wooii kebakaran ... ngomng dl bru ambil air ..keburu habis pak2 ..Ã°Å¸ËœÂ <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2637,zero-shot,0,qwen3.5-4b
+294,test,BANJIR HUJAN dan BANJIR ANGGARAN Akhirnya BERJALAN BERIRINGAN Nikmati Pilihan PEMIMPI(n)mu ??????????,1,1,sarcastic,sarcastic,False,3.285,zero-shot,0,qwen3.5-4b
+295,test,Terkadang kita harus berfikir secerdik penipu dan bermain selicik pembunuh <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.301,zero-shot,0,qwen3.5-4b
+296,test,<username> <username> <username> Karena baru masih g ngerti pat gulipat yg umum terjadi dan normal ya .,0,0,not sarcastic,not sarcastic,False,3.1895,zero-shot,0,qwen3.5-4b
+297,test,prabowo sudah tau kalah sejak dia klaim 62% dan hanya cara kerusuhan ini <hashtag> prabowo bisa menjadi presiden drama yang terstruktur dan sistematis . dengan cara menggiring opini publik <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.2975,zero-shot,0,qwen3.5-4b
+298,test,ni nih yang gua suka . Capek kadang rasanya 2 kubu yang saling menjatuhkan satu sama lain terus2 an nyindir lewat twitter.,1,0,not sarcastic,not sarcastic,False,3.3254,zero-shot,0,qwen3.5-4b
+299,test,nelayan itu berangkat melaut malam hari dan kembali pada siang hari . lalu waktu jam 12 malam pergi berdua supir ke pantai siapa yang dia temui itu ya? ini namanya bohong pangkat 12,1,0,not sarcastic,not sarcastic,False,3.2577,zero-shot,0,qwen3.5-4b
+300,test,DÃ mai untuk papua <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2548,zero-shot,0,qwen3.5-4b
+301,test,Lord Luhut trending topik . Menteri kesayangan <username> nih . <hashtag>,0,1,sarcastic,sarcastic,False,3.2236,zero-shot,0,qwen3.5-4b
+302,test,Hahahhaha .. Maha benar anies dgn segala ceritanya <hashtag> <link>,0,1,sarcastic,sarcastic,False,3.1966,zero-shot,0,qwen3.5-4b
+303,test,Diskotik halal Main catur haram Nonton film korea haram . Ok . Selamat datang dinegaraku .,0,0,not sarcastic,not sarcastic,False,3.2156,zero-shot,0,qwen3.5-4b
+304,test,<username> Kayaknya sudah pinter banget dokter satu ini memang kamu sudah pernah nyusun RAPBD ??? <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2114,zero-shot,0,qwen3.5-4b
+305,test,<username> Ngapain kamu di pantai? Mau jadi budaknya nyi roro kidul?,0,1,sarcastic,sarcastic,False,3.2371,zero-shot,0,qwen3.5-4b
+306,test,"negara ini keren, koruptor aja yang milih rakyat. bhahahak..",1,1,sarcastic,sarcastic,False,3.2215,zero-shot,0,qwen3.5-4b
+307,test,<username> Masa kampanye sudah lewat pemenang Pilpres sudah ada . Kenapa kalian hancurkan Indonesia .,0,0,not sarcastic,not sarcastic,False,3.2009,zero-shot,0,qwen3.5-4b
+308,test,Lebih baek banjir daripada ngutang katenye lebih baek anggaran bocor daripada genteng bocor . Genteng kagak bocor sih tapi rumah nyilem <hashtag>,1,0,not sarcastic,not sarcastic,False,3.3146,zero-shot,0,qwen3.5-4b
+309,test,Apa saja konsekuensi membuat dan menyebarkan berita menyesatkan?,0,0,not sarcastic,not sarcastic,False,3.2191,zero-shot,0,qwen3.5-4b
+310,test,Mantan Ketua Dewan Guru Besar UGM Koentjoro khawatir Nadiem akan diperalat oleh pembantunya mengingat pengalamannya mengurusi pendidikan tinggi sangat minim . Begini katanya: <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3293,zero-shot,0,qwen3.5-4b
+311,test,<username> <username> Et nia ramadhani bakrie,0,0,not sarcastic,not sarcastic,False,3.2199,zero-shot,0,qwen3.5-4b
+312,test,otak penuh dengan sarkasme yang ga tega dikeluarkan,0,0,not sarcastic,not sarcastic,False,3.1812,zero-shot,0,qwen3.5-4b
+313,test,Macan itu tempatnya dihutan ! Kalau sudah keluar hutan trus naik panggung jadi bahan tertawaan... tidak garang lagi ! <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3172,zero-shot,0,qwen3.5-4b
+314,test,Teruntuk Pak <username> &amp; Pak <username> jujur saya sangat senang karena bapak berdua mencalonkan diri sebagai Presiden\u2026 <link>,0,1,sarcastic,sarcastic,False,3.2684,zero-shot,0,qwen3.5-4b
+315,test,<username> Cina jgn dimanja dong para pejabat harus waspada nih .,0,0,not sarcastic,not sarcastic,False,3.1952,zero-shot,0,qwen3.5-4b
+316,test,<username> <username> Amin .... smoga menang <hashtag> Jokowi = \Jaa Al-Qawi (datang orang yang kuat),0,0,not sarcastic,not sarcastic,False,3.3343,zero-shot,0,qwen3.5-4b
+317,test,<username> Apa yang lain tidak menjadi iri dgn penghasilan yang luar biasa utk menjadi pejabat . Para pensiunan jenderal berlomba lomba utk aktif menjadi bergelimbang harta setelah karir di militer hanya mendapatkan gaji yang pas saja TDK lebih cari an,0,0,not sarcastic,not sarcastic,False,3.2841,zero-shot,0,qwen3.5-4b
+318,test,Pacar kamu memang Cantik tapi sayang nya dia Licik â–”â–¡â–”)/,0,1,sarcastic,sarcastic,False,3.2029,zero-shot,0,qwen3.5-4b
+319,test,Tuhhh pak ..dengerin tat zul yg TRANSPARAN dan BERTANGGUNG JAWAB jgn cuma nata Kata2 tp ngorbanin rang lain jgn <hashtag> aja yg sllu Apes . <link> <link>,0,1,sarcastic,sarcastic,False,3.3157,zero-shot,0,qwen3.5-4b
+320,test,seratus buat kamu anak pintar ! cariin alesan yang lebih tepat dong,1,1,sarcastic,sarcastic,False,3.2091,zero-shot,0,qwen3.5-4b
+321,test,Semua poling dimenangkan pasangan <username> <username> bahkan 3 diantaranya diatas 88 % !! Robot2 kampret pada habis kontrak atau pada kelojotan sekarat gegara melihat GBK kemarin ?? <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.2883,zero-shot,0,qwen3.5-4b
+322,test,Anies dan Hidayat Nur Wahid (HNW) menghadiri acara Pembukaan Rakernas ke-15 Ikatan Persaudaraan Haji Indonesia (IPHI). Begini pantauannya: <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2638,zero-shot,0,qwen3.5-4b
+323,test,<username> Penyakit anies dari dulu sampe sekarang ga sembuh2 dok.......yaitu penyakit selalu menyalahkan gubernur yg dulu ... tolong dok itu mukanya di permak sekalian ya kalo ketemu bikin seperti mukannya bowo tiktok ðŸ˜ðŸ˜ðŸ˜ sama2 rai gedek dablek songong sisann ..,0,1,sarcastic,sarcastic,False,3.3061,zero-shot,0,qwen3.5-4b
+324,test,Si buniyani kemakan omongannya sendiri !! Dasar buniyani memang bodoh !! :D :D,1,1,sarcastic,sarcastic,False,3.2441,zero-shot,0,qwen3.5-4b
+325,test,Polisi baik hanya polisi tidur <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2375,zero-shot,0,qwen3.5-4b
+326,test,memang harus diakui kalau anies pintar . Buat live IG di tempat yang tidak banjir . PR ????,1,1,sarcastic,sarcastic,False,3.2543,zero-shot,0,qwen3.5-4b
+327,test,Kalau mereka bilang ada brimob dari cina kalau ini gimana ya jeng jeng kena deh ! <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1779,zero-shot,0,qwen3.5-4b
+328,test,<username> Mmg sontoloyo,0,0,not sarcastic,not sarcastic,False,3.2219,zero-shot,0,qwen3.5-4b
+329,test,<username> <username> <username> Bentar lg dipecat jd jubir,0,0,not sarcastic,not sarcastic,False,3.1923,zero-shot,0,qwen3.5-4b
+330,test,Ketua DPR RI Puan Maharani Perintahkan DKI Kembalikan Monas sedia kala . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2214,zero-shot,0,qwen3.5-4b
+331,test,Fadli Zon si Penista Ulama .. !! :X :X :X :X,0,1,sarcastic,sarcastic,False,3.212,zero-shot,0,qwen3.5-4b
+332,test,Buang ae yg kek giniannnn<hashtag>,0,0,not sarcastic,not sarcastic,False,3.1903,zero-shot,0,qwen3.5-4b
+333,test,woy itu orang berpendidikan ! bahkan yg ndak berpendidikan juga ndak boleh digitukan ! sontoloyo maksimal sih ini kalo aku diginikan ku putar dia punya kepala!!! <link>,0,1,sarcastic,sarcastic,False,3.2836,zero-shot,0,qwen3.5-4b
+334,test,<username> <username> Kopi sontoloyo,0,0,not sarcastic,not sarcastic,False,3.2022,zero-shot,0,qwen3.5-4b
+335,test,Dgn logika yg sama ketika PResiden mmilih Nadiem mjadi Mendikbud shrsnya para pria mjadikan baby sitter sbg istrinya . Ini jika mganalogikan solusi dari mgerjakan standarisasi sekolah yg tsebar di sluruh negeri dgn solusi dari pgasuhan anak dgn kuantitas yg cukup . <hashtag>,0,1,sarcastic,sarcastic,False,3.2747,zero-shot,0,qwen3.5-4b
+336,test,<username> wkwkwkwkwkwkwkwk ormas ormas goblok makannya modal sewa sound sama stage tolol,0,1,sarcastic,sarcastic,False,3.206,zero-shot,0,qwen3.5-4b
+337,test,Ferdinand Murka Edhy Prabowo Disebut Menteri Sontoloyo <link>,0,1,sarcastic,sarcastic,False,3.1948,zero-shot,0,qwen3.5-4b
+338,test,aws hoax mlai Bertebaran menjelang putusan sidang MK . te2p <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2155,zero-shot,0,qwen3.5-4b
+339,test,<username> <username> <username> <username> <username> <username> <username> <username> Na lah sigoe ngen rombongan nyi roro kidul troeh ðŸ˜¹ðŸ˜¹ðŸ˜¹,0,0,not sarcastic,not sarcastic,False,3.3316,zero-shot,0,qwen3.5-4b
+340,test,DKI banjir lagi ya .. kata abang2 jawara banjir itu berkah .. jadi kita ucapkan selamat saja buat warga DKI atas berkah air berlimpahnya selamat ya .. selamat juga buat bapak <username> atas pengadaan TOA 4 milyar saya yakin banyak berkah bisa dipetik disitu <hashtag>,1,1,sarcastic,sarcastic,False,3.2939,zero-shot,0,qwen3.5-4b
+341,test,Aduh kepencet .... Rekor Utang Meroket .. :P :P,1,0,not sarcastic,not sarcastic,False,3.1911,zero-shot,0,qwen3.5-4b
+342,test,<username> Gelar boleh dokter tapi isi otak level tk,0,1,sarcastic,sarcastic,False,3.2327,zero-shot,0,qwen3.5-4b
+343,test,Radikalisme diganti kata menjadi Manipulator Agama .. Tujuannya sama ingin menghancurkan sistem pemerintahan menjadi sistem Khilafah . <link> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3089,zero-shot,0,qwen3.5-4b
+344,test,Ibukota ... Presiden telah berinisiatif mencari Ibu Kota baru . That\'s a good step . And what about the FLAG... ??? <hashtag> <hashtag> <username> <username> <link>,0,1,sarcastic,sarcastic,False,3.3033,zero-shot,0,qwen3.5-4b
+345,test,<username> <username> Jangan ambigu mas bro . Yang dimaksud transparansi itu bukan semua diumbar . Itu dokumen negara bukan bungkus kacanh .,0,0,not sarcastic,not sarcastic,False,3.3019,zero-shot,0,qwen3.5-4b
+346,test,sudah bang <username> tidak harus demo turun ke jalan lah wong katanya banjir berkah yaudah biar dinikmati saja . <hashtag>,1,0,not sarcastic,not sarcastic,False,3.32,zero-shot,0,qwen3.5-4b
+347,test,Aku bergegas menuju rumahmu . Berjalan kaki . Tentu saja aku punya alasan kenapa aku berjalan kaki ketimbang naik sepeda motor . Supaya bunga-bunga cantik yang kubeli tidak rusak diterpa angin . Haha aku pintar bukan? Tentu saja . Bunga-bunga untukmu harus masih terlihat segar,0,1,sarcastic,sarcastic,False,3.2903,zero-shot,0,qwen3.5-4b
+348,test,Si pengagum karl marx dan lenin <username> makin kurang ajar Setelah hina Ulama NU kini dia hina ulama Muhammadiyah <hashtag>,0,0,not sarcastic,not sarcastic,False,3.332,zero-shot,0,qwen3.5-4b
+349,test,Berdasarkan informasi yang dikumpulkan ada seorang profesor di perguruan tinggi negeri yang merupakan anggota HTI . Kemudian ada kepala dinas pegawai negeri sipil (PNS) dosen hingga tentara yang masuk dalam HTI . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2893,zero-shot,0,qwen3.5-4b
+350,test,<username> Bahaya sampe kesehatan china yg urusin .. <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2385,zero-shot,0,qwen3.5-4b
+351,test,saya aj nyelundupin contekan pas uas aja degdekan apalagi nyelundupin harley dalam pesawat <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3326,zero-shot,0,qwen3.5-4b
+352,test,<username> <username> <username> Harusnya jawab ajaa ... yaaa kalian yang orang lama udah pada bau tanah sih ... ðŸ˜ðŸ˜ðŸ˜,0,1,sarcastic,sarcastic,False,3.2994,zero-shot,0,qwen3.5-4b
+353,test,aibon alpa ketik bolpoin alpa input penghargaan diskotek colosseum alpa kadis sekarang ... . rekomendasi formula e alpa ketik lagi. bukannya alpa otak tuhÃ°Ã¿Â¤Â£,1,0,not sarcastic,not sarcastic,False,3.2992,zero-shot,0,qwen3.5-4b
+354,test,Tangkap dan Adili MANUSIA yg tak berguna ini . Membuat profokasi dan mencoreng nama baik TNI . Mau jadi apa Indonesia kalau mreka terus mnginjak hrga diri TNI Lagu kelanjutan nya terlalu sensitif .. Nah berarti lagu nya memang ada d buat dan panjang . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2846,zero-shot,0,qwen3.5-4b
+355,test,Walaupun sibuk tapi masih sempat meluangkan waktu berbagi ilmu dengan mahasiswa FH Indonesia Esa Unggul dan FISIP UNS . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2178,zero-shot,0,qwen3.5-4b
+356,test,<username> <username> <username> <username> <username> <username> Sontoloyo tenan,0,1,sarcastic,sarcastic,False,3.2223,zero-shot,0,qwen3.5-4b
+357,test,<username> Saya optimis MU menang,0,0,not sarcastic,not sarcastic,False,3.2196,zero-shot,0,qwen3.5-4b
+358,test,<username> Saya memang pintar dan kamu aja memang goblok,0,0,not sarcastic,not sarcastic,False,3.1956,zero-shot,0,qwen3.5-4b
+359,test,Komunis punya makar tapi makar Allah lebih besar !!!!!! <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2525,zero-shot,0,qwen3.5-4b
+360,test,di medan lagi ada gerakan <hashtag>. bergaya juga ya mantan kamu banyak yang peduli.,1,1,sarcastic,sarcastic,False,3.218,zero-shot,0,qwen3.5-4b
+361,test,Berkhayal jd nia ramadhani,0,0,not sarcastic,not sarcastic,False,3.1939,zero-shot,0,qwen3.5-4b
+362,test,gw terinsipirasi untuk kondisi indonesia saat ini seperti film olympus has fallen .............. edannn <hashtag> <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2891,zero-shot,0,qwen3.5-4b
+363,test,desain <hashtag> ini hanya peduli pada skala raksasa skala pemodal perusahaan dan abai terhadap skala manusia dan kepentingan konservasi lingkungan yang mana mestinya jadi prioritas pembangunannya cc <username>,0,0,not sarcastic,not sarcastic,False,3.3069,zero-shot,0,qwen3.5-4b
+364,test,FD: itu oknum partai People : bapak partainya apa? FD : gerindra People : well bapak oknumnya <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2784,zero-shot,0,qwen3.5-4b
+365,test,Wanita bijak seperti angsa diatas air . Anggun namun tetap bekerja . Tetap tegar meski terluka .,0,0,not sarcastic,not sarcastic,False,3.2179,zero-shot,0,qwen3.5-4b
+366,test,saya membolehkan 02 beroleh hadiah tapi itu dlu pas pemilu 2014 <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2037,zero-shot,0,qwen3.5-4b
+367,test,Banyak yang menginginkan istri seperti nia ramadhani tapi mereka lupa menjadi suami seperti ardi bakrie status buk ibuk jaman nowðŸ˜‚,0,0,not sarcastic,not sarcastic,False,3.326,zero-shot,0,qwen3.5-4b
+368,test,Terima kasih bapak Anies . Hasil naturalisasi sudah terlihat .,1,0,not sarcastic,not sarcastic,False,3.2178,zero-shot,0,qwen3.5-4b
+369,test,<username> Bahaya nih org kadal gurun sontoloyo .... cm fitnah dan provokator ... suruh liat Arab dan negara islam lainnya aja membuka pintu lebar2 skrg sm China .... goblok koq bangga ..idiot permanen tuh kadrun,0,1,sarcastic,sarcastic,False,3.3162,zero-shot,0,qwen3.5-4b
+370,test,POLITIK BANGSAATTT MINGGAT COK NGELU DELOK WONG TOLOL GELUD,0,0,not sarcastic,not sarcastic,False,3.2336,zero-shot,0,qwen3.5-4b
+371,test,santun tapi pembohong ! <hashtag>,1,1,sarcastic,sarcastic,False,3.2217,zero-shot,0,qwen3.5-4b
+372,test,Kok ribet amat sihh Kalo ngak percaya medsos Percaya aja sama media massa Kek koran atau tv kalo masih ngak percaya ya udah percaya aja sama tuhan semoga indonesia diberikan yang terbaik <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3003,zero-shot,0,qwen3.5-4b
+373,test,<username> Terima kasih JKT58 <username> Berkah politisasi ayat dan mayat <hashtag>,1,1,sarcastic,sarcastic,False,3.2602,zero-shot,0,qwen3.5-4b
+374,test,<username> Percayakn semuanya kepada pa <hashtag> kerja dulu baru koment blm apa apa dah koment terlalu jauh,0,0,not sarcastic,not sarcastic,False,3.2112,zero-shot,0,qwen3.5-4b
+375,test,Ada yg nyimpen thread cewe2 travelling ke jogja yg dideketi nyi roro kidul gak? Perasaan aku udh nyimpen tp ilang :(,0,0,not sarcastic,not sarcastic,False,3.2981,zero-shot,0,qwen3.5-4b
+376,test,<username> <username> <username> <username> Nitip tagar uni <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2465,zero-shot,0,qwen3.5-4b
+377,test,Gak usah heran dengan kelakuan <username> yang tak beradab . Lha ulamanya aja Sugik Nur . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3454,zero-shot,0,qwen3.5-4b
+378,test,Katanya sih pengusaha muda berpengalaman tapi .. <hashtag>,1,1,sarcastic,sarcastic,False,3.1957,zero-shot,0,qwen3.5-4b
+379,test,Pilpres sdh selesai .. Satu yg mungkin menyelamatkan mrk ya cari2 trs kasus hukum ke 02 ..,0,1,sarcastic,sarcastic,False,3.2345,zero-shot,0,qwen3.5-4b
+380,test,Sabar bapak .. Setelah bulan april 2019 semua pasti <hashtag>,1,0,not sarcastic,not sarcastic,False,3.1838,zero-shot,0,qwen3.5-4b
+381,test,Haduduu .. EVA CELIAðŸ’”,0,0,not sarcastic,not sarcastic,False,3.2453,zero-shot,0,qwen3.5-4b
+382,test,Prabowo nuduh tanpa bukti Demo berakhir rusuh dalam waktu -1 hari . YANG DIMINTA MUNDUR JOKOWI . LOLLLL . OTAK PENDUKUNG 02 ANJERRRR . SEMPIT BANGET PANTES GAMPANG DI HOAX LOE PADA 43% DOANG TAPI BACOT NYA SETINGGI LANGIT <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.3213,zero-shot,0,qwen3.5-4b
+383,test,<username> <username> Menurut Prof Mahfud md \Disetiap aturan yang dibuat pasti ada politik hukum yang mempengaruhi\ mun\u2026 <link>,0,0,not sarcastic,not sarcastic,False,3.3136,zero-shot,0,qwen3.5-4b
+384,test,<username> Mulia sekali anak2 itu tidak ingin otaknya cepat rusak maka jarang digunakan : ) hallo.... <username>,1,0,not sarcastic,not sarcastic,False,3.1795,zero-shot,0,qwen3.5-4b
+385,test,Padahal musim hujan kok kepanasan yah <hashtag>,0,1,sarcastic,sarcastic,False,3.2672,zero-shot,0,qwen3.5-4b
+386,test,Makin banyak orang dungu .. <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.1952,zero-shot,0,qwen3.5-4b
+387,test,Ujian sekolah sekarang lebih mentingin hasil daripada kejujurannya :( <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2128,zero-shot,0,qwen3.5-4b
+388,test,bukan nya amatir .. tp memang mahir memanipulasi .. tp semahir2 nya tupai melompat suatu saat pasti kejengkang jg .. <hashtag> <hashtag>,1,1,sarcastic,sarcastic,False,3.2958,zero-shot,0,qwen3.5-4b
+389,test,Rasa optimisme dari Pak <username> merupakan sebuah kekuatan utk para Sahabat milenial . Jokowi mensosialisasikan bahwa kebijakannya sangat berpihak kpd kaum milenial . <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3019,zero-shot,0,qwen3.5-4b
+390,test,"Kita harus bersyukur. Banjir besar ini selalu hari Libur. Ini kalau bukan Anies, Gubenur Sholeh, doanya, ini bisa terjadi senin, selasa, rabu. kata Wakil Ketua Bamus Betawi, Rahmat HS Woyy ini selasa. BNGST <hashtag>",1,0,not sarcastic,not sarcastic,False,3.3246,zero-shot,0,qwen3.5-4b
+391,test,Hai ..sobat <hashtag> ðŸ¤— Ada nasehat nih katanya klo pulang sekolah jangan langsung tidur sambil \'telentang\' yua .. nanti bisa modar ..ðŸ¤­ðŸ˜…ðŸ˜… <hashtag> walaupun <hashtag> .. <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.294,zero-shot,0,qwen3.5-4b
+392,test,Menjemput Tiga Poin Perdana di AFC Cup . Bismillah !,0,0,not sarcastic,not sarcastic,False,3.2217,zero-shot,0,qwen3.5-4b
+393,test,kempesin perutnya <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2147,zero-shot,0,qwen3.5-4b
+394,test,Orang2 pada uninstallbukalapak tapi hr ini ada serba seru hadianya rumah 1M apa bisa naikin presentase menang gua yah? :D :D,0,1,sarcastic,sarcastic,False,3.2995,zero-shot,0,qwen3.5-4b
+395,test,Udah fiks pilih polisi tidur aja \'( <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2142,zero-shot,0,qwen3.5-4b
+396,test,Saya rakyat Indonesia sy mendukung <hashtag> & sy menolak diwakili narasi <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2084,zero-shot,0,qwen3.5-4b
+397,test,<username> Cantik bgt woi!!! Auranya cantik aja gtu kaya lukisan nyi roro kidul . Senyum sama matanya pokonya auranya dah . Apa emang mbaknya cakep ya wkwkwk,0,0,not sarcastic,not sarcastic,False,3.2724,zero-shot,0,qwen3.5-4b
+398,test,Selamat Belajar Biologi itu asiiik banget ! <hashtag>,0,0,not sarcastic,not sarcastic,False,3.237,zero-shot,0,qwen3.5-4b
+399,test,<username> Nia ramadhani deh contoh barangnya . Klo dia gak cantik (banget) emang ardi bakrie mau?,0,0,not sarcastic,not sarcastic,False,3.2769,zero-shot,0,qwen3.5-4b
+400,test,<username> Keren bgt tuntutannya . Pdhl partaimu bobrok . Serang anies biar hasto dan mba mega aman ya mba meskipun PAW harun ada tanda tangan keduanya . Uang ke wahyu dari hasto . Hasto darimana coba . Hehe,1,1,sarcastic,sarcastic,False,3.3268,zero-shot,0,qwen3.5-4b
+401,test,silahkan yg mau julid dan menghujat ibu2 sosialita ini kami persilahkan di mohon menghujat sejahat2nya <link>,0,0,not sarcastic,not sarcastic,False,3.288,zero-shot,0,qwen3.5-4b
+402,test,Pengguna <hashtag> sudah dapat SMS ini? Ayo yang mau turun kelas segera turun kelas sekarang . Sebelum terlambat . Turun kelas juga bisa melalui aplikasi android jkn ... Cepet tanpa antri <link>,0,0,not sarcastic,not sarcastic,False,3.3201,zero-shot,0,qwen3.5-4b
+403,test,Dulu ada yang lucu namanya ondel2 betawi sekarang ada yang lebih lucu namanya wan aibon kota sering banjir pohon dicabutin . <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2997,zero-shot,0,qwen3.5-4b
+404,test,<username> <username> <username> <username> <username> Manusia dungu seperti tompi Mana berani kritik jokowi . Coba kritik dollar 10rb tolak utang luar negeri berani ga ente kritik?,0,1,sarcastic,sarcastic,False,3.3113,zero-shot,0,qwen3.5-4b
+405,test,Welcome to Indonesia. Dimana copy paste menjadi hal yang lumrah disini,1,0,not sarcastic,not sarcastic,False,3.2149,zero-shot,0,qwen3.5-4b
+406,test,Siap2 uninstall ya Mau dipakai alat politik :D :D :D,0,1,sarcastic,sarcastic,False,3.219,zero-shot,0,qwen3.5-4b
+407,test,Kami butuh pemimpin sungguhan bukan boneka <hashtag>,1,1,sarcastic,sarcastic,False,3.192,zero-shot,0,qwen3.5-4b
+408,test,salah foto tolol <link>,0,1,sarcastic,sarcastic,False,3.2093,zero-shot,0,qwen3.5-4b
+409,test,<username> <username> Betul sekali sambil menyelam minum air,0,1,sarcastic,sarcastic,False,3.2227,zero-shot,0,qwen3.5-4b
+410,test,Jangan bersedih ketika melakukan salah . Karena kesalahan kita banyak belajar karena kesalahan kita menjadi pintar .,0,0,not sarcastic,not sarcastic,False,3.2321,zero-shot,0,qwen3.5-4b
+411,test,<username> sangat disayangkan padahal keterbukaan anggaran di periode sebulmunya sudah sangat baik <hashtag>,0,0,not sarcastic,not sarcastic,False,3.238,zero-shot,0,qwen3.5-4b
+412,test,Allahu akbar.<hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.212,zero-shot,0,qwen3.5-4b
+413,test,Untuk Indonesia Maju Pilih <username> - KMA . <hashtag> <hashtag> <hashtag> Fakta membuktikan bahwa angka pengangguran di era <username> terjadi penurunan .,0,0,not sarcastic,not sarcastic,False,3.3646,zero-shot,0,qwen3.5-4b
+414,test,<username> 3)lu tak bisa memaknai arti ungkapan rantai yg dinarasikan pak <username> sungguh kasihan bangsa ini,0,0,not sarcastic,not sarcastic,False,3.3491,zero-shot,0,qwen3.5-4b
+415,test,Satu jiwa satu cita satu cinta Persija <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2247,zero-shot,0,qwen3.5-4b
+416,test,Daritadi googling tentang Kanjeng Ratu Kidul dan Nyi Roro Kidul baca-baca tetep masih bingung ..,0,0,not sarcastic,not sarcastic,False,3.3006,zero-shot,0,qwen3.5-4b
+417,test,Wahai tuan <username> yth makasih ya mobil saya kerendem oleh air yang se-Iman dengan kita . Jaman bapak Ahok warga lingkungan sini sudah sempet lupa tuh sama yang namanya banjir setinggi ini . Selamat bekerja bapak eh .. selamat tidur .,1,1,sarcastic,sarcastic,False,3.2882,zero-shot,0,qwen3.5-4b
+418,test,Rejim ini ada 34 mentri + 12 wamen 8 pejabat setingkat Mentri .Di dukung 14 stafsus (7 staf milenial). Di sokong KSP &amp; para Jubir istana Di tatar 6 BPIP . Di nasehati 9 wantimpres . Di riuhkan tim hore buzzer pro INDONESIA pasti hancur .,1,1,sarcastic,sarcastic,False,3.2852,zero-shot,0,qwen3.5-4b
+419,test,Dari kasus <hashtag> dan boikotsariroti kita dapat belajar bahwa pendukung capres di Indo fanatiknya luar biasa . Yang diatas ketawa bahagia eh yang dibawah malah berantem wkwk,1,1,sarcastic,sarcastic,False,3.2861,zero-shot,0,qwen3.5-4b
+420,test,Logika jangan terbalik . Hrsnya Permisi dulu baru masuk rumah' jangan ngacak2 rumah baru permisi . Tolong <username> suruh kembalikan Kawasan monas seperti semula Anies Kirim Surat Persetujuan Revitalisasi Monas ke Setneg,0,0,not sarcastic,not sarcastic,False,3.3039,zero-shot,0,qwen3.5-4b
+421,test,Yg rame sekarang cuma radikal radikul tadz <username> Ekonomi lesu bodo amat <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2149,zero-shot,0,qwen3.5-4b
+422,test,Mulia sekali bapak-bapak ini daripada rebutan kursi mereka malah saling memberikan kursi.,1,1,sarcastic,sarcastic,False,3.2221,zero-shot,0,qwen3.5-4b
+423,test,Coba anda pakai akal sehat nya deh .. Jargon KIS dan KIP Dibagikan untuk masyarkat kurang mampu .kan begitu .sudah berapa dibagikan ..hampir 60 juta ..artinya masyarakat Indonesia 60 juta yang tidak mampu . Katanya kemiskinan berkurang ..gak nyambung toh :D,1,0,not sarcastic,not sarcastic,False,3.3165,zero-shot,0,qwen3.5-4b
+424,test,plus62 panas <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2062,zero-shot,0,qwen3.5-4b
+425,test,Prabowo dan Jokowi saling berjabat untuk indonesia hebat <hashtag>,0,0,not sarcastic,not sarcastic,False,3.284,zero-shot,0,qwen3.5-4b
+426,test,Jangan sampai terjadi kalau tidak milih junjungannya silahkan hengkang dari Indonesia :P :D,1,0,not sarcastic,not sarcastic,False,3.2248,zero-shot,0,qwen3.5-4b
+427,test,Ada yg tau ga? Kenapa sikap dinginnya gebetan malah bikin panas?? Kan harusnya dinginnn ... Anehh â˜¹ï¸ <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.3853,zero-shot,0,qwen3.5-4b
+428,test,<hashtag> bismillah 3 poin,0,0,not sarcastic,not sarcastic,False,3.2679,zero-shot,0,qwen3.5-4b
+429,test,Kopi menjadi haram ketika korupsi menjadi seni .,1,0,not sarcastic,not sarcastic,False,3.2465,zero-shot,0,qwen3.5-4b
+430,test,Ketua Dewan Kehormatan DPP Partai Amanat Nasional (PAN) Amien Rais memberikan waktu enam bulan kepada Kabinet Indonesia Maju bentukan Presiden Joko Widodo (Jokowi) <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3789,zero-shot,0,qwen3.5-4b
+431,test,<username> SETUJU PAK PRESIDEN LANJUTKAN PEMBANGUNAN KEDEPAN PAK!!! sy pribadi sangat puas dgn kepimipinan Bapak . Salam dari Merauke .,0,0,not sarcastic,not sarcastic,False,3.3439,zero-shot,0,qwen3.5-4b
+432,test,<username> kebanyakan minum anies jd mabok,0,0,not sarcastic,not sarcastic,False,3.2749,zero-shot,0,qwen3.5-4b
+433,test,ibadah itu panggilan dari hati bukan pangilan capres,1,0,not sarcastic,not sarcastic,False,3.2691,zero-shot,0,qwen3.5-4b
+434,test,Ada kakek tua.....Biang Provokator pula .... siapakah dia ??? <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2214,zero-shot,0,qwen3.5-4b
+435,test,Tidak pake kipas angin kepanasan Giliran pake kipas angin besoknya pasti flu ðŸ˜« <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3141,zero-shot,0,qwen3.5-4b
+436,test,kemaren sharing sama temen: yasssss . mulai tersadar bahwa panggilan kepada seseorang adalah salah satu menunjukkan tingkat pertemanan kita . ex: eh kampret (temen deket ni) kalau hey beb (temen sosialita tp bukan kepercayaan) tingkat ukur bukan hanya dari prioritas rep chat !,0,0,not sarcastic,not sarcastic,False,3.3854,zero-shot,0,qwen3.5-4b
+437,test,<username> Nia Ramadhani Asyik Karaoke Pakai Busana Terbuka Ramai Disentil Soal Akhirat d <link>,0,0,not sarcastic,not sarcastic,False,3.3415,zero-shot,0,qwen3.5-4b
+438,test,Pak Nadiem meskipun menurutmu tak berguna kami akan terus menghafal Al Quran dan ilmu2 lain sebagai awal penting dalam proses belajar yang lebih mendalam . <link>,0,0,not sarcastic,not sarcastic,False,3.3577,zero-shot,0,qwen3.5-4b
+439,test,Melly Goeslaw marah ke beberapa rekan selebritas yang memparodikan gaya berpakaian dirinya dan disambut dengan tawa . <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3634,zero-shot,0,qwen3.5-4b
+440,test,<username> <username> Aku tambahin lagi plus jadi nia ramadhani,0,0,not sarcastic,not sarcastic,False,3.2632,zero-shot,0,qwen3.5-4b
+441,test,"Presiden Jokowi Minta 4nies Keruk Waduk untuk Atasi Banjir 4nies Disuruh Keruk Waduk, malah Keruk Anggaran.! Terlaluuuu <username> <hashtag>",1,0,not sarcastic,not sarcastic,False,3.3391,zero-shot,0,qwen3.5-4b
+442,test,<username> <username> <username> <username> iya salah info karena mungkin gak konfirmasi dulu ðŸ˜‚,0,0,not sarcastic,not sarcastic,False,3.3612,zero-shot,0,qwen3.5-4b
+443,test,Semua akan menjadi baik pada akhirnya nanti . Jika belum baik itu berarti bukan akhir .,0,0,not sarcastic,not sarcastic,False,3.2831,zero-shot,0,qwen3.5-4b
+444,test,Butuh pengorbanan untuk menuju sukses .,0,0,not sarcastic,not sarcastic,False,3.2279,zero-shot,0,qwen3.5-4b
+445,test,Jangan korbankan rakyat untuk kepentingan politik <hashtag>,0,0,not sarcastic,not sarcastic,False,3.203,zero-shot,0,qwen3.5-4b
+446,test,Media Asing Soroti Prabowo yang Jabat Menteri Jokowi . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1818,zero-shot,0,qwen3.5-4b
+447,test,Jurus ampuhh di Indonesia biar ga disalahin Ã¢â‚¬Å“Mohon maaf sekadar mengingatkanÃ°Å¸â„¢ÂÃ°Å¸ÂÂ»Ã¢â‚¬Â <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3072,zero-shot,0,qwen3.5-4b
+448,test,Tiada hari tanpa HOAX :D,0,0,not sarcastic,not sarcastic,False,3.2096,zero-shot,0,qwen3.5-4b
+449,test,Katanya Ijtima Ulama tapi kok tidak paham basic Islami <hashtag>,1,1,sarcastic,sarcastic,False,3.228,zero-shot,0,qwen3.5-4b
+450,test,Kalau jualannya tdk laku ya jangan marah2 Kadrun Yang benar itu Tauhid tempatnya didalam hati kukan bendera anda dan Takbir itu tempatnya di Madjid bukan di jalanan Drun . Jadi berhentilah menjual Agama ORA LAKU krn Agama itu bukan untuk dijual Drun Sasar Sontoloyo . <link>,0,0,not sarcastic,not sarcastic,False,3.3106,zero-shot,0,qwen3.5-4b
+451,test,Kenapa infrastruktur tidak berhasil pada era sebelumnya dan berjalan dgn mulus di era JOKOWI . Karena sebelumnya kasih ganti rugi sedangkan JOKOWI berika GANTI UNTUNG . Pakar managemen kelas dunia Rhenald Kasali <username> Soetta sukses pembangunan runway3 <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3153,zero-shot,0,qwen3.5-4b
+452,test,Untuuung ibu gua emak emak posyandu pkk bukan sosialita .. Hadehhh <link>,0,0,not sarcastic,not sarcastic,False,3.2319,zero-shot,0,qwen3.5-4b
+453,test,Anak buahnya pak nadiem makarimðŸ‹ðŸ»â€â™€ï¸ pengen post di wa nge blur :( <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3107,zero-shot,0,qwen3.5-4b
+454,test,Gara-gara PRABOWO yang gila jabatan Indonesia yang kemarin dipuji karena telah menyelenggarakan pemilu terbesar di <link>,0,1,sarcastic,sarcastic,False,3.1908,zero-shot,0,qwen3.5-4b
+455,test,Belum ada penelitian yang membuktikan penggunaan cadar dan celana cingkrang identik dengan tindakan radikalisme . <link>,0,0,not sarcastic,not sarcastic,False,3.2086,zero-shot,0,qwen3.5-4b
+456,test,<username> anda nyanyia saja bapak .. lebih merdu ketimbang ngomongin soal kerjaan bapak Anis ..,1,1,sarcastic,sarcastic,False,3.2214,zero-shot,0,qwen3.5-4b
+457,test,<username> Terkutuk lu <username> koplakkk,0,1,sarcastic,sarcastic,False,3.1737,zero-shot,0,qwen3.5-4b
+458,test,Alhamdulillah nih di bdg ga ada org tolol yg pencet klakson pdhl lampu ijo baru nyala,0,0,not sarcastic,not sarcastic,False,3.2299,zero-shot,0,qwen3.5-4b
+459,test,<username> Ini anggota DPRD yg ga tau fungsi dan tugasnya deh . Emang sekolah ada yunior dan senior ... Pasti jiwa preman dia .... Kok bisa jadi anggota dewan ya .. Cc <username>,0,1,sarcastic,sarcastic,False,3.2982,zero-shot,0,qwen3.5-4b
+460,test,Ada yang ngomongin dari belakang? Senyumin ajaaaa ðŸ˜„ | MC Kondang <hashtag> <username> <link>,0,0,not sarcastic,not sarcastic,False,3.2981,zero-shot,0,qwen3.5-4b
+461,test,Kerjasama IPB dan Gojek <link>,0,0,not sarcastic,not sarcastic,False,3.1845,zero-shot,0,qwen3.5-4b
+462,test,Ibu-ibu sosialita jaksel ternyata ramah2 bgttt Jd td abis meeting terus sempet ketemu dan salaman sm client company itu . dan pas selesai gue makan . pas masuk tmpt makannya si ibu-ibu client tadi nyapa gue dadah2 dan mukanya ramah bgtt uwu,0,0,not sarcastic,not sarcastic,False,3.2754,zero-shot,0,qwen3.5-4b
+463,test,Ketika Jakarta lagi dalam darurat banjir pohon2 malah di tebangi .Masyakat bingung KESERIUSAN <username> dlm menangani banjir . <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.289,zero-shot,0,qwen3.5-4b
+464,test,Information Center: Memberikan informasi real terkait produk dan program <hashtag> : memberikan informasi berupa Hoax agar Hoax nya makin kuat tidak tertandingi . Sadeeessshhhh,1,0,not sarcastic,not sarcastic,False,3.3061,zero-shot,0,qwen3.5-4b
+465,test,Di IPB SPP mahasiswa bervariasi antara 15 .000 .000 per semester hingga 500 .000 . Tergantung penghasilan bulanan orang tua mereka . Bahkan ada pula yg gratis ..cmiiw .. <username> <username>,0,0,not sarcastic,not sarcastic,False,3.3106,zero-shot,0,qwen3.5-4b
+466,test,Presiden jajan cilok jadi jadi prestasi? <hashtag>,0,1,sarcastic,sarcastic,False,3.2163,zero-shot,0,qwen3.5-4b
+467,test,Anies jauh lebih hebat dari bu Susi bu Susi cuma bisa menenggelamkan kapal kalo Anies bisa menenggelamkan Jakarta owkwowkaakwowk HEBAT <hashtag>,0,1,sarcastic,sarcastic,False,3.2767,zero-shot,0,qwen3.5-4b
+468,test,<username> Intinya pak bgmn nelayan bisa sejahtera dan kalau bisa kita tingkatkan eksport ikan ke luar negeri,0,0,not sarcastic,not sarcastic,False,3.2015,zero-shot,0,qwen3.5-4b
+469,test,<hashtag> syarat jadi anggota PDI PERJUANGAN apa ya? Kantor cabang PDI PERJUANGAN KABUPATEN ROKAN HILIR RIAU di mana ya? Saya mau daftar jd anggota PDI PERJUANGAN,0,0,not sarcastic,not sarcastic,False,3.3183,zero-shot,0,qwen3.5-4b
+470,test,Nanti kalo mau masuk tol ditanya dulu : kamu pilih 01/02?,0,0,not sarcastic,not sarcastic,False,3.2022,zero-shot,0,qwen3.5-4b
+471,test,Dia bilang jangan pilih pemimpin yang tidak memiliki pengalaman .. tapi dia amatiran :D :D :D :D <hashtag>,1,1,sarcastic,sarcastic,False,3.2094,zero-shot,0,qwen3.5-4b
+472,test,Rasa muntah ... Gnpf ulama bela pemprov dki soal penghargaan diskotek <link>,0,0,not sarcastic,not sarcastic,False,3.2062,zero-shot,0,qwen3.5-4b
+473,test,Ketika ada bungkus rokok tergeletak diambil dan otomatis langsung di goyang-goyang dulu baru dibuang nah disitulah masih banyak orang mencari keberuntungan . Mbokmenowo bejo isih ono udude sek penting yakin karo digajal generasioptimis :D,0,0,not sarcastic,not sarcastic,False,3.318,zero-shot,0,qwen3.5-4b
+474,test,<username> Rakyat Papua rindu dengan pemimpinnya . <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2078,zero-shot,0,qwen3.5-4b
+475,test,Jum'atan biar diaku sebagai umat nabi Muhammad bukan biar diaku sebagai anggota/ pendukung partai . Situ sehat ???,1,0,not sarcastic,not sarcastic,False,3.2062,zero-shot,0,qwen3.5-4b
+476,test,Ya sudah lah udah mirip <hashtag> kan <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3032,zero-shot,0,qwen3.5-4b
+477,test,Dasar JANCUK gampang banget obral janji Emang msh ada yg mau kau tipu ? Klo cebong gue maklumin,0,1,sarcastic,sarcastic,False,3.2366,zero-shot,0,qwen3.5-4b
+478,test,KAMU KEREN JOOO ! KONSISTEN TERUS ðŸ¥°â¤ï¸,0,0,not sarcastic,not sarcastic,False,3.2819,zero-shot,0,qwen3.5-4b
+479,test,RINSO RINI SONTOLOYO <link>,0,0,not sarcastic,not sarcastic,False,3.2086,zero-shot,0,qwen3.5-4b
+480,test,Terimakasih bapak wowo sudah mau berterus terang bahwa anda berkiblat ke barat . jadi tidak perlu lagi di perdebatkan bahwa anda tidak pantas menjadi pemimpin negeri ini,1,1,sarcastic,sarcastic,False,3.302,zero-shot,0,qwen3.5-4b
+481,test,<username> Bagusss Ã°Å¸ËœÂ­ apaka mereka akan ada di s2 Fyi pertama kalo aku baca nama Ã¢â‚¬Å“ZOOLÃ¢â‚¬Â kupikir Ã¢â‚¬Å“tololÃ¢â‚¬Â Ã°Å¸ËœÂ­Ã°Å¸ËœÂ­ maapkan huhu Ã°Å¸â„¢ÂÃ°Å¸ÂÂ»,0,0,not sarcastic,not sarcastic,False,3.3883,zero-shot,0,qwen3.5-4b
+482,test,kasian perempuan kalo terus2an kalian jadikan alat utk berkampanye hitam dari pintu ke pintu woy <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2092,zero-shot,0,qwen3.5-4b
+483,test,Banyaknya PR yang Menanti Nadiem Makarim di Kemdikbud Apakah Ia Sanggup? <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2902,zero-shot,0,qwen3.5-4b
+484,test,Terlalu <hashtag> buat ungkapin rasa ini :,0,0,not sarcastic,not sarcastic,False,3.1964,zero-shot,0,qwen3.5-4b
+485,test,Tidak ada orang yang malas yang ada hanya orang yang kehilangan motivasi . <hashtag>,0,0,not sarcastic,not sarcastic,False,3.1899,zero-shot,0,qwen3.5-4b
+486,test,Beda pilihan calon presiden sampai tidak akur sama temen tetangga apalagi sama keluarga . Ada ada saja kelakuan negara berkembang ini.,1,0,not sarcastic,not sarcastic,False,3.2371,zero-shot,0,qwen3.5-4b
+487,test,<username> Gubernur ane mang warbiasa .... kosakata yang dipake langsung diturunken ke anak buah nya... abaikan yang laen tidak faham???????? <hashtag>,1,1,sarcastic,sarcastic,False,3.2934,zero-shot,0,qwen3.5-4b
+488,test,<username> <username> memang benar2 bangsat <hashtag> <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.1879,zero-shot,0,qwen3.5-4b
+489,test,Jualan asik pake politik laris manis ..,0,0,not sarcastic,not sarcastic,False,3.2153,zero-shot,0,qwen3.5-4b
+490,test,Terkadang anak muda merasa sesak nafas dan pekat dada karena tuntutan orang tua . Tapi itulah proses pendewasaan .,0,0,not sarcastic,not sarcastic,False,3.1966,zero-shot,0,qwen3.5-4b
+491,test,<username> goblok .,0,1,sarcastic,sarcastic,False,3.1791,zero-shot,0,qwen3.5-4b
+492,test,<username> <username> Otak MALING YA TETAP AJA MALING ..MALING ANGGARAN APBD DKI ... PASTI SATU JARINGAN GA MUNGKIN SALAH INPUT KESALAHAN DARI BAWAHAN SAJA .... <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2896,zero-shot,0,qwen3.5-4b
+493,test,Setelah PSI sekarang PDIP yang terang2an menolak perda syariah bukankah mereka yang paling kencang berteriak; KAMI PALING PANCASILA!!! <hashtag>,1,1,sarcastic,sarcastic,False,3.3061,zero-shot,0,qwen3.5-4b
+494,test,Kelebihan Aa adalah doa ?????? sehingga Wan Abut sebagai Gubernur tidak pernah lelah MERUSAK Jakarta . <hashtag>,1,1,sarcastic,sarcastic,False,3.1706,zero-shot,0,qwen3.5-4b
+495,test,Satgas Novel semoga berguna ya bukan gimik-gimik manja menjelang Pilpres .,0,1,sarcastic,sarcastic,False,3.2441,zero-shot,0,qwen3.5-4b
+496,test,kmaren ada yang bilang antek asing skrng malah minta dukungan dengan orang asing dari negara cina weleh weleh kok ngomul mulu sihh ommm ndut .... mau jdi seorang pemimpin kok Bisanya hanya bikin Hoax ya ... aneh .,1,1,sarcastic,sarcastic,False,3.2978,zero-shot,0,qwen3.5-4b
+497,test,<username> <username> Ko ndak mendampingi pak <username> bu?...,0,0,not sarcastic,not sarcastic,False,3.2221,zero-shot,0,qwen3.5-4b
+498,test,<username> <username> <username> Baca jg tl ane Yg ada tulisan ASN tdk mlarang cadar & cingkrang dtempat umum kcuali tempat2 khusus ... Trus apa yg mesti ane Info ke ASN kalo cadar &amp; cingkrang boleh dtempat2 umum ??,0,0,not sarcastic,not sarcastic,False,3.3202,zero-shot,0,qwen3.5-4b
+499,test,<username> Wah kayanya gak pengen dikeritik ini tuan <username>,0,0,not sarcastic,not sarcastic,False,3.2168,zero-shot,0,qwen3.5-4b
+500,test,Kita tunggu duet Wishnutama â¦<username>© dan Angela â¦<username> memajukan pariwisata Indonesia mendulang devisaâ© â¦<username>© â¦<username>© <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2837,zero-shot,0,qwen3.5-4b
+501,test,<username> <username> <username> <username> Judul Film = Maling Kondang Sutradara = Gubernur Produser = Parpol doyan duit Aktor = Suku Dinas Kritikus = <username> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3158,zero-shot,0,qwen3.5-4b
+502,test,<username> Wait <username> jadi publik ga boleh tau apa yg dibahas di dewan gitu?,0,0,not sarcastic,not sarcastic,False,3.2233,zero-shot,0,qwen3.5-4b
+503,test,Politisi <username> yg biasa suka mengkritik Jokowi tapi giliran dikritik ngeblock salah satu pengusung paslon 02 ditangkap karena narkoba . Ahok keluar yg masuk banyak . Allah maha adil . <hashtag>,0,1,sarcastic,sarcastic,False,3.2989,zero-shot,0,qwen3.5-4b
+504,test,<username> <username> tolol,0,0,not sarcastic,not sarcastic,False,3.2088,zero-shot,0,qwen3.5-4b
+505,test,Semua yg dia omongin adalah dusta ..<hashtag>,0,0,not sarcastic,not sarcastic,False,3.2081,zero-shot,0,qwen3.5-4b
+506,test,Dia bersikap semaunya tapi tidak tahu semuanya .Dia bukan egois tetapi hanya sedikit egosentris.<hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.3352,zero-shot,0,qwen3.5-4b
+507,test,<username> Eksistensi setan ki turun bro nyi roro kidul we saiki berhijab . Mending cosplay dadi anggota DPR .,0,1,sarcastic,sarcastic,False,3.2901,zero-shot,0,qwen3.5-4b
+508,test,<username> Nia ramadhani?,0,0,not sarcastic,not sarcastic,False,3.2415,zero-shot,0,qwen3.5-4b
+509,test,Gk ada salah nya jika presiden <hashtag> malah itu menunjukkan sikap rendah hati yg sangat baik . Respect ðŸ™,0,0,not sarcastic,not sarcastic,False,3.2739,zero-shot,0,qwen3.5-4b
+510,test,Testimoni Papua Kitorang Basudara Kita Indonesia . . . Pentas Seni Budaya Papua Polres Kepulauan Seribu . . Kitorang Basudara Kita Indonesia . . <username> .pmj <username> <username> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2968,zero-shot,0,qwen3.5-4b
+511,test,<username> Alhamdulillah akhirnya ada yang positif dari lucinta Luna,1,0,not sarcastic,not sarcastic,False,3.2368,zero-shot,0,qwen3.5-4b
+512,test,<username> adem kembali ke solo saja ke habitat mu,1,0,not sarcastic,not sarcastic,False,3.1876,zero-shot,0,qwen3.5-4b
+513,test,Semoga Sukses Dulurrrr,0,0,not sarcastic,not sarcastic,False,3.2035,zero-shot,0,qwen3.5-4b
+514,test,Keberhasilan Polri mengungkap rencana besar untuk menggagalkan pelantikan presiden <hashtag> <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.2458,zero-shot,0,qwen3.5-4b
+515,test,<username> <username> tolong kasih tahu ke Pak Inggrad Joshua ya ... Anda kan lama disitu apalagi udah tua . saya harap JGN TERLALU DIAM jadi kerjanya ga jelas,0,0,not sarcastic,not sarcastic,False,3.3178,zero-shot,0,qwen3.5-4b
+516,test,<username> Anies tuh hebat bikin banjir gimana seh,1,1,sarcastic,sarcastic,False,3.2072,zero-shot,0,qwen3.5-4b
+517,test,Wooow keren mental koruptor toh,1,1,sarcastic,sarcastic,False,3.2231,zero-shot,0,qwen3.5-4b
+518,test,lulusan kampus lokal aja belagunya ampe trending gimana yg lulusan LN?? minta dibayar pake emas batangan kali ya <hashtag>,0,1,sarcastic,sarcastic,False,3.3053,zero-shot,0,qwen3.5-4b
+519,test,Bikin Prestasi yang Positif lah jangan nyebar hoax terus bikin rush saja <username> <username> Kita bangun yang Positif yuk ... <hashtag>,0,0,not sarcastic,not sarcastic,False,3.296,zero-shot,0,qwen3.5-4b
+520,test,<username> ajakin ahok aja tom biar ga salah tanda tangan ngelolosin RAPBD jadi APBD di kasus UPS ðŸ™ˆðŸ™ˆðŸ™ˆ,0,0,not sarcastic,not sarcastic,False,3.3038,zero-shot,0,qwen3.5-4b
+521,test,<username> Rocky gerung pakai akal sehat . Antum pakai akal Busuk .,0,0,not sarcastic,not sarcastic,False,3.2314,zero-shot,0,qwen3.5-4b
+522,test,<username> <username> Mantap sekali pk <username> maju terus .... <hashtag> <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2214,zero-shot,0,qwen3.5-4b
+523,test,<username> <username> Pak Tito sj lempar anduk padahal janji ungkap kss Novel B . Sy mah cuma takut tuk para\'pelaku bhw di dunia nyata boleh selamat . Tolong ingat ada Hakim Yang Maha Adil pemilik kerajaan langit dan bumi .,0,0,not sarcastic,not sarcastic,False,3.2939,zero-shot,0,qwen3.5-4b
+524,test,2 orang bodoh berdebat di tepi sungai yang keruh tentang apa yang ada di dalamnya . Yang bijak akan menunggu sampai airnya jernih .,0,0,not sarcastic,not sarcastic,False,3.291,zero-shot,0,qwen3.5-4b
+525,test,Tapi para wartawan ada yangvsuka klo doi berkomentar Smoga ga jadi pimpinan dpr lgi zonk <hashtag>,0,0,not sarcastic,not sarcastic,False,3.2338,zero-shot,0,qwen3.5-4b
+526,test,Bapak Kapolri Idham Aziz . ðŸ˜ðŸ˜ Media aja selalu di awasi dan di jaga sepenuh Hati . Apa lagi aku ðŸ˜˜ðŸ˜˜ðŸ˜˜ðŸ˜˜ <hashtag> <link>,0,0,not sarcastic,not sarcastic,False,3.3466,zero-shot,0,qwen3.5-4b
+527,test,PERIHBAHASA JAMAN OLD .Lempar batu sembunyi tangan JAMAN NOW .Lempar batu yang diSEMBUNYIKAN di AMBULANCE GERINDRA <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag> <hashtag>,0,1,sarcastic,sarcastic,False,3.3049,zero-shot,0,qwen3.5-4b
+528,test,Nyawa itu berharga karena ada batasnya . Dan batas itulah yang membuat kita berjuang,0,0,not sarcastic,not sarcastic,False,3.1915,zero-shot,0,qwen3.5-4b
+529,test,kamu cantik bgt tapi kamu anjing tai babi,0,1,sarcastic,sarcastic,False,3.2485,zero-shot,0,qwen3.5-4b
+530,test,Hasil Itjima Ulama keagamaannya nihil .. Orang dekatnya <username> malah menghina ulama dengan puisinya ..Kubu sebelah memang sudah rusak .. <username> <username> <username> <username> <hashtag> <hashtag> <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.313,zero-shot,0,qwen3.5-4b
+531,test,<username> Sontoloyo,0,0,not sarcastic,not sarcastic,False,3.2261,zero-shot,0,qwen3.5-4b
+532,test,Well jadi unfaedah :D:D,0,0,not sarcastic,not sarcastic,False,3.2246,zero-shot,0,qwen3.5-4b
+533,test,Ciyee petani bawang nih :D :D Udahlah yaa sandiwaramu FAZDLIZONK muluu,1,1,sarcastic,sarcastic,False,3.22,zero-shot,0,qwen3.5-4b
+534,test,<username> <username> yg gue tangkep itu antara apart-nya serem dia digangguin setan sm dia diikutin nyi roro kidul <link>,0,0,not sarcastic,not sarcastic,False,3.3013,zero-shot,0,qwen3.5-4b
+535,test,<username> Wuih pak capres memang keren kalau pakai jas .... besok saya pilih deh yang pakai jas,1,0,not sarcastic,not sarcastic,False,3.2309,zero-shot,0,qwen3.5-4b
+536,test,<username> Welcome to Indonesia!!!! Sedih bangetttt!!! Siap siap bakal ada lagi kasus sama seperti ini karna gapernah adaaa hukuman untuk pelaku bullying??????,1,1,sarcastic,sarcastic,False,3.3013,zero-shot,0,qwen3.5-4b
+537,test,terimakasih sudah dikasih liburan gratis <hashtag> <hashtag>,1,0,not sarcastic,not sarcastic,False,3.2325,zero-shot,0,qwen3.5-4b

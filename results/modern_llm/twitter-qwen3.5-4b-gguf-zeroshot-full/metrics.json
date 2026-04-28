@@ -1,0 +1,19 @@
+{
+  "mean": {
+    "accuracy": 0.6896,
+    "precision": 0.4078,
+    "recall": 0.5448,
+    "f1": 0.4665,
+    "tp": 73,
+    "tn": 298,
+    "fp": 106,
+    "fn": 61
+  },
+  "run_started_at": "2026-04-27T12:32:10+00:00",
+  "run_ended_at": "2026-04-27T13:01:25+00:00",
+  "runtime_seconds": 1752.75,
+  "avg_latency_seconds": 3.2577,
+  "invalid_outputs": 0,
+  "mode": "zero-shot",
+  "few_shot_examples": "[hidden; use --save-few-shot-examples to store]"
+}

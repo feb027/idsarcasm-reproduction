@@ -1,0 +1,5 @@
+dataset,split,mode,model_alias,model_name,accuracy,precision,recall,f1,num_examples,invalid_outputs,runtime_seconds,avg_latency_seconds,sample_limited,shots_per_class,api_base,temperature,max_tokens,disable_reasoning,run_started_at,run_ended_at
+twitter,test,zero-shot,qwen3.5-4b-gguf,qwen3.5-4b,0.6896,0.4078,0.5448,0.4665,538,0,1752.75,3.2577,False,0,http://localhost:1234/v1,0.0,128,True,2026-04-27T12:32:10+00:00,2026-04-27T13:01:25+00:00
+twitter,test,few-shot,qwen3.5-4b-gguf,qwen3.5-4b,0.7416,0.4809,0.4701,0.4755,538,0,2029.43,3.772,False,2,http://localhost:1234/v1,0.0,128,True,2026-04-27T13:04:40+00:00,2026-04-27T13:38:30+00:00
+twitter,test,zero-shot,gemma-4-e4b-gguf,gemma-4-e4b-it,0.3755,0.2833,0.9851,0.44,538,0,1712.95,3.1837,False,0,http://localhost:1234/v1,0.0,128,True,2026-04-27T15:36:11+00:00,2026-04-27T16:04:44+00:00
+twitter,test,few-shot,gemma-4-e4b-gguf,gemma-4-e4b-it,0.4721,0.3077,0.8955,0.458,538,0,1726.73,3.2094,False,2,http://localhost:1234/v1,0.0,128,True,2026-04-27T16:07:34+00:00,2026-04-27T16:36:21+00:00

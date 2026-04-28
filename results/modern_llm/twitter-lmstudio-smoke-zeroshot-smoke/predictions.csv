@@ -1,0 +1,6 @@
+sample_idx,split,text,true_label,pred_label,pred_label_text,raw_output,invalid_output,latency_seconds,mode,shots_per_class,model
+0,test,saraswati pintar sekali tida belajar dari pengalaman hufffffffffffff,1,0,not sarcastic,,True,3.6174,zero-shot,0,qwen3.5-4b
+1,test,Menag bicara sola celana cingkrang gak bisa ikut aturan keluar .. Nah lhoo <link> <hashtag>,0,0,not sarcastic,,True,3.633,zero-shot,0,qwen3.5-4b
+2,test,Koruptor dihukum berat bukannya dikasih keringanan <hashtag>,0,0,not sarcastic,,True,3.6234,zero-shot,0,qwen3.5-4b
+3,test,Belum jadi pemimpin udah bikin hoax gmn kalau diberi jabatan ?? Bisa lebih parah,0,0,not sarcastic,,True,3.6402,zero-shot,0,qwen3.5-4b
+4,test,Karena JUJUR membuatku malu dan merasa bersalah . Itulah kenapa JKW sulit melakukannya.,1,0,not sarcastic,,True,3.5804,zero-shot,0,qwen3.5-4b

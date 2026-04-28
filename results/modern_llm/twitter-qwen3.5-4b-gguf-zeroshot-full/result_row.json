@@ -1,0 +1,23 @@
+{
+  "dataset": "twitter",
+  "split": "test",
+  "mode": "zero-shot",
+  "model_alias": "qwen3.5-4b-gguf",
+  "model_name": "qwen3.5-4b",
+  "accuracy": 0.6896,
+  "precision": 0.4078,
+  "recall": 0.5448,
+  "f1": 0.4665,
+  "num_examples": 538,
+  "invalid_outputs": 0,
+  "runtime_seconds": 1752.75,
+  "avg_latency_seconds": 3.2577,
+  "sample_limited": false,
+  "shots_per_class": 0,
+  "api_base": "http://localhost:1234/v1",
+  "temperature": 0.0,
+  "max_tokens": 128,
+  "disable_reasoning": true,
+  "run_started_at": "2026-04-27T12:32:10+00:00",
+  "run_ended_at": "2026-04-27T13:01:25+00:00"
+}

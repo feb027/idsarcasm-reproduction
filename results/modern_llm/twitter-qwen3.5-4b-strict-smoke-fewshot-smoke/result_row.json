@@ -1,0 +1,23 @@
+{
+  "dataset": "twitter",
+  "split": "test",
+  "mode": "few-shot",
+  "model_alias": "qwen3.5-4b-strict-smoke",
+  "model_name": "qwen3.5-4b",
+  "accuracy": 0.6,
+  "precision": 0.6667,
+  "recall": 0.4,
+  "f1": 0.5,
+  "num_examples": 10,
+  "invalid_outputs": 0,
+  "runtime_seconds": 35.7,
+  "avg_latency_seconds": 3.5691,
+  "sample_limited": true,
+  "shots_per_class": 2,
+  "api_base": "http://localhost:1234/v1",
+  "temperature": 0.0,
+  "max_tokens": 128,
+  "disable_reasoning": true,
+  "run_started_at": "2026-04-27T12:28:59+00:00",
+  "run_ended_at": "2026-04-27T12:29:34+00:00"
+}

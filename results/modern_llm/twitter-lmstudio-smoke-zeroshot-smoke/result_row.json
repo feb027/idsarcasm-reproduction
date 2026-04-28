@@ -1,0 +1,22 @@
+{
+  "dataset": "twitter",
+  "split": "test",
+  "mode": "zero-shot",
+  "model_alias": "lmstudio-smoke",
+  "model_name": "qwen3.5-4b",
+  "accuracy": 0.6,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "num_examples": 5,
+  "invalid_outputs": 5,
+  "runtime_seconds": 18.1,
+  "avg_latency_seconds": 3.6189,
+  "sample_limited": true,
+  "shots_per_class": 0,
+  "api_base": "http://localhost:1234/v1",
+  "temperature": 0.0,
+  "max_tokens": 8,
+  "run_started_at": "2026-04-27T11:48:58+00:00",
+  "run_ended_at": "2026-04-27T11:49:16+00:00"
+}
