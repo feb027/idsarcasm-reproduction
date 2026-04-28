@@ -15,10 +15,12 @@ Repository ini berisi reproduksi dan optimasi paper **“IdSarcasm: Benchmarking
 | Halaman | Link |
 |---|---|
 | Dashboard interaktif | <https://feb027.github.io/idsarcasm-reproduction/> |
+| Release final | <https://github.com/feb027/idsarcasm-reproduction/releases/tag/v1.0-final-uas> |
 | Laporan akhir | [`docs/laporan-proyek.md`](docs/laporan-proyek.md) |
 | Reproducibility guide | [`docs/reproducibility.md`](docs/reproducibility.md) |
 | Model card | [`docs/model-card.md`](docs/model-card.md) |
 | Error analysis | [`docs/error-analysis.md`](docs/error-analysis.md) |
+| Spreadsheet text | [`docs/submission-spreadsheet.md`](docs/submission-spreadsheet.md) |
 | Paper DOI | [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955) |
 | Original repository | <https://github.com/w11wo/id_sarcasm> |
 
@@ -80,6 +82,7 @@ Detail examples and pattern notes are in [`docs/error-analysis.md`](docs/error-a
 │   ├── paper-summary.md               # Ringkasan paper
 │   ├── model-card.md                  # Ringkasan model final, limitasi, intended use
 │   ├── error-analysis.md              # Analisis FP/FN dan confusion matrix final
+│   ├── submission-spreadsheet.md      # Teks siap copy-paste untuk spreadsheet progres
 │   └── progress/                      # Catatan progress dan run guide
 ├── notebooks/
 │   ├── 01_eda.ipynb
@@ -239,6 +242,8 @@ Critical fixes: None
 | Model card | [`docs/model-card.md`](docs/model-card.md) |
 | Error analysis doc | [`docs/error-analysis.md`](docs/error-analysis.md) |
 | Citation metadata | [`CITATION.cff`](CITATION.cff) |
+| Spreadsheet text | [`docs/submission-spreadsheet.md`](docs/submission-spreadsheet.md) |
+| Final release | [`v1.0-final-uas`](https://github.com/feb027/idsarcasm-reproduction/releases/tag/v1.0-final-uas) |
 | Final report | [`docs/laporan-proyek.md`](docs/laporan-proyek.md) |
 | Reproducibility guide | [`docs/reproducibility.md`](docs/reproducibility.md) |
 
