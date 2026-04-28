@@ -509,6 +509,8 @@ Pada Reddit, jarak antar metode lebih terlihat sejak awal. Classical terbaik han
 ![Ranking Metode Reddit](../results/figures/final_reddit_method_ranking.png)
 **Gambar 25.** Ranking akhir metode pada dataset Reddit berdasarkan F1-score.
 
+Sebagai pelengkap finalisasi, proyek ini juga menyediakan dashboard statis berbasis GitHub Pages di `https://feb027.github.io/idsarcasm-reproduction/`. Dashboard tersebut bukan eksperimen baru, tetapi visualisasi pendukung dari hasil yang sudah ada. Isinya mencakup ringkasan metrik final, perbandingan dengan paper, ranking metode, dan error explorer sederhana untuk melihat contoh prediksi benar/salah pada split test. Dengan begitu, hasil proyek tidak hanya tersedia dalam bentuk laporan dan CSV, tetapi juga bisa dicek secara interaktif langsung dari repository.
+
 Hasil zero-shot LLM dari reproduksi paper berada di kisaran F1 0,39-0,40. Hasil ini dekat dengan paper, tetapi performanya tetap jauh di bawah transformer yang dilatih pada data IdSarcasm. LLM lokal modern seperti Qwen3.5-4B dan Gemma 4 E4B memberi hasil lebih baik daripada zero-shot BLOOMZ/mT0 pada Twitter, tetapi masih belum mendekati XLM-R Large. Qwen3.5-4B few-shot menjadi LLM lokal modern terbaik dengan F1 0,4755. Jadi, model generatif modern yang ringan berguna sebagai pembanding praktis, tetapi belum cukup untuk menggantikan fine-tuning pada tugas ini.
 
 ### 4.2 Jawaban terhadap Tujuan Proyek
@@ -533,7 +535,7 @@ Kelima, analisis error masih berbasis transisi prediksi dan contoh hasil, belum 
 
 Jika proyek ini dilanjutkan, arah yang paling masuk akal adalah memperdalam transformer, bukan hanya menambah LLM generatif baru. Karena konfigurasi XLM-R Large learning rate 2e-5 berhasil melampaui paper pada Twitter, eksperimen lanjutan yang paling relevan adalah mencari konfigurasi serupa untuk Reddit, mencoba beberapa seed, atau memakai ensemble berbasis probabilitas validation. Selain itu, error analysis dapat dibuat lebih kualitatif dengan mengelompokkan contoh salah prediksi berdasarkan pola bahasa.
 
-Untuk jalur modern LLM, pengembangan yang lebih kuat adalah fine-tuning ringan atau LoRA pada model yang cukup cocok untuk bahasa Indonesia, bukan hanya zero-shot/few-shot prompting. Model seperti Qwen atau Gemma mungkin lebih kompetitif jika diberi adaptasi supervised pada data IdSarcasm. Namun, itu membutuhkan GPU dan waktu eksperimen tambahan di luar scope UAS ini.
+Untuk jalur modern LLM, pengembangan yang lebih kuat adalah fine-tuning ringan atau LoRA pada model yang cukup cocok untuk bahasa Indonesia, bukan hanya zero-shot/few-shot prompting. Model seperti Qwen atau Gemma mungkin lebih kompetitif jika diberi adaptasi supervised pada data IdSarcasm. Namun, itu membutuhkan GPU dan waktu eksperimen tambahan di luar scope UAS ini. Di luar training, dashboard statis yang sudah dibuat dapat dikembangkan lagi dengan fitur pencarian error yang lebih rinci, misalnya pengelompokan pola salah prediksi berdasarkan jenis sarkasme.
 
 ![Ringkasan Progress Proyek](../results/figures/final_progress_summary.png)
 **Gambar 26.** Ringkasan alur progress proyek dari baseline sampai finalisasi.

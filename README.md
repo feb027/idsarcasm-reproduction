@@ -6,6 +6,7 @@ Repository ini berisi reproduksi dan optimasi paper **“IdSarcasm: Benchmarking
 
 - Paper DOI: [10.1109/ACCESS.2024.3416955](https://doi.org/10.1109/ACCESS.2024.3416955)
 - Original repository: <https://github.com/w11wo/id_sarcasm>
+- Dashboard: [https://feb027.github.io/idsarcasm-reproduction/](https://feb027.github.io/idsarcasm-reproduction/)
 - Final report: [`docs/laporan-proyek.md`](docs/laporan-proyek.md)
 - Reproducibility guide: [`docs/reproducibility.md`](docs/reproducibility.md)
 
@@ -65,6 +66,7 @@ Dataset berasal dari koleksi HuggingFace IdSarcasm. Kedua dataset memiliki propo
 | Optimasi transformer | Threshold tuning XLM-R Large + screening XLM-R Base | selesai |
 | Modern local LLM | Qwen3.5-4B dan Gemma 4 E4B via LM Studio | selesai pada Twitter |
 | Final analysis | Perbandingan akhir, figure final, laporan akhir | selesai |
+| Static dashboard | GitHub Pages dashboard + error explorer dari hasil final | selesai |
 
 ## Quick Start
 
@@ -81,11 +83,12 @@ python scripts/download_data.py
 
 Catatan environment: baseline classical ML dapat dijalankan lokal, transformer membutuhkan Colab/GPU, sedangkan eksperimen local LLM membutuhkan LM Studio atau endpoint OpenAI-compatible lokal. Detail lengkap ada di [`docs/reproducibility.md`](docs/reproducibility.md).
 
-Generate ulang tabel/figure final dari hasil yang sudah ada:
+Generate ulang tabel/figure final dan data dashboard dari hasil yang sudah ada:
 
 ```bash
 python scripts/generate_progress5_analysis.py
 python scripts/generate_final_analysis.py
+python scripts/generate_dashboard_data.py
 ```
 
 Jalankan test:
@@ -104,6 +107,7 @@ results/tables/optimization_runs.csv
 results/tables/modern_llm_experiments.csv
 results/tables/final_method_comparison.csv
 results/figures/final_*.png
+dashboard/data/dashboard-data.json
 ```
 
 ## Citation

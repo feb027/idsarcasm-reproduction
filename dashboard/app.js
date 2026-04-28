@@ -36,7 +36,20 @@ const state = {
   rankingChart: null,
 };
 
-const formatF1 = (value) => (value === null || value === undefined ? "n/a" : value.toFixed(4));
+const formatF1 = (value) => {
+  if (value === null || value === undefined || value === "") {
+    return "n/a";
+  }
+  return Number(value).toFixed(4);
+};
+
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+}[char]));
 const formatCompact = (value) => new Intl.NumberFormat("en-US").format(value);
 
 function getStrategyThreshold(datasetData, strategy) {
@@ -72,12 +85,12 @@ function createKpiCard({ title, value, meta, icon }) {
     <article class="kpi-card">
       <div class="kpi-top">
         <div>
-          <dt>${title}</dt>
-          <dd class="kpi-value">${value}</dd>
+          <dt>${escapeHtml(title)}</dt>
+          <dd class="kpi-value">${escapeHtml(value)}</dd>
         </div>
         <span class="kpi-icon">${iconSvg(icon)}</span>
       </div>
-      <p class="kpi-meta">${meta}</p>
+      <p class="kpi-meta">${escapeHtml(meta)}</p>
     </article>
   `;
 }
@@ -199,7 +212,7 @@ function buildComparisonChart(data) {
       (row) => `
         <section class="metric-row">
           <header>
-            <strong>${row.dataset_label}</strong>
+            <strong>${escapeHtml(row.dataset_label)}</strong>
             <span class="table-tag">${formatF1(row.paper_best_f1)} paper</span>
           </header>
           <ul class="mini-list">
@@ -207,8 +220,8 @@ function buildComparisonChart(data) {
               .map(
                 (method) => `
                   <li>
-                    <span>${method.label}</span>
-                    <span>${method.f1 === null ? "n/a" : `${formatF1(method.f1)} · ${method.model}`}</span>
+                    <span>${escapeHtml(method.label)}</span>
+                    <span>${method.f1 === null ? "n/a" : `${formatF1(method.f1)} · ${escapeHtml(method.model)}`}</span>
                   </li>
                 `
               )
@@ -284,8 +297,8 @@ function buildRankingChart(data) {
               .map(
                 (row) => `
                   <li>
-                    <span>#${row.rank} ${row.method_family}</span>
-                    <span>${formatF1(row.f1)} · ${row.model}</span>
+                    <span>#${row.rank} ${escapeHtml(row.method_family)}</span>
+                    <span>${formatF1(row.f1)} · ${escapeHtml(row.model)}</span>
                   </li>
                 `
               )
@@ -305,8 +318,8 @@ function renderGapCards(data) {
         <article class="gap-card">
           <header>
             <div>
-              <p class="eyebrow">${card.dataset_label}</p>
-              <h3>${card.optimized_model}</h3>
+              <p class="eyebrow">${escapeHtml(card.dataset_label)}</p>
+              <h3>${escapeHtml(card.optimized_model)}</h3>
             </div>
             <span class="gap-status" data-status="${card.status}">
               <span class="status-icon">${iconSvg(isAbove ? "check" : "alert")}</span>
@@ -315,11 +328,11 @@ function renderGapCards(data) {
           </header>
           <div class="summary-list">
             <span>Selected strategy</span>
-            <code>${card.selected_strategy}</code>
+            <code>${escapeHtml(card.selected_strategy)}</code>
           </div>
           <div class="summary-list">
             <span>Optimization method</span>
-            <code>${card.optimization_strategy}</code>
+            <code>${escapeHtml(card.optimization_strategy)}</code>
           </div>
           <div class="summary-list">
             <span>Optimized F1</span>
@@ -365,12 +378,12 @@ function updateDatasetSummary(datasetData, strategy) {
   document.getElementById("dataset-summary").innerHTML = `
     <article class="summary-card">
       <p class="eyebrow">Run</p>
-      <strong>${datasetData.run_id}</strong>
-      <p class="muted">${datasetData.model_name}</p>
+      <strong>${escapeHtml(datasetData.run_id)}</strong>
+      <p class="muted">${escapeHtml(datasetData.model_name)}</p>
     </article>
     <article class="summary-card">
       <p class="eyebrow">Strategy snapshot</p>
-      <div class="summary-list"><span>Mode</span><code>${strategyText}</code></div>
+      <div class="summary-list"><span>Mode</span><code>${escapeHtml(strategyText)}</code></div>
       <div class="summary-list"><span>F1</span><strong>${formatF1(selectedMetrics.f1)}</strong></div>
       <div class="summary-list"><span>Threshold</span><code>${threshold.toFixed(2)}</code></div>
     </article>
@@ -423,14 +436,14 @@ function renderExplorer(data) {
       const threshold = getStrategyThreshold(datasetData, strategyValue);
       return `
         <tr>
-          <td>${row.dataset_label}</td>
-          <td><span class="table-tag">${strategyValue}</span></td>
+          <td>${escapeHtml(row.dataset_label)}</td>
+          <td><span class="table-tag">${escapeHtml(strategyValue)}</span></td>
           <td><span class="table-tag" data-tone="${tone}">${row._strategyCorrect ? "correct" : "error"}</span></td>
-          <td>${row.true_label_name}</td>
-          <td>${row._strategyPredictionName}</td>
+          <td>${escapeHtml(row.true_label_name)}</td>
+          <td>${escapeHtml(row._strategyPredictionName)}</td>
           <td class="mono">${row.prob_sarcastic.toFixed(4)}</td>
           <td class="mono">${threshold.toFixed(2)}</td>
-          <td class="table-text">${row.text}</td>
+          <td class="table-text">${escapeHtml(row.text)}</td>
         </tr>
       `;
     })
@@ -442,7 +455,7 @@ function renderExplorer(data) {
 }
 
 function renderNotes(data) {
-  document.getElementById("notes-list").innerHTML = data.notes.map((note) => `<li>${note}</li>`).join("");
+  document.getElementById("notes-list").innerHTML = data.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("");
 }
 
 async function init() {

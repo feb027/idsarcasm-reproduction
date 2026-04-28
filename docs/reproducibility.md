@@ -134,7 +134,39 @@ Output utama:
 results/optimization/twitter-xlmr-large-lr2e-5-len128/
 ```
 
-## 7. Derived Analysis Figures
+## 7. Static Dashboard / GitHub Pages
+
+Dashboard statis berada di root repository dan dapat dipakai tanpa backend atau training ulang:
+
+```text
+index.html
+dashboard/styles.css
+dashboard/app.js
+dashboard/data/dashboard-data.json
+```
+
+Generate ulang data dashboard dari hasil final yang sudah tersimpan:
+
+```bash
+python scripts/generate_dashboard_data.py
+```
+
+Preview lokal:
+
+```bash
+python -m http.server 8027
+# buka http://127.0.0.1:8027/
+```
+
+Jika GitHub Pages aktif dari branch `master` folder `/`, dashboard akan tersedia di:
+
+```text
+https://feb027.github.io/idsarcasm-reproduction/
+```
+
+Dashboard hanya membaca file JSON hasil generate. Error explorer memakai split test dari run final terpilih: Twitter `twitter-xlmr-large-lr2e-5-len128` dengan strategi default, dan Reddit `reddit-xlmr-large-threshold` dengan strategi threshold tuning.
+
+## 8. Derived Analysis Figures
 
 Setelah semua hasil utama tersedia, generate ulang figure dan tabel ringkasan:
 
